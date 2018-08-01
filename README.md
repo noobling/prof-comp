@@ -4,6 +4,10 @@ Prof comp repo
 ## Important Project info
 * Meetings every Wednesday 3pm 
 
+## General Advice
+* Don't be afraid to make a mistake it is how we learn
+* Ask if you are unsure about anything
+
 ## Using git
 ### Common git commands
 * `git add .`
