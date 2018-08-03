@@ -13,7 +13,7 @@ Prof comp repo
     </tr>
     <tr>
       <td>30th July</td>
-      <td">Week 1</td>
+      <td>Week 1</td>
       <td">Project allocation and teams</td>
     </tr>
     <tr>
@@ -23,7 +23,7 @@ Prof comp repo
         <ul>
           <li>Client meeting</li>
           <li>Auditor meeting</li>
-          <li>Mentor meeitng</li>
+          <li>Mentor meeitng 1</li>
           <li>Timesheet, Minutes, Booked hours submission</li>
         </ul>
       </td>
@@ -50,11 +50,96 @@ Prof comp repo
       </td>
     </tr>
     <tr>
-      <td>20th August</td>
-      <td>Week 4</td>
+      <td>27th August</td>
+      <td>Week 5</td>
       <td>
         <ul>
           <li>Timesheet, Minutes, Booked hours submission</li>
+          <li> Essay </li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>3rd September</td>
+      <td>Week 6</td>
+      <td>
+        <ul>
+          <li>Timesheet, Minutes, Booked hours submission</li>
+          <li> Mentor Meeting 2</li>
+          <li>Auditor Meeting</li>
+          <li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>10th September</td>
+      <td>Week 7</td>
+      <td>
+        <ul>
+          <li>Timesheet, Minutes, Booked hours submission</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>17th September</td>
+      <td>Week 8</td>
+      <td>
+        <ul>
+          <li>Timesheet, Minutes, Booked hours submission</li>
+          <li>Auditor Meeting</li>
+          <li>Personal Reflection</li>
+          <li>Sprint 2 deliverables</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>24th September</td>
+      <td>Week 9</td>
+      <td>
+        <ul>
+          <li>Break!</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>1st Octoboer</td>
+      <td>Week 9</td>
+      <td>
+        <ul>
+          <li>Timesheet, Minutes, Booked hours submission</li>
+          <li>Mentor Meeting 3</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>8th October</td>
+      <td>Week 10</td>
+      <td>
+        <ul>
+          <li>Timesheet, Minutes, Booked hours submission</li>
+          <li>Auditor Meeting</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>15th October</td>
+      <td>Week 11</td>
+      <td>
+        <ul>
+          <li>Timesheet, Minutes, Booked hours submission</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>22th October</td>
+      <td>Week 12</td>
+      <td>
+        <ul>
+          <li>Auditor Meeting</li>
+          <li>Sprint 3 deliverables due</li>
+          <li>Personal Reflection</li>
+          <li>GRCC spreadsheets</li>
+          <li>Mentor Meeting 4</li>
         </ul>
       </td>
     </tr>
