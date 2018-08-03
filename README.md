@@ -7,34 +7,56 @@ Prof comp repo
 <table>
   <tbody>
     <tr>
-      <th>Tables</th>
-      <th align="center">Are</th>
-      <th align="right">Cool</th>
+      <th>Date</th>
+      <th>Week</th>
+      <th>Task</th>
     </tr>
     <tr>
-      <td>col 3 is</td>
-      <td align="center">right-aligned</td>
-      <td align="right">$1600</td>
+      <td>30th July</td>
+      <td">Week 1</td>
+      <td">Project allocation and teams</td>
     </tr>
     <tr>
-      <td>col 2 is</td>
-      <td align="center">centered</td>
-      <td align="right">$12</td>
-    </tr>
-    <tr>
-      <td>zebra stripes</td>
-      <td align="center">are neat</td>
-      <td align="right">$1</td>
-    </tr>
-    <tr>
+      <td>6th August</td>
+      <td>Week 2</td>
       <td>
         <ul>
-          <li>item1</li>
-          <li>item2</li>
+          <li>Client meeting</li>
+          <li>Auditor meeting</li>
+          <li>Mentor meeitng</li>
+          <li>Timesheet, Minutes, Booked hours submission</li>
         </ul>
       </td>
-      <td align="center">See the list</td>
-      <td align="right">from the first column</td>
+    </tr>
+    <tr>
+      <td>13th August</td>
+      <td>Week 3</td>
+      <td>
+        <ul>
+          <li>Timesheet, Minutes, Booked hours submission</li>
+          <li>Auditor Meeting (I think he wants it here?</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>20th August</td>
+      <td>Week 4</td>
+      <td>
+        <ul>
+          <li>Timesheet, Minutes, Booked hours submission</li>
+          <li>Sprint 1 deliverables</li>
+          <li>Personal Reflection</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td>20th August</td>
+      <td>Week 4</td>
+      <td>
+        <ul>
+          <li>Timesheet, Minutes, Booked hours submission</li>
+        </ul>
+      </td>
     </tr>
   </tbody>
 </table>
