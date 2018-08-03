@@ -2,7 +2,13 @@
 Prof comp repo
 
 ## Important Project info
-* Meetings every Wednesday 3pm 
+Meetings every Wednesday 3pm
+
+### Facilitators
+- Client: 
+- Auditor:
+- Mentor:
+
 ### Time table
 <table>
   <tbody>
@@ -14,7 +20,7 @@ Prof comp repo
     <tr>
       <td>30th July</td>
       <td>Week 1</td>
-      <td">Project allocation and teams</td>
+      <td><del>Project allocation and teams</del></td>
     </tr>
     <tr>
       <td>6th August</td>
