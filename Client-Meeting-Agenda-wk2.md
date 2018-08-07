@@ -5,3 +5,4 @@
 * Deliverables to be done before next meeting
 * What are the next meeting dates/frequency
 * Communication channels to contact client
+* What is the client's end goal
