@@ -2,8 +2,16 @@
 
 ## Items to be discussed/settled
 * Core features client wishes to have
+Grab the sleep diary m and digitalise that preferrably cross platform on all devices.
+
 * Deliverables to be done before next meeting
 * What are the next meeting dates/frequency
 * Communication channels to contact client
 * What is the client's end goal
 * Is there a style guide, logo or branding requirements
+
+## Interesting idea
+* Visualise data to keep them engaged
+* Sleep diary - m
+* Want the data go to the doctor or relevant people
+* Pre fill data with user profile
