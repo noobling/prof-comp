@@ -15,3 +15,9 @@ Grab the sleep diary m and digitalise that preferrably cross platform on all dev
 * Sleep diary - m
 * Want the data go to the doctor or relevant people
 * Pre fill data with user profile
+* Shouldn't have phones inside the bedroom
+* Need to follow the paper exactly in order for researchers to use it
+
+Issues 
+* non compliance: Missing data or inaccurate
+* Wrong day when entering in something like 1am they mean 8th of August but put 7th of August
