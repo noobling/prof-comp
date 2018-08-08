@@ -6,3 +6,4 @@
 * What are the next meeting dates/frequency
 * Communication channels to contact client
 * What is the client's end goal
+* Is there a style guide, logo or branding requirements
