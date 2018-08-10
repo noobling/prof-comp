@@ -15,7 +15,7 @@ This system must be able to:
 		### 2.2.1 Server [Zihao, can you add more detail here]
 		The server will be cloud-based and will receive sleep data from each user. Researchers will be able to download this data as an excel spreadsheet for analysis.
 		
-		In order to achieve the interaction between mobile applications and servers, we set up a webservice to accomplish the following purposes: 1) receive requests from the mobile phone and feedback the results (verify login). 2) receive the data transmitted by the mobile phone and store it to the database on the server side. 3) send information to the mobile phone (loading user's history data). Our server is AWS cloud server, mainly used to store user data, web service is implemented by C#, mobile data is sent to the webservice through the form of SOAP.
+		In order to achieve the interaction between mobile applications and servers, we set up a webservice to accomplish the following purposes: 1) receive requests from the mobile phone and feedback the results (verify login). 2) receive the data transmitted by the mobile phone and store it to the database on the server side. 3) send information to the mobile phone (loading user's history data). Our server is AWS cloud server, mainly used to store user data, web service is implemented by C#.
 	
 	### 2.2 Functional Requirements
 		**Questionnaire**
