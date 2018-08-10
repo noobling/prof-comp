@@ -14,6 +14,8 @@ This system must be able to:
 		The application will work on both iOS and android devices [Must decide on which versions]. Each user will have an account with no details that could be possibly linked to their identity (Only unique username and password). The application will allow users to input their sleep data daily using the CSD questionnaire. This data will then be sent to the server for storage and processing.
 		### 2.2.1 Server [Zihao, can you add more detail here]
 		The server will be cloud-based and will receive sleep data from each user. Researchers will be able to download this data as an excel spreadsheet for analysis.
+		
+		In order to achieve the interaction between mobile applications and servers, we set up a webservice to accomplish the following purposes: 1) receive requests from the mobile phone and feedback the results (verify login). 2) receive the data transmitted by the mobile phone and store it to the database on the server side. 3) send information to the mobile phone (loading user's history data). Our server is AWS cloud server, mainly used to store user data, web service is implemented by C#, mobile data is sent to the webservice through the form of SOAP.
 	
 	### 2.2 Functional Requirements
 		**Questionnaire**
@@ -23,8 +25,10 @@ This system must be able to:
 		The user accounts will be set up using a unique user-chosen username, a user-chosen password and an email address (in case they forget their password) [If this is a feasible addition]. If the username is already taken, they will be prompted to choose another. The account is only used to ensure where their individual data is stored and isn't attached to their identity.
 		Admin accounts will also be implemented and used to request the data be sent to them. [Should this happen on a PC?]
 		
-		**Local database** [If feasible]
+		**Local database** [If feasible][doable,achieved by sqlite]
 		A local database will be stored on the phone containing user data before it is sent to the cloud-server. [Should it keep user data after for visual display of data??]
+		
+		//Comment: The local database is used to stored user's sleep record on mobile phone. When user send one sleep record to server, this record is also saved in the mobile phone database. When user log out and log in. The previous data doesn't need to download again on their mobile phone(like the chat history in Messenger.)
 		
 		**SQL Server**
 		Used to store the data of each user in separate tables.
