@@ -58,7 +58,7 @@ Meeting opened: 13:30 hrs.
 
 ## Questions asked by JS
 - Has anyone had experience with requirements gathering?
-  - [All]  No
+  - [TEAM]  No
   - [DY] Could you please send us an example template through email?
   - [JS] Yes
 - Who is the senior user?
@@ -78,10 +78,11 @@ Meeting opened: 13:30 hrs.
 
 # ACTION ITEMS
 
-- [ALL] Assign roles to team members as per above
+- [TEAM] Assign roles to team members as per above
 - [Business Analyst] Look at requirements in details with client (functional and non-)
 - Learn more about requirements gathering
-- Read over the templates Jessica sends us
+- [JS] to send through templates if possible
+- [TEAM] Read over and process any templates Jessica sends us
 
 # Date of Next Meeting
 
