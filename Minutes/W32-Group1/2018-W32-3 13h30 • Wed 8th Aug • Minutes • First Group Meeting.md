@@ -43,9 +43,9 @@ Meeting opened: 15:05 hrs.
   - Server-side 
   - Android-studio, Java 
 - Joshua
-  - Languages: Java, C, C++, Python, HTML, Javascript
+  - Java, C, C++, Python, HTML, Javascript
   - Maths background/physics
-  - Databases
+  - Databases
   - Possibly securing the networking (crypto)
   - Graphics image editor
 - Adam
@@ -71,6 +71,6 @@ Meeting opened: 15:05 hrs.
 - Scope of work, Michael and Yihao
 
 # Date of Next Meeting
-- Next meeting scheduled for Monday 12pm Room 3 Reid.
+- Next meeting scheduled for Monday the 20th of August 12pm Room 3 Reid.
 
 Meeting adjourned: 15:55 hrs. 
