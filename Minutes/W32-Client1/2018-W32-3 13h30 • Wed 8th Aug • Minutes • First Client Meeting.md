@@ -1,6 +1,6 @@
 ---
 title: Minutes of First Meeting with Client
-author: CITS 3200 Group R
+author: CITS3200 Group R
 date: Wednesday the 8th of August, week 32 of 2018
 ---
 
