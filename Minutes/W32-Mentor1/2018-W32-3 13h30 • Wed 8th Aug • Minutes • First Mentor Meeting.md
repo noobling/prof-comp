@@ -76,7 +76,7 @@ Meeting opened: 13:30 hrs.
 - [DY] Can you send us templates of risk registers, user acceptance tests?
   - [JS] Yes
 
-### ACTION ITEMS
+# ACTION ITEMS
 
 - [ALL] Assign roles to team members as per above
 - [Business Analyst] Look at requirements in details with client (functional and non-)
