@@ -31,14 +31,34 @@ Meeting opened: 16:10 hrs.
 - [CSS] uses the standardised instrument "Consensus Sleep Diary" (as described in Carney et al, 2011), a peer-reviewed validated patient-informed survey
   - Currently outpatients complete this in their time unassisted, ideally correctly completing all 15 questions in the morning about the previous night's sleep, each day for a period of weeks
 
-#### Problems
+### Problems
 - Compliance is suboptimal. Surveys are sometimes returned patially completed or incorrectly compiled.
 
 
 ### Features
-- Data should be anonymised 
 
-### Audience
+#### Key feature: enter survey data 
+- [CSS] Survey is specified in Carney et al., 
+- [CSS] Questions Q1-10 are essential, Q11-15 would be desirable.
+
+#### Data
+- Data should be anonymised 
+- [MD] Do you want users to be able to change data days later?
+  - [CSS] No.
+  - [AC] If you allow people to change data, keep timestamps of changes and retain historic data 
+
+#### Platform
+- [CSS] Ideally both iOS and Android, (web access is tertiary)
+- [CSS] First iOS as all the [CSS] internal testers have iOS.
+
+#### Voice interface
+- [JW] Go for it.
+
+#### [~+30] Light Sensor
+- [PE] 
+  - [ALL] **Consensus reached** that using the light sensor violates [CSS]'s sleep hygiene policy of no electronic devices in the bedroom. Hence any thought on using this sensor will only be considered further as a possible stretch goal once core functionality is delivered.
+
+### Audience/Endusers
 - Not children, adults.
 
 ### Constraints
@@ -68,67 +88,8 @@ Meeting opened: 16:10 hrs.
   - [AC] Even Facebook, a top 10 company worldwide by market cap, is still iterating on and improving the product they launched over a decade ago. 
   - [DY]
 
-## Features
-### Key feature: enter survey data 
-- [CSS] Survey is specified in Carney et al., 
-- [CSS] Questions Q1-10 are essential, Q11-15 would be desirable.
-
-### Platform
-- [CSS] Ideally both iOS and Android, (web access is tertiary)
-- [CSS] First iOS as all the [CSS] internal testers have iOS.
-
-### Audience
-- [CSS] Adults, not children.
-
-### [~+30] Light Sensor
-- [PE] 
-  - [ALL] **Consensus reached** that using the light sensor violates [CSS]'s sleep hygiene policy of no electronic devices in the bedroom. Hence any thought on using this sensor will only be considered further as a possible stretch goal once core functionality is delivered.
-
-### Data 
-- [MD] Do you want users to be able to change data days later?
-  - [CSS] No.
-  - [AC] If you allow people to change data, keep timestamps of changes and retain historic data 
-
-### Voice interface
-- [JW] Go for it.
-
-
-## Abridged transcript
-- 00 [MD] First deliverables: scope of work, acceptance test, risk register. Agile/Scrum explaination. Stories (what the client wants). Sprints
-- 01 [MD] First sprint deliverables: Wed 22nd. 2nd: Sept 17th. (prototype)  [AC] Especially scope of work.
-- 02 [JW] How much input are you as developers supposed to have, because [CSS] is open to that
-- 03 [PE] How will you work as a group? [MD]
-- 04 [AC] Scope of work
-- 05
--
-- 15 [PE] Key features
--
-- 33 [PE]
--
-- 45 [AC] Voice interface
-- 47 [JW] Like light sensor it is against our sleep hygiene policy
--
-- 49 Blue light - mixed evidence
-- 60
-- 6050 
-- 6120 [ALL] Discussion of meeting time and location (CSS recommends a tool)
-- 63
-- 6330 [ALL] Shows protoype / proof of concept
-- 64
-- 6430 [AC] All the questions may be implemented in prototype form by as early as next week, and will possibly assist
-- 65
-- 6520 [JW] Assuming voice activation will give the option for touch.
-- 6540 [ZL] iOS or Android?
-- 6554 [CSS] Ideally both.
-- 66   
-- 6610 [MD] Both seems realistic
-
-- 0500 And then you can review it send us some feedback
-- 0513 [] What are your expectations? Are you expecting to make squillions?
-
-
 
 # Date of Next Meeting
-- **[ALL]** TBC
+- **[ALL]** TBC, possibly via the online tool
 
 Meeting adjourned: 17:15 hrs. 
