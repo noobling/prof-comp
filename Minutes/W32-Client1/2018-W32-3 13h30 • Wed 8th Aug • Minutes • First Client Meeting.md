@@ -45,9 +45,9 @@ Meeting opened: 16:10 hrs.
 - Data should be anonymised 
 - Currently hand collated into an Excel document
   - The system should ideally automatically produce that Excel document
-- (Anonymised) data from endusers should be immediately sent to a cloud database server
+- (Anonymised) data from end users should be immediately sent to a cloud database server
   - [CSS] should be able to pull an Excel document from that data on demand
-  - Fresh ongoing data should be flagged or removed, or at least quaranteened separately to fully completed data from several weeks of entry
+  - Fresh ongoing data should be flagged or removed, or at least quarantined separately to fully completed data from several weeks of entry
 - Users can be rewarded with graphical feedback, if they wish to access it
   - No analytics back to user midway through diary, as it may influence the data
 - [MD] Do you want users to be able to change data days later?
