@@ -40,7 +40,7 @@ Meeting opened: 15:05 hrs.
 - David
   - Client relations
   - Technical, website in general
-- Yihao
+- Zihao
   - Coding
   - Server-side 
   - Android-studio, Java 
