@@ -26,12 +26,24 @@ Meeting opened: 16:10 hrs.
 ## [~16:10] Overview of project deliverables
 - [MD] Explaination of agile/scrum methodology
   - Stories: what the client wants. Stories are broken into Tasks, completed during Sprints.
-- [MD] First Sprint (due Wed 22nd Aug): scope of work; acceptance tests; audit of skills; risk register.
-  - [AC] The key input we need today from [CSS] is regarding the scope of work, what exactly is required by [CSS] 
+- [MD] First Sprint (due Wed 22nd Aug): scope of work (SoW); acceptance tests; audit of skills; risk register.
+  - [AC] The key input we need today from [CSS] is regarding the SoW, what exactly is required to be delivered. As SoW needs to be signed off by [CSS], we would give you early revisions for you to propose amendments to. Ideally this iteration process will result in a SoW that [CSS] approves well in advance of the formal due date.
+  - [MD] Draft Scope Of Work will be provided to [CSS] by Wednesday next week (15th)
+    
 - [MD] Second Sprint (due 17th Sep): prototype
+  - [JW] How much input are you as developers supposed to have? How much would you like to have? Because [CSS] is open to that.
+    - [AC] Personal interest in voice-interface
 
 ## Questions and Answers
-- [JW]
+- [PE] [~1613] How will you work as group?
+  - [AC] There is a requirement for us to shift between roles
+  - [PE] You may want to use this as an opportunity to enhance skills each of you need to work on
+
+- [PE] [~1615] What are our expectations?
+
+- [PE] [~1616] How often is the result a prototype, which then has months of feature 
+  - [AC] Even Facebook, a top 10 company worldwide by market cap, is still iterating on and improving the product they launched over a decade ago. 
+  - [DY]
 
 
 ## Notes
