@@ -52,7 +52,7 @@ Meeting opened: 15:05 hrs.
   - iOS/Swift
   - internal tooling/automation
   - voice interfaces
-  - Python/Java/C/others
+  - Python/Java/C/BASH/make/LaTeX/web others
   - some AWS
   - graphics manipulation
 - Michael
@@ -61,9 +61,9 @@ Meeting opened: 15:05 hrs.
   - Managerial (interest but not a lot of experience)
   - Documentation
 - Taige
-  - Physics major
-  - LaTeX
-  - Python, a little C, MATLAB, not Java, a bit of Agile, and HTML
+  - Physics major
+  - LaTeX
+  - Python, a little C, MATLAB, not Java, a bit of Agile, HTML
 
 ## [~15:50] Assign tasks for completing sprint 1
 - Skills register, David and Adam
