@@ -49,7 +49,7 @@ Meeting opened: 13:30 hrs.
   - testing
 - N developers
   - split according to expertise (database, UI, )
-- 0+ project admins 
+- 0+ project admins
   - only on important teams, usually BA's role
 
 ## JS's mentoring advice regarding testing of application
@@ -68,7 +68,7 @@ Meeting opened: 13:30 hrs.
 - Who is the project manager?
   - [MD] I am, however the Roles switch during semester e.g. every sprint a new project manager is assigned
 
-## Questions asked of JS
+## Questions addressed to JS
 - [AC] What do we put in risk registers?
   - [JS] Put as much as you can think of, it is important to note down all the risks a project may face.
 - [MD] What about personal risks, how detail do they need to be?
@@ -86,6 +86,5 @@ Meeting opened: 13:30 hrs.
 # Date of Next Meeting
 
 - **[ALL]** TBC, possibly at UWA University IT, BI and Analytics divison
-
 
 Meeting adjourned: 14:25 hrs. 
