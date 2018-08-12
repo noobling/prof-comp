@@ -38,7 +38,7 @@ Meeting opened: 13:30 hrs.
   - Monthly Mentor meeting for general project management advice
   - Monthly Client meetings to check if project is meeting their expectations
   
-## Helpful mentor (Jessica) advice regarding roles/delegations
+## Mentor JS's advice regarding roles/delegations
 - 1 Project Manager
   - managing time/scope/cost
   - scheduling (coordinating and following-up tasks)
@@ -52,11 +52,11 @@ Meeting opened: 13:30 hrs.
 - 0+ project admins 
   - only on important teams, usually BA's role
 
-## Jessica's mentor advice regarding testing of application
+## JS's mentoring advice regarding testing of application
 - You should reach out to testers and the unit coordinator might know some
 - Tests scripts can be used to validate the app is performing correctly on a technical level and for the end users
 
-## Questions asked by Jessica
+## Questions asked by JS
 - Has anyone had experience with requirements gathering?
   - [All]  No
   - [DY] Could you please send us an example template through email?
@@ -68,7 +68,7 @@ Meeting opened: 13:30 hrs.
 - Who is the project manager?
   - [MD] I am, however the Roles switch during semester e.g. every sprint a new project manager is assigned
 
-## Questions asked by members to Mentor (Jessica)
+## Questions asked of JS
 - [AC] What do we put in risk registers?
   - [JS] Put as much as you can think of, it is important to note down all the risks a project may face.
 - [MD] What about personal risks, how detail do they need to be?
