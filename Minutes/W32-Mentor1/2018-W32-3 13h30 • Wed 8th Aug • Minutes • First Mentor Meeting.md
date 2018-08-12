@@ -16,6 +16,8 @@ Apologies: None
 
 Absent: None
 
+Location: Group Study Room 2, Reid Library, UWA
+
 Meeting opened: 13:30 hrs. 
 
 # Matters arising from minutes of previous meeting

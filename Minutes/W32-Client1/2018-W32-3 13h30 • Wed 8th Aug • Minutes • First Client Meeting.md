@@ -15,6 +15,8 @@ Apologies: None
 
 Absent: None
 
+Location: Meeting Room, Centre for Sleep Science, UWA
+
 Meeting opened: 16:10 hrs. 
 
 # Matters arising from minutes of previous meeting
