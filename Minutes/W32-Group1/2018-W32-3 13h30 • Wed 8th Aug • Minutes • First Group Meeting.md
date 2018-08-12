@@ -9,6 +9,7 @@ date: Wednesday the 8th of August 2018
 In attendance: 
 
 - Mr A Chambost [AC], Mr M Dorrell [MD], Mr T Liu [TL], Mr Z Liu [ZL], Mr J Pollard [JP], Mr D Yu [DY]
+- Auditor: Dr S Gilani [SG]
 
 Apologies: None
 
