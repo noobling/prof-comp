@@ -52,6 +52,8 @@ Meeting opened: 15:05 hrs.
   - internal tooling/automation
   - voice interfaces
   - Python/Java/C/others
+  - some AWS
+  - graphics manipulation
 - Michael
   - Java, C, Python, PHP, HTML, Javascript, Octave
   - Client relations
@@ -64,7 +66,7 @@ Meeting opened: 15:05 hrs.
 
 ## [~15:50] Assign tasks for completing sprint 1
 - Skills register, David and Adam
--  Risk register, both technical and human, Joshua and Taige
+- Risk register, both technical and human, Joshua and Taige
 - Scope of work, Michael and Yihao
 
 # Date of Next Meeting
