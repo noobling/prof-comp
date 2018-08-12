@@ -54,8 +54,8 @@ Meeting opened: 16:10 hrs.
 #### Voice interface
 - [JW] Go for it.
 
-#### [~+30] Light Sensor
-- [PE] 
+#### Light Sensor
+- [PE] Can the light sensor in the phone be used to gather data?
   - [ALL] **Consensus reached** that using the light sensor violates [CSS]'s sleep hygiene policy of no electronic devices in the bedroom. Hence any thought on using this sensor will only be considered further as a possible stretch goal once core functionality is delivered.
 
 ### Audience/Endusers
@@ -78,7 +78,6 @@ Meeting opened: 16:10 hrs.
   - [AC] Personal interest in voice-interface
 - [PE] How will you work as group?
   - [MD] Assign tasks to subgroups
-    - [PE] Internally based on skils?
   - [AC] There is a requirement for us to shift between roles
   - [PE] You may want to use this as an opportunity to enhance skills each of you need to work on
 
