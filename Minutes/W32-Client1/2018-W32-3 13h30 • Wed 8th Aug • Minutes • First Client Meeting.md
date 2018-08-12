@@ -43,6 +43,13 @@ Meeting opened: 16:10 hrs.
 
 #### Data
 - Data should be anonymised 
+- Currently hand collated into an Excel document
+  - The system should ideally automatically produce that Excel document
+- (Anonymised) data from endusers should be immediately sent to a cloud database server
+  - [CSS] should be able to pull an Excel document from that data on demand
+  - Fresh ongoing data should be flagged or removed, or at least quaranteened separately to fully completed data from several weeks of entry
+- Users can be rewarded with graphical feedback, if they wish to access it
+  - No analytics back to user midway through diary, as it may influence the data
 - [MD] Do you want users to be able to change data days later?
   - [CSS] No.
   - [AC] If you allow people to change data, keep timestamps of changes and retain historic data 
@@ -80,6 +87,11 @@ Meeting opened: 16:10 hrs.
   - [MD] Assign tasks to subgroups
   - [AC] There is a requirement for us to shift between roles
   - [PE] You may want to use this as an opportunity to enhance skills each of you need to work on
+
+## ACTION ITEMS
+
+- [CSS] to provide [TEAM] with an Excel template of the currently used tabulated data structure
+- [TEAM] to provide [CSS] with draft SoW by middle of next week
 
 # Date of Next Meeting
 - **[ALL]** TBC, possibly via the online tool
