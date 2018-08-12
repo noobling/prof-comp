@@ -82,13 +82,6 @@ Meeting opened: 16:10 hrs.
   - [AC] There is a requirement for us to shift between roles
   - [PE] You may want to use this as an opportunity to enhance skills each of you need to work on
 
-- [PE] What are your expectations?
-
-- [PE] How often is the result a prototype, which then has months of feature 
-  - [AC] Even Facebook, a top 10 company worldwide by market cap, is still iterating on and improving the product they launched over a decade ago. 
-  - [DY]
-
-
 # Date of Next Meeting
 - **[ALL]** TBC, possibly via the online tool
 
