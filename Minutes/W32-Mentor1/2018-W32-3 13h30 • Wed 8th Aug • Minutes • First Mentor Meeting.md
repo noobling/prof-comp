@@ -4,7 +4,7 @@ title: Minutes of First Meeting with Mentor
 author: CITS3200 Group R
 
 date: Wednesday the 8th of August 2018
-...
+---
 
 # Welcome
 
