@@ -1,6 +1,6 @@
 ---
 title: Minutes of First Meeting with Client
-author: CITS3200 Group R
+author: CITS 3200 Group R
 date: Wednesday the 8th of August, week 32 of 2018
 ---
 
@@ -32,7 +32,7 @@ Meeting opened: 16:10 hrs.
   - Currently outpatients complete this in their time unassisted, ideally correctly completing all 15 questions in the morning about the previous night's sleep, each day for a period of weeks
 
 ### Problems
-- Compliance is suboptimal. Surveys are sometimes returned patially completed or incorrectly compiled.
+- Compliance is suboptimal. Surveys are sometimes returned partially completed or incorrectly compiled.
 
 
 ### Features
@@ -58,14 +58,14 @@ Meeting opened: 16:10 hrs.
 - [PE] Can the light sensor in the phone be used to gather data?
   - [ALL] **Consensus reached** that using the light sensor violates [CSS]'s sleep hygiene policy of no electronic devices in the bedroom. Hence any thought on using this sensor will only be considered further as a possible stretch goal once core functionality is delivered.
 
-### Audience/Endusers
+### Audience/End users
 - Not children, adults.
 
 ### Constraints
 - [PE] As the survey in its current form is peer-reviewed and validated, the tool must not deviate from that
 
 ## Overview of project deliverables
-- [MD] Explaination of agile/scrum methodology
+- [MD] Explanation of agile/scrum methodology
   - Stories: what the client wants. Stories are broken into Tasks, completed during Sprints.
 - [MD] First Sprint (due Wed 22nd Aug): scope of work (**SoW**); acceptance tests; audit of skills; risk register.
   - [AC] The key input we need today from [CSS] is regarding the **SoW**, what exactly is required to be delivered. As SoW needs to be signed off by [CSS], we would give you early revisions for you to propose amendments to. Ideally this iteration process will result in a **SoW** that [CSS] approves well in advance of the formal due date.
