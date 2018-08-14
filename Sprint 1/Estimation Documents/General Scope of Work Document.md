@@ -81,5 +81,7 @@ This system must be able to:
 	
 	### 2.5 System Model [Or is it a mobile-server relationship?]
 	The model we have chosen is a 2 level client-server relationship. The client being the application, which stores data on the server and then receives it back once it has been aggregated into an excel spreadsheet.
+	
 		#### 2.5.1 Scenarios
 		[TODO Scenarios in which people might use the application]
+		User will first create their own account(user name and password). After user login, the app lead user to home page which contain user history data at middle, navigation tools at left side including 'change personal detail', 'start a new sleep record'. The user can start a new sleep record by fill in the questionnire on mobile phone. After a questionnire is complete, it submit to server via a webservice port and the data will saved as excel spredsheet in server side SQL database. Meanwhile, the data will saved in local datase on mobile phone as well and can visualise to user.
