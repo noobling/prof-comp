@@ -4,31 +4,28 @@
 The general goal of this project is to replace the pen-and-paper tables currently used for sleep self-monitoring with a mobile application that can record the user data and send it to the clinicians and researchers.
 This system must be able to:
 * Receive user input from the application of each user anonymously
-* Send the data to a cloud database
+* Send the data to a server database
 * Allow clinicians to access the data as an excel spreadsheet
 
 ## 2.0 Proposed System
 	### 2.1 Overview
 	The system will consist of two components - the application itself and a cloud-based server running an SQL database.
 		### 2.1.1 Application
-		The application will work on both iOS and android devices [Must decide on which versions]. Each user will have an account with no details that could be possibly linked to their identity (Only unique username and password). The application will allow users to input their sleep data daily using the CSD questionnaire. This data will then be sent to the server for storage and processing.
+		The application will work on both iOS and android devices. Each user will have an account with no details that could be possibly linked to their identity (Only unique username and password). The application will allow users to input their sleep data daily using the CSD questionnaire. This data will then be sent to the server for storage and processing.
 		### 2.2.1 Server [Zihao, can you add more detail here]
-		The server will be cloud-based and will receive sleep data from each user. Researchers will be able to download this data as an excel spreadsheet for analysis.
-		
-		In order to achieve the interaction between mobile applications and servers, we set up a webservice to accomplish the following purposes: 1) receive requests from the mobile phone and feedback the results (verify login). 2) receive the data transmitted by the mobile phone and store it to the database on the server side. 3) send information to the mobile phone (loading user's history data). Our server is AWS cloud server, mainly used to store user data, web service is implemented by C#.
+		The server will be cloud-based and will receive sleep data from each user. Researchers will be able to download this data as an excel spreadsheet for analysis. The cloud-based server is achieved by webservice which is implemented by C#. The webservice can achieve the interaction between mobile applications and servers which including: 1) receive requests from the mobile phone and feedback the results (verify login). 2) receive the data transmitted by the mobile phone and store it to the database on the server side. 3) send information to the mobile phone (loading user's history data). Our server is AWS cloud server, mainly used to store user data.
 	
 	### 2.2 Functional Requirements
 		**Questionnaire**
-		The questionnaire will use the same questions as the Consensus Sleep Diary-M table written using [Which language should be used?]. Submission of invalid or blank data will highlight the error and request it be fixed before proceeding.
+		The questionnaire will use the same questions as the Consensus Sleep Diary-M table written using java. Submission of invalid or blank data will highlight the error and request it be fixed before proceeding.
 		
-		**User Accounts** [Please comment with a better system if you disagree]
+		**User Accounts**
 		The user accounts will be set up using a unique user-chosen username, a user-chosen password and an email address (in case they forget their password) [If this is a feasible addition]. If the username is already taken, they will be prompted to choose another. The account is only used to ensure where their individual data is stored and isn't attached to their identity.
-		Admin accounts will also be implemented and used to request the data be sent to them. [Should this happen on a PC?]
+		Admin accounts will also be implemented and used to receive the data of users. Admin account is designed for researcher to easy analysis user's questionnaire data on their phone.
 		
-		**Local database** [If feasible][doable,achieved by sqlite]
-		A local database will be stored on the phone containing user data before it is sent to the cloud-server. [Should it keep user data after for visual display of data??]
+		**Local database** [If feasible]
+		A local database will be stored on the phone containing user data before it is sent to the cloud-server. When user send one sleep record to server, this record is also saved in the mobile phone database. These local data is used for data visual display.
 		
-		//Comment: The local database is used to stored user's sleep record on mobile phone. When user send one sleep record to server, this record is also saved in the mobile phone database. When user log out and log in. The previous data doesn't need to download again on their mobile phone(like the chat history in Messenger.)
 		
 		**SQL Server**
 		Used to store the data of each user in separate tables.
@@ -36,12 +33,13 @@ This system must be able to:
 		**Excel Spreadsheet Format**
 		The tables will be converted into excel files upon request and sent to the requesting admin.
 		
-		**Client-Server Architecture**
+		**Webservice**
 		Used to connect the application to the cloud-server
 		
 	### 2.3 Non-Functional Requirements
+		
 		#### 2.3.1 User Interface and Human Factors
-		The user interface will be constructed using [A certain language]. We expect technological novices to use the sleep diary so we aim to make this side especially user friendly by including a tutorial upon making an account [if possible, using example answers]. There will also be safeguards against user-error by checking the input data is valid e.g. Time asleep cannot be greater than 24 hours.
+		The user interface will be constructed using XML file. We expect technological novices to use the sleep diary so we aim to make this side especially user friendly by including a tutorial upon making an account [if possible, using example answers]. There will also be safeguards against user-error by checking the input data is valid e.g. Time asleep cannot be greater than 24 hours.
 		The admin accounts are given higher expectations of technological ability in accessing the data, however we will realistically need to create documentation for how to use this more complex side. [Must include how data is received]
 		
 		#### 2.3.2 Documentation
@@ -60,6 +58,16 @@ This system must be able to:
 		* User data privacy
 		* Admin account security
 		* Encryption of data in transit (Despite low risk of interception)
+		
+		####2.3.4 Hardware Consideration
+		The main consideration on hardware is the system version of mobile device. The app might not work on a old version of mobile system like below IOS 8 or Android 4.0
+		
+		####2.3.5 Error Handling and Extreme Conditions
+		[TODO Update this]
+		* Internet connect error. 
+		  Solve: ask for internet authorization before launch the app.
+		* Local database occupy large space.
+		  Solve: clear cache
 		
 	### 2.4 Constraints
 		#### 2.4.1 Time
