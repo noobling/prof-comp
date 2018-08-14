@@ -27,10 +27,10 @@ Meetings every Wednesday 3pm
       <td>Week 2</td>
       <td>
         <ul>
-          <li>Client meeting</li>
-          <li>Auditor meeting</li>
-          <li>Mentor meeitng 1</li>
-          <li>Timesheet, Minutes, Booked hours submission</li>
+          <li><del>Client meeting</del></li>
+          <li><del>Auditor meeting</del></li>
+          <li><del>Mentor meeitng 1</del></li>
+          <li><del>Timesheet, Minutes, Booked hours submission</del></li>
         </ul>
       </td>
     </tr>
