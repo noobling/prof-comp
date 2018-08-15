@@ -48,7 +48,7 @@ Meetings every Wednesday 3pm
       <td>Week 4</td>
       <td>
         <ul>
-          <li>Auditor Meeting 12pm 20th August</li>
+          <li>Auditor Meeting 1pm 23th August</li>
           <li>Timesheet, Minutes, Booked hours submission</li>
           <li>Sprint 1 deliverables</li>
           <li>Personal Reflection</li>
