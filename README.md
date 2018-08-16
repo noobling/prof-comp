@@ -71,7 +71,7 @@ Meetings every Wednesday 3pm
       <td>
         <ul>
           <li>Timesheet, Minutes, Booked hours submission</li>
-          <li> Mentor Meeting 2</li>
+          <li> Mentor Meeting 2: Wednesday 5th September 1pm at Uni IT on Level 2 of the Ken & Julie Michael building (7 Fairway)</li>
           <li>Auditor Meeting</li>
         </ul>
       </td>
@@ -112,7 +112,7 @@ Meetings every Wednesday 3pm
       <td>
         <ul>
           <li>Timesheet, Minutes, Booked hours submission</li>
-          <li>Mentor Meeting 3</li>
+          <li>Mentor Meeting 3: Wednesday 3rd October 1pm at Uni IT on Level 2 of the Ken & Julie Michael building (7 Fairway)</li>
         </ul>
       </td>
     </tr>
@@ -144,7 +144,7 @@ Meetings every Wednesday 3pm
           <li>Sprint 3 deliverables due</li>
           <li>Personal Reflection</li>
           <li>GRCC spreadsheets</li>
-          <li>Mentor Meeting 4</li>
+          <li>Mentor Meeting 4: Wednesday 24th October 1pm at Uni IT on Level 2 of the Ken & Julie Michael building (7 Fairway)</li>
         </ul>
       </td>
     </tr>
