@@ -39,7 +39,7 @@ Meetings every Wednesday 3pm
       <td>Week 3</td>
       <td>
         <ul>
-          <li>Timesheet, Minutes, Booked hours submission</li>
+          <li><del>Timesheet, Minutes, Booked hours submission</del></li>
         </ul>
       </td>
     </tr>
