@@ -13,6 +13,8 @@
 
 * As a user I want my personal data e.g. name, password, email to be kept safe from unauthorised parties.
 
+* As a user I want to be able to access the app on any of my devices because I will find this convenient.
+
 ## Researcher stories
 * As a researcher I want to be able to download all my patients sleep data.
 
@@ -33,3 +35,4 @@
     * User names and emails can only be viewable to the user and their researcher
     * Passwords are encrypted by a secure hashing algorithm
 * There is a way to invite users to use the app
+* The app is available/works on most major platforms e.g. Android, iOS
