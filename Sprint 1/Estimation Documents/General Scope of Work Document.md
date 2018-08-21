@@ -84,9 +84,9 @@ We have no budget for this project. If the client wants the app to be available 
 Our team lacks experience in working together, in working on software projects and in project management collectively. However we have subject matter experts in the fields of server design, iOS app design and android app design.
 
 ### 2.5 System Model
-The model we have chosen is a 2 level client-server relationship. The client being the application, which stores data on the server and then receives it back once it has been aggregated into an excel spreadsheet.
+The model we have chosen is a 2 level client-server relationship. The client being the application, which stores data on the server and then receives it back once it has been aggregated into an excel spreadsheet. Figure 1 shows the dependencies and features of the system.
 
-
+![System Model Image](UML_model.png)
 
 #### 2.5.1 Scenarios
 
