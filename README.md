@@ -27,10 +27,10 @@ Meetings every Wednesday 3pm
       <td>Week 2</td>
       <td>
         <ul>
-          <li>Client meeting</li>
-          <li>Auditor meeting</li>
-          <li>Mentor meeitng 1</li>
-          <li>Timesheet, Minutes, Booked hours submission</li>
+          <li><del>Client meeting</del></li>
+          <li><del>Auditor meeting</del></li>
+          <li><del>Mentor meeitng 1</del></li>
+          <li><del>Timesheet, Minutes, Booked hours submission</del></li>
         </ul>
       </td>
     </tr>
@@ -39,7 +39,7 @@ Meetings every Wednesday 3pm
       <td>Week 3</td>
       <td>
         <ul>
-          <li>Timesheet, Minutes, Booked hours submission</li>
+          <li><del>Timesheet, Minutes, Booked hours submission</del></li>
         </ul>
       </td>
     </tr>
@@ -48,7 +48,7 @@ Meetings every Wednesday 3pm
       <td>Week 4</td>
       <td>
         <ul>
-          <li>Auditor Meeting 12pm 20th August</li>
+          <li>Auditor Meeting 1pm 23th August</li>
           <li>Timesheet, Minutes, Booked hours submission</li>
           <li>Sprint 1 deliverables</li>
           <li>Personal Reflection</li>
@@ -71,7 +71,7 @@ Meetings every Wednesday 3pm
       <td>
         <ul>
           <li>Timesheet, Minutes, Booked hours submission</li>
-          <li> Mentor Meeting 2</li>
+          <li> Mentor Meeting 2: Wednesday 5th September 1pm at Uni IT on Level 2 of the Ken & Julie Michael building (7 Fairway)</li>
           <li>Auditor Meeting</li>
         </ul>
       </td>
@@ -112,7 +112,7 @@ Meetings every Wednesday 3pm
       <td>
         <ul>
           <li>Timesheet, Minutes, Booked hours submission</li>
-          <li>Mentor Meeting 3</li>
+          <li>Mentor Meeting 3: Wednesday 3rd October 1pm at Uni IT on Level 2 of the Ken & Julie Michael building (7 Fairway)</li>
         </ul>
       </td>
     </tr>
@@ -144,7 +144,7 @@ Meetings every Wednesday 3pm
           <li>Sprint 3 deliverables due</li>
           <li>Personal Reflection</li>
           <li>GRCC spreadsheets</li>
-          <li>Mentor Meeting 4</li>
+          <li>Mentor Meeting 4: Wednesday 24th October 1pm at Uni IT on Level 2 of the Ken & Julie Michael building (7 Fairway)</li>
         </ul>
       </td>
     </tr>
