@@ -66,3 +66,38 @@ The webservice links the apps to the server database. To do this it must:
 
 * Form a connection between mobile device and server
 
+
+## Test A
+
+Login test on Android device
+
+* Test Specification
+
+The login test should take a code (given by clinician/researcher) as an input into a text box. If the code is valid, the app will jump to personal page. Else, it should display an error message.
+
+* Test Description
+   * Location of test:(I'm not sure what this is)
+   * Means of Control: Data will enter manually since our valid code will be long and unique there is no point to generate random number automatically as input.
+   * Data
+      input value will be either valid and invalid code. The output data will be a function that return 'true' for authenticated return 'false' for wrong password and return 'time out' for bad internet connection. System message are those return values.
+* Procedures
+   private String result;
+   public void testLogin(String code)throws Exception{
+      try{
+         /*
+            call the login function here...
+            login function should take a String(code) as input and return true or false for result
+         */
+      }catch(Exception e){
+         e.printStackTrace(); //error message
+         if(e.equals('timeout')){
+            result='timeout'
+         }
+      }
+      log.d('login test message is:',result); //display on system console
+   }
+* Test Analysis Report
+   [TODO Description of results]
+   
+## Test B
+
