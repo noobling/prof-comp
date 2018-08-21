@@ -20,7 +20,7 @@ A look into Team R's skill set.
 
 ## Zihao Liu
 #### Languages
-* Java, Javascript, C, Pyhon, Html, CSS
+* Java, Javascript, C, Python, HTML, CSS
 #### Tech Stacks/Frameworks
 * Android Studio, MEAN stack
 #### Dev ops
