@@ -29,10 +29,10 @@
     **Must:**
         Receive + store user data
         Send data to researchers(or we can have a researchers account?)
+        Convert data into an excel spreadsheet
     **Should:**
 		Sanitise SQL inputs (or otherwise defend against harm)
         Be able to authenticate users
-        Convert data into an excel spreadsheet
         Auto generate a new directory for new user
             CRUD operations (create, read, update, delete)
         Upload data to cloud
