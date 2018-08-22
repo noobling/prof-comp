@@ -2,6 +2,7 @@
 title: Acceptance Test Document
 author: CITS3200 Group R
 ---
+# Project Acceptance Tests
 
 ## Objectives
 
@@ -59,7 +60,7 @@ Type of data sent:
 
 #### Save user data locally
 
-Data is saved to a table to be used for visualization of data.
+Data is saved to a table in local storage to be used for visualization of data.
 
 #### Visually display user data
 
@@ -108,13 +109,13 @@ Type of user attempting:
 
 ### Webservice
 
-The webservice receive the information from apps and parse at server side then save to server database. To do this it must:
+The webservice must receive information from the mobile apps and parse the data then save the data to the MYSQL database. To do this it must:
 
-#### deploy to server 
+#### Webservice availability
 
-Must be able to deploy 24 hour
+The web server must always be available e.g. 24 hours a day 7 days a week
 
-#### receive XML file from Android device
+#### Receive JSON file from Android and/or iOS device
 Type of method:
 
 | Input | Output expected |
@@ -123,6 +124,14 @@ Type of method:
 | Invalid login code | False |
 | User input data | Data received |
 
-#### parse XML flie at server side 
- 
-This is a function that transfer XML code into String. The way to test this is just check if the output String is making sense
+#### Parse JSON file at server side 
+
+All JSON data will be checked to be valid data before it is saved to the MYSQL database. The MYSQL database will be the single source of truth
+
+#### Retrieve data from the MYSQL database
+
+The webservice will retrieve from the database the necessary data given all the checks have passed e.g. valid user.
+
+#### Unique code generation
+
+The webservice will generate the unique codes by looking at the existing codes in the database and choosing a code that hasn't been generated before. A unique code can only be generated once the user requesting the code is an authorised user.
