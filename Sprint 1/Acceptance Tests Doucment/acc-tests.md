@@ -106,8 +106,23 @@ Type of user attempting:
 | Clinician | Choice of 'simple' or 'full' data sent as an excel file |
 | Unauthorized user | Access denied |
 
-### Webservice [I really don't know what this does]
+### Webservice
 
-The webservice links the apps to the server database. To do this it must:
+The webservice receive the information from apps and parse at server side then save to server database. To do this it must:
 
-* Form a connection between mobile device and server
+#### deploy to server 
+
+Must be able to deploy 24 hour
+
+#### receive XML file from Android device
+Type of method:
+
+| Input | Output expected |
+| :---: | :---: |
+| Valid login code | True |
+| Invalid login code | False |
+| User input data | Data received |
+
+#### parse XML flie at server side 
+ 
+This is a function that transfer XML code into String. The way to test this is just check if the output String is making sense
