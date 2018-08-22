@@ -20,7 +20,7 @@ A look into Team R's skill set.
 
 ## Zihao Liu
 #### Languages
-* Java, Javascript, C, Pyhon, Html, CSS
+* Java, Javascript, C, Python, HTML, CSS
 #### Tech Stacks/Frameworks
 * Android Studio, MEAN stack
 #### Dev ops
@@ -56,8 +56,9 @@ A look into Team R's skill set.
 
 ## Michael Dorrell
 #### Languages
-* Java, Python, Javascript, PHP, HTML, CSS, Javascript
+* Java, Python, Javascript, PHP, HTML, CSS, Matlab
 #### Tech Stacks/Frameworks
+* Experience with SQL databases
 #### Dev ops
 #### Technical Experience
 #### Soft Skills
