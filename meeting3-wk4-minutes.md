@@ -34,8 +34,10 @@ David did the following:
   * Laravel app that will act as both an api server for the mobile apps and also a website
   * There will be a mysql database where the laravel app will communicate with to read and write data to the database
 * The server will exist in the cloud and the mobile apps will exist on the user's phones
+
 Adam said the following:
   * We should break down the roles like this: testing, UI, communication, data visualisation
+  
 Joshua suggested:
 * We could use blocks to represent sleeping patterns this would be a nice way 
 
