@@ -1,0 +1,35 @@
+{
+  "name": "Nuxt-Laravel-App",
+  "version": "1.0.0",
+  "description": "My magnificent Nuxt.js project",
+  "author": "0x0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt -c client/nuxt.config.js",
+    "build": "nuxt build -c client/nuxt.config.js",
+    "build:prod": "DEPLOY_ENV=PROD nuxt build -c client/nuxt.config.js",
+    "start": "nuxt start -c client/nuxt.config.js",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.0.0",
+    "@nuxtjs/pwa": "^2.0.8",
+    "filestack-js": "^1.5.1",
+    "js-cookie": "^2.2.0",
+    "nuxt": "^1.0.0",
+    "sweetalert2": "^7.26.11",
+    "vue-particles": "^1.0.9",
+    "vuetify": "^1.0.19"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "cross-env": "^5.0.1",
+    "eslint": "^5.0.1",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-vue": "^4.0.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1"
+  }
+}
