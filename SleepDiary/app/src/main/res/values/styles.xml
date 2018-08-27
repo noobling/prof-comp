@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Sleep" parent="AppTheme" >
+        <item name="colorAccent">@android:color/holo_orange_dark</item>
+        <item name="colorPrimary">@android:color/holo_blue_dark</item>
+    </style>
+
 </resources>
