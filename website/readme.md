@@ -3,7 +3,7 @@
 ## Getting Started
 ### Software you will need
 * Local mysql database
-* Composer and php
+* Composer and php 7.1
 * Node and npm 
 
 ### How to run development server
