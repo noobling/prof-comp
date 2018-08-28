@@ -9,10 +9,10 @@
         <v-card-text>
           <v-form ref="form" v-model="valid" @submit="submit" lazy-validation="">
             <v-stepper v-model="currentStep" vertical>
-              <v-stepper-step step="1" :complete="currentStep > 1">
-                Sleep Times
+              <v-stepper-step step="1" :complete="currentStep > 1" @click="currentStep = 1">
+                <span @click="currentStep = 1" class="stepper-header">Sleep Times</span>
               </v-stepper-step>
-              <v-stepper-content step="1">
+              <v-stepper-content step="1" v-if="currentStep == 1">
                 <v-text-field
                   v-model="form.date"
                   label="Date of Sleep Record"
@@ -57,6 +57,8 @@
                   <v-text-field
                     slot="activator"
                     v-model="textTimeTakenToSleep"
+                    :rules="requiredRule"
+                    required
                     label="How long did it take you to sleep"
                     prepend-icon="access_time"
                     hint="hh:mm format"
@@ -70,22 +72,116 @@
                     format="24hr"
                   ></v-time-picker>
                 </v-menu>
-                <v-btn color="primary" @click="currentStep = 2">Continue</v-btn>
+                <v-btn class="btn-spaced" :disabled="!valid" color="primary" @click="nextStep">Continue</v-btn>
               </v-stepper-content>
 
               <v-stepper-step step="2" :complete="currentStep > 2">
-                Sleep Awakenings
+                <span @click="currentStep = 2" class="stepper-header">Sleep Awakenings</span>
               </v-stepper-step>
 
-              <v-stepper-content step="2">
-                <v-btn color="primary" @click="currentStep = 3">Continue</v-btn>                
+              <v-stepper-content step="2" v-if="currentStep == 2">
+                <v-text-field
+                  v-model="form.awakeningsNumber"
+                  label="How many times did you wake up, not counting your final awakening?"
+                  required
+                  :rules="requiredRule"
+                  type="number">
+                </v-text-field>
+                <v-menu
+                  ref="menu3"
+                  :close-on-content-click="false"
+                  v-model="menu3"
+                  :return-value.sync="awakeningsTimeTotal"
+                  lazy
+                  full-width
+                  transition="scale-transition"
+                >
+                  <v-text-field
+                    slot="activator"
+                    v-model="textAwakeningsTimeTotal"
+                    :rules="requiredRule"
+                    required
+                    label="In total, how long did these awakenings last?"
+                    hint="hh:mm format"
+                    persistent-hint
+                    readonly
+                  ></v-text-field>
+                  <v-time-picker
+                    v-if="menu3"
+                    v-model="awakeningsTimeTotal"
+                    @change="$refs.menu3.save(awakeningsTimeTotal)"
+                    format="24hr"
+                  ></v-time-picker>
+                </v-menu>
+                <v-text-field
+                  v-model="form.awkeningsTimeFinal"
+                  label="What time was your final awakening?"
+                  required
+                  :rules="requiredRule"
+                  type="time">
+                </v-text-field>
+                <v-menu
+                  ref="menu4"                
+                  :close-on-content-click="false"
+                  v-model="menu4"
+                  :return-value.sync="awakeningsFinalTimeLength"
+                  lazy
+                  full-width
+                  transition="scale-transition"
+                >
+                  <v-text-field
+                    slot="activator"
+                    v-model="textAwakeningsFinalTimeLength"
+                    :rules="requiredRule"
+                    required
+                    label="In total, how long did these awakenings last?"
+                    hint="hh:mm format"
+                    persistent-hint
+                    readonly
+                  ></v-text-field>
+                  <v-time-picker
+                    v-if="menu4"
+                    v-model="awakeningsFinalTimeLength"
+                    @change="$refs.menu4.save(awakeningsFinalTimeLength)"
+                    format="24hr"
+                  ></v-time-picker>
+                </v-menu>
+                <v-checkbox label="Did you wake up earlier than planned?" v-model="earlyWakeUp"></v-checkbox>
+                <v-menu
+                  ref="menu5"                
+                  :close-on-content-click="false"
+                  v-model="menu5"
+                  :return-value.sync="earlyWakeUpTime"
+                  lazy
+                  full-width
+                  transition="scale-transition"
+                  v-if="earlyWakeUp"
+                >
+                  <v-text-field
+                    slot="activator"
+                    v-model="textEarlyWakeUpTime"
+                    :rules="requiredRule"
+                    required
+                    label="How much earlier?"
+                    hint="hh:mm format"
+                    persistent-hint
+                    readonly
+                  ></v-text-field>
+                  <v-time-picker
+                    v-if="menu5"
+                    v-model="earlyWakeUpTime"
+                    @change="$refs.menu5.save(earlyWakeUpTime)"
+                    format="24hr"
+                  ></v-time-picker>
+                </v-menu>
+                <v-btn class="btn-spaced" color="primary" @click="currentStep = 3">Continue</v-btn>                
               </v-stepper-content>
 
               <v-stepper-step step="3" :complete="currentStep > 3">
-                Sleep Quality
+                <span @click="currentStep = 3" class="stepper-header">Sleep Quality</span>
               </v-stepper-step>
 
-              <v-stepper-content step="3">
+              <v-stepper-content step="3" v-if="currentStep == 3">
                 <v-text-field
                   v-model="form.email"
                   :rules="emailRules"
@@ -105,7 +201,7 @@
                   :counter="6"
                   required
                 ></v-text-field>
-                <v-btn :disabled="!valid" type="submit" @click.prevent="submit" :loading="loading" color="primary">Submit</v-btn>
+                <v-btn class="btn-spaced" :disabled="!valid" type="submit" @click.prevent="submit" :loading="loading" color="primary">Submit</v-btn>
               </v-stepper-content>
             </v-stepper>
             
@@ -149,10 +245,21 @@
         visibleIcon: true,
         form: {
         },
+        earlyWakeUp: false,
         valid: true,
         menu2: false,
         textTimeTakenToSleep: '',
-        timeTakenToSleep: null
+        timeTakenToSleep: null,
+        awakeningsTimeTotal: null,
+        textAwakeningsTimeTotal: '',
+        menu3: false,
+        awakeningsFinalTimeLength: null,
+        textAwakeningsFinalTimeLength: '',
+        menu4: false,
+        earlyWakeUpTime: null,
+        textEarlyWakeUpTime: '',
+        menu5: false,
+        currentStep: 1
       }
     },
 
@@ -164,30 +271,60 @@
 
     watch: {
       timeTakenToSleep (val) {
-        let hour = val.split(':')[0]
-        let minutes = val.split(':')[1]
-        // Remove leading zeros
-        hour = parseInt(hour, 10)
-        minutes = parseInt(minutes, 10)
+        this.textTimeTakenToSleep = this.timeToText(val)
+      },
 
-        this.textTimeTakenToSleep = hour + ' hours ' + minutes + ' minutes'
+      awakeningsTimeTotal (val) {
+        this.textAwakeningsTimeTotal = this.timeToText(val)
+      },
+
+      awakeningsFinalTimeLength (val) {
+        this.textAwakeningsFinalTimeLength  = this.timeToText(val)
+      },
+
+      earlyWakeUpTime(val) {
+        this.textEarlyWakeUpTime = this.timeToText(val)
       }
     },
 
     methods: {
       submit: async function () {
         if (this.$refs.form.validate()) {
-          const { data } = await axios.post('/register', this.form)
+          // Add this data to form submission
+          this.form['awakeningsTimeTotal'] = this.awakeningsTimeTotal
+          this.form[''] = this.timeTakenToSleep
+          const { data } = await axios.post('/sleeprecord', this.form)
 
-          const { data: { token } } = await axios.post('/login', { email: this.form.email, password: this.form.password })
-
-          this.$store.dispatch('auth/saveToken', { token })
-
-          await this.$store.dispatch('auth/updateUser', { user: data })
-
-          this.$router.push('/')
+          console.log(data)
         }
+      },
+
+      nextStep: function () {
+        if (this.$refs.form.validate()) {
+          this.currentStep += 1
+        }
+      },
+
+      // Takes time in hh:mm format and outputs it in a human friendly way
+      timeToText: function (time) {
+        let hour = time.split(':')[0]
+        let minutes = time.split(':')[1]
+        // Remove leading zeros
+        hour = parseInt(hour, 10)
+        minutes = parseInt(minutes, 10)
+
+        return hour + ' hours ' + minutes + ' minutes'
       }
     }
   }
 </script>
+
+<style scoped>
+  .stepper-header:hover {
+    cursor: pointer;
+  }
+  .btn-spaced {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+</style>
