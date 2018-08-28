@@ -1,3 +1,20 @@
+# Client Meeting 21st August
+
+## Welcome
+In attendence: Mr Michael Dorrell, Mr Zihao Liu, Mr Joshua Pollard
+
+Apologies: None
+
+Absent: Mr Adam Chambost, Mr Taige Liu, Mr David Yu
+
+Location: Sleep Center, UWA
+
+Meeting opened: 12:00pm
+
+Meeting adjourned: 12:50pm
+
+
+
 [12:00] Meeting start
 
 [12:05]
