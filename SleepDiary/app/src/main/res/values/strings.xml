@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SleepDiary</string>
+    <string-array name="TF">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
 </resources>

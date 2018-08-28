@@ -5,5 +5,212 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Questionire">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            style="@style/MainTitleStyle"
+            android:elevation="5dp"
+            android:orientation="horizontal"
+            >
+
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Questionaire"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_largest"
+                />
+
+
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/font_largest"
+            android:background="@color/white"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/spacing_normal"
+            android:paddingRight="@dimen/spacing_normal"
+            >
+
+            <View
+                style="@style/WireThinHorizontal"/>
+            <TableRow
+                android:padding="@dimen/spacing_normal">
+
+                <TextView
+                    style="@style/StuInfoType"
+                    android:text="What time did you get into bed"
+                    />
+                <TextView
+                    android:id="@+id/tx_start_time"
+                    style="@style/StuInfoDetail"
+                    tools:text="1983年10月11日"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/icon_next"/>
+            </TableRow>
+
+            <View
+                style="@style/WireThinHorizontal"/>
+
+
+            <TableRow
+                android:padding="@dimen/spacing_normal">
+
+                <TextView
+                    style="@style/StuInfoType"
+                    android:text="What time did you try to get to sleep"
+                    />
+                <TextView
+                    android:id="@+id/tx_end_time"
+                    style="@style/StuInfoDetail"
+                    tools:text="1983年10月11日"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/icon_next"/>
+            </TableRow>
+
+
+            <View
+                style="@style/WireThinHorizontal"/>
+
+
+            <TableRow
+                android:padding="@dimen/spacing_normal">
+
+                <TextView
+                    style="@style/StuInfoType"
+                    android:text="How long did it take you to fall asleep?"
+                    />
+
+                <EditText
+                    android:id="@+id/num_asleep"
+                    android:inputType="number"
+                    style="@style/StuInfoDetail" />
+            </TableRow>
+
+            <View
+                style="@style/WireThinHorizontal"/>
+
+            <TableRow
+                android:padding="@dimen/spacing_normal">
+
+                <TextView
+                    style="@style/StuInfoType"
+                    android:text="How many times did you wake up?(not include final awakening)"
+                    />
+
+                <EditText
+                    android:id="@+id/num_wake_up"
+                    android:inputType="number"
+                    style="@style/StuInfoDetail" />
+            </TableRow>
+
+            <View
+                style="@style/WireThinHorizontal"/>
+
+            <TableRow
+                android:padding="@dimen/spacing_normal">
+
+                <TextView
+                    style="@style/StuInfoType"
+                    android:text="In total, how long did these awakening last?"
+                    />
+
+                <EditText
+                    android:id="@+id/num_total_wake"
+                    android:inputType="number"
+                    style="@style/StuInfoDetail" />
+            </TableRow>
+
+            <View
+                style="@style/WireThinHorizontal"/>
+
+
+            <TableRow
+                android:padding="@dimen/spacing_normal">
+
+                <TextView
+                    style="@style/StuInfoType"
+                    android:text="What time was your final awakening"
+                    />
+                <TextView
+                    android:id="@+id/tx_final_awake"
+                    style="@style/StuInfoDetail"
+                    tools:text="1983年10月11日"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/icon_next"/>
+            </TableRow>
+            <View
+                style="@style/WireThinHorizontal"/>
+
+            <TableRow
+                android:padding="@dimen/spacing_normal">
+
+                <TextView
+                    style="@style/StuInfoType"
+                            android:text="After final awakening,how long did you spend in bed trying to sleep?"
+                    />
+
+                <EditText
+                    android:id="@+id/num_try_sleep"
+                    android:inputType="number"
+                    style="@style/StuInfoDetail" />
+            </TableRow>
+
+            <View
+                style="@style/WireThinHorizontal"/>
+
+            <TableRow
+                android:padding="@dimen/spacing_normal">
+
+                <TextView
+                    style="@style/StuInfoType"
+                    android:text="Did you wake up earlier than you planned?"
+                    />
+                <Spinner android:id="@+id/SpinLiShuDanWei"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dip"
+                    android:entries="@array/TF"/>
+            </TableRow>
+
+            <View
+                style="@style/WireThinHorizontal"/>
+
+            <TableRow
+                android:padding="@dimen/spacing_normal">
+
+                <TextView
+                    style="@style/StuInfoType"
+                    android:text="If Yes, How much earlier?"
+                    />
+
+                <EditText
+                    android:id="@+id/num_early"
+                    android:inputType="number"
+                    style="@style/StuInfoDetail" />
+            </TableRow>
+        </TableLayout>
+
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
