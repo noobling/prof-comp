@@ -43,7 +43,7 @@ Meeting adjourned: 3:55pm
 
 ## Data Transfer
 * Joshua says: we need to use the JSON format to send the data
-* Michale says: we will need to write this down and whoever deals with this data handling needs to look at user acceptance tests
+* Michael says: we will need to write this down and whoever deals with this data handling needs to look at user acceptance tests
 
 ## Hosting
 * The Auditor suggests we talk to the client about hosting the website because it costs money
@@ -66,6 +66,6 @@ Joshua says:
 * Adam will continue working iOS
 * David will continue working on the backend and website
 * Joshua will learn about android and android development and work more indepth on the visual side and Tiage wants to help out on that too
-  * Contact the client about weather they are happy with the UWA style
-* Zihao will continue working on 
+  * Contact the client about whether they are happy with the UWA style
+* Zihao will continue working on the android app
 
