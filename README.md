@@ -48,10 +48,9 @@ Meetings every Wednesday 3pm
       <td>Week 4</td>
       <td>
         <ul>
-          <li>Auditor Meeting 1pm 23th August</li>
-          <li>Timesheet, Minutes, Booked hours submission</li>
-          <li>Sprint 1 deliverables</li>
-          <li>Personal Reflection</li>
+          <li><del>Timesheet, Minutes, Booked hours submission</del></li>
+          <li><del>Sprint 1 deliverables</del></li>
+          <li><del>Personal Reflection</del></li>
         </ul>
       </td>
     </tr>
@@ -60,6 +59,7 @@ Meetings every Wednesday 3pm
       <td>Week 5</td>
       <td>
         <ul>
+          <li><del>Auditor Meeting 3pm 29th August</del></li>
           <li>Timesheet, Minutes, Booked hours submission</li>
           <li> Essay </li>
         </ul>
@@ -71,7 +71,7 @@ Meetings every Wednesday 3pm
       <td>
         <ul>
           <li>Timesheet, Minutes, Booked hours submission</li>
-          <li> Mentor Meeting 2: Wednesday 5th September 1pm at Uni IT on Level 2 of the Ken & Julie Michael building (7 Fairway)</li>
+          <li> Mentor Meeting 2: Friday 7th September 2pm at Uni IT on Level 2 of the Ken & Julie Michael building (7 Fairway)</li>
           <li>Auditor Meeting</li>
         </ul>
       </td>
@@ -170,3 +170,11 @@ Meetings every Wednesday 3pm
 5. Make a pull request
 6. Wait for somone to do a code review then merge
 7. Close the issue
+
+### Project Manager Roles
+* Filling Timesheet making sure everyone has their timesheet filled in correctly
+* Aggregate everyones weekly hours
+* Fill out in excel general tasks, requirements and per person tabs
+* Make sure smallest time alloted in booked hours is 15 minutes
+* Weekly submission: booked hours zip, any minutes and timesheet and update the week of timesheet
+* Keep on top of everything e.g. make sure everyone is attending all meetings and everyone is doing their work
