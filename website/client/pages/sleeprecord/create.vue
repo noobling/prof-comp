@@ -2,9 +2,15 @@
   <v-layout>
     <v-flex xs12 sm8 offset-sm2>
       <v-card>
-        <v-card-title>
+        <v-toolbar card>
+          <v-btn icon>
+            <v-icon>arrow_back</v-icon>
+          </v-btn>
+          <v-toolbar-title class="body-2">New Sleep Record</v-toolbar-title>
+        </v-toolbar>
+        <!-- <v-card-title>
           <h1 class="display-1">New Sleep Record</h1>
-        </v-card-title>
+        </v-card-title> -->
 
         <v-card-text>
           <v-form ref="form" v-model="valid" @submit="submit" lazy-validation="">
@@ -95,6 +101,7 @@
                   lazy
                   full-width
                   transition="scale-transition"
+                  v-if="form.awakeningsNumber && form.awakeningsNumber > 0"
                 >
                   <v-text-field
                     slot="activator"
@@ -118,7 +125,9 @@
                   label="What time was your final awakening?"
                   required
                   :rules="requiredRule"
-                  type="time">
+                  type="time"
+                  v-if="form.awakeningsNumber && form.awakeningsNumber > 0"
+                  >
                 </v-text-field>
                 <v-menu
                   ref="menu4"                
@@ -128,13 +137,14 @@
                   lazy
                   full-width
                   transition="scale-transition"
+                  v-if="form.awakeningsNumber && form.awakeningsNumber > 0" 
                 >
                   <v-text-field
                     slot="activator"
                     v-model="textAwakeningsFinalTimeLength"
                     :rules="requiredRule"
                     required
-                    label="In total, how long did these awakenings last?"
+                    label="After your final awakening how long did you spend in bed trying to sleep?"
                     hint="hh:mm format"
                     persistent-hint
                     readonly
@@ -174,7 +184,7 @@
                     format="24hr"
                   ></v-time-picker>
                 </v-menu>
-                <v-btn class="btn-spaced" color="primary" @click="currentStep = 3">Continue</v-btn>                
+                <v-btn class="btn-spaced" :disabled="!valid" color="primary" @click="nextStep">Continue</v-btn>                
               </v-stepper-content>
 
               <v-stepper-step step="3" :complete="currentStep > 3">
@@ -183,24 +193,32 @@
 
               <v-stepper-content step="3" v-if="currentStep == 3">
                 <v-text-field
-                  v-model="form.email"
-                  :rules="emailRules"
-                  label="Email"
-                  required>
+                  v-model="form.timeOutOfBed"
+                  label="What time did you get out of bed for the day?"
+                  type="time"
+                  persistent-hint
+                  >
                 </v-text-field>
-
                 <v-text-field
-                  :append-icon="visibleIcon ? 'visibility' : 'visibility_off'"
-                  @click:append="() => (visibleIcon = !visibleIcon)"
-                  :rules="passwordRules"
-                  :type="visibleIcon ? 'password' : 'text'"
-                  label="Enter your password"
-                  hint="At least 6 characters"
-                  min="6"
-                  v-model="form.password"
-                  :counter="6"
-                  required
-                ></v-text-field>
+                  v-model="form.durationOfSleep"
+                  label="In total, how long did you sleep?"
+                  :hint="timeToTextNew(form.durationOfSleep)? timeToTextNew(form.durationOfSleep) : 'hh:mm format'"
+                  mask="time"
+                  persistent-hint
+                >
+                </v-text-field>
+                <v-select
+                  v-model="form.qualityOfSleep"
+                  label="How would you rate the quality of your sleep"
+                  :items="['Very Poor', 'Poor', 'Fair', 'Good', 'Very good']">
+
+                </v-select>
+                <v-select
+                  v-model="form.feeling"
+                  label="How rested or refreshed did you feel when you woke-up for the day?"
+                  :items="['Not at all', 'Slightly rested', 'Somewhat rested', 'Well-rested', 'Very well-rested']">
+
+                </v-select>
                 <v-btn class="btn-spaced" :disabled="!valid" type="submit" @click.prevent="submit" :loading="loading" color="primary">Submit</v-btn>
               </v-stepper-content>
             </v-stepper>
@@ -236,27 +254,21 @@
 
     data() {
       return {
-        emailRules: [
-          v => !!v || 'E-mail is required',
-          v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
-        ],
         requiredRule: [v => !!v || 'Field is required'],
-        passwordRules: [v => (v && v.length >= 6) || 'Password must be at least 6 chracters'],
-        visibleIcon: true,
         form: {
         },
         earlyWakeUp: false,
         valid: true,
         menu2: false,
         textTimeTakenToSleep: '',
-        timeTakenToSleep: null,
-        awakeningsTimeTotal: null,
+        timeTakenToSleep: '00:00',
+        awakeningsTimeTotal: '00:00',
         textAwakeningsTimeTotal: '',
         menu3: false,
-        awakeningsFinalTimeLength: null,
+        awakeningsFinalTimeLength: '00:00',
         textAwakeningsFinalTimeLength: '',
         menu4: false,
-        earlyWakeUpTime: null,
+        earlyWakeUpTime: '00:00',
         textEarlyWakeUpTime: '',
         menu5: false,
         currentStep: 1
@@ -292,7 +304,9 @@
         if (this.$refs.form.validate()) {
           // Add this data to form submission
           this.form['awakeningsTimeTotal'] = this.awakeningsTimeTotal
-          this.form[''] = this.timeTakenToSleep
+          this.form['timeTakenToSleep'] = this.timeTakenToSleep
+          this.form['awakeningsFinalTimeLength'] = this.awakeningsFinalTimeLength
+          this.form['earlyWakeUpTime'] = this.earlyWakeUpTime
           const { data } = await axios.post('/sleeprecord', this.form)
 
           console.log(data)
@@ -314,6 +328,21 @@
         minutes = parseInt(minutes, 10)
 
         return hour + ' hours ' + minutes + ' minutes'
+      },
+      // In the following format 0131
+      timeToTextNew: function(time) {
+        if (time && time.length === 4) {
+          let hours = time.substring(0,2)
+          let minutes = time.substring(2,4)
+
+          // Remove leading zeros
+          hours = parseInt(hours, 10)
+          minutes = parseInt(minutes, 10)
+
+          return hours + ' hours ' + minutes + ' minutes'          
+        } else {
+          return false
+        }
       }
     }
   }
