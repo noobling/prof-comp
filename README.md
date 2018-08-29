@@ -170,3 +170,11 @@ Meetings every Wednesday 3pm
 5. Make a pull request
 6. Wait for somone to do a code review then merge
 7. Close the issue
+
+### Project Manager Roles
+* Filling Timesheet making sure everyone has their timesheet filled in correctly
+* Aggregate everyones weekly hours
+* Fill out in excel general tasks, requirements and per person tabs
+* Make sure smallest time alloted in booked hours is 15 minutes
+* Weekly submission: booked hours zip, any minutes and timesheet and update the week of timesheet
+* Keep on top of everything e.g. make sure everyone is attending all meetings and everyone is doing their work
