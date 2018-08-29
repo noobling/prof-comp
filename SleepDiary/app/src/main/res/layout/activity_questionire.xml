@@ -1,36 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Questionire">
+    android:background="@color/light_grey">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <LinearLayout
-            style="@style/MainTitleStyle"
-            android:elevation="5dp"
-            android:orientation="horizontal"
-            >
-
-
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Questionaire"
-                android:textColor="@color/white"
-                android:textSize="@dimen/font_largest"
-                />
-
-
-        </LinearLayout>
 
         <TableLayout
             android:layout_width="match_parent"
@@ -51,10 +29,12 @@
                 <TextView
                     style="@style/StuInfoType"
                     android:text="What time did you get into bed"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     />
                 <TextView
                     android:id="@+id/tx_start_time"
-                    style="@style/StuInfoDetail"
+                    style="@style/InfoDetail"
                     tools:text="1983年10月11日"/>
 
                 <ImageView
@@ -73,10 +53,12 @@
                 <TextView
                     style="@style/StuInfoType"
                     android:text="What time did you try to get to sleep"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     />
                 <TextView
                     android:id="@+id/tx_end_time"
-                    style="@style/StuInfoDetail"
+                    style="@style/InfoDetail"
                     tools:text="1983年10月11日"/>
 
                 <ImageView
@@ -96,12 +78,14 @@
                 <TextView
                     style="@style/StuInfoType"
                     android:text="How long did it take you to fall asleep?"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     />
 
                 <EditText
                     android:id="@+id/num_asleep"
                     android:inputType="number"
-                    style="@style/StuInfoDetail" />
+                    style="@style/InfoDetail" />
             </TableRow>
 
             <View
@@ -113,12 +97,14 @@
                 <TextView
                     style="@style/StuInfoType"
                     android:text="How many times did you wake up?(not include final awakening)"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     />
 
                 <EditText
                     android:id="@+id/num_wake_up"
                     android:inputType="number"
-                    style="@style/StuInfoDetail" />
+                    style="@style/InfoDetail" />
             </TableRow>
 
             <View
@@ -130,12 +116,14 @@
                 <TextView
                     style="@style/StuInfoType"
                     android:text="In total, how long did these awakening last?"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     />
 
                 <EditText
                     android:id="@+id/num_total_wake"
                     android:inputType="number"
-                    style="@style/StuInfoDetail" />
+                    style="@style/InfoDetail" />
             </TableRow>
 
             <View
@@ -148,10 +136,12 @@
                 <TextView
                     style="@style/StuInfoType"
                     android:text="What time was your final awakening"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     />
                 <TextView
                     android:id="@+id/tx_final_awake"
-                    style="@style/StuInfoDetail"
+                    style="@style/InfoDetail"
                     tools:text="1983年10月11日"/>
 
                 <ImageView
@@ -167,13 +157,15 @@
 
                 <TextView
                     style="@style/StuInfoType"
-                            android:text="After final awakening,how long did you spend in bed trying to sleep?"
+                    android:text="After final awakening,how long did you spend in bed trying to sleep?"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     />
 
                 <EditText
                     android:id="@+id/num_try_sleep"
                     android:inputType="number"
-                    style="@style/StuInfoDetail" />
+                    style="@style/InfoDetail" />
             </TableRow>
 
             <View
@@ -185,6 +177,8 @@
                 <TextView
                     style="@style/StuInfoType"
                     android:text="Did you wake up earlier than you planned?"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     />
                 <Spinner android:id="@+id/SpinLiShuDanWei"
                     android:layout_width="fill_parent"
@@ -201,16 +195,19 @@
                 <TextView
                     style="@style/StuInfoType"
                     android:text="If Yes, How much earlier?"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     />
 
                 <EditText
                     android:id="@+id/num_early"
                     android:inputType="number"
-                    style="@style/StuInfoDetail" />
+                    style="@style/InfoDetail"
+                    />
             </TableRow>
         </TableLayout>
 
 
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</ScrollView>

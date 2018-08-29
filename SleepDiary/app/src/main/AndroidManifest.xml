@@ -11,14 +11,16 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Sleep">
+            android:theme="@style/AppTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"
+                    android:windowSoftInputMode="adjustPan"/>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Questionire"></activity>
+        <activity android:name=".Questionire"
+            android:windowSoftInputMode="adjustPan"></activity>
     </application>
 
 </manifest>

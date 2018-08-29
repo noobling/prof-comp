@@ -43,12 +43,13 @@
         <item name="android:textSize">@dimen/font_large</item>
     </style>
 
-    <style name="StuInfoDetail">
+    <style name="InfoDetail">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/font_larger</item>
+        <item name="android:layout_gravity">bottom</item>
     </style>
     <style name="MyInfoType">
         <item name="android:layout_width">wrap_content</item>
@@ -65,16 +66,12 @@
         <item name="android:textSize">@dimen/font_large</item>
     </style>
 
-    <style name="WireThinVertical">
-        <item name="android:layout_width">@dimen/view_thin</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@android:color/darker_gray</item>
-    </style>
+
 
     <style name="WireThinHorizontal">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/view_thin</item>
-        <item name="android:background">@android:color/darker_gray</item>
+        <item name="android:background">@android:color/white</item>
     </style>
 
     <style name="MyEditStyle">
