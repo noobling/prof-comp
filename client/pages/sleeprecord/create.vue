@@ -8,9 +8,6 @@
           </v-btn>
           <v-toolbar-title class="body-2">New Sleep Record</v-toolbar-title>
         </v-toolbar>
-        <!-- <v-card-title>
-          <h1 class="display-1">New Sleep Record</h1>
-        </v-card-title> -->
 
         <v-card-text>
           <v-form ref="form" v-model="valid" @submit="submit" lazy-validation="">
@@ -52,7 +49,7 @@
                   :close-on-content-click="false"
                   v-model="menu2"
                   :nudge-right="40"
-                  :return-value.sync="timeTakenToSleep"
+                  :return-value.sync="timeTakenToSleepDuration"
                   lazy
                   transition="scale-transition"
                   offset-y
@@ -62,7 +59,7 @@
                 >
                   <v-text-field
                     slot="activator"
-                    v-model="textTimeTakenToSleep"
+                    v-model="texttimeTakenToSleepDuration"
                     :rules="requiredRule"
                     required
                     label="How long did it take you to sleep"
@@ -73,8 +70,8 @@
                   ></v-text-field>
                   <v-time-picker
                     v-if="menu2"
-                    v-model="timeTakenToSleep"
-                    @change="$refs.menu.save(timeTakenToSleep)"
+                    v-model="timeTakenToSleepDuration"
+                    @change="$refs.menu.save(timeTakenToSleepDuration)"
                     format="24hr"
                   ></v-time-picker>
                 </v-menu>
@@ -93,35 +90,18 @@
                   :rules="requiredRule"
                   type="number">
                 </v-text-field>
-                <v-menu
-                  ref="menu3"
-                  :close-on-content-click="false"
-                  v-model="menu3"
-                  :return-value.sync="awakeningsTimeTotal"
-                  lazy
-                  full-width
-                  transition="scale-transition"
-                  v-if="form.awakeningsNumber && form.awakeningsNumber > 0"
-                >
-                  <v-text-field
-                    slot="activator"
-                    v-model="textAwakeningsTimeTotal"
-                    :rules="requiredRule"
-                    required
-                    label="In total, how long did these awakenings last?"
-                    hint="hh:mm format"
-                    persistent-hint
-                    readonly
-                  ></v-text-field>
-                  <v-time-picker
-                    v-if="menu3"
-                    v-model="awakeningsTimeTotal"
-                    @change="$refs.menu3.save(awakeningsTimeTotal)"
-                    format="24hr"
-                  ></v-time-picker>
-                </v-menu>
+                <v-select
+                  v-model="awakeningsTotalDuration"
+                  label="In total, how long did these awakenings last?"
+                  :items="timeLengths"
+                  :rules="requiredRule"
+                  item-text="time"
+                  item-value="value"
+                  required>
+                </v-select>
+               
                 <v-text-field
-                  v-model="form.awkeningsTimeFinal"
+                  v-model="form.awakeningsFinalTime"
                   label="What time was your final awakening?"
                   required
                   :rules="requiredRule"
@@ -133,7 +113,7 @@
                   ref="menu4"                
                   :close-on-content-click="false"
                   v-model="menu4"
-                  :return-value.sync="awakeningsFinalTimeLength"
+                  :return-value.sync="awakeningsFinalDuration"
                   lazy
                   full-width
                   transition="scale-transition"
@@ -141,7 +121,7 @@
                 >
                   <v-text-field
                     slot="activator"
-                    v-model="textAwakeningsFinalTimeLength"
+                    v-model="textawakeningsFinalDuration"
                     :rules="requiredRule"
                     required
                     label="After your final awakening how long did you spend in bed trying to sleep?"
@@ -151,8 +131,8 @@
                   ></v-text-field>
                   <v-time-picker
                     v-if="menu4"
-                    v-model="awakeningsFinalTimeLength"
-                    @change="$refs.menu4.save(awakeningsFinalTimeLength)"
+                    v-model="awakeningsFinalDuration"
+                    @change="$refs.menu4.save(awakeningsFinalDuration)"
                     format="24hr"
                   ></v-time-picker>
                 </v-menu>
@@ -161,7 +141,7 @@
                   ref="menu5"                
                   :close-on-content-click="false"
                   v-model="menu5"
-                  :return-value.sync="earlyWakeUpTime"
+                  :return-value.sync="earlyWakeUpDuration"
                   lazy
                   full-width
                   transition="scale-transition"
@@ -169,7 +149,7 @@
                 >
                   <v-text-field
                     slot="activator"
-                    v-model="textEarlyWakeUpTime"
+                    v-model="textearlyWakeUpDuration"
                     :rules="requiredRule"
                     required
                     label="How much earlier?"
@@ -179,8 +159,8 @@
                   ></v-text-field>
                   <v-time-picker
                     v-if="menu5"
-                    v-model="earlyWakeUpTime"
-                    @change="$refs.menu5.save(earlyWakeUpTime)"
+                    v-model="earlyWakeUpDuration"
+                    @change="$refs.menu5.save(earlyWakeUpDuration)"
                     format="24hr"
                   ></v-time-picker>
                 </v-menu>
@@ -200,15 +180,15 @@
                   >
                 </v-text-field>
                 <v-text-field
-                  v-model="form.durationOfSleep"
+                  v-model="form.sleepDuration"
                   label="In total, how long did you sleep?"
-                  :hint="timeToTextNew(form.durationOfSleep)? timeToTextNew(form.durationOfSleep) : 'hh:mm format'"
+                  :hint="timeToTextNew(form.sleepDuration)? timeToTextNew(form.sleepDuration) : 'hh:mm format'"
                   mask="time"
                   persistent-hint
                 >
                 </v-text-field>
                 <v-select
-                  v-model="form.qualityOfSleep"
+                  v-model="form.sleepQuality"
                   label="How would you rate the quality of your sleep"
                   :items="['Very Poor', 'Poor', 'Fair', 'Good', 'Very good']">
 
@@ -260,18 +240,44 @@
         earlyWakeUp: false,
         valid: true,
         menu2: false,
-        textTimeTakenToSleep: '',
-        timeTakenToSleep: '00:00',
-        awakeningsTimeTotal: '00:00',
-        textAwakeningsTimeTotal: '',
+        texttimeTakenToSleepDuration: '',
+        timeTakenToSleepDuration: '00:00',
+        awakeningsTotalDuration: '00:00',
+        textawakeningsTotalDuration: '',
         menu3: false,
-        awakeningsFinalTimeLength: '00:00',
-        textAwakeningsFinalTimeLength: '',
+        awakeningsFinalDuration: '00:00',
+        textawakeningsFinalDuration: '',
         menu4: false,
-        earlyWakeUpTime: '00:00',
-        textEarlyWakeUpTime: '',
+        earlyWakeUpDuration: '00:00',
+        textearlyWakeUpDuration: '',
         menu5: false,
-        currentStep: 1
+        currentStep: 1,
+        timeLengths: [
+          { time: '15 minutes', value: '00:15'},
+          { time: '30 minutes', value: '00:30'},
+          { time: '45 minutes', value: '00:45'},
+          { time: '1 hour', value: '01:00'},
+          { time: '1 hour 15 minutes', value: '01:15'},
+          { time: '1 hour 30 minutes', value: '01:30'},
+          { time: '1 hour 45 minutes', value: '01:45'},
+          { time: '2 hours', value: '02:00'},
+          { time: '2 hours 15 minutes', value: '02:15'},
+          { time: '2 hours 30 minutes', value: '02:30'},
+          { time: '2 hours 45 minutes', value: '02:45'},
+          { time: '3 hours', value: '03:00'},
+          { time: '3 hours 15 minutes', value: '03:15'},
+          { time: '3 hours 30 minutes', value: '03:30'},
+          { time: '3 hours 45 minutes', value: '03:45'},
+          { time: '4 hours', value: '04:00'},
+          { time: '4 hours 15 minutes', value: '04:15'},
+          { time: '4 hours 30 minutes', value: '04:30'},
+          { time: '4 hours 45 minutes', value: '04:45'},
+          { time: '5 hours', value: '05:00'},
+          { time: '5 hours 15 minutes', value: '05:15'},
+          { time: '5 hours 30 minutes', value: '05:30'},
+          { time: '5 hours 45 minutes', value: '05:45'},
+          { time: '6 hours', value: '06:00'}
+        ]
       }
     },
 
@@ -282,20 +288,20 @@
     },
 
     watch: {
-      timeTakenToSleep (val) {
-        this.textTimeTakenToSleep = this.timeToText(val)
+      timeTakenToSleepDuration (val) {
+        this.texttimeTakenToSleepDuration = this.timeToText(val)
       },
 
-      awakeningsTimeTotal (val) {
-        this.textAwakeningsTimeTotal = this.timeToText(val)
+      awakeningsTotalDuration (val) {
+        this.textawakeningsTotalDuration = this.timeToText(val)
       },
 
-      awakeningsFinalTimeLength (val) {
-        this.textAwakeningsFinalTimeLength  = this.timeToText(val)
+      awakeningsFinalDuration (val) {
+        this.textawakeningsFinalDuration  = this.timeToText(val)
       },
 
-      earlyWakeUpTime(val) {
-        this.textEarlyWakeUpTime = this.timeToText(val)
+      earlyWakeUpDuration(val) {
+        this.textearlyWakeUpDuration = this.timeToText(val)
       }
     },
 
@@ -303,10 +309,10 @@
       submit: async function () {
         if (this.$refs.form.validate()) {
           // Add this data to form submission
-          this.form['awakeningsTimeTotal'] = this.awakeningsTimeTotal
-          this.form['timeTakenToSleep'] = this.timeTakenToSleep
-          this.form['awakeningsFinalTimeLength'] = this.awakeningsFinalTimeLength
-          this.form['earlyWakeUpTime'] = this.earlyWakeUpTime
+          this.form['awakeningsTotalDuration'] = this.awakeningsTotalDuration
+          this.form['timeTakenToSleepDuration'] = this.timeTakenToSleepDuration
+          this.form['awakeningsFinalDuration'] = this.awakeningsFinalDuration
+          this.form['earlyWakeUpDuration'] = this.earlyWakeUpDuration
           const { data } = await axios.post('/sleeprecord', this.form)
 
           console.log(data)
