@@ -97,6 +97,7 @@
                   :rules="requiredRule"
                   item-text="time"
                   item-value="value"
+                  v-if="form.awakeningsNumber && form.awakeningsNumber > 0"
                   required>
                 </v-select>
                
@@ -236,6 +237,7 @@
       return {
         requiredRule: [v => !!v || 'Field is required'],
         form: {
+          awakeningsFinalTime: '00:00'
         },
         earlyWakeUp: false,
         valid: true,
@@ -313,7 +315,7 @@
           this.form['timeTakenToSleepDuration'] = this.timeTakenToSleepDuration
           this.form['awakeningsFinalDuration'] = this.awakeningsFinalDuration
           this.form['earlyWakeUpDuration'] = this.earlyWakeUpDuration
-          const { data } = await axios.post('/sleeprecord', this.form)
+          const { data } = await axios.post('/user/sleeprecord', this.form)
 
           console.log(data)
         }
