@@ -28,3 +28,7 @@ Route::group(['middleware' => 'guest:api'], function () {
     Route::post('register', 'Auth\RegisterController@register');
     Route::post('login', 'Auth\LoginController@login');
 });
+
+Route::group(['middleware' => 'researcher:api'], function () {
+    Route::get('sleeprecords/all', 'SleepRecordController@index');
+});

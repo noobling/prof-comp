@@ -24,6 +24,12 @@
     },
     data: () => ({
       gradient: 'to top right, rgba(63,81,181, .7), rgba(25,32,72, .7)'
-    })
+    }),
+
+    created() {
+      if (this.$store.getters['auth/check'] && this.$store.getters['auth/user'].type === 'Researcher') {
+        this.$router.push('/sleeprecord/researcher')
+      }
+    }
   }
 </script>

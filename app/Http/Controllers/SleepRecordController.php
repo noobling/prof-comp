@@ -32,4 +32,9 @@ class SleepRecordController extends Controller
 
         return $sleepRecord;
     }
+
+    public function index(Request $request)
+    {
+        return SleepRecord::all()->groupBy('user_id');
+    }
 }
