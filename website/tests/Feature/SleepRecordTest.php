@@ -59,4 +59,13 @@ class SleepRecordTest extends TestCase
             'timeWokenUp' => '07:00'
         ]);
     }
+
+    /** @test */
+    public function a_researcher_can_access_all_users_sleep_records ()
+    {
+        $user = factory(User::class)->create(['type' => 'Researcher']);
+        $this->actingAs($user)
+            ->getJson('/api/sleeprecords/all')
+            ->assertSuccessful();
+    }
 }
