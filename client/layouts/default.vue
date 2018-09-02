@@ -2,7 +2,7 @@
   <v-app :dark="isDarkMode">
     <NavDraw />
     <Toolbar />
-    <v-content>
+    <v-content class="hero-image">
       <v-container>
         <nuxt />
       </v-container>
@@ -34,5 +34,9 @@
 <style>
   .swal2-popup {
     font-family: 'Roboto'
+  }
+  .hero-image {
+    background-image: url("https://cdn.vuetifyjs.com/images/parallax/material.jpg");
+    height: 100%;
   }
 </style>
