@@ -20,7 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['middleware' => 'auth:api'], function () {
     Route::post('logout', 'Auth\LoginController@logout');
     Route::patch('user', 'UserController@update');
-    Route::post('user/avatar', 'UserController@updateAvatar');   
+    Route::post('user/avatar', 'UserController@updateAvatar');
+    Route::post('user/sleeprecord', 'SleepRecordController@store');  
 });
 
 Route::group(['middleware' => 'guest:api'], function () {
