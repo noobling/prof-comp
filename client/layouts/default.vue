@@ -37,6 +37,7 @@
   }
   .hero-image {
     background-image: url("https://cdn.vuetifyjs.com/images/parallax/material.jpg");
-    height: 100%;
+    background-position: center;
+    background-size: cover;
   }
 </style>

@@ -22,7 +22,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::patch('user', 'UserController@update');
     Route::post('user/avatar', 'UserController@updateAvatar');
     Route::post('user/sleeprecord', 'SleepRecordController@store');
-    Route::get('/user/sleeprecords', 'SleepRecordController@user');
+    Route::get('user/sleeprecords', 'SleepRecordController@user');
 });
 
 Route::group(['middleware' => 'guest:api'], function () {

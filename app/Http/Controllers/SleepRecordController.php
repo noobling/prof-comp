@@ -40,6 +40,6 @@ class SleepRecordController extends Controller
 
     public function user(Request $request)
     {
-        return $request->user()->sleepRecords();
+        return $request->user()->sleepRecords;
     }
 }
