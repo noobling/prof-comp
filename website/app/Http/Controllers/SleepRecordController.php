@@ -37,4 +37,9 @@ class SleepRecordController extends Controller
     {
         return SleepRecord::all()->groupBy('user_id');
     }
+
+    public function user(Request $request)
+    {
+        return $request->user()->sleepRecords();
+    }
 }

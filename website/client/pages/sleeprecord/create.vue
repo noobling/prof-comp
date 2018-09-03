@@ -23,58 +23,48 @@
                   :rules="requiredRule"
                   type="date">
                 </v-text-field>
-                <v-text-field
+                <v-select
                   v-model="form.timeGotIntoBed"
                   label="What time did you get into bed?"
                   required
                   :rules="requiredRule"
-                  type="time">
-                </v-text-field>
-                <v-text-field
+                  :items="timeOfDays"
+                  item-text="time"
+                  item-value="value"
+                  autocomplete>
+                </v-select>
+                <v-select
                   v-model="form.timeToTrySleep"
                   label="What time did you try to go to sleep?"
                   required
                   :rules="requiredRule"
-                  type="time">
-                </v-text-field>
-                <v-text-field
+                  :items="timeOfDays"
+                  item-text="time"
+                  item-value="value"
+                  autocomplete
+                  >
+                </v-select>
+                <v-select
                   v-model="form.timeWokenUp"
                   label="What time did wake up?"
                   required
                   :rules="requiredRule"
-                  type="time">
-                </v-text-field>
-                <v-menu
-                  ref="menu"
-                  :close-on-content-click="false"
-                  v-model="menu2"
-                  :nudge-right="40"
-                  :return-value.sync="timeTakenToSleepDuration"
-                  lazy
-                  transition="scale-transition"
-                  offset-y
-                  full-width
-                  max-width="290px"
-                  min-width="290px"
+                  :items="timeOfDays"
+                  item-text="time"
+                  item-value="value"
+                  autocomplete>
+                </v-select>
+                <v-select
+                  v-model="form.timeTakenToSleepDuration"
+                  label="How long did it take you to sleep"                  
+                  :rules="requiredRule"
+                  :items="timeDurationsArr"
+                  item-text="time"
+                  item-value="value"
+                  autocomplete
                 >
-                  <v-text-field
-                    slot="activator"
-                    v-model="texttimeTakenToSleepDuration"
-                    :rules="requiredRule"
-                    required
-                    label="How long did it take you to sleep"
-                    prepend-icon="access_time"
-                    hint="hh:mm format"
-                    persistent-hint
-                    readonly
-                  ></v-text-field>
-                  <v-time-picker
-                    v-if="menu2"
-                    v-model="timeTakenToSleepDuration"
-                    @change="$refs.menu.save(timeTakenToSleepDuration)"
-                    format="24hr"
-                  ></v-time-picker>
-                </v-menu>
+                </v-select>
+                
                 <v-btn class="btn-spaced" :disabled="!valid" color="primary" @click="nextStep">Continue</v-btn>
               </v-stepper-content>
 
@@ -93,78 +83,53 @@
                 <v-select
                   v-model="awakeningsTotalDuration"
                   label="In total, how long did these awakenings last?"
-                  :items="timeLengths"
+                  :items="timeDurationsArr"
                   :rules="requiredRule"
                   item-text="time"
                   item-value="value"
                   v-if="form.awakeningsNumber && form.awakeningsNumber > 0"
-                  required>
+                  required
+                  autocomplete>
                 </v-select>
                
-                <v-text-field
+                <v-select
                   v-model="form.awakeningsFinalTime"
                   label="What time was your final awakening?"
+                  :items="timeOfDays"                  
                   required
                   :rules="requiredRule"
-                  type="time"
+                  item-text="time"
+                  item-value="value"
                   v-if="form.awakeningsNumber && form.awakeningsNumber > 0"
+                  autocomplete
                   >
-                </v-text-field>
-                <v-menu
-                  ref="menu4"                
-                  :close-on-content-click="false"
-                  v-model="menu4"
-                  :return-value.sync="awakeningsFinalDuration"
-                  lazy
-                  full-width
-                  transition="scale-transition"
-                  v-if="form.awakeningsNumber && form.awakeningsNumber > 0" 
+                </v-select>
+                <v-select
+                  v-model="awakeningsFinalDuration"
+                  label="After your final awakening how long did you spend in bed trying to sleep?"                  
+                  :items="timeDurationsArr"
+                  :rules="requiredRule"
+                  item-text="time"
+                  item-value="value"
+                  v-if="form.awakeningsNumber && form.awakeningsNumber > 0"
+                  required
+                  autocomplete
                 >
-                  <v-text-field
-                    slot="activator"
-                    v-model="textawakeningsFinalDuration"
-                    :rules="requiredRule"
-                    required
-                    label="After your final awakening how long did you spend in bed trying to sleep?"
-                    hint="hh:mm format"
-                    persistent-hint
-                    readonly
-                  ></v-text-field>
-                  <v-time-picker
-                    v-if="menu4"
-                    v-model="awakeningsFinalDuration"
-                    @change="$refs.menu4.save(awakeningsFinalDuration)"
-                    format="24hr"
-                  ></v-time-picker>
-                </v-menu>
+                </v-select>
                 <v-checkbox label="Did you wake up earlier than planned?" v-model="earlyWakeUp"></v-checkbox>
-                <v-menu
-                  ref="menu5"                
-                  :close-on-content-click="false"
-                  v-model="menu5"
-                  :return-value.sync="earlyWakeUpDuration"
-                  lazy
-                  full-width
-                  transition="scale-transition"
-                  v-if="earlyWakeUp"
-                >
-                  <v-text-field
-                    slot="activator"
-                    v-model="textearlyWakeUpDuration"
-                    :rules="requiredRule"
-                    required
-                    label="How much earlier?"
-                    hint="hh:mm format"
-                    persistent-hint
-                    readonly
-                  ></v-text-field>
-                  <v-time-picker
-                    v-if="menu5"
-                    v-model="earlyWakeUpDuration"
-                    @change="$refs.menu5.save(earlyWakeUpDuration)"
-                    format="24hr"
-                  ></v-time-picker>
-                </v-menu>
+                <v-select
+                  v-model="earlyWakeUpDuration"
+                  label="How much earlier?"
+                  :items="timeDurationsArr"
+                  :rules="requiredRule"
+                  item-text="time"
+                  item-value="value"
+                  v-if="earlyWakeUp"                  
+                  required
+                  autocomplete
+                  >
+
+                </v-select>
                 <v-btn class="btn-spaced" :disabled="!valid" color="primary" @click="nextStep">Continue</v-btn>                
               </v-stepper-content>
 
@@ -173,21 +138,28 @@
               </v-stepper-step>
 
               <v-stepper-content step="3" v-if="currentStep == 3">
-                <v-text-field
+                <v-select
                   v-model="form.timeOutOfBed"
                   label="What time did you get out of bed for the day?"
-                  type="time"
-                  persistent-hint
+                  :items="timeOfDays.reverse()"
+                  :rules="requiredRule"
+                  item-text="time"
+                  item-value="value"
+                  required
+                  autocomplete
                   >
-                </v-text-field>
-                <v-text-field
+                </v-select>
+                <v-select
                   v-model="form.sleepDuration"
                   label="In total, how long did you sleep?"
-                  :hint="timeToTextNew(form.sleepDuration)? timeToTextNew(form.sleepDuration) : 'hh:mm format'"
-                  mask="time"
-                  persistent-hint
+                  :items="timeDurationsArr"
+                  :rules="requiredRule"
+                  item-text="time"
+                  item-value="value"
+                  required
+                  autocomplete
                 >
-                </v-text-field>
+                </v-select>
                 <v-select
                   v-model="form.sleepQuality"
                   label="How would you rate the quality of your sleep"
@@ -198,7 +170,6 @@
                   v-model="form.feeling"
                   label="How rested or refreshed did you feel when you woke-up for the day?"
                   :items="['Not at all', 'Slightly rested', 'Somewhat rested', 'Well-rested', 'Very well-rested']">
-
                 </v-select>
                 <v-btn class="btn-spaced" :disabled="!valid" type="submit" @click.prevent="submit" :loading="loading" color="primary">Submit</v-btn>
               </v-stepper-content>
@@ -217,6 +188,7 @@
 <script>
   import axios from 'axios'
   import { mapGetters } from 'vuex'
+  import timeMixin from '~/mixins/timeMixin'
 
   export default {
     head() {
@@ -225,12 +197,15 @@
 
     components: {},
 
+    mixins: [timeMixin],
+
     created() {
       const currentDate = new Date()
       const day = currentDate.getDate()
       const month = currentDate.getMonth() + 1
       const year = currentDate.getFullYear()
       this.form.date = year + '-' + month.toString().padStart(2, '0') + '-' + day.toString().padStart(2, '0')
+      this.timeOfDayArr()
     },
 
     data() {
@@ -242,8 +217,6 @@
         earlyWakeUp: false,
         valid: true,
         menu2: false,
-        texttimeTakenToSleepDuration: '',
-        timeTakenToSleepDuration: '00:00',
         awakeningsTotalDuration: '00:00',
         textawakeningsTotalDuration: '',
         menu3: false,
@@ -253,47 +226,25 @@
         earlyWakeUpDuration: '00:00',
         textearlyWakeUpDuration: '',
         menu5: false,
-        currentStep: 1,
-        timeLengths: [
-          { time: '15 minutes', value: '00:15'},
-          { time: '30 minutes', value: '00:30'},
-          { time: '45 minutes', value: '00:45'},
-          { time: '1 hour', value: '01:00'},
-          { time: '1 hour 15 minutes', value: '01:15'},
-          { time: '1 hour 30 minutes', value: '01:30'},
-          { time: '1 hour 45 minutes', value: '01:45'},
-          { time: '2 hours', value: '02:00'},
-          { time: '2 hours 15 minutes', value: '02:15'},
-          { time: '2 hours 30 minutes', value: '02:30'},
-          { time: '2 hours 45 minutes', value: '02:45'},
-          { time: '3 hours', value: '03:00'},
-          { time: '3 hours 15 minutes', value: '03:15'},
-          { time: '3 hours 30 minutes', value: '03:30'},
-          { time: '3 hours 45 minutes', value: '03:45'},
-          { time: '4 hours', value: '04:00'},
-          { time: '4 hours 15 minutes', value: '04:15'},
-          { time: '4 hours 30 minutes', value: '04:30'},
-          { time: '4 hours 45 minutes', value: '04:45'},
-          { time: '5 hours', value: '05:00'},
-          { time: '5 hours 15 minutes', value: '05:15'},
-          { time: '5 hours 30 minutes', value: '05:30'},
-          { time: '5 hours 45 minutes', value: '05:45'},
-          { time: '6 hours', value: '06:00'}
-        ]
+        currentStep: 1
       }
     },
 
     computed: {
       ...mapGetters([
         'loading'
-      ])
+      ]),
+
+      timeOfDays () {
+        return this.timeOfDayArr()
+      },
+
+      timeDurationsArr () {
+        return this.timeDurations()
+      }
     },
 
     watch: {
-      timeTakenToSleepDuration (val) {
-        this.texttimeTakenToSleepDuration = this.timeToText(val)
-      },
-
       awakeningsTotalDuration (val) {
         this.textawakeningsTotalDuration = this.timeToText(val)
       },
@@ -312,7 +263,6 @@
         if (this.$refs.form.validate()) {
           // Add this data to form submission
           this.form['awakeningsTotalDuration'] = this.awakeningsTotalDuration
-          this.form['timeTakenToSleepDuration'] = this.timeTakenToSleepDuration
           this.form['awakeningsFinalDuration'] = this.awakeningsFinalDuration
           this.form['earlyWakeUpDuration'] = this.earlyWakeUpDuration
           const { data } = await axios.post('/user/sleeprecord', this.form)
