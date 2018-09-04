@@ -66,7 +66,7 @@
           try {
             json2excel({
               data: this.sleeprecords[item.user],
-              name: 'User-'+user+'Sleep-Diary',
+              name: 'User'+item.user+'SleepDiary',
               formateDate: 'yyyy/mm/dd'
             });
           } catch (e) {
