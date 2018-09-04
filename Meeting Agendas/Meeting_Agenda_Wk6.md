@@ -7,20 +7,20 @@ Adam
   * Status update on iOS app
   * Challenges faced so far
   * What will he do before next meeting
-* Joshua
+Joshua
   * Status update on Android app
   * Status update on visual side of app
   * Challenges faced so far
   * What will he do before next meeting
-* Zihao
+Zihao
   * Status update on Android app
   * Challenges faced so far
   * What will he do before next meeting
-* Taige
+Taige
   * Status update on iOS app
   * Challenges faced so far
   * What will he do before meeting
-* David
+David
   * Status update on backend + web app
   * Status update on client
     * Thoughts on the app so far
