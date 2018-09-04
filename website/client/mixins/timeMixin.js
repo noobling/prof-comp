@@ -49,7 +49,6 @@ export default {
         timeHours += 1
         timeMinutes = 0
       }
-      console.log(timesArr)
       return timesArr
     }
   }
