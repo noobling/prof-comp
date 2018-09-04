@@ -14,8 +14,8 @@ workbox.precaching.precacheAndRoute([
     "revision": "790a61de466ee83772687aab92e8d4f5"
   },
   {
-    "url": "/_nuxt/manifest.03cac73626628e13dfd7.js",
-    "revision": "601d2368e05e81fa883b4c96978336ce"
+    "url": "/_nuxt/manifest.28b6dc6d553218a08030.js",
+    "revision": "226410cac500b1da067463fecf166b76"
   },
   {
     "url": "/_nuxt/pages/index.810f9eb74786a1fcb0c0.js",
@@ -46,8 +46,8 @@ workbox.precaching.precacheAndRoute([
     "revision": "5d840fa564d741ae6208b6a24a387ee0"
   },
   {
-    "url": "/_nuxt/pages/sleeprecord/researcher.5a3b0836796d1e42b326.js",
-    "revision": "d33f28614f7535c1d92fa8f2be008db3"
+    "url": "/_nuxt/pages/sleeprecord/researcher.9c283b56757311ecdad9.js",
+    "revision": "d06bf65a2c826390dd885205fb7ffd30"
   },
   {
     "url": "/_nuxt/pages/sleeprecord/user.ebea393f3fda7a260d4d.js",
