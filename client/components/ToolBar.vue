@@ -6,6 +6,9 @@
     <v-toolbar-items>
       <v-btn flat to="/register" v-if="! user">Register</v-btn>
       <v-btn flat to="/login" v-if="! user">Login</v-btn>
+      <v-btn flat to="/sleeprecord/create" v-if="user">New Record</v-btn>
+      <v-btn flat to="/sleeprecord/user" v-if="user">Sleep Journal</v-btn>
+      <v-btn flat to="/sleeprecord/researcher" v-if="user && user.type === 'Researcher'">Patients</v-btn>
     </v-toolbar-items>
     <v-menu v-if="user">
       <v-btn icon slot="activator">
@@ -13,7 +16,7 @@
           <img :src="$store.getters['auth/userImage']" alt="User Avatar">
         </v-avatar>
       </v-btn>
-
+    
       <v-list>
         <v-list-tile to="/profile">
           <v-list-tile-action>
@@ -48,6 +51,9 @@
 
       logout: function () {
         this.$store.dispatch('auth/logout')
+          .then(() => {
+            this.$router.push('/')            
+          }) 
       }
     },
 

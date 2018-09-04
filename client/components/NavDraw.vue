@@ -22,6 +22,24 @@
       </v-list-tile>
     </v-list>
 
+    <v-list-tile to="/sleeprecord/create">
+      <v-list-tile-action>
+        <v-icon>edit</v-icon>
+      </v-list-tile-action>
+      <v-list-tile-content>
+        New Sleep Record
+      </v-list-tile-content>
+    </v-list-tile>
+
+    <v-list-tile to="/sleeprecord/user">
+      <v-list-tile-action>
+        <v-icon>library_books</v-icon>
+      </v-list-tile-action>
+      <v-list-tile-content>
+        Sleep Journal
+      </v-list-tile-content>
+    </v-list-tile>
+
     <v-list>
       <v-list-tile to="/profile">
         <v-list-tile-action>
@@ -45,7 +63,7 @@
     </v-list>
     
     <v-list>
-      <v-list-tile to="/logout">
+      <v-list-tile @click="store.dispatch('auth/logout')">
         <v-list-tile-action>
           <v-icon>logout</v-icon>
         </v-list-tile-action>

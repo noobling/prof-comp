@@ -30,6 +30,13 @@ and limitations under the License.
  */
 
 /*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @license  MIT
+ */
+
+/*!
  * Vue.js v2.5.17
  * (c) 2014-2018 Evan You
  * Released under the MIT License.
@@ -71,6 +78,8 @@ and limitations under the License.
 
 /*! ./mixins/app-theme */
 
+/*! ../../mixins/themeable */
+
 /*! ../../directives/resize */
 
 /*!**************************************!*\
@@ -86,8 +95,6 @@ and limitations under the License.
   \*************************************************/
 
 /*! exports provided: default */
-
-/*! ../../../util/colorUtils */
 
 /*! ../../../util/theme */
 
@@ -295,6 +302,8 @@ and limitations under the License.
 
 /*! ../../mixins/colorable */
 
+/*! ../../mixins/measurable */
+
 /*! ../../mixins/routable */
 
 /*! ../../mixins/themeable */
@@ -309,9 +318,9 @@ and limitations under the License.
 
 /*! exports provided: default */
 
-/*! ../../util/helpers */
+/*! ../VImg/VImg */
 
-/*! vue */
+/*! ../../util/console */
 
 /*!********************************************!*\
   !*** ./src/components/VCard/VCardTitle.ts ***!
@@ -349,8 +358,6 @@ and limitations under the License.
 
 /*! ../VIcon */
 
-/*! ../../mixins/bootable */
-
 /*! ../../mixins/themeable */
 
 /*! ../../mixins/registrable */
@@ -363,7 +370,7 @@ and limitations under the License.
 
 /*! exports provided: default */
 
-/*! ../VJumbotron */
+/*! ../VImg */
 
 /*! ../../mixins/registrable */
 
@@ -513,6 +520,8 @@ and limitations under the License.
 
 /*! ../../mixins/returnable */
 
+/*! ../../mixins/themeable */
+
 /*! ../../util/helpers */
 
 /*! ../VBtn */
@@ -584,6 +593,8 @@ and limitations under the License.
 /*! ./util */
 
 /*! ./util/isDateAllowed */
+
+/*! ../../util/console */
 
 /*!************************************************************!*\
   !*** ./src/components/VDatePicker/VDatePickerDateTable.js ***!
@@ -751,6 +762,8 @@ and limitations under the License.
 
 /*! ../../util/helpers */
 
+/*! ../../util/SlotProvider */
+
 /*!*****************************************!*\
   !*** ./src/components/VDialog/index.js ***!
   \*****************************************/
@@ -766,8 +779,6 @@ and limitations under the License.
 /*! exports provided: default */
 
 /*! ../../stylus/components/_dividers.styl */
-
-/*! vue */
 
 /*! ../../mixins/themeable */
 
@@ -919,13 +930,35 @@ and limitations under the License.
 
 /*! ../../util/helpers */
 
-/*! ./VContent */
-
 /*! ./VContainer */
+
+/*! ./VContent */
 
 /*! ./VFlex */
 
 /*! ./VLayout */
+
+/*!*****************************************!*\
+  !*** ./src/components/VHover/VHover.ts ***!
+  \*****************************************/
+
+/*! exports provided: default */
+
+/*! ../../mixins/delayable */
+
+/*! ../../mixins/toggleable */
+
+/*! ../../util/mixins */
+
+/*! ../../util/console */
+
+/*!****************************************!*\
+  !*** ./src/components/VHover/index.ts ***!
+  \****************************************/
+
+/*! exports provided: VHover, default */
+
+/*! ./VHover */
 
 /*!***************************************!*\
   !*** ./src/components/VIcon/VIcon.ts ***!
@@ -935,11 +968,15 @@ and limitations under the License.
 
 /*! ../../stylus/components/_icons.styl */
 
-/*! ../../mixins/themeable */
-
 /*! ../../mixins/colorable */
 
+/*! ../../mixins/sizeable */
+
+/*! ../../mixins/themeable */
+
 /*! ../../util/helpers */
+
+/*! vue */
 
 /*! ../../util/mixins */
 
@@ -950,6 +987,26 @@ and limitations under the License.
 /*! exports provided: VIcon, default */
 
 /*! ./VIcon */
+
+/*!*************************************!*\
+  !*** ./src/components/VImg/VImg.ts ***!
+  \*************************************/
+
+/*! exports provided: default */
+
+/*! ../../stylus/components/_images.styl */
+
+/*! ../VResponsive */
+
+/*! ../../util/console */
+
+/*!**************************************!*\
+  !*** ./src/components/VImg/index.ts ***!
+  \**************************************/
+
+/*! exports provided: VImg, default */
+
+/*! ./VImg */
 
 /*!*****************************************!*\
   !*** ./src/components/VInput/VInput.js ***!
@@ -998,6 +1055,8 @@ and limitations under the License.
 /*! ../../mixins/routable */
 
 /*! ../../mixins/themeable */
+
+/*! ../../util/console */
 
 /*!********************************************!*\
   !*** ./src/components/VJumbotron/index.js ***!
@@ -1069,6 +1128,8 @@ and limitations under the License.
 
 /*! ../../mixins/toggleable */
 
+/*! ../../mixins/themeable */
+
 /*! ../../directives/ripple */
 
 /*!*************************************************!*\
@@ -1111,6 +1172,8 @@ and limitations under the License.
 
 /*! ../../stylus/components/_menus.styl */
 
+/*! vue */
+
 /*! ../../mixins/delayable */
 
 /*! ../../mixins/dependent */
@@ -1136,6 +1199,8 @@ and limitations under the License.
 /*! ../../directives/resize */
 
 /*! ../../util/helpers */
+
+/*! ../../util/SlotProvider */
 
 /*!***************************************!*\
   !*** ./src/components/VMenu/index.js ***!
@@ -1250,7 +1315,7 @@ and limitations under the License.
 /*! ./VOverflowBtn */
 
 /*!***************************************************!*\
-  !*** ./src/components/VPagination/VPagination.js ***!
+  !*** ./src/components/VPagination/VPagination.ts ***!
   \***************************************************/
 
 /*! exports provided: default */
@@ -1261,10 +1326,14 @@ and limitations under the License.
 
 /*! ../../directives/resize */
 
+/*! ../../util/mixins */
+
 /*! ../../mixins/colorable */
 
+/*! ../../mixins/themeable */
+
 /*!*********************************************!*\
-  !*** ./src/components/VPagination/index.js ***!
+  !*** ./src/components/VPagination/index.ts ***!
   \*********************************************/
 
 /*! exports provided: VPagination, default */
@@ -1379,8 +1448,6 @@ and limitations under the License.
 
 /*! ../../mixins/registrable */
 
-/*! ../../util/helpers */
-
 /*!***************************************************!*\
   !*** ./src/components/VRadioGroup/VRadioGroup.js ***!
   \***************************************************/
@@ -1428,10 +1495,64 @@ and limitations under the License.
 /*! ./VRangeSlider */
 
 /*!*******************************************!*\
-  !*** ./src/components/VSelect/VSelect.js ***!
+  !*** ./src/components/VRating/VRating.ts ***!
   \*******************************************/
 
 /*! exports provided: default */
+
+/*! ../../stylus/components/_rating.styl */
+
+/*! ../VIcon */
+
+/*! ../../mixins/colorable */
+
+/*! ../../mixins/delayable */
+
+/*! ../../mixins/sizeable */
+
+/*! ../../mixins/rippleable */
+
+/*! ../../mixins/themeable */
+
+/*! ../../util/helpers */
+
+/*! ../../util/mixins */
+
+/*!*****************************************!*\
+  !*** ./src/components/VRating/index.ts ***!
+  \*****************************************/
+
+/*! exports provided: VRating, default */
+
+/*! ./VRating */
+
+/*!***************************************************!*\
+  !*** ./src/components/VResponsive/VResponsive.ts ***!
+  \***************************************************/
+
+/*! exports provided: default */
+
+/*! ../../stylus/components/_responsive.styl */
+
+/*! ../../mixins/measurable */
+
+/*! ../../util/mixins */
+
+/*! ../../util/helpers */
+
+/*!*********************************************!*\
+  !*** ./src/components/VResponsive/index.ts ***!
+  \*********************************************/
+
+/*! exports provided: VResponsive, default */
+
+/*! ./VResponsive */
+
+/*!*******************************************!*\
+  !*** ./src/components/VSelect/VSelect.js ***!
+  \*******************************************/
+
+/*! exports provided: defaultMenuProps, default */
 
 /*! ../../stylus/components/_text-fields.styl */
 
@@ -1448,8 +1569,6 @@ and limitations under the License.
 /*! ../../mixins/comparable */
 
 /*! ../../mixins/filterable */
-
-/*! ../../mixins/menuable */
 
 /*! ../../directives/click-outside */
 
@@ -1494,6 +1613,8 @@ and limitations under the License.
 /*! ../VCombobox */
 
 /*! ../../util/rebuildFunctionalSlots */
+
+/*! ../../util/dedupeModelListeners */
 
 /*! ../../util/console */
 
@@ -1647,6 +1768,8 @@ and limitations under the License.
 
 /*! ../../directives/touch */
 
+/*! ../../util/helpers */
+
 /*!*****************************************!*\
   !*** ./src/components/VSwitch/index.js ***!
   \*****************************************/
@@ -1684,6 +1807,8 @@ and limitations under the License.
 /*! exports provided: default */
 
 /*! ../../mixins/routable */
+
+/*! ../../mixins/themeable */
 
 /*! ../../mixins/registrable */
 
@@ -1755,7 +1880,7 @@ and limitations under the License.
   !*** ./src/components/VTabs/index.js ***!
   \***************************************/
 
-/*! exports provided: VTabs, VTabItem, VTab, VTabsItems, VTabsSlider, default */
+/*! exports provided: VTabs, VTab, VTabItem, VTabsItems, VTabsSlider, default */
 
 /*! ./VTabs */
 
@@ -1836,6 +1961,8 @@ and limitations under the License.
 /*! ../VTextarea/VTextarea */
 
 /*! ../../util/rebuildFunctionalSlots */
+
+/*! ../../util/dedupeModelListeners */
 
 /*! ../../util/console */
 
@@ -1989,6 +2116,8 @@ and limitations under the License.
 
 /*! exports provided: checkVueVersion, default */
 
+/*! vue */
+
 /*! ./mixins/application */
 
 /*! ./mixins/breakpoint */
@@ -2001,9 +2130,9 @@ and limitations under the License.
 
 /*! ./mixins/lang */
 
-/*! ../../util/console */
-
 /*! ./util/goTo */
+
+/*! ../../util/console */
 
 /*!******************************************************!*\
   !*** ./src/components/Vuetify/mixins/application.ts ***!
@@ -2061,9 +2190,7 @@ and limitations under the License.
   !*** ./src/components/index.js ***!
   \*********************************/
 
-/*! exports provided: Vuetify, VApp, VAlert, VAutocomplete, VAvatar, VBadge, VBottomNav, VBottomSheet, VBreadcrumbs, VBtn, VBtnToggle, VCard, VCarousel, VCheckbox, VChip, VCombobox, VCounter, VDataIterator, VDataTable, VDatePicker, VDialog, VDivider, VExpansionPanel, VFooter, VForm, VGrid, VIcon, VInput, VJumbotron, VLabel, VList, VMenu, VMessages, VNavigationDrawer, VOverflowBtn, VPagination, VParallax, VPicker, VProgressCircular, VProgressLinear, VRadioGroup, VRangeSlider, VSelect, VSlider, VSnackbar, VSpeedDial, VStepper, VSubheader, VSwitch, VSystemBar, VTabs, VTextarea, VTextField, VTimePicker, VToolbar, VTooltip, Transitions */
-
-/*! ./Vuetify */
+/*! exports provided: VApp, VAlert, VAutocomplete, VAvatar, VBadge, VBottomNav, VBottomSheet, VBreadcrumbs, VBtn, VBtnToggle, VCard, VCarousel, VCheckbox, VChip, VCombobox, VCounter, VDataIterator, VDataTable, VDatePicker, VDialog, VDivider, VExpansionPanel, VFooter, VForm, VGrid, VHover, VIcon, VImg, VInput, VJumbotron, VLabel, VList, VMenu, VMessages, VNavigationDrawer, VOverflowBtn, VPagination, VParallax, VPicker, VProgressCircular, VProgressLinear, VRadioGroup, VRangeSlider, VRating, VResponsive, VSelect, VSlider, VSnackbar, VSpeedDial, VStepper, VSubheader, VSwitch, VSystemBar, VTabs, VTextarea, VTextField, VTimePicker, VToolbar, VTooltip, Transitions */
 
 /*! ./VApp */
 
@@ -2115,7 +2242,11 @@ and limitations under the License.
 
 /*! ./VGrid */
 
+/*! ./VHover */
+
 /*! ./VIcon */
+
+/*! ./VImg */
 
 /*! ./VInput */
 
@@ -2146,6 +2277,10 @@ and limitations under the License.
 /*! ./VRadioGroup */
 
 /*! ./VRangeSlider */
+
+/*! ./VRating */
+
+/*! ./VResponsive */
 
 /*! ./VSelect */
 
@@ -2189,7 +2324,7 @@ and limitations under the License.
   !*** ./src/components/transitions/index.js ***!
   \*********************************************/
 
-/*! exports provided: VBottomSheetTransition, VCarouselTransition, VCarouselReverseTransition, VTabTransition, VTabReverseTransition, VMenuTransition, VFabTransition, VDialogTransition, VDialogBottomTransition, VFadeTransition, VScaleTransition, VSlideXTransition, VSlideXReverseTransition, VSlideYTransition, VSlideYReverseTransition, VExpandTransition, VRowExpandTransition, default */
+/*! exports provided: VBottomSheetTransition, VCarouselTransition, VCarouselReverseTransition, VTabTransition, VTabReverseTransition, VMenuTransition, VFabTransition, VDialogTransition, VDialogBottomTransition, VFadeTransition, VScaleTransition, VScrollXTransition, VScrollXReverseTransition, VScrollYTransition, VScrollYReverseTransition, VSlideXTransition, VSlideXReverseTransition, VSlideYTransition, VSlideYReverseTransition, VExpandTransition, VRowExpandTransition, default */
 
 /*! ../../util/helpers */
 
@@ -2202,10 +2337,10 @@ and limitations under the License.
 /*! exports provided: default */
 
 /*!*********************************!*\
-  !*** ./src/directives/index.js ***!
+  !*** ./src/directives/index.ts ***!
   \*********************************/
 
-/*! exports provided: ClickOutside, Ripple, Resize, Scroll, Touch, default */
+/*! exports provided: ClickOutside, Ripple, Resize, Scroll, Touch */
 
 /*! ./click-outside */
 
@@ -2251,12 +2386,14 @@ and limitations under the License.
 
 /*! ./stylus/app.styl */
 
+/*! ./components/Vuetify */
+
 /*! ./components */
 
 /*! ./directives */
 
 /*!**************************!*\
-  !*** ./src/locale/en.js ***!
+  !*** ./src/locale/en.ts ***!
   \**************************/
 
 /*! exports provided: default */
@@ -2379,11 +2516,21 @@ and limitations under the License.
 
 /*! ../util/mask */
 
+/*!**********************************!*\
+  !*** ./src/mixins/measurable.ts ***!
+  \**********************************/
+
+/*! exports provided: default */
+
+/*! vue */
+
 /*!********************************!*\
   !*** ./src/mixins/menuable.js ***!
   \********************************/
 
 /*! exports provided: default */
+
+/*! vue */
 
 /*! ./positionable */
 
@@ -2477,7 +2624,13 @@ and limitations under the License.
 
 /*! ./comparable */
 
-/*! ../util/helpers */
+/*!********************************!*\
+  !*** ./src/mixins/sizeable.ts ***!
+  \********************************/
+
+/*! exports provided: default */
+
+/*! vue */
 
 /*!************************************!*\
   !*** ./src/mixins/ssr-bootable.ts ***!
@@ -2499,7 +2652,7 @@ and limitations under the License.
   !*** ./src/mixins/themeable.ts ***!
   \*********************************/
 
-/*! exports provided: default */
+/*! exports provided: functionalThemeClasses, default */
 
 /*! vue */
 
@@ -2716,6 +2869,12 @@ and limitations under the License.
 /*! no static exports found */
 
 /*!********************************************!*\
+  !*** ./src/stylus/components/_images.styl ***!
+  \********************************************/
+
+/*! no static exports found */
+
+/*!********************************************!*\
   !*** ./src/stylus/components/_inputs.styl ***!
   \********************************************/
 
@@ -2814,6 +2973,18 @@ and limitations under the License.
 /*!***************************************************!*\
   !*** ./src/stylus/components/_range-sliders.styl ***!
   \***************************************************/
+
+/*! no static exports found */
+
+/*!********************************************!*\
+  !*** ./src/stylus/components/_rating.styl ***!
+  \********************************************/
+
+/*! no static exports found */
+
+/*!************************************************!*\
+  !*** ./src/stylus/components/_responsive.styl ***!
+  \************************************************/
 
 /*! no static exports found */
 
@@ -2925,6 +3096,14 @@ and limitations under the License.
 
 /*! no static exports found */
 
+/*!**********************************!*\
+  !*** ./src/util/SlotProvider.ts ***!
+  \**********************************/
+
+/*! exports provided: default */
+
+/*! vue */
+
 /*!*******************************************!*\
   !*** ./src/util/color/transformCIELAB.ts ***!
   \*******************************************/
@@ -2941,7 +3120,7 @@ and limitations under the License.
   !*** ./src/util/colorUtils.ts ***!
   \********************************/
 
-/*! exports provided: colorToInt, intToHex */
+/*! exports provided: colorToInt, intToHex, colorToHex */
 
 /*! ./console */
 
@@ -2950,6 +3129,12 @@ and limitations under the License.
   \*****************************/
 
 /*! exports provided: consoleInfo, consoleWarn, consoleError, deprecate */
+
+/*!******************************************!*\
+  !*** ./src/util/dedupeModelListeners.ts ***!
+  \******************************************/
+
+/*! exports provided: default */
 
 /*!*************************************!*\
   !*** ./src/util/easing-patterns.js ***!
@@ -2961,7 +3146,7 @@ and limitations under the License.
   !*** ./src/util/helpers.ts ***!
   \*****************************/
 
-/*! exports provided: createSimpleFunctional, createSimpleTransition, createJavaScriptTransition, directiveConfig, addOnceEventListener, getNestedValue, deepEqual, getObjectValueByPath, getPropertyFromItem, createRange, getZIndex, escapeHTML, filterObjectOnKeys, filterChildren, convertToUnit, kebabCase, isObject, keyCodes, keys */
+/*! exports provided: createSimpleFunctional, createSimpleTransition, createJavaScriptTransition, directiveConfig, addOnceEventListener, getNestedValue, deepEqual, getObjectValueByPath, getPropertyFromItem, createRange, getZIndex, escapeHTML, filterObjectOnKeys, filterChildren, convertToUnit, kebabCase, isObject, keyCodes, remapInternalIcon, keys, camelize */
 
 /*!**************************!*\
   !*** ./src/util/mask.js ***!
@@ -2987,7 +3172,7 @@ and limitations under the License.
   !*** ./src/util/theme.ts ***!
   \***************************/
 
-/*! exports provided: parse, genBaseColor, genVariantColor, genVariations */
+/*! exports provided: parse, genStyles, genVariations */
 
 /*! ./colorUtils */
 
@@ -3015,7 +3200,7 @@ and limitations under the License.
  */
 
 /*!
-* sweetalert2 v7.26.11
+* sweetalert2 v7.26.12
 * Released under the MIT License.
 */
 

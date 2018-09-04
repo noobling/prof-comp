@@ -29,6 +29,8 @@
     created() {
       if (this.$store.getters['auth/check'] && this.$store.getters['auth/user'].type === 'Researcher') {
         this.$router.push('/sleeprecord/researcher')
+      } else if (this.$store.getters['auth/check']) {
+        this.$router.push('/sleeprecord/user')
       }
     }
   }
