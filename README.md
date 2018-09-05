@@ -60,8 +60,8 @@ Meetings every Wednesday 3pm
       <td>
         <ul>
           <li><del>Auditor Meeting 3pm 29th August</del></li>
-          <li>Timesheet, Minutes, Booked hours submission</li>
-          <li> Essay </li>
+          <li><del>Timesheet, Minutes, Booked hours submission</del></li>
+          <li><del>Essay</del></li>
         </ul>
       </td>
     </tr>
@@ -70,9 +70,8 @@ Meetings every Wednesday 3pm
       <td>Week 6</td>
       <td>
         <ul>
-          <li>Timesheet, Minutes, Booked hours submission</li>
+          <li><del>Timesheet, Minutes, Booked hours submission</del></li>
           <li> Mentor Meeting 2: Friday 7th September 2pm at Uni IT on Level 2 of the Ken & Julie Michael building (7 Fairway)</li>
-          <li>Auditor Meeting</li>
         </ul>
       </td>
     </tr>
@@ -82,6 +81,7 @@ Meetings every Wednesday 3pm
       <td>
         <ul>
           <li>Timesheet, Minutes, Booked hours submission</li>
+          <li>Auditor Meeting</li>
         </ul>
       </td>
     </tr>
