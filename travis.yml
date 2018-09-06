@@ -1,0 +1,14 @@
+language: php
+
+php:
+  - 7.1
+
+before_script:
+  - cd website
+  - cp .env.travis .env
+  - composer self-update
+  - composer install --no-interaction
+
+script:
+  - php artisan key:generate
+  - vendor/bin/phpunit
