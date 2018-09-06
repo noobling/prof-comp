@@ -4,7 +4,7 @@ import colors from 'vuetify/es5/util/colors'
 
 Vue.use(Vuetify, {
   theme: {
-    primary: '#125FC3', // a color that is not in the material colors palette
+    primary: '#F56E78', // a color that is not in the material colors palette
     accent: colors.grey.darken3,
     secondary: '#0090F7',
     info: colors.teal.lighten1,
