@@ -1,5 +1,6 @@
 # prof-comp
 Prof comp repo
+[![Build Status](https://travis-ci.org/noobling/prof-comp.svg?branch=master)](https://travis-ci.org/noobling/prof-comp)
 
 ## Important Project info
 Meetings every Wednesday 3pm
