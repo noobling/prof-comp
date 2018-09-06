@@ -22,6 +22,7 @@
     head() {
       return { title: 'Sleep Diary App' }
     },
+    
     data: () => ({
       gradient: 'to top right, rgba(63,81,181, .7), rgba(25,32,72, .7)'
     }),

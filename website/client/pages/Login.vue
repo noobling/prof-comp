@@ -11,7 +11,8 @@
               v-model="form.email"
               :rules="emailRules"
               label="Email"
-              required>
+              required
+              outline>
             </v-text-field>
 
             <v-text-field
@@ -25,6 +26,7 @@
               v-model="form.password"
               :counter="6"
               required
+              outline
             ></v-text-field>
 
             <v-btn color="primary" :disabled="!valid" type="submit" @click.prevent="submit" :loading="loading">Submit</v-btn>
