@@ -51,7 +51,7 @@
             "@php artisan package:discover"
         ],
         "post-install-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "Illuminate\\Foundation\\ComposerScripts::postInstall"
         ]
     },
     "config": {
