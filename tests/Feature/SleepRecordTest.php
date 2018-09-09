@@ -29,18 +29,18 @@ class SleepRecordTest extends TestCase
             'awakeningsTotalDuration' => '01:00',
             'awakeningsFinalTime' => '06:00',
             'date' => '2018-08-30',
+            'earlyWakeUp' => true,
             'earlyWakeUpDuration' => '01:01',
             'feeling' => 'Somewhat rested',
             'sleepDuration' => '12:00',
             'sleepQuality' => 'Fair',
             'timeGotIntoBed' => '23:00',
-            'timeOutOfBed' => '08:00',
             'timeTakenToSleepDuration' => '01:00',
             'timeToTrySleep' => '00:00',
             'timeWokenUp' => '07:00'
         ])
         ->assertSuccessful()
-        ->assertJsonStructure(['awakeningsFinalDuration', 'awakeningsNumber', 'awakeningsTotalDuration', 'awakeningsFinalTime', 'date', 'earlyWakeUpDuration', 'feeling', 'sleepQuality', 'timeGotIntoBed', 'timeOutOfBed', 'timeTakenToSleepDuration', 'timeToTrySleep', 'timeWokenUp', 'sleepDuration']);
+        ->assertJsonStructure(['awakeningsFinalDuration', 'awakeningsNumber', 'awakeningsTotalDuration', 'awakeningsFinalTime', 'date', 'earlyWakeUpDuration', 'feeling', 'sleepQuality', 'timeGotIntoBed','timeTakenToSleepDuration', 'timeToTrySleep', 'timeWokenUp', 'sleepDuration', 'earlyWakeUp']);
 
         $this->assertDatabaseHas('sleep_records', [
             'awakeningsFinalDuration' => '01:00',
@@ -53,10 +53,10 @@ class SleepRecordTest extends TestCase
             'sleepDuration' => '12:00',            
             'sleepQuality' => 'Fair',
             'timeGotIntoBed' => '23:00',
-            'timeOutOfBed' => '08:00',
             'timeTakenToSleepDuration' => '01:00',
             'timeToTrySleep' => '00:00',
-            'timeWokenUp' => '07:00'
+            'timeWokenUp' => '07:00',
+            'earlyWakeUp' => '1'
         ]);
     }
 

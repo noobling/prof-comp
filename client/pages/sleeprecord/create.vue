@@ -4,7 +4,7 @@
       <v-scale-transition v-if="form">
         <v-card>
           <v-toolbar card>
-            <v-btn icon>
+            <v-btn icon to="/sleeprecord/user">
               <v-icon>arrow_back</v-icon>
             </v-btn>
             <v-toolbar-title class="body-2">New Sleep Record</v-toolbar-title>
@@ -47,7 +47,7 @@
                   </v-autocomplete>
                   <v-autocomplete
                     v-model="form.timeWokenUp"
-                    label="What time did wake up?"
+                    label="What time did you get out of bed for the day?"
                     required
                     :rules="requiredRule"
                     :items="timeOfDays"
@@ -57,7 +57,7 @@
                   </v-autocomplete>
                   <v-autocomplete
                     v-model="form.timeTakenToSleepDuration"
-                    label="How long did it take you to sleep"                  
+                    label="How long did it take you to fall asleep"                  
                     :rules="requiredRule"
                     :items="timeDurationsArr"
                     item-text="time"
@@ -82,7 +82,7 @@
                     type="number">
                   </v-text-field>
                   <v-autocomplete
-                    v-model="awakeningsTotalDuration"
+                    v-model="form.awakeningsTotalDuration"
                     label="In total, how long did these awakenings last?"
                     :items="timeDurationsArr"
                     :rules="requiredRule"
@@ -106,7 +106,7 @@
                     >
                   </v-autocomplete>
                   <v-autocomplete
-                    v-model="awakeningsFinalDuration"
+                    v-model="form.awakeningsFinalDuration"
                     label="After your final awakening how long did you spend in bed trying to sleep?"                  
                     :items="timeDurationsArr"
                     :rules="requiredRule"
@@ -117,15 +117,15 @@
                     :filter="timeFilter"
                   >
                   </v-autocomplete>
-                  <v-checkbox label="Did you wake up earlier than planned?" v-model="earlyWakeUp"></v-checkbox>
+                  <v-checkbox label="Did you wake up earlier than planned?" v-model="form.earlyWakeUp"></v-checkbox>
                   <v-autocomplete
-                    v-model="earlyWakeUpDuration"
+                    v-model="form.earlyWakeUpDuration"
                     label="How much earlier?"
                     :items="timeDurationsArr"
                     :rules="requiredRule"
                     item-text="time"
                     item-value="value"
-                    v-if="earlyWakeUp"                  
+                    v-if="form.earlyWakeUp"                  
                     required
                     :filter="timeFilter"
                     >
@@ -139,17 +139,6 @@
                 </v-stepper-step>
 
                 <v-stepper-content step="3" v-if="currentStep == 3">
-                  <v-autocomplete
-                    v-model="form.timeOutOfBed"
-                    label="What time did you get out of bed for the day?"
-                    :items="timeOfDays.reverse()"
-                    :rules="requiredRule"
-                    item-text="time"
-                    item-value="value"
-                    required
-                    :filter="timeFilter"
-                    >
-                  </v-autocomplete>
                   <v-autocomplete
                     v-model="form.sleepDuration"
                     label="In total, how long did you sleep?"
@@ -224,16 +213,9 @@
       return {
         requiredRule: [v => !!v || 'Field is required'],
         form: {
-          awakeningsFinalTime: '00:00'
         },
         earlyWakeUp: false,
         valid: true,
-        awakeningsTotalDuration: '00:00',
-        textawakeningsTotalDuration: '',
-        awakeningsFinalDuration: '00:00',
-        textawakeningsFinalDuration: '',
-        earlyWakeUpDuration: '00:00',
-        textearlyWakeUpDuration: '',
         currentStep: 1
       }
     },
@@ -253,26 +235,12 @@
     },
 
     watch: {
-      awakeningsTotalDuration (val) {
-        this.textawakeningsTotalDuration = this.timeToText(val)
-      },
-
-      awakeningsFinalDuration (val) {
-        this.textawakeningsFinalDuration  = this.timeToText(val)
-      },
-
-      earlyWakeUpDuration(val) {
-        this.textearlyWakeUpDuration = this.timeToText(val)
-      }
+    
     },
 
     methods: {
       submit: async function () {
         if (this.$refs.form.validate()) {
-          // Add this data to form submission
-          this.form['awakeningsTotalDuration'] = this.awakeningsTotalDuration
-          this.form['awakeningsFinalDuration'] = this.awakeningsFinalDuration
-          this.form['earlyWakeUpDuration'] = this.earlyWakeUpDuration
           const { data } = await axios.post('/user/sleeprecord', this.form)
 
           this.$router.push('/sleeprecord/user')
@@ -282,32 +250,6 @@
       nextStep: function () {
         if (this.$refs.form.validate()) {
           this.currentStep += 1
-        }
-      },
-
-      // Takes time in hh:mm format and outputs it in a human friendly way
-      timeToText: function (time) {
-        let hour = time.split(':')[0]
-        let minutes = time.split(':')[1]
-        // Remove leading zeros
-        hour = parseInt(hour, 10)
-        minutes = parseInt(minutes, 10)
-
-        return hour + ' hours ' + minutes + ' minutes'
-      },
-      // In the following format 0131
-      timeToTextNew: function(time) {
-        if (time && time.length === 4) {
-          let hours = time.substring(0,2)
-          let minutes = time.substring(2,4)
-
-          // Remove leading zeros
-          hours = parseInt(hours, 10)
-          minutes = parseInt(minutes, 10)
-
-          return hours + ' hours ' + minutes + ' minutes'          
-        } else {
-          return false
         }
       },
 
