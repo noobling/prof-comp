@@ -62,7 +62,7 @@
       </v-list-tile>
     </v-list>
     
-    <v-list>
+    <v-list v-if="user">
       <v-list-tile @click="store.dispatch('auth/logout')">
         <v-list-tile-action>
           <v-icon>logout</v-icon>
@@ -82,6 +82,10 @@
     computed: {
       mini() {
         return this.$vuetify.breakpoint.name === 'xs'
+      },
+
+      user() {
+        return this.$store.getters['auth/user']
       }
     }
   }

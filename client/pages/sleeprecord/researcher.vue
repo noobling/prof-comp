@@ -1,28 +1,31 @@
 <template>
   <v-layout>
-    <v-flex xs12 sm6 offset-sm3>
-      <v-card>
-        <v-list two-line v-if="sleeprecords">
-          <template v-for="(item, index) in items">
-            <v-list-tile :key="item.user" avatar ripple>
-              <v-list-tile-content>
-                <v-list-tile-title>User: {{ item.user }}</v-list-tile-title>
-                <v-list-tile-sub-title class="text--primary">Number of Sleep Records: {{ item.numSleepRecords }}</v-list-tile-sub-title>
-                <v-list-tile-sub-title>Filler</v-list-tile-sub-title>
-              </v-list-tile-content>
+    <v-flex xs12 sm8 offset-sm2>
+      <v-scale-transition>
+        <v-card v-if="sleeprecords">
+          <v-list two-line >
+            <template v-for="(item, index) in items">
+              <v-list-tile :key="item.user" avatar ripple>
+                <v-list-tile-content>
+                  <v-list-tile-title>User: {{ item.user }}</v-list-tile-title>
+                  <v-list-tile-sub-title class="text--primary">Number of Sleep Records: {{ item.numSleepRecords }}</v-list-tile-sub-title>
+                  <v-list-tile-sub-title>Filler</v-list-tile-sub-title>
+                </v-list-tile-content>
 
-              <v-list-tile-action>
-                <v-list-tile-action-text>Last Sleep Record: {{ item.lastDate }}</v-list-tile-action-text>
-                <v-icon @click="convertToCSV(item)">
-                  cloud_download
-                </v-icon>
-              </v-list-tile-action>
+                <v-list-tile-action>
+                  <v-list-tile-action-text>Last Sleep Record: {{ item.lastDate }}</v-list-tile-action-text>
+                  <v-icon @click="convertToCSV(item)">
+                    cloud_download
+                  </v-icon>
+                </v-list-tile-action>
 
-            </v-list-tile>
-            <v-divider v-if="index + 1 < items.length" :key="index"></v-divider>
-          </template>
-        </v-list>
-      </v-card>
+              </v-list-tile>
+              <v-divider v-if="index + 1 < items.length" :key="index"></v-divider>
+            </template>
+          </v-list>
+        </v-card>
+      </v-scale-transition>
+      
     </v-flex>
   </v-layout>
 </template>

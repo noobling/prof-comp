@@ -2,7 +2,7 @@
   <v-layout>
     <v-flex xs12 sm6 offset-sm3>
       <v-scale-transition>
-        <v-card dark v-if="sleeprecords" >
+        <v-card class="card" dark v-if="sleeprecords" >
           <v-toolbar class="headline red lighten-3">
             <v-toolbar-title>Sleep Journal</v-toolbar-title>
           </v-toolbar>
@@ -53,8 +53,9 @@
         }).then(result => {
           this.$router.push("/login");
         });
+      } else {
+        this.fetchData()      
       }
-      this.fetchData()      
     },
 
     methods: {
@@ -69,3 +70,9 @@
     }
   }
 </script>
+
+<style scoped>
+  .card {
+    padding: 0
+  }
+</style>
