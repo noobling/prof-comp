@@ -1,6 +1,6 @@
 <template>
   <v-layout>
-    <v-flex xs12 sm8 offset-sm2>
+    <v-flex xs12 sm10 offset-sm1>
       <v-scale-transition v-if="form">
         <v-card>
           <v-toolbar card>
@@ -10,9 +10,8 @@
             <v-toolbar-title class="body-2">New Sleep Record</v-toolbar-title>
           </v-toolbar>
 
-          <v-card-text>
             <v-form ref="form" v-model="valid" @submit="submit" lazy-validation="">
-              <v-stepper v-model="currentStep" vertical>
+              <v-stepper v-model="currentStep" vertical style="box-shadow: none;">
                 <v-stepper-step step="1" :complete="currentStep > 1" @click="currentStep = 1">
                   <span @click="currentStep = 1" class="stepper-header">Sleep Times</span>
                 </v-stepper-step>
@@ -24,7 +23,7 @@
                     :rules="requiredRule"
                     type="date">
                   </v-text-field>
-                  <v-select
+                  <v-autocomplete
                     v-model="form.timeGotIntoBed"
                     label="What time did you get into bed?"
                     required
@@ -32,9 +31,10 @@
                     :items="timeOfDays"
                     item-text="time"
                     item-value="value"
-                    autocomplete>
-                  </v-select>
-                  <v-select
+                    :filter="timeFilter">
+                  </v-autocomplete>
+                  
+                  <v-autocomplete
                     v-model="form.timeToTrySleep"
                     label="What time did you try to go to sleep?"
                     required
@@ -42,10 +42,10 @@
                     :items="timeOfDays"
                     item-text="time"
                     item-value="value"
-                    autocomplete
+                    :filter="timeFilter"
                     >
-                  </v-select>
-                  <v-select
+                  </v-autocomplete>
+                  <v-autocomplete
                     v-model="form.timeWokenUp"
                     label="What time did wake up?"
                     required
@@ -53,18 +53,18 @@
                     :items="timeOfDays"
                     item-text="time"
                     item-value="value"
-                    autocomplete>
-                  </v-select>
-                  <v-select
+                    :filter="timeFilter">
+                  </v-autocomplete>
+                  <v-autocomplete
                     v-model="form.timeTakenToSleepDuration"
                     label="How long did it take you to sleep"                  
                     :rules="requiredRule"
                     :items="timeDurationsArr"
                     item-text="time"
                     item-value="value"
-                    autocomplete
+                    :filter="timeFilter"
                   >
-                  </v-select>
+                  </v-autocomplete>
                   
                   <v-btn class="btn-spaced" :disabled="!valid" color="primary" @click="nextStep">Continue</v-btn>
                 </v-stepper-content>
@@ -81,7 +81,7 @@
                     :rules="requiredRule"
                     type="number">
                   </v-text-field>
-                  <v-select
+                  <v-autocomplete
                     v-model="awakeningsTotalDuration"
                     label="In total, how long did these awakenings last?"
                     :items="timeDurationsArr"
@@ -90,10 +90,10 @@
                     item-value="value"
                     v-if="form.awakeningsNumber && form.awakeningsNumber > 0"
                     required
-                    autocomplete>
-                  </v-select>
+                    :filter="timeFilter">
+                  </v-autocomplete>
                 
-                  <v-select
+                  <v-autocomplete
                     v-model="form.awakeningsFinalTime"
                     label="What time was your final awakening?"
                     :items="timeOfDays"                  
@@ -102,10 +102,10 @@
                     item-text="time"
                     item-value="value"
                     v-if="form.awakeningsNumber && form.awakeningsNumber > 0"
-                    autocomplete
+                    :filter="timeFilter"
                     >
-                  </v-select>
-                  <v-select
+                  </v-autocomplete>
+                  <v-autocomplete
                     v-model="awakeningsFinalDuration"
                     label="After your final awakening how long did you spend in bed trying to sleep?"                  
                     :items="timeDurationsArr"
@@ -114,11 +114,11 @@
                     item-value="value"
                     v-if="form.awakeningsNumber && form.awakeningsNumber > 0"
                     required
-                    autocomplete
+                    :filter="timeFilter"
                   >
-                  </v-select>
+                  </v-autocomplete>
                   <v-checkbox label="Did you wake up earlier than planned?" v-model="earlyWakeUp"></v-checkbox>
-                  <v-select
+                  <v-autocomplete
                     v-model="earlyWakeUpDuration"
                     label="How much earlier?"
                     :items="timeDurationsArr"
@@ -127,10 +127,10 @@
                     item-value="value"
                     v-if="earlyWakeUp"                  
                     required
-                    autocomplete
+                    :filter="timeFilter"
                     >
 
-                  </v-select>
+                  </v-autocomplete>
                   <v-btn class="btn-spaced" :disabled="!valid" color="primary" @click="nextStep">Continue</v-btn>                
                 </v-stepper-content>
 
@@ -139,7 +139,7 @@
                 </v-stepper-step>
 
                 <v-stepper-content step="3" v-if="currentStep == 3">
-                  <v-select
+                  <v-autocomplete
                     v-model="form.timeOutOfBed"
                     label="What time did you get out of bed for the day?"
                     :items="timeOfDays.reverse()"
@@ -147,10 +147,10 @@
                     item-text="time"
                     item-value="value"
                     required
-                    autocomplete
+                    :filter="timeFilter"
                     >
-                  </v-select>
-                  <v-select
+                  </v-autocomplete>
+                  <v-autocomplete
                     v-model="form.sleepDuration"
                     label="In total, how long did you sleep?"
                     :items="timeDurationsArr"
@@ -158,14 +158,13 @@
                     item-text="time"
                     item-value="value"
                     required
-                    autocomplete
+                    :filter="timeFilter"
                   >
-                  </v-select>
+                  </v-autocomplete>
                   <v-select
                     v-model="form.sleepQuality"
                     label="How would you rate the quality of your sleep"
                     :items="['Very Poor', 'Poor', 'Fair', 'Good', 'Very good']">
-
                   </v-select>
                   <v-select
                     v-model="form.feeling"
@@ -176,10 +175,8 @@
                 </v-stepper-content>
               </v-stepper>
             </v-form>
-          </v-card-text>
         </v-card>
       </v-scale-transition>
-     
     </v-flex>
   </v-layout>
  
@@ -189,6 +186,7 @@
   import axios from 'axios'
   import { mapGetters } from 'vuex'
   import timeMixin from '~/mixins/timeMixin'
+  import swal from 'sweetalert2'
 
   export default {
     head() {
@@ -200,15 +198,26 @@
     mixins: [timeMixin],
 
     created() {
-      const currentDate = new Date()
-      const day = currentDate.getDate()
-      const month = currentDate.getMonth() + 1
-      const year = currentDate.getFullYear()
-      this.form.date = year + '-' + month.toString().padStart(2, '0') + '-' + day.toString().padStart(2, '0')
+      if (!this.$store.getters['auth/check']) {
+         swal({
+          title: "Warning",
+          text: "You need to login to view this page",
+          type: "warning"
+        }).then(result => {
+          this.$router.push("/login");
+        });
+      } else {
+        const currentDate = new Date()
+        const day = currentDate.getDate()
+        const month = currentDate.getMonth() + 1
+        const year = currentDate.getFullYear()
+        this.form.date = year + '-' + month.toString().padStart(2, '0') + '-' + day.toString().padStart(2, '0')
 
-      if (this.$route.query.sleeprecord) {
-        this.form = this.$route.query.sleeprecord
+        if (this.$route.query.sleeprecord) {
+          this.form = this.$route.query.sleeprecord
+        }
       }
+     
     },
 
     data() {
@@ -300,6 +309,16 @@
         } else {
           return false
         }
+      },
+
+      timeFilter (item, queryText, itemText) {
+        const time = item.time.toLowerCase()
+        const value = item.value.toLowerCase()
+        const searchText = queryText.toLowerCase()
+
+        return time.indexOf(searchText) > -1 || 
+          value.indexOf(searchText) > -1 ||
+          item.quickFindText.indexOf(searchText) > -1
       }
     }
   }
