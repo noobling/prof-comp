@@ -16,17 +16,17 @@ class CreateSleepRecordsTable extends Migration
         Schema::create('sleep_records', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->string('awakeningsFinalDuration');
-            $table->unsignedInteger('awakeningsNumber');
-            $table->string('awakeningsTotalDuration');
-            $table->string('awakeningsFinalTime');
+            $table->string('awakeningsFinalDuration')->nullable();
+            $table->unsignedInteger('awakeningsNumber')->default(0);
+            $table->string('awakeningsTotalDuration')->nullable();
+            $table->string('awakeningsFinalTime')->nullable();
             $table->string('date');
-            $table->string('earlyWakeUpDuration');
+            $table->string('earlyWakeUpDuration')->nullable();
+            $table->string('earlyWakeUp')->default(false);
             $table->string('feeling');
             $table->string('sleepDuration');
             $table->string('sleepQuality');
             $table->string('timeGotIntoBed');
-            $table->string('timeOutOfBed');
             $table->string('timeTakenToSleepDuration');
             $table->string('timeToTrySleep');
             $table->string('timeWokenUp');

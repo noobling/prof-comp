@@ -90,6 +90,16 @@
           })
           item.lastDate = lastDate
           this.items.push(item)
+
+          val[key].forEach(record => {
+            record['What time did you get into bed?'] = record['timeGotIntoBed']
+            record['What time did you try to go to sleep?'] = record['timeToTrySleep']
+            record['']
+
+            delete record['timeGotIntoBed']
+            delete record['timeToTrySleep']
+            delete record['id']
+          })
         }
       }
     }
