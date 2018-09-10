@@ -124,6 +124,7 @@ Meetings every Wednesday 3pm
         <ul>
           <li>Timesheet, Minutes, Booked hours submission</li>
           <li>Auditor Meeting</li>
+          <li>Mentor Meeting 10th October 1pm</li>
         </ul>
       </td>
     </tr>
