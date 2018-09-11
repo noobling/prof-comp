@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(content, Questionire.class);
                 intent.putExtra("code", Code);
                 content.startActivity(intent);
-                finish();
                // intent.putExtra("username", "this is user name...");
                 Toast.makeText(MainActivity.this, "Welcome "+Code, Toast.LENGTH_SHORT).show();
             }

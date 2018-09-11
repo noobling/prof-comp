@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/background"
@@ -64,43 +70,123 @@
         </LinearLayout>
 
 
-        <TextView
-            android:id="@+id/textView"
-            style="@style/ask1"
-            android:text="What time did you get into bed?" />
 
-        <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:ems="10"
-        android:inputType="date"
-        android:textColor="@color/black" />
+
+
+
+
+
+        <TextView
+            android:id="@+id/Date_of_sleep"
+            style="@style/ask1"
+            android:text="Date Of Sleep Record" />
+
+
+
+        <TextView
+            android:id="@+id/tv_time1"
+            style="@style/answer"
+            android:text="Click to choose a Date"
+            android:textColor="@color/dark_grey"/>
+
+
+        <View
+            style="@style/WireThinHorizontal"/>
+
+
+
 
 
         <TextView
             android:id="@+id/textView2"
+            style="@style/ask1"
+            android:text="What time did you get into bed?" />
+
+
+        <TextView
+            android:id="@+id/tv_time2"
+            style="@style/answer"
+            android:text="Click to choose a Time"
+            android:textColor="@color/dark_grey"/>
+
+        <View
+            style="@style/WireThinHorizontal"/>
+
+
+
+
+        <TextView
+            android:id="@+id/textView3"
             android:text="What time did you try to go to sleep?"
             style="@style/ask1"/>
 
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:ems="10"
-            android:inputType="date"
-            android:textColor="@color/black" />
+        <TextView
+            android:id="@+id/tv_time3"
+            style="@style/answer"
+            android:text="Click to choose a Time"
+            android:textColor="@color/dark_grey"/>
+        <View
+            style="@style/WireThinHorizontal"/>
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+
+
+
+
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/ask1"
+            android:text="What time did you try to go to sleep?" />
+
+
+        <TextView
+            android:id="@+id/tv_time4"
+            style="@style/answer"
+            android:text="Click to choose a Time"
+            android:textColor="@color/dark_grey"/>
+
+        <View
+            style="@style/WireThinHorizontal"/>
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/ask1"
+            android:text="What time did wake up?" />
+
+
+        <TextView
+            android:id="@+id/tv_time5"
+            style="@style/answer"
+            android:text="Click to choose a Time"
+            android:textColor="@color/dark_grey"/>
+
+        <View
+            style="@style/WireThinHorizontal"/>
+
+        <TextView
+            android:id="@+id/textView6"
+            style="@style/ask1"
+            android:text="What time did wake up?" />
+
+
+        <TextView
+            android:id="@+id/tv_time6"
+            style="@style/answer"
+            android:text="Click to choose a Time"
+            android:textColor="@color/dark_grey"/>
+
+        <View
+            style="@style/WireThinHorizontal"/>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="next"
+            android:textSize="@dimen/font_larger" />
 
 
     </LinearLayout>
 
 </LinearLayout>
+</ScrollView>
