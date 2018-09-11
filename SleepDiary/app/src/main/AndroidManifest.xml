@@ -13,14 +13,17 @@
             android:name=".MainActivity"
             android:theme="@style/NoAnimationTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"
-                    android:windowSoftInputMode="adjustPan"/>
+                <action
+                    android:name="android.intent.action.MAIN"
+                    android:windowSoftInputMode="adjustPan" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Questionire"
-            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".Questionire"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".Questionire2"></activity>
     </application>
 
 </manifest>
