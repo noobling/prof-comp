@@ -1,21 +1,28 @@
 package com.example.zihaol.sleepdiary;
 
+import android.animation.TimeAnimator;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
+
+import android.widget.TimePicker.OnTimeChangedListener;
 
 public class Questionire extends AppCompatActivity {
 
 
     private TextView Date_Of_Record;
+    private TextView Go_to_bed;
     private Button NextQ;
     private Context content;
 
@@ -29,7 +36,18 @@ public class Questionire extends AppCompatActivity {
 
     private void initView(){
         Date_Of_Record=(TextView)findViewById(R.id.tv_time1);
+        Go_to_bed=(TextView)findViewById(R.id.tv_time2);
+
         NextQ=(Button)findViewById(R.id.btn_submit) ;
+
+
+
+        Go_to_bed.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setTimeAction();
+            }
+        }));
 
         Date_Of_Record.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +70,7 @@ public class Questionire extends AppCompatActivity {
 
     private void setDateAction(){
         final DatePicker dpBirth = (DatePicker) getLayoutInflater().inflate(R.layout.dialog_edit_date, null);
-        Toast.makeText(Questionire.this, "111", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(Questionire.this, "111", Toast.LENGTH_SHORT).show();
         new AlertDialog.Builder(Questionire.this)
                 .setTitle("Date Of Sleep")
                 .setView(dpBirth)
@@ -66,5 +84,33 @@ public class Questionire extends AppCompatActivity {
                 .setNegativeButton("Cancel", null)
                 .create()
                 .show();
+    }
+
+
+        private void setTimeAction(){
+        final TimePicker dpTime=(TimePicker) getLayoutInflater().inflate(R.layout.dialog_edit_time,null);
+
+
+
+
+        new AlertDialog.Builder(Questionire.this)
+                .setTitle("Date Of Sleep")
+                .setView(dpTime)
+                .setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                            int hour = dpTime.getHour();
+                            int min = dpTime.getMinute();
+                            Go_to_bed.setText(hour + min);
+                        }
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .create()
+                .show();
+
+
+
     }
 }
