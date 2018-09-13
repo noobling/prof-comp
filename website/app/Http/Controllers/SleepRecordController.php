@@ -37,4 +37,32 @@ class SleepRecordController extends Controller
     {
         return $request->user()->sleepRecords;
     }
+
+    public function update(Request $request, SleepRecord $sleepRecord)
+    {
+        if ($sleepRecord->user_id != auth()->id() && $request->user()->type != 'Researcher') {
+            return response('Unauthorized', 403);
+        } 
+        return tap($sleepRecord)->update($request->all());
+    }
+
+    public function show(Request $request, SleepRecord $sleepRecord)
+    {
+        if ($sleepRecord->user_id != auth()->id() && $request->user()->type != 'Researcher') {
+            return response('Unauthorized', 403);
+        }
+        
+        return $sleepRecord;
+    }
+
+    public function destroy(Request $request, SleepRecord $sleepRecord)
+    {
+        if ($sleepRecord->user_id != auth()->id() && $request->user()->type != 'Researcher') {
+            return response('Unauthorized', 403);
+        }
+
+        $sleepRecord->delete();
+
+        return response('Deleted');
+    }
 }
