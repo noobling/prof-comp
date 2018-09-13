@@ -9,13 +9,6 @@
         <v-card-text>
           <v-form ref="form" v-model="valid" @submit="submit" lazy-validation="">
             <v-text-field
-              v-model="form.name"
-              :rules="[v => !!v || 'Name is required']"
-              label="Name"
-              required>
-            </v-text-field>
-
-            <v-text-field
               v-model="form.email"
               :rules="emailRules"
               label="Email"

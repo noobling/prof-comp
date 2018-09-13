@@ -71,11 +71,10 @@ class UserController extends Controller
 
         // Email must be unique for all users and cannot be the same as existing email
         $request->validate([
-            'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$user->id
         ]);
 
-        return tap($user)->update($request->only('name', 'email'));
+        return tap($user)->update($request->only('email'));
     }
 
     /**

@@ -9,7 +9,7 @@
       <v-layout align-center>
         <v-flex text-xs-center>
           <h3 class="display-2 mb-4">Center for Sleep Science Sleep Diary App</h3>
-          <v-btn large outline to="/login">Get Started</v-btn>
+          <v-btn large outline to="/register">Get Started</v-btn>
         </v-flex>
       </v-layout>
     </v-container>
