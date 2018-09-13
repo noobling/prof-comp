@@ -24,6 +24,6 @@ class GetUserDataTest extends TestCase
         $this->actingAs($this->user)
             ->getJson('/api/user')
             ->assertSuccessful()
-            ->assertJsonStructure(['id', 'name', 'email']);
+            ->assertJsonStructure(['id', 'email']);
     }
 }
