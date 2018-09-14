@@ -243,7 +243,7 @@
                     Add Medicine
                   </v-btn>
                   <v-textarea
-                    v-model="form.comment"
+                    v-model="form.comments"
                     label="Comments (if applicable)"
                   >
 

@@ -22,7 +22,7 @@ class CreateSleepRecordsTable extends Migration
             $table->string('awakeningsFinalTime')->nullable();
             $table->string('date');
             $table->string('earlyWakeUpDuration')->nullable();
-            $table->string('earlyWakeUp')->default(false);
+            $table->boolean('earlyWakeUp')->default(false);
             $table->string('feeling');
             $table->string('sleepDuration');
             $table->string('sleepQuality');
