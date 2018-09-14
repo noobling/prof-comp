@@ -14,4 +14,14 @@ class SleepRecord extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getMedicinesAttribute($value)
+    {
+        return json_decode($value);
+    }
+
+    public function setMedicinesAttribute($value)
+    {
+        $this->attributes['medicines'] = json_encode($value);
+    }
 }

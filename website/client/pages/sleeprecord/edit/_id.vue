@@ -7,7 +7,7 @@
             <v-btn icon to="/sleeprecord/user">
               <v-icon>arrow_back</v-icon>
             </v-btn>
-            <v-toolbar-title class="body-2">Update Sleep Record</v-toolbar-title>
+            <v-toolbar-title class="body-2">Edit Sleep Record</v-toolbar-title>
           </v-toolbar>
 
             <v-form ref="form" v-model="valid" @submit="submit" lazy-validation="">
@@ -74,13 +74,14 @@
                 </v-stepper-step>
 
                 <v-stepper-content step="2" v-if="currentStep == 2">
-                  <v-text-field
+                  <v-select
                     v-model="form.awakeningsNumber"
                     label="How many times did you wake up, not counting your final awakening?"
                     required
                     :rules="requiredRule"
-                    type="number">
-                  </v-text-field>
+                    :items="numbersList"
+                    >
+                  </v-select>
                   <v-autocomplete
                     v-model="form.awakeningsTotalDuration"
                     label="In total, how long did these awakenings last?"
@@ -103,7 +104,7 @@
                     item-value="value"
                     v-if="form.awakeningsNumber && form.awakeningsNumber > 0"
                     :filter="timeFilter"
-                    >
+                  >
                   </v-autocomplete>
                   <v-autocomplete
                     v-model="form.awakeningsFinalDuration"
@@ -153,14 +154,101 @@
                   <v-select
                     v-model="form.sleepQuality"
                     label="How would you rate the quality of your sleep"
+                    :rules="requiredRule"                                        
                     :items="['Very Poor', 'Poor', 'Fair', 'Good', 'Very good']">
                   </v-select>
                   <v-select
                     v-model="form.feeling"
+                    :rules="requiredRule"                    
                     label="How rested or refreshed did you feel when you woke-up for the day?"
                     :items="['Not at all', 'Slightly rested', 'Somewhat rested', 'Well-rested', 'Very well-rested']">
                   </v-select>
-                  <v-btn class="btn-spaced" :disabled="!valid" type="submit" @click.prevent="submit" :loading="loading" color="primary">Submit</v-btn>
+                  <v-select
+                    v-model="form.napDozeNum"
+                    label="How many times did you nap or doze?"
+                    :items="numbersList"
+                    :rules="requiredRule"                    
+                  >
+                  </v-select>
+                  <v-autocomplete
+                    v-model="form.napDozeDuration"
+                    label="In total, how long did you nap or doze?"
+                    :items="timeDurationsArr"
+                    item-text="time"
+                    item-value="value"
+                    v-if="form.napDozeNum > 0"
+                    :filter="timeFilter"
+                  >
+
+                  </v-autocomplete>
+
+                  <v-btn class="btn-spaced" :disabled="!valid" color="primary" @click="nextStep">Continue</v-btn>                  
+                </v-stepper-content>
+
+                <v-stepper-step step="4" :complete="currentStep > 4">
+                  <span @click="currentStep = 4" class="stepper-header">Beverages & Medicine</span>
+                </v-stepper-step>
+
+                <v-stepper-content step="4" v-if="currentStep == 4">
+                  <v-select
+                    v-model="form.alcoholNum"  
+                    label="How many drinks containing alcohol did you have?"
+                    :items="numbersList"
+                    :rules="requiredRule"   
+                  >
+                  </v-select>
+                  
+                  <v-autocomplete
+                    v-model="form.alcoholTime"
+                    label="What time was your last alcoholic drink?"
+                    :items="timeOfDays"                  
+                    :rules="requiredRule"
+                    item-text="time"
+                    item-value="value"
+                    v-if="form.alcoholNum > 0"
+                    :filter="timeFilter"
+                  >
+                  </v-autocomplete>
+
+                   <v-select
+                    v-model="form.caffeinatedNum"  
+                    label="How many caffeinated drinks (coffee, tea, soda, energy drinks) did you have?"
+                    :items="numbersList"
+                    :rules="requiredRule"   
+                  >
+                  </v-select>
+
+                   <v-autocomplete
+                    v-model="form.caffeinatedTime"
+                    label="What time was your last caffeinated drink?"
+                    :items="timeOfDays"                  
+                    :rules="requiredRule"
+                    item-text="time"
+                    item-value="value"
+                    v-if="form.caffeinatedNum > 0"
+                    :filter="timeFilter"
+                  >
+                  </v-autocomplete>
+                  <v-checkbox label="Did you take any over-the-counter or prescription medication(s) to help you sleep?" v-model="form.otcMed"></v-checkbox>
+                  <v-text-field 
+                    v-if="form.otcMed && form.medicines"
+                    v-for="(medicine, index) in form.medicines"
+                    :key="index"
+                    v-model="form.medicines[index]"
+                    label="Medication, dose, and time taken e.g. Relaxo-Herb, 50 mg, 11 pm"
+                  >
+                  </v-text-field>
+                  <v-btn @click="addMedicine" v-if="form.otcMed">
+                    <v-icon>add</v-icon>
+                    Add Medicine
+                  </v-btn>
+                  <v-textarea
+                    v-model="form.comments"
+                    label="Comments (if applicable)"
+                  >
+
+                  </v-textarea>
+                  <v-btn class="btn-spaced" :disabled="!valid" type="submit" @click.prevent="submit" :loading="loading" color="primary">Submit</v-btn>                  
                 </v-stepper-content>
               </v-stepper>
             </v-form>
@@ -179,7 +267,7 @@
 
   export default {
     head() {
-      return { title: 'New Sleep Record' }
+      return { title: 'Edit Sleep Record' }
     },
 
     components: {},
@@ -196,14 +284,17 @@
           this.$router.push("/login");
         });
       }
+      
+      this.fetchData()      
 
-      this.fetchData()
     },
 
     data() {
       return {
-        requiredRule: [v => !!v || 'Field is required'],
-        form: null,
+        requiredRule: [ v => (v == 0 || !!v) || 'Field is required'],
+        form: {
+          medicines: []
+        },
         earlyWakeUp: false,
         valid: true,
         currentStep: 1
@@ -235,6 +326,8 @@
     methods: {
       submit: async function () {
         if (this.$refs.form.validate()) {
+          // Don't submit this when empty Laravel does not handle this well
+          if (this.form.medicines.length === 0) delete this.form['medicines']
           const { data } = await axios.patch('/sleeprecords/'+this.id, this.form)
 
           this.$router.push('/sleeprecord/user')
@@ -257,11 +350,16 @@
           item.quickFindText.indexOf(searchText) > -1
       },
 
-      fetchData: async function () {
-          const { data } = await axios.get('/sleeprecords/' + this.$route.params.id)
+      addMedicine: function () {
+        this.form.medicines.push('')
+      },
 
-          this.form = data
-          delete this.form['user']
+      fetchData: async function () {
+        const { data } = await axios.get('/sleeprecords/' + this.$route.params.id)
+
+        this.form = data
+        if (!data.medicines) this.form.medicines = []
+        delete this.form['user']
       }
     }
   }
