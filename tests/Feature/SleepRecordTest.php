@@ -38,7 +38,16 @@ class SleepRecordTest extends TestCase
             'timeGotIntoBed' => '23:00',
             'timeTakenToSleepDuration' => '01:00',
             'timeToTrySleep' => '00:00',
-            'timeWokenUp' => '07:00'
+            'timeWokenUp' => '07:00',
+            'napDozeNum' => 2,
+            'napDozeDuration' => '01:10',
+            'alcoholNum' => 2,
+            'alcoholTime' => '07:00',
+            'caffeinatedNum' => 2,
+            'caffeinatedTime' => '08:00',
+            'otcMed' => true,
+            'medicines' => array('Relaxo-Herb, 50 mg, 11 pm', 'Relaxo-Herb, 50 mg, 12 pm'),
+            'comments' => 'A comment'
         ])
         ->assertSuccessful()
         ->assertJsonStructure(['awakeningsFinalDuration', 'awakeningsNumber', 'awakeningsTotalDuration', 'awakeningsFinalTime', 'date', 'earlyWakeUpDuration', 'feeling', 'sleepQuality', 'timeGotIntoBed','timeTakenToSleepDuration', 'timeToTrySleep', 'timeWokenUp', 'sleepDuration', 'earlyWakeUp']);

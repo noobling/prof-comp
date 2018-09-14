@@ -30,6 +30,16 @@ class CreateSleepRecordsTable extends Migration
             $table->string('timeTakenToSleepDuration');
             $table->string('timeToTrySleep');
             $table->string('timeWokenUp');
+            $table->unsignedInteger('napDozeNum');
+            $table->string('napDozeDuration')->nullable();
+            $table->unsignedInteger('alcoholNum');
+            $table->string('alcoholTime')->nullable();
+            $table->unsignedInteger('caffeinatedNum');
+            $table->string('caffeinatedTime')->nullable();
+            $table->boolean('otcMed')->default(false);
+            $table->text('medicines')->nullable();
+            $table->text('comments')->nullable();
+
             $table->timestamps();
         });
     }
