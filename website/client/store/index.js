@@ -4,6 +4,7 @@ export const strict = false
 
 export const state = () => ({
   navDraw: false,
+  inviteDialog: false,
   loading: false
 })
 

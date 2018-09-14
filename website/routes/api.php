@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::patch('sleeprecords/{sleepRecord}', 'SleepRecordController@update');
     Route::get('sleeprecords/{sleepRecord}', 'SleepRecordController@show');
     Route::delete('sleeprecords/{sleepRecord}', 'SleepRecordController@destroy');
+
+    Route::post('invite', 'EmailsController@invite');
 });
 
 Route::group(['middleware' => 'guest:api'], function () {

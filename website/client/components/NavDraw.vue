@@ -61,9 +61,20 @@
         </v-list-tile-content>
       </v-list-tile>
     </v-list>
+
+     <v-list>
+      <v-list-tile @click="openInviteDialog">
+        <v-list-tile-action>
+          <v-icon>send</v-icon>
+        </v-list-tile-action>
+        <v-list-tile-content>
+          Invite
+        </v-list-tile-content>
+      </v-list-tile>
+    </v-list>
     
     <v-list v-if="user">
-      <v-list-tile @click="store.dispatch('auth/logout')">
+      <v-list-tile @click="logout">
         <v-list-tile-action>
           <v-icon>logout</v-icon>
         </v-list-tile-action>
@@ -86,6 +97,19 @@
 
       user() {
         return this.$store.getters['auth/user']
+      }
+    },
+
+    methods: {
+      logout: function () {
+        this.$store.dispatch('auth/logout')
+          .then(() => {
+            this.$router.push('/')            
+          }) 
+      },
+
+      openInviteDialog: function () {
+        this.$store.state.inviteDialog = true
       }
     }
   }

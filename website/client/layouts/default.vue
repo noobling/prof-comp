@@ -2,6 +2,7 @@
   <v-app :dark="isDarkMode">
     <NavDraw />
     <Toolbar />
+    <InviteEmail />    
     <v-content class="hero-image">
       <v-container>
         <nuxt />
@@ -15,12 +16,14 @@
   import Toolbar from '@/components/ToolBar'
   import NavDraw from '@/components/NavDraw'
   import MyFooter from '@/components/Footer'
+  import InviteEmail from '@/components/InviteEmail'
 
   export default {
     components: {
       Toolbar,
       NavDraw,
-      MyFooter
+      MyFooter,
+      InviteEmail
     },
 
     data() {

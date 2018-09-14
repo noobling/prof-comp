@@ -22,6 +22,9 @@ class SleepRecordController extends Controller
         ]);
 
         $sleepRecord = SleepRecord::make($request->all());
+        if ($sleepRecord->medicines) {
+            $sleepRecord->medicines = json_encode($sleepRecord->medicines);
+        }
         $sleepRecord->user_id = auth()->id();
         $sleepRecord->save();
 
