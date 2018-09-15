@@ -2,10 +2,10 @@
   <v-layout>
     <v-flex xs12 sm8 offset-sm2>
       <v-scale-transition>
-        <v-card v-if="sleeprecords">
+        <v-card v-if="items.length > 0">
           <v-list two-line >
             <template v-for="(item, index) in items">
-              <v-list-tile :key="item.user.id + id" avatar ripple>
+              <v-list-tile :key="item.user.id + index" avatar ripple>
                 <v-list-tile-action>
                   <v-btn icon :to="`/sleeprecord/user/${item.user.id}`">
                     <v-avatar>

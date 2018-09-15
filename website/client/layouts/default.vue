@@ -7,7 +7,7 @@
       <v-container>
         <nuxt />
         <v-btn
-          absolute
+          fixed
           fab
           bottom
           right
