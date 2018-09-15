@@ -35,7 +35,7 @@
           },
           {
             title: 'New Sleep Record',
-            description: 'Create a new sleep record here',
+            description: 'Create a new sleep record',
             link: '/sleeprecord/create',
             icon: 'create',
           },
@@ -53,7 +53,7 @@
           },
           {
             title: 'Settings',
-            description: 'Change your settings preferences here',
+            description: 'Change your settings',
             link: '/settings',
             icon: 'settings'
           }

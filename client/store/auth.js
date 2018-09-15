@@ -10,6 +10,7 @@ export const getters = {
   user: state => state.user,
   token: state => state.token,
   userImage: state => {
+    if (!state.user) return process.env.defaultAvatar
     return state.user.avatar ? state.user.avatar: process.env.defaultAvatar
   },
   check: state => state.user !== null

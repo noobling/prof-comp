@@ -14,6 +14,12 @@
 * `php artisan jwt:secret`
 * `php artisan serve` server side
 
+## How to deploy the app
+* `npm run build:prod`
+* `git add . && git commit -m "Compile"`
+* `git subtree push --prefix website origin prod`
+* Go to heroku dashboard and deploy prod branch
+
 ## Features
 * Ready to go
 * Vuetify
