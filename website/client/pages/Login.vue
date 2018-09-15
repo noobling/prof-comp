@@ -82,7 +82,7 @@
           await this.$store.dispatch('auth/fetchUser')
 
           // Redirect home.
-          this.$router.push('/sleeprecord/create')
+          this.$router.push('/home')
         }
       }
     }
