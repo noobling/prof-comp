@@ -50,7 +50,7 @@
     font-family: 'Roboto'
   }
   .hero-image {
-    background-image: url("https://cdn.vuetifyjs.com/images/parallax/material2.jpg"), linear-gradient(#f123a1, #ff13a3);
+    background-image: url("/material2.jpg"), linear-gradient(#f123a1, #ff13a3);
     background-position: center;
     background-size: cover;
      &:before {

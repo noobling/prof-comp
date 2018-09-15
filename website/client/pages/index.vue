@@ -2,7 +2,7 @@
  <v-jumbotron
     :gradient="gradient"
     dark
-    src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg"
+    src="/material2.jpg"
     height= "100%"
   >
     <v-container fill-height>

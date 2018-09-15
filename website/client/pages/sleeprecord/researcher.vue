@@ -5,9 +5,17 @@
         <v-card v-if="sleeprecords">
           <v-list two-line >
             <template v-for="(item, index) in items">
-              <v-list-tile :key="item.user" avatar ripple>
+              <v-list-tile :key="item.user.id + id" avatar ripple>
+                <v-list-tile-action>
+                  <v-btn icon :to="`/sleeprecord/user/${item.user.id}`">
+                    <v-avatar>
+                      <img :src="userImage(item.user)" alt="User Image">
+                    </v-avatar>
+                  </v-btn>
+                </v-list-tile-action>
+
                 <v-list-tile-content>
-                  <v-list-tile-title>User: {{ item.user }}</v-list-tile-title>
+                  <v-list-tile-title>User: {{ item.user.id }}</v-list-tile-title>
                   <v-list-tile-sub-title class="text--primary">Number of Sleep Records: {{ item.numSleepRecords }}</v-list-tile-sub-title>
                   <v-list-tile-sub-title>Filler</v-list-tile-sub-title>
                 </v-list-tile-content>
@@ -75,23 +83,28 @@
           } catch (e) {
             console.error(e);
           }
+        },
+        
+        userImage(user) {
+          return user.avatar ? user.avatar : '/ali.png'
         }
     },
 
     watch: {
-      sleeprecords: function (val) {
-        for (const key of Object.keys(val)) {
-          const item = { user: key }
+      sleeprecords: function (allSleepRecords) {
+        for (const key of Object.keys(allSleepRecords)) {
+          const item = {}
           item.numSleepRecords = 0
           const lastDate = null
-          val[key].forEach(record => {
+          allSleepRecords[key].forEach(record => {
             item.numSleepRecords += 1
             lastDate = record.updated_at
           })
           item.lastDate = lastDate
+          item.user = allSleepRecords[key][0].user
           this.items.push(item)
 
-          val[key].forEach(record => {
+          allSleepRecords[key].forEach(record => {
             record['What time did you get into bed?'] = record['timeGotIntoBed']
             record['What time did you try to go to sleep?'] = record['timeToTrySleep']
             record['']
