@@ -22,7 +22,7 @@
       </v-list-tile>
     </v-list>
 
-    <v-list-tile to="/sleeprecord/create">
+    <v-list-tile v-if="user" to="/sleeprecord/create">
       <v-list-tile-action>
         <v-icon>edit</v-icon>
       </v-list-tile-action>
@@ -31,7 +31,7 @@
       </v-list-tile-content>
     </v-list-tile>
 
-    <v-list-tile to="/sleeprecord/user">
+    <v-list-tile v-if="user" :to="`/sleeprecord/user/${user.id}`">
       <v-list-tile-action>
         <v-icon>library_books</v-icon>
       </v-list-tile-action>
@@ -41,7 +41,7 @@
     </v-list-tile>
 
     <v-list>
-      <v-list-tile to="/profile">
+      <v-list-tile v-if="user" to="/profile">
         <v-list-tile-action>
           <v-icon>person</v-icon>
         </v-list-tile-action>
@@ -52,7 +52,7 @@
     </v-list>
 
     <v-list>
-      <v-list-tile to="/settings">
+      <v-list-tile v-if="user" to="/settings">
         <v-list-tile-action>
           <v-icon>settings</v-icon>
         </v-list-tile-action>
@@ -63,7 +63,7 @@
     </v-list>
 
      <v-list>
-      <v-list-tile @click="openInviteDialog">
+      <v-list-tile v-if="user" @click="openInviteDialog">
         <v-list-tile-action>
           <v-icon>send</v-icon>
         </v-list-tile-action>

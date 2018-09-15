@@ -26,7 +26,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::patch('user', 'UserController@update');
     Route::post('user/avatar', 'UserController@updateAvatar');
     Route::post('user/sleeprecord', 'SleepRecordController@store');
-    Route::get('user/sleeprecords', 'SleepRecordController@user');
+    Route::get('user/{user}/sleeprecords', 'SleepRecordController@user');
     Route::patch('sleeprecords/{sleepRecord}', 'SleepRecordController@update');
     Route::get('sleeprecords/{sleepRecord}', 'SleepRecordController@show');
     Route::delete('sleeprecords/{sleepRecord}', 'SleepRecordController@destroy');

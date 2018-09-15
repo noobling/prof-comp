@@ -30,7 +30,7 @@
         navItems: [{
             title: 'Sleep Journal',
             description: 'All your sleep records in one place',
-            link: '/sleeprecord/user',
+            link: '/sleeprecord/user/' + this.$store.getters['auth/user'].id,
             icon: 'book',
           },
           {
