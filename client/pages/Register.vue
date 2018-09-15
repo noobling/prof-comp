@@ -76,7 +76,7 @@
 
           await this.$store.dispatch('auth/updateUser', { user: data })
 
-          this.$router.push('/')
+          this.$router.push('/home')
         }
       }
     }

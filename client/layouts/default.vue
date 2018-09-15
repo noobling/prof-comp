@@ -6,6 +6,17 @@
     <v-content class="hero-image">
       <v-container>
         <nuxt />
+        <v-btn
+          absolute
+          fab
+          bottom
+          right
+          color="primary"
+          to="/sleeprecord/create"
+          class="mb-5"
+        >
+          <v-icon>add</v-icon>
+        </v-btn>
       </v-container>
     </v-content>
     <my-footer></my-footer>
@@ -57,4 +68,5 @@
     border-radius: 5px;
     padding: 10px;
   }
+
 </style>

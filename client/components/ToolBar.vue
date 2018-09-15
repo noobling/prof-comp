@@ -1,12 +1,18 @@
 <template>
-  <v-toolbar fixed app dark color="primary" >
+  <v-toolbar fixed app dark color="primary">
     <v-toolbar-side-icon @click="changeNavDraw"></v-toolbar-side-icon>
-    <v-toolbar-title>Center for Sleep Science</v-toolbar-title>
-    <v-spacer></v-spacer>          
+    <v-toolbar-title v-if="!user">Center for Sleep Science</v-toolbar-title>
+    <v-toolbar-items v-else>
+      <v-btn flat to="/home">
+        <v-icon class="mr-1">home</v-icon>
+        Home
+      </v-btn>
+    </v-toolbar-items>
+    <v-spacer></v-spacer>
+    
     <v-toolbar-items>
       <v-btn flat to="/register" v-if="! user">Register</v-btn>
       <v-btn flat to="/login" v-if="! user">Login</v-btn>
-      <v-btn flat to="/sleeprecord/create" v-if="user">New Record</v-btn>
       <v-btn flat to="/sleeprecord/user" v-if="user">Sleep Journal</v-btn>
       <v-btn flat to="/sleeprecord/researcher" v-if="user && user.type === 'Researcher'">Patients</v-btn>
     </v-toolbar-items>
@@ -16,7 +22,7 @@
           <img :src="$store.getters['auth/userImage']" alt="User Avatar">
         </v-avatar>
       </v-btn>
-    
+
       <v-list>
         <v-list-tile to="/profile">
           <v-list-tile-action>
@@ -36,7 +42,7 @@
         </v-list-tile>
       </v-list>
     </v-menu>
-    
+
   </v-toolbar>
 </template>
 
@@ -52,8 +58,8 @@
       logout: function () {
         this.$store.dispatch('auth/logout')
           .then(() => {
-            this.$router.push('/')            
-          }) 
+            this.$router.push('/')
+          })
       }
     },
 
