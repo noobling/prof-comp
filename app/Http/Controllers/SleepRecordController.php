@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\SleepRecord;
+use App\User;
 
 class SleepRecordController extends Controller
 {
@@ -34,9 +35,13 @@ class SleepRecordController extends Controller
         return SleepRecord::all()->groupBy('user_id');
     }
 
-    public function user(Request $request)
+    public function user(Request $request, User $user)
     {
-        return $request->user()->sleepRecords;
+        if (auth()->id() != $user->id && $request->user()->type != 'Researcher') {
+            return response('Unauthorized', 403);
+        }
+
+        return $user->sleepRecords;
     }
 
     public function update(Request $request, SleepRecord $sleepRecord)

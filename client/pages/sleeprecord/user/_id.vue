@@ -76,7 +76,7 @@
 
     methods: {
       fetchData: async function () {
-        const { data } = await axios.get('user/sleeprecords')
+        const { data } = await axios.get('user/' + this.$route.params.id + '/sleeprecords')
         this.sleeprecords = data
       },
 
@@ -101,8 +101,6 @@
               .then(data => {
                 this.sleeprecords = this.sleeprecords.filter(sleeprecord => sleeprecord != record)
               })
-
-
           }
         })
       }

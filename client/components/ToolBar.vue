@@ -13,7 +13,7 @@
     <v-toolbar-items>
       <v-btn flat to="/register" v-if="! user">Register</v-btn>
       <v-btn flat to="/login" v-if="! user">Login</v-btn>
-      <v-btn flat to="/sleeprecord/user" v-if="user">Sleep Journal</v-btn>
+      <v-btn flat :to="`/sleeprecord/user/${user.id}`" v-if="user">Sleep Journal</v-btn>
       <v-btn flat to="/sleeprecord/researcher" v-if="user && user.type === 'Researcher'">Patients</v-btn>
     </v-toolbar-items>
     <v-menu v-if="user">

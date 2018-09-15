@@ -4,7 +4,7 @@
       <v-scale-transition v-if="form">
         <v-card>
           <v-toolbar card>
-            <v-btn icon to="/sleeprecord/user">
+            <v-btn icon to="/home">
               <v-icon>arrow_back</v-icon>
             </v-btn>
             <v-toolbar-title class="body-2">New Sleep Record</v-toolbar-title>
@@ -334,7 +334,7 @@
           if (this.form.medicines.length === 0) delete this.form['medicines']
           const { data } = await axios.post('/user/sleeprecord', this.form)
 
-          this.$router.push('/sleeprecord/user')
+          this.$router.push('/sleeprecord/user/' + this.$store.getters['auth/user'].id)
         }
       },
 
