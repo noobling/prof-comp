@@ -15,11 +15,10 @@ class RegisterTest extends TestCase
         $this->withoutExceptionHandling();
 
         $this->postJson('/api/register', [
-            'name' => 'Test User',
             'email' => 'test@test.app',
             'password' => 'secret'
         ])
         ->assertSuccessful()
-        ->assertJsonStructure(['id', 'name', 'email']);
+        ->assertJsonStructure(['id','email']);
     }
 }

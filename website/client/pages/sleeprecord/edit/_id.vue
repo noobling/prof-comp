@@ -1,13 +1,13 @@
 <template>
   <v-layout>
     <v-flex xs12 sm10 offset-sm1>
-      <v-scale-transition v-if="form">
-        <v-card>
+      <v-scale-transition>
+        <v-card v-if="form">
           <v-toolbar card>
             <v-btn icon to="/sleeprecord/user">
               <v-icon>arrow_back</v-icon>
             </v-btn>
-            <v-toolbar-title class="body-2">New Sleep Record</v-toolbar-title>
+            <v-toolbar-title class="body-2">Update Sleep Record</v-toolbar-title>
           </v-toolbar>
 
             <v-form ref="form" v-model="valid" @submit="submit" lazy-validation="">
@@ -195,25 +195,15 @@
         }).then(result => {
           this.$router.push("/login");
         });
-      } else {
-        const currentDate = new Date()
-        const day = currentDate.getDate()
-        const month = currentDate.getMonth() + 1
-        const year = currentDate.getFullYear()
-        this.form.date = year + '-' + month.toString().padStart(2, '0') + '-' + day.toString().padStart(2, '0')
-
-        if (this.$route.query.sleeprecord) {
-          this.form = this.$route.query.sleeprecord
-        }
       }
-     
+
+      this.fetchData()
     },
 
     data() {
       return {
         requiredRule: [v => !!v || 'Field is required'],
-        form: {
-        },
+        form: null,
         earlyWakeUp: false,
         valid: true,
         currentStep: 1
@@ -231,6 +221,10 @@
 
       timeDurationsArr () {
         return this.timeDurations()
+      },
+
+      id () {
+          return this.$route.params.id
       }
     },
 
@@ -241,7 +235,7 @@
     methods: {
       submit: async function () {
         if (this.$refs.form.validate()) {
-          const { data } = await axios.post('/user/sleeprecord', this.form)
+          const { data } = await axios.patch('/sleeprecords/'+this.id, this.form)
 
           this.$router.push('/sleeprecord/user')
         }
@@ -261,6 +255,13 @@
         return time.indexOf(searchText) > -1 || 
           value.indexOf(searchText) > -1 ||
           item.quickFindText.indexOf(searchText) > -1
+      },
+
+      fetchData: async function () {
+          const { data } = await axios.get('/sleeprecords/' + this.$route.params.id)
+
+          this.form = data
+          delete this.form['user']
       }
     }
   }

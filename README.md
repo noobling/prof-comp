@@ -72,7 +72,7 @@ Meetings every Wednesday 3pm
       <td>
         <ul>
           <li><del>Timesheet, Minutes, Booked hours submission</del></li>
-          <li> Mentor Meeting 2: Friday 7th September 2pm at Uni IT on Level 2 of the Ken & Julie Michael building (7 Fairway)</li>
+          <li><del> Mentor Meeting 2: Friday 7th September 2pm at Uni IT on Level 2 of the Ken & Julie Michael building (7 Fairway)</del></li>
         </ul>
       </td>
     </tr>
@@ -124,6 +124,7 @@ Meetings every Wednesday 3pm
         <ul>
           <li>Timesheet, Minutes, Booked hours submission</li>
           <li>Auditor Meeting</li>
+          <li>Mentor Meeting 10th October 1pm</li>
         </ul>
       </td>
     </tr>

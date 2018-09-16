@@ -10,17 +10,12 @@ class SleepRecordController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'awakeningsFinalDuration' => 'required|date_format:H:i',
-            'awakeningsNumber' => 'required|Integer',
-            'awakeningsTotalDuration' => 'required|date_format:H:i',
-            'awakeningsFinalTime' => 'required|date_format:H:i',
+            'awakeningsNumber' => 'Integer|min:0',
             'date' => 'required|date',
-            'earlyWakeUpDuration' => 'required|date_format:H:i',
             'feeling' => 'required|string',
-            // 'sleepDuration' => 'required|date_format:H:i',
+            'sleepDuration' => 'required|date_format:H:i',
             'sleepQuality' => 'required|string',
             'timeGotIntoBed' => 'required|date_format:H:i',
-            'timeOutOfBed' => 'required|date_format:H:i',
             'timeTakenToSleepDuration' => 'required|date_format:H:i',
             'timeToTrySleep' => 'required|date_format:H:i',
             'timeWokenUp' => 'required|date_format:H:i'
@@ -41,5 +36,33 @@ class SleepRecordController extends Controller
     public function user(Request $request)
     {
         return $request->user()->sleepRecords;
+    }
+
+    public function update(Request $request, SleepRecord $sleepRecord)
+    {
+        if ($sleepRecord->user_id != auth()->id() && $request->user()->type != 'Researcher') {
+            return response('Unauthorized', 403);
+        } 
+        return tap($sleepRecord)->update($request->all());
+    }
+
+    public function show(Request $request, SleepRecord $sleepRecord)
+    {
+        if ($sleepRecord->user_id != auth()->id() && $request->user()->type != 'Researcher') {
+            return response('Unauthorized', 403);
+        }
+        
+        return $sleepRecord;
+    }
+
+    public function destroy(Request $request, SleepRecord $sleepRecord)
+    {
+        if ($sleepRecord->user_id != auth()->id() && $request->user()->type != 'Researcher') {
+            return response('Unauthorized', 403);
+        }
+
+        $sleepRecord->delete();
+
+        return response('Deleted');
     }
 }

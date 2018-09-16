@@ -1,8 +1,8 @@
 <template>
   <v-toolbar fixed app dark color="primary" >
     <v-toolbar-side-icon @click="changeNavDraw"></v-toolbar-side-icon>
-    <v-toolbar-title>Center for sleep science app</v-toolbar-title>
-    <v-spacer></v-spacer>
+    <v-toolbar-title>Center for Sleep Science</v-toolbar-title>
+    <v-spacer></v-spacer>          
     <v-toolbar-items>
       <v-btn flat to="/register" v-if="! user">Register</v-btn>
       <v-btn flat to="/login" v-if="! user">Login</v-btn>
