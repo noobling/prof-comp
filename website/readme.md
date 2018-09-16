@@ -15,6 +15,7 @@
 * `php artisan serve` server side
 
 ## How to deploy the app
+* Make sure dev server is not running
 * `npm run build:prod`
 * Move the generated files in dist to public folder in Laravel app
   * Delete `.nojekyll` file since it hinders the copying
