@@ -18,15 +18,15 @@ As a user, I want to be able to visualise my sleep diary data because I will fin
 
 As a user, I want to be able to change my login email because I may want to use a new email.
 
-* We will reassess the priority of this task and assign it as an 'issue' on github to a team member.
+* We will reassess the priority of this task and assign a member to it (using Github issues) to ensure it is completed.
 
 As a user, I want to be able to reset my password incase I can't login.
 
-* We will reassess the priority of this task and assign it as an 'issue' on github to a team member.
+* We will reassess the priority of this task and assign a member to it (using Github issues) to ensure it is completed.
 
-As a user, I want to be able to scroll upward to pick my time as well as downward because this makes more intuitive sense to me.
+As a user, I want to be able to scroll upward (using web app) to pick my time as well as downward because this makes more intuitive sense to me.
 
-* We will increase the priority of this task and set it as the standard model for the android, iOS and web apps.
+* We will increase the priority of this task and assign a member to it (using Github issues) to ensure it is completed.
 
 As a user, the app should be simple and easy to use for me.
 
