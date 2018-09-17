@@ -20,9 +20,9 @@ Meeting Adjourned 3:25pm
 
 Discussed sprint 1 user stories document and the extent to which we have met the goals we set. The client confirmed we had met all of the intermediate goals.
 
-[x] The user can enter their code in one of the the apps [This was changed from code to username/password + email scheme to log-in in order to better meet the needs of users.]
+- [x] The user can enter their code in one of the the apps [This was changed from code to username/password + email scheme to log-in in order to better meet the needs of users.]
 
-[x] There is a form that can be filled out to record a sleep diary record and the form should be the Consensus Sleep Diary-M table.
+- [x] There is a form that can be filled out to record a sleep diary record and the form should be the Consensus Sleep Diary-M table.
 
 [x] The sleep diary records are stored indefinitely on a MYSQL database located in the cloud.
 
