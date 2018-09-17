@@ -24,7 +24,7 @@ As a user, I want to be able to reset my password incase I can't login.
 
 * We will reassess the priority of this task and assign a member to it (using Github issues) to ensure it is completed.
 
-As a user, I want to be able to scroll upward (using web app) to pick my time as well as downward because this makes more intuitive sense to me.
+As a user, I want to be able to scroll upward (on the web app) to pick my time as well as downward because this makes more intuitive sense to me.
 
 * We will increase the priority of this task and assign a member to it (using Github issues) to ensure it is completed.
 
