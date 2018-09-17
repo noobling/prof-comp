@@ -41,11 +41,11 @@ people:
 
 * Codes are only viewable by the user which the code [username] represents and the researcher who assigned them the code [who referred them to the app]
 
-[x] There is a way to invite users to use the app through sending them an email.
+- [x] There is a way to invite users to use the app through sending them an email.
 
-[x] The app will be available on a website and can also be accessed on a mobile device by directly transfering the mobile app.
+- [x] The app will be available on a website and can also be accessed on a mobile device by directly transfering the mobile app.
 
-[x] The interface to use the app should be simple to use and intuitive with minimal instructions needed.
+- [x] The interface to use the app should be simple to use and intuitive with minimal instructions needed.
 
 Client seemed happy with our progress on the app overall and is looking forward to taking it into testing.
 
@@ -57,6 +57,12 @@ Showed off app in current state.
 * How to sign up and log-in
 
 * How to record a sleep diary entry
+
+* How to download a sleep journal
+
+* How to send an invite 
+
+* How to navigate the app
 
 ## Plans for Sprint 3
 [3:15]
