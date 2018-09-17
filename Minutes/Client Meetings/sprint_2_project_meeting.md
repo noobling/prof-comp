@@ -24,17 +24,17 @@ Discussed sprint 1 user stories document and the extent to which we have met the
 
 - [x] There is a form that can be filled out to record a sleep diary record and the form should be the Consensus Sleep Diary-M table.
 
-[x] The sleep diary records are stored indefinitely on a MYSQL database located in the cloud.
+- [x] The sleep diary records are stored indefinitely on a MYSQL database located in the cloud.
 
-[x] The sleep diary records can only be accessed by the user that created it and the researcher who has that user as their patient.
+- [x] The sleep diary records can only be accessed by the user that created it and the researcher who has that user as their patient.
 
-[x] Only a researcher can download a user’s sleep diary. That user also has to be a patient of that researcher.
+- [x] Only a researcher can download a user’s sleep diary. That user also has to be a patient of that researcher.
 
-[x] The data a researcher downloads should be in excel format.
+- [x] The data a researcher downloads should be in excel format.
 
-[x] There is a way to edit and delete sleep diary records and only users who created the record and researcher can do that.
+- [x] There is a way to edit and delete sleep diary records and only users who created the record and researcher can do that.
 
-[x] All sensitive data is securely stored and only accessed by appropriate
+- [x] All sensitive data is securely stored and only accessed by appropriate
 people:
 
 * Names and emails can only be viewable to the user which the account belongs to and their researcher [Names are not stored]
@@ -47,7 +47,7 @@ people:
 
 [x] The interface to use the app should be simple to use and intuitive with minimal instructions needed.
 
-Client seemed happy with our progress on the app overall.
+Client seemed happy with our progress on the app overall and is looking forward to taking it into testing.
 
 ## Demonstrated app in its Current State
 [3:10]
@@ -70,3 +70,11 @@ Client indicated we should make data visualisation a priority for sprint 3.
 David sent link to client to allow sharing of the app for testing purposes.
 
 [3:25] Meeting adjourned.
+
+## Teams thoughts on the project
+* Everything is tracking well and the team is working well together they think the client has been very easy work with, which has improved work flow 
+* The team finds the project challenging however due to lack of experience and technical challenges presented by implementing the large sleep diary form which has over 20 questions
+* The team had initally identified Adam leaving the project as a risk and this has since developed into real risk
+  * The team has deployed contingency plans where David will help out with iOS development or we will draw back the features on iOS app
+* The team thought that having the privacy constraints have hindered the usability of the app by making the design of backend server more challenging
+
