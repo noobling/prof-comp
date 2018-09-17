@@ -4,9 +4,9 @@
 Location: Sleep Science Boardroom G04
 
 In attendance:
-Jennifer - Client
-David - Team Leader
-Michael
+Jennifer - Client,
+David - Team Leader,
+Michael,
 Joshua
 
 Apologies: Adam, Zi Hao, Taige
