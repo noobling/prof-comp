@@ -3,18 +3,10 @@
     <v-flex xs12 sm6 offset-sm3>
       <v-card>
         <v-card-title>
-          <h1 class="display-1">Login</h1>
+          <h1 class="display-1">Reset Password: {{ form.email }}</h1>
         </v-card-title>
         <v-card-text>
           <v-form ref="form" v-model="valid" @submit="submit" lazy-validation="">
-            <v-text-field
-              v-model="form.email"
-              :rules="emailRules"
-              label="Email"
-              required
-              outline>
-            </v-text-field>
-
             <v-text-field
               :append-icon="visibleIcon ? 'visibility' : 'visibility_off'"
               @click:append="() => (visibleIcon = !visibleIcon)"
@@ -26,11 +18,20 @@
               v-model="form.password"
               :counter="6"
               required
-              outline
             ></v-text-field>
 
-            <p><nuxt-link to="/password/email">Forgot Password</nuxt-link></p>
-
+              <v-text-field
+              :append-icon="visibleIcon ? 'visibility' : 'visibility_off'"
+              @click:append="() => (visibleIcon = !visibleIcon)"
+              :rules="passwordRules"
+              :type="visibleIcon ? 'password' : 'text'"
+              label="Password Confirmation"
+              hint="At least 6 characters"
+              min="6"
+              v-model="form.password_confirmation"
+              :counter="6"
+              required
+            ></v-text-field>
             <v-btn color="primary" :disabled="!valid" type="submit" @click.prevent="submit" :loading="loading">Submit</v-btn>
           </v-form>
         </v-card-text>
@@ -43,18 +44,20 @@
 <script>
   import axios from 'axios'
   import { mapGetters } from 'vuex'
+  import swal from 'sweetalert2'
 
   export default {
     head() {
-      return { title: 'Login' }
+      return { title: 'Send Reset Link' }
+    },
+
+    created () {
+      this.form.email = this.$route.query.email
+      this.form.token = this.$route.params.id
     },
 
     data() {
       return {
-        emailRules: [
-          v => !!v || 'E-mail is required',
-          v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
-        ],
         passwordRules: [v => (v && v.length >= 6) || 'Password must be at least 6 chracters'],
         visibleIcon: true,
         form: {},
@@ -72,19 +75,13 @@
       submit: async function () {
         if (this.$refs.form.validate()) {
           // Submit the form.
-          const { data } = await axios.post('/login', this.form)
+          const { data } = await axios.post('/password/reset', this.form)
 
-          // Save the token.
-          this.$store.dispatch('auth/saveToken', {
-            token: data.token,
-            remember: this.remember
+          swal({
+            title: 'Success',
+            type: 'success',
+            text: 'Done, trying loggin in with your new password.'
           })
-
-          // Fetch the user.
-          await this.$store.dispatch('auth/fetchUser')
-
-          // Redirect home.
-          this.$router.push('/home')
         }
       }
     }
