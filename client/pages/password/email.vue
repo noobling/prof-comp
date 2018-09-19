@@ -3,34 +3,19 @@
     <v-flex xs12 sm6 offset-sm3>
       <v-card>
         <v-card-title>
-          <h1 class="display-1">Login</h1>
+          <h1 class="display-1">Send Reset Link</h1>
         </v-card-title>
         <v-card-text>
           <v-form ref="form" v-model="valid" @submit="submit" lazy-validation="">
+            <h1 class="title">Enter your email so we can start resetting your password.</h1>
             <v-text-field
               v-model="form.email"
               :rules="emailRules"
+              class="mt-2 mb-2"
               label="Email"
               required
-              outline>
+            >
             </v-text-field>
-
-            <v-text-field
-              :append-icon="visibleIcon ? 'visibility' : 'visibility_off'"
-              @click:append="() => (visibleIcon = !visibleIcon)"
-              :rules="passwordRules"
-              :type="visibleIcon ? 'password' : 'text'"
-              label="Enter your password"
-              hint="At least 6 characters"
-              min="6"
-              v-model="form.password"
-              :counter="6"
-              required
-              outline
-            ></v-text-field>
-
-            <p><nuxt-link to="/password/email">Forgot Password</nuxt-link></p>
-
             <v-btn color="primary" :disabled="!valid" type="submit" @click.prevent="submit" :loading="loading">Submit</v-btn>
           </v-form>
         </v-card-text>
@@ -43,10 +28,11 @@
 <script>
   import axios from 'axios'
   import { mapGetters } from 'vuex'
+  import swal from 'sweetalert2'
 
   export default {
     head() {
-      return { title: 'Login' }
+      return { title: 'Send Reset Link' }
     },
 
     data() {
@@ -72,19 +58,13 @@
       submit: async function () {
         if (this.$refs.form.validate()) {
           // Submit the form.
-          const { data } = await axios.post('/login', this.form)
+          const { data } = await axios.post('/password/email', this.form)
 
-          // Save the token.
-          this.$store.dispatch('auth/saveToken', {
-            token: data.token,
-            remember: this.remember
+          swal({
+            title: 'Success',
+            type: 'success',
+            text: 'Sent reset link to your email please check your spam if you cannot find it.'
           })
-
-          // Fetch the user.
-          await this.$store.dispatch('auth/fetchUser')
-
-          // Redirect home.
-          this.$router.push('/home')
         }
       }
     }
