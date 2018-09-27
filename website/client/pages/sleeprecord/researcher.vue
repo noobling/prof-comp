@@ -76,8 +76,8 @@
         convertToCSV: function (item) {
           try {
             json2excel({
-              data: this.sleeprecords[item.user],
-              name: 'User'+item.user+'SleepDiary',
+              data: this.sleeprecords[item.user.id],
+              name: 'User'+item.user.id+'SleepDiary',
               formateDate: 'yyyy/mm/dd'
             });
           } catch (e) {
@@ -103,15 +103,62 @@
           item.lastDate = lastDate
           item.user = allSleepRecords[key][0].user
           this.items.push(item)
-
+          
+          // Make the sleep records that will be converted into excel format more user friendly
           allSleepRecords[key].forEach(record => {
             record['What time did you get into bed?'] = record['timeGotIntoBed']
             record['What time did you try to go to sleep?'] = record['timeToTrySleep']
-            record['']
+            record['What time did you get out of bed for the day?'] = record['timeWokenUp']
+            record['How long did it take you to fall asleep'] = record['timeTakenToSleepDuration']
+            record['How many times did you wake up, not counting your final awakening?'] = record['awakeningsNumber']
+            record['In total, how long did these awakenings last?'] = record['awakeningsTotalDuration']
+            record['What time was your final awakening?'] = record['awakeningsFinalTime']
+            record['After your final awakening how long did you spend in bed trying to sleep?'] = record['awakeningsFinalDuration']
+            record['Did you wake up earlier than planned?'] = record['earlyWakeUp']
+            record['In total, how long did you sleep?'] = record['sleepDuration']
+            record['How would you rate the quality of your sleep'] = record['sleepQuality']
+            record['How rested or refreshed did you feel when you woke-up for the day?'] = record['feeling']
+            record['How many times did you nap or doze?'] = record['napDozeNum']
+            record['In total, how long did you nap or doze?'] = record['napDozeDuration']
+            record['How many drinks containing alcohol did you have?'] = record['alcoholNum']
+            record['What time was your last alcoholic drink?'] = record['alcoholTime']
+            record['How many caffeinated drinks (coffee, tea, soda, energy drinks) did you have?'] = record['caffeinatedNum']
+            record['What time was your last caffeinated drink?'] = record['caffeinatedTime']
+            record['Did you take any over-the-counter or prescription medication(s) to help you sleep?'] = record['otcMed']
+            record['Did you wake up earlier than planned?'] = record['earlyWakeUp']
+            record['Did you wake up earlier than planned?'] = record['earlyWakeUpDuration']
+            
+            // Deconstruct the medicines array and add each element as a column e.g. medicine 1
+            if (record['medicines'] && record['medicines'].length > 0) {
+              for (let i = 0; i < record['medicines'].length; i++) {
+                record['medicine ' + i] = record['medicines'][i]
+              }
+            }
 
             delete record['timeGotIntoBed']
             delete record['timeToTrySleep']
+            delete record['timeWokenUp']
+            delete record['timeTakenToSleepDuration']
+            delete record['awakeningsNumber']
+            delete record['awakeningsTotalDuration']
+            delete record['awakeningsFinalTime']
+            delete record['awakeningsFinalDuration']
+            delete record['earlyWakeUp']
+            delete record['sleepDuration']
+            delete record['sleepQuality']
+            delete record['feeling']
+            delete record['napDozeNum']
+            delete record['napDozeDuration']
+            delete record['alcoholNum']
+            delete record['alcoholTime']
+            delete record['caffeinatedNum']
+            delete record['caffeinatedTime']
+            delete record['otcMed']
+            delete record['earlyWakeUpDuration']
             delete record['id']
+            delete record['created_at']
+            delete record['user']
+            delete record['medicines']
           })
         }
       }
