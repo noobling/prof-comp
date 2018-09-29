@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/ask1"
+        android:layout_marginTop="15dp"
+        android:text="How many times did you wake up, not counting your final awakening?" />
+
+    <EditText
+        android:id="@+id/tv_wake"
+        style="@style/EditStyle"
+        android:inputType="number" />
+    <View
+        style="@style/WireThinHorizontal"/>
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        style="@style/EditStyle"
+        android:checked="true"
+        android:textColor="@color/black"
+        android:text="Did you wake up earlier than planned ?"
+        />
+
+
+    <TextView
+        android:id="@+id/textView5"
+        style="@style/ask1"
+        android:layout_marginTop="15dp"
+        android:text="How much earlier" />
+
+    <EditText
+        style="@style/EditStyle"
+        android:id="@+id/tv_earlier"
+        android:inputType="number" />
+
+    <View
+        style="@style/WireThinHorizontal"/>
+
+
+
+    <TextView
+        android:id="@+id/textView6"
+        style="@style/ask1"
+        android:layout_marginTop="15dp"
+        android:text="In total, how long did you sleep?" />
+
+    <Spinner
+        android:id="@+id/sleep_time"
+        style="@style/EditStyle"
+        android:layout_height="45dp"
+        android:entries="@array/Times" />
+    <View
+        style="@style/WireThinHorizontal"/>
+
+    <TextView
+        android:id="@+id/textVie7"
+        style="@style/ask1"
+        android:layout_marginTop="15dp"
+        android:text="How would you rate the quality of your sleep" />
+
+    <Spinner
+        android:id="@+id/quality"
+        style="@style/EditStyle"
+        android:layout_height="45dp"
+        android:entries="@array/quality" />
+    <View
+        style="@style/WireThinHorizontal"/>
+
+    <TextView
+        android:id="@+id/textView8"
+        style="@style/ask1"
+        android:layout_marginTop="15dp"
+        android:text="How rested or refreshed did you feel when you woke-up for the day?" />
+
+    <Spinner
+        android:id="@+id/feel"
+        style="@style/EditStyle"
+        android:layout_height="45dp"
+        android:entries="@array/feel" />
+    <View
+        style="@style/WireThinHorizontal"/>
+
+    <TextView
+        android:id="@+id/textView9"
+        style="@style/ask1"
+        android:layout_marginTop="15dp"
+        android:text="How many time did you nap or doze?" />
+
+    <Spinner
+        android:id="@+id/doze"
+        style="@style/EditStyle"
+        android:layout_height="45dp"
+         />
+
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:background="#FFA500"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Continue"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_normal" />
+
+
+</LinearLayout>
+</ScrollView>

@@ -17,6 +17,7 @@
         android:layout_height="60dp"
         android:background="@color/normal_blue"
         android:orientation="horizontal">
+
         <ImageButton
             android:id="@+id/imageButton2"
             android:layout_width="wrap_content"
@@ -41,39 +42,61 @@
             android:background="@color/normal_blue"
             android:layout_weight="1"
             app:srcCompat="@drawable/more" />
-
-
     </LinearLayout>
 
-    <android.support.v7.widget.GridLayout
+
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="199dp"
-            android:gravity="center"
-            android:text="Center for Sleep Science Sleep Diary App"
-            android:textColor="@color/black"
-            android:textSize="@dimen/font_largest"
-            app:layout_column="0"
-            app:layout_row="0" />
-
-        <Button
-            android:id="@+id/start"
+            android:id="@+id/textView11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:background="@color/normal_blue"
-            android:text="Get Start"
-            android:textColor="@color/colorText"
-            app:layout_column="0"
-            app:layout_row="1" />
+            android:layout_marginTop="60dp"
+            android:text="Register"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textSize="@dimen/font_largest" />
 
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Email Address"
+            android:textColorHint="@color/dark_grey"
+            android:textSize="@dimen/font_large"/>
 
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="Password"
+            android:textColorHint="@color/dark_grey"
+            android:textSize="@dimen/font_large"/>
 
-    </android.support.v7.widget.GridLayout>
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:background="@android:color/holo_green_light"
+            android:text="Button"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
 
 
 </LinearLayout>
