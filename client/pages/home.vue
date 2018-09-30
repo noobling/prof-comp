@@ -19,6 +19,10 @@
 
 <script>
   export default {
+    head() {
+      return { title: 'Sleep Diary App - Home'}
+    },
+
     created() {
       if (this.$store.getters['auth/user'].type === 'Researcher') {
         this.addPatientsNavLink()
@@ -48,7 +52,7 @@
           {
             title: 'Visualisations',
             description: 'Visualise your sleep journal',
-            link: '#',
+            link: '/visual',
             icon: 'timeline'
           },
           {
