@@ -2,7 +2,8 @@
   <v-app :dark="isDarkMode">
     <NavDraw />
     <Toolbar />
-    <InviteEmail />    
+    <InviteEmail />
+    <WhatsNewDialog />
     <v-content class="hero-image">
       <v-container>
         <nuxt />
@@ -17,6 +18,17 @@
         >
           <v-icon>add</v-icon>
         </v-btn>
+        <v-btn
+          fixed
+          fab
+          bottom
+          right
+          color="primary"
+          to="/home"
+          class="mb-7"
+        >
+          <v-icon>home</v-icon>
+        </v-btn>
       </v-container>
     </v-content>
     <my-footer></my-footer>
@@ -28,13 +40,15 @@
   import NavDraw from '@/components/NavDraw'
   import MyFooter from '@/components/Footer'
   import InviteEmail from '@/components/InviteEmail'
+  import WhatsNewDialog from '@/components/WhatsNewDialog'
 
   export default {
     components: {
       Toolbar,
       NavDraw,
       MyFooter,
-      InviteEmail
+      InviteEmail,
+      WhatsNewDialog
     },
 
     data() {
