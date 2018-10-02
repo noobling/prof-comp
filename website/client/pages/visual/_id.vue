@@ -1,9 +1,12 @@
 <template>
-  <v-layout>
+  <v-layout row wrap>
     <v-flex sm6 xs12>
-      <line-chart v-if="lineChartData" :data="lineChartData" :options="options">
-
+      <line-chart v-if="lineChartSleepDuration" :data="lineChartSleepDuration" :options="optionsSleepDuration">
       </line-chart>
+    </v-flex>
+
+    <v-flex sm6 xs12>
+      <line-chart v-if="lineChartAwakeningsNumber" :data="lineChartAwakeningsNumber" :options="optionsAwakeningsNumber"></line-chart>
     </v-flex>
   </v-layout>
 </template>
@@ -32,9 +35,11 @@ export default {
     return {
       userId: null,
 
-      lineChartData: null,
-
-      options: {
+      lineChartSleepDuration: null,
+      lineChartAwakeningsNumber: null,
+      optionsSleepDuration: null,
+      optionsAwakeningsNumber: null,
+      optionsDefault: {
         responsive: true,
         maintainAspectRatio: false,
         title: {
@@ -84,24 +89,48 @@ export default {
 
   methods: {
     async fetchData () {
+      this.optionsSleepDuration = this.optionsDefault
+      this.optionsSleepDuration.title.text = 'Sleep Duration History'
+
+      this.optionsAwakeningsNumber = this.optionsDefault
+      this.optionsAwakeningsNumber.title.text = 'Number of Sleep awakenings'
+
       const { data } = await axios.get('user/' + this.userId + '/sleeprecords')
       const labels = []
-      const chartData = []
+      const sleepDurationData = []
+      const awakeningsNumber = []
       data.forEach(record => {
         labels.push(record.date)
-        chartData.push(this.strTimeToNumTime(record.sleepDuration))
+        sleepDurationData.push(this.strTimeToNumTime(record.sleepDuration))
+        awakeningsNumber.push(parseInt(record.awakeningsNumber, 10))
+        
       })
 
-      this.lineChartData = {
+      this.lineChartSleepDuration = {
         labels,
          datasets: [
           {
             label: 'Sleep Duration',
             backgroundColor: '#f87979',
-            data: chartData
+            data: sleepDurationData
           }
         ]
       }
+
+      
+
+      this.lineChartAwakeningsNumber = {
+        labels,
+        datasets: [
+          {
+            label: 'Sleep Awakenings Number',
+            backgroundColor: '#f87979',
+            data: awakeningsNumber
+          }
+        ]
+      }
+
+   
     },
 
     strTimeToNumTime(strTime) {

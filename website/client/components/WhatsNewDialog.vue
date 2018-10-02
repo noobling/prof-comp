@@ -37,15 +37,15 @@
 
     data () {
       return {
-        whatsnewnumber: '1', // This represents the most recent whats new version if the number is higher than the user's localstorage whatsnewnumber then we show them the whatsnewdialog
-        whatsnew: ['You can now view a graph of the hours your have slept', 'You can reset passwords', 'Production error logging (if you break something we will know 😉)', 'Added IE support :/'],
+        whatsnewnumber: '2', // This represents the most recent whats new version if the number is higher than the user's localstorage whatsnewnumber then we show them the whatsnewdialog
+        whatsnew: ['You can now view a graph of the hours your have slept', 'Fixed bugs in converting JSON to excel', 'Researchers can view graphs of their patients', 'You can reset passwords', 'Production error logging (if you break something we will know 😉)', 'No support for IE yet :('],
         whatsNewDialog: false
       }
     },
 
     methods: {
       viewDialog() {
-        localStorage.setItem('whatsnewnumber', '1')
+        localStorage.setItem('whatsnewnumber', '2')
         this.whatsNewDialog = false
       }
     }
