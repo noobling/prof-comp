@@ -20,6 +20,7 @@
 * Move the generated files in dist to public folder in Laravel app
   * Delete `.nojekyll` file since it hinders the copying
   * Click replace all
+* Go back to root directory
 * `./deploy.sh`
 * Go to heroku dashboard and deploy prod branch
 

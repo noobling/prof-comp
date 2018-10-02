@@ -52,7 +52,7 @@
           {
             title: 'Visualisations',
             description: 'Visualise your sleep journal',
-            link: '/visual',
+            link: '/visual/' + this.$store.getters['auth/user'].id,
             icon: 'timeline'
           },
           {

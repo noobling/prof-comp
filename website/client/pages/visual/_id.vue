@@ -23,11 +23,15 @@ export default {
   },
 
   created () {
+    this.userId = this.$route.params.id
+
     this.fetchData()
   },
 
   data() {
     return {
+      userId: null,
+
       lineChartData: null,
 
       options: {
@@ -80,8 +84,7 @@ export default {
 
   methods: {
     async fetchData () {
-      const id = this.$store.getters['auth/user'].id
-      const { data } = await axios.get('user/' + id + '/sleeprecords')
+      const { data } = await axios.get('user/' + this.userId + '/sleeprecords')
       const labels = []
       const chartData = []
       data.forEach(record => {
