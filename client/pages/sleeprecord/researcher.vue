@@ -3,7 +3,7 @@
     <v-flex xs12 sm8 offset-sm2>
       <v-scale-transition>
         <v-card v-if="items.length > 0">
-          <v-list two-line >
+          <v-list two-line>
             <template v-for="(item, index) in items">
               <v-list-tile :key="item.user.id + index" avatar ripple>
                 <v-list-tile-action>
@@ -22,9 +22,22 @@
 
                 <v-list-tile-action>
                   <v-list-tile-action-text>Last Sleep Record: {{ item.lastDate }}</v-list-tile-action-text>
-                  <v-icon @click="convertToCSV(item)">
-                    cloud_download
-                  </v-icon>
+
+                  <v-layout justify-end align-end>
+                    <v-flex xs2>
+                        <v-icon @click="goToVisuals(item.user.id)">
+                          insert_chart_outline
+                        </v-icon>
+                    </v-flex>
+
+                    <v-flex xs2>
+                      <v-icon @click="convertToCSV(item)">
+                        cloud_download
+                      </v-icon>
+                    </v-flex>
+
+                  </v-layout>
+
                 </v-list-tile-action>
 
               </v-list-tile>
@@ -33,7 +46,7 @@
           </v-list>
         </v-card>
       </v-scale-transition>
-      
+
     </v-flex>
   </v-layout>
 </template>
@@ -54,9 +67,9 @@
 
     created() {
       if (this.$store.getters['auth/check'] && this.$store.getters["auth/user"].type === "Researcher") {
-       this.fetchData()
+        this.fetchData()
       } else {
-         swal({
+        swal({
           title: "Warning",
           text: "You need to be a researcher to view this",
           type: "warning"
@@ -77,16 +90,20 @@
           try {
             json2excel({
               data: this.sleeprecords[item.user.id],
-              name: 'User'+item.user.id+'SleepDiary',
+              name: 'User' + item.user.id + 'SleepDiary',
               formateDate: 'yyyy/mm/dd'
             });
           } catch (e) {
             console.error(e);
           }
         },
-        
+
         userImage(user) {
           return user.avatar ? user.avatar : '/ali.png'
+        },
+
+        goToVisuals(userId) {
+          this.$router.push('/visual/' + userId)
         }
     },
 
@@ -103,7 +120,7 @@
           item.lastDate = lastDate
           item.user = allSleepRecords[key][0].user
           this.items.push(item)
-          
+
           // Make the sleep records that will be converted into excel format more user friendly
           allSleepRecords[key].forEach(record => {
             record['What time did you get into bed?'] = record['timeGotIntoBed']
@@ -127,7 +144,7 @@
             record['Did you take any over-the-counter or prescription medication(s) to help you sleep?'] = record['otcMed']
             record['Did you wake up earlier than planned?'] = record['earlyWakeUp']
             record['Did you wake up earlier than planned?'] = record['earlyWakeUpDuration']
-            
+
             // Deconstruct the medicines array and add each element as a column e.g. medicine 1
             if (record['medicines'] && record['medicines'].length > 0) {
               for (let i = 0; i < record['medicines'].length; i++) {
