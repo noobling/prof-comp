@@ -21,6 +21,7 @@
     <EditText
         android:id="@+id/tv_wake"
         style="@style/EditStyle"
+        android:textColor="@color/black"
         android:inputType="number" />
     <View
         style="@style/WireThinHorizontal"/>
@@ -102,11 +103,12 @@
         android:id="@+id/doze"
         style="@style/EditStyle"
         android:layout_height="45dp"
+        android:entries="@array/doze"
          />
 
 
     <Button
-        android:id="@+id/btn_submit"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

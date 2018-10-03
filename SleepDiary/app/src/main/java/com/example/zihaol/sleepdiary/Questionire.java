@@ -39,7 +39,11 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
     private TextView time_out_bed;
     private TextView long_asleep;
 
-    private Button NextQ;
+    private Button button1;
+    private Button button2;
+    private Button button3;
+
+
     private String min,hour;
     private TimePicker dpTime;
 
@@ -108,11 +112,20 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         time_out_bed=view1.findViewById(R.id.tv4);
         long_asleep=view1.findViewById(R.id.tv5);
 
+        button1=view1.findViewById(R.id.button1);
+
+
+        button2=view2.findViewById(R.id.button2);
+
+
         date_of_record.setOnClickListener(this);
         into_bed.setOnClickListener(this);
         time_try_sleep.setOnClickListener(this);
         time_out_bed.setOnClickListener(this);
         long_asleep.setOnClickListener(this);
+
+        button1.setOnClickListener(this);
+        button2.setOnClickListener(this);
 
         vpager.setAdapter(new PageAdatper(listViews));
         vpager.setCurrentItem(0);
@@ -153,6 +166,12 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 break;
             case  R.id.tv5:
                 setTimeAction(long_asleep);
+                break;
+            case R.id.button1:
+                vpager.setCurrentItem(1);
+                break;
+            case R.id.button2:
+                vpager.setCurrentItem(2);
                 break;
         }
     }
