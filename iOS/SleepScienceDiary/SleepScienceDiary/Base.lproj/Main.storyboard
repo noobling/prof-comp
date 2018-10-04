@@ -1,51 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Sleep Journal-->
+        <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SleepScienceDiary" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="9pv-A4-QxB" customClass="SleepJournalViewController" customModule="SleepScienceDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Test" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bpa-bp-xio">
-                                <rect key="frame" x="139" y="59" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test2" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wka-eJ-ZLa">
-                                <rect key="frame" x="139" y="247" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="edit 1" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eet-1g-kF8">
-                                <rect key="frame" x="185" y="191" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Sleep Journal" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
+                                <rect key="frame" x="82.5" y="28" width="210" height="43"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KQZ-1w-vlD" secondAttribute="height" multiplier="210:43" id="Ltb-k6-pFo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <constraints>
+                            <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="8" id="IVc-yS-Fk3"/>
+                            <constraint firstItem="KQZ-1w-vlD" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="wh6-mD-caf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Sleep Journal" image="sleepJournal" id="acW-dT-cKf"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-1" y="-673"/>
+        </scene>
+        <!--New Sleep Journal-->
+        <scene sceneID="wg7-f3-ORb">
+            <objects>
+                <viewController id="8rJ-Kc-sve" customClass="NewSleepRecordViewController" customModule="SleepScienceDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="New Sleep Record" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
+                                <rect key="frame" x="46" y="28" width="283" height="60.5"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zEq-FU-wV5" secondAttribute="height" multiplier="201:43" id="0Lx-YU-K8Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZO-RG-a6H">
+                                <rect key="frame" x="23.5" y="219" width="328" height="229"/>
+                                <state key="normal" title="New Survey" image="newSurvey"/>
+                                <connections>
+                                    <action selector="surveyTappedWithSender:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="YPd-IX-YNo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zEq-FU-wV5" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="4aV-SQ-EVl"/>
+                            <constraint firstItem="zEq-FU-wV5" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="8" id="9AB-sZ-Glx"/>
+                            <constraint firstItem="JZO-RG-a6H" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="TaO-M5-cCe"/>
+                            <constraint firstItem="JZO-RG-a6H" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="pgp-Uu-kVW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="New Sleep Journal" image="newJournal" id="cPa-gy-q4n"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="725.60000000000002" y="-673.31334332833592"/>
+        </scene>
+        <!--Visualisations-->
+        <scene sceneID="dPq-hT-iil">
+            <objects>
+                <viewController id="Xmw-xn-95L" customClass="VisualisationsViewController" customModule="SleepScienceDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5mL-C1-W8Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Visualisations" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zeb-Rh-m0v">
+                                <rect key="frame" x="81.5" y="28" width="212" height="43"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zeb-Rh-m0v" secondAttribute="height" multiplier="212:43" id="gbz-82-PCn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zeb-Rh-m0v" firstAttribute="top" secondItem="hx4-Ow-pac" secondAttribute="top" constant="8" id="EIl-pn-qem"/>
+                            <constraint firstItem="zeb-Rh-m0v" firstAttribute="centerX" secondItem="5mL-C1-W8Y" secondAttribute="centerX" id="qWW-TM-I8h"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hx4-Ow-pac"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Visualisations" image="visualisation" id="jud-wE-7hJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dkq-JT-6Ja" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="726" y="37"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="B5l-2I-d4d">
+            <objects>
+                <viewController id="yPf-UE-rLg" customClass="SettingsViewController" customModule="SleepScienceDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AIS-Xt-LKQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fiX-on-R4M">
+                                <rect key="frame" x="123.5" y="28" width="128" height="43"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fiX-on-R4M" secondAttribute="height" multiplier="128:43" id="cEF-yK-LJ6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fiX-on-R4M" firstAttribute="top" secondItem="VWn-YK-Jn0" secondAttribute="top" constant="8" id="iVg-kM-BR4"/>
+                            <constraint firstItem="fiX-on-R4M" firstAttribute="centerX" secondItem="AIS-Xt-LKQ" secondAttribute="centerX" id="kbN-K6-xuD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VWn-YK-Jn0"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="SbV-hm-Bu4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6hI-yj-z4Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2" y="747"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="yl2-sM-qoP">
+            <objects>
+                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                        <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="Xmw-xn-95L" kind="relationship" relationship="viewControllers" id="6U9-Uf-dke"/>
+                        <segue destination="yPf-UE-rLg" kind="relationship" relationship="viewControllers" id="OUi-ti-inU"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="newJournal" width="15" height="15"/>
+        <image name="newSurvey" width="231" height="229"/>
+        <image name="settings" width="16" height="17"/>
+        <image name="sleepJournal" width="14" height="17"/>
+        <image name="visualisation" width="18" height="11"/>
+    </resources>
 </document>

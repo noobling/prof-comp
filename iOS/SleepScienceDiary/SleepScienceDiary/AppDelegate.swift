@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  SleepScienceDiary
 //
-//  Created by Adam Chambost on 29/8/18.
-//  Copyright © 2018 Adam Chambost. All rights reserved.
+//  Created by Michael Dorrell on 4/10/18.
+//  Copyright © 2018 Michael Dorrell. All rights reserved.
 //
 
 import UIKit
@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }

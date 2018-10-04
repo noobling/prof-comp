@@ -7,25 +7,113 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4044C1C921368D18000EC53C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044C1C821368D18000EC53C /* AppDelegate.swift */; };
-		4044C1CB21368D18000EC53C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4044C1CA21368D18000EC53C /* ViewController.swift */; };
-		4044C1CE21368D18000EC53C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4044C1CC21368D18000EC53C /* Main.storyboard */; };
-		4044C1D021368D1B000EC53C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4044C1CF21368D1B000EC53C /* Assets.xcassets */; };
-		4044C1D321368D1B000EC53C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4044C1D121368D1B000EC53C /* LaunchScreen.storyboard */; };
+		988F51CE2165EA3F00486FC4 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 988F51CB2165EA3800486FC4 /* ResearchKit.framework */; };
+		988F51CF2165EA3F00486FC4 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 988F51CB2165EA3800486FC4 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		988F51D32165EA7A00486FC4 /* ResearchKit in Resources */ = {isa = PBXBuildFile; fileRef = 988F51D22165EA7900486FC4 /* ResearchKit */; };
+		988F51DD2165FE4700486FC4 /* SleepJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988F51DC2165FE4700486FC4 /* SleepJournalViewController.swift */; };
+		988F51DF2165FE6D00486FC4 /* NewSleepRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988F51DE2165FE6D00486FC4 /* NewSleepRecordViewController.swift */; };
+		988F51E12165FE7900486FC4 /* VisualisationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988F51E02165FE7900486FC4 /* VisualisationsViewController.swift */; };
+		988F51E32165FE8000486FC4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988F51E22165FE8000486FC4 /* SettingsViewController.swift */; };
+		988F51E52165FFAB00486FC4 /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988F51E42165FFAB00486FC4 /* SurveyTask.swift */; };
+		98E5603F2165E83B0064E840 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E5603E2165E83B0064E840 /* AppDelegate.swift */; };
+		98E560462165E83B0064E840 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E560442165E83B0064E840 /* Main.storyboard */; };
+		98E560482165E83E0064E840 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98E560472165E83E0064E840 /* Assets.xcassets */; };
+		98E5604B2165E83E0064E840 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E560492165E83E0064E840 /* LaunchScreen.storyboard */; };
+		98E560562165E83E0064E840 /* SleepScienceDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E560552165E83E0064E840 /* SleepScienceDiaryTests.swift */; };
+		98E560612165E83E0064E840 /* SleepScienceDiaryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E560602165E83E0064E840 /* SleepScienceDiaryUITests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		988F51CA2165EA3800486FC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 988F51C42165EA3800486FC4 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B183A5951A8535D100C76870;
+			remoteInfo = ResearchKit;
+		};
+		988F51CC2165EA3800486FC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 988F51C42165EA3800486FC4 /* ResearchKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
+			remoteInfo = ResearchKitTests;
+		};
+		988F51D02165EA3F00486FC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 988F51C42165EA3800486FC4 /* ResearchKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B183A4731A8535D100C76870;
+			remoteInfo = ResearchKit;
+		};
+		98E560522165E83E0064E840 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98E560332165E83B0064E840 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 98E5603A2165E83B0064E840;
+			remoteInfo = SleepScienceDiary;
+		};
+		98E5605D2165E83E0064E840 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98E560332165E83B0064E840 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 98E5603A2165E83B0064E840;
+			remoteInfo = SleepScienceDiary;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		988F51C32165E9F300486FC4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				988F51CF2165EA3F00486FC4 /* ResearchKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		4044C1C521368D18000EC53C /* SleepScienceDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepScienceDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4044C1C821368D18000EC53C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4044C1CA21368D18000EC53C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4044C1CD21368D18000EC53C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4044C1CF21368D1B000EC53C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4044C1D221368D1B000EC53C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4044C1D421368D1B000EC53C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		988F51C42165EA3800486FC4 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ResearchKit.xcodeproj; sourceTree = "<group>"; };
+		988F51D22165EA7900486FC4 /* ResearchKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ResearchKit; sourceTree = "<group>"; };
+		988F51DC2165FE4700486FC4 /* SleepJournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepJournalViewController.swift; sourceTree = "<group>"; };
+		988F51DE2165FE6D00486FC4 /* NewSleepRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSleepRecordViewController.swift; sourceTree = "<group>"; };
+		988F51E02165FE7900486FC4 /* VisualisationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualisationsViewController.swift; sourceTree = "<group>"; };
+		988F51E22165FE8000486FC4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		988F51E42165FFAB00486FC4 /* SurveyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
+		98E5603B2165E83B0064E840 /* SleepScienceDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepScienceDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		98E5603E2165E83B0064E840 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		98E560452165E83B0064E840 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		98E560472165E83E0064E840 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		98E5604A2165E83E0064E840 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		98E5604C2165E83E0064E840 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98E560512165E83E0064E840 /* SleepScienceDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepScienceDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		98E560552165E83E0064E840 /* SleepScienceDiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepScienceDiaryTests.swift; sourceTree = "<group>"; };
+		98E560572165E83E0064E840 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98E5605C2165E83E0064E840 /* SleepScienceDiaryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepScienceDiaryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		98E560602165E83E0064E840 /* SleepScienceDiaryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepScienceDiaryUITests.swift; sourceTree = "<group>"; };
+		98E560622165E83E0064E840 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4044C1C221368D18000EC53C /* Frameworks */ = {
+		98E560382165E83B0064E840 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				988F51CE2165EA3F00486FC4 /* ResearchKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98E5604E2165E83E0064E840 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98E560592165E83E0064E840 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,71 +123,154 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4044C1BC21368D18000EC53C = {
+		988F51C52165EA3800486FC4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4044C1C721368D18000EC53C /* SleepScienceDiary */,
-				4044C1C621368D18000EC53C /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		4044C1C621368D18000EC53C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4044C1C521368D18000EC53C /* SleepScienceDiary.app */,
+				988F51CB2165EA3800486FC4 /* ResearchKit.framework */,
+				988F51CD2165EA3800486FC4 /* ResearchKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4044C1C721368D18000EC53C /* SleepScienceDiary */ = {
+		98E560322165E83B0064E840 = {
 			isa = PBXGroup;
 			children = (
-				4044C1C821368D18000EC53C /* AppDelegate.swift */,
-				4044C1CA21368D18000EC53C /* ViewController.swift */,
-				4044C1CC21368D18000EC53C /* Main.storyboard */,
-				4044C1CF21368D1B000EC53C /* Assets.xcassets */,
-				4044C1D121368D1B000EC53C /* LaunchScreen.storyboard */,
-				4044C1D421368D1B000EC53C /* Info.plist */,
+				988F51D22165EA7900486FC4 /* ResearchKit */,
+				988F51C42165EA3800486FC4 /* ResearchKit.xcodeproj */,
+				98E5603D2165E83B0064E840 /* SleepScienceDiary */,
+				98E560542165E83E0064E840 /* SleepScienceDiaryTests */,
+				98E5605F2165E83E0064E840 /* SleepScienceDiaryUITests */,
+				98E5603C2165E83B0064E840 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		98E5603C2165E83B0064E840 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				98E5603B2165E83B0064E840 /* SleepScienceDiary.app */,
+				98E560512165E83E0064E840 /* SleepScienceDiaryTests.xctest */,
+				98E5605C2165E83E0064E840 /* SleepScienceDiaryUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		98E5603D2165E83B0064E840 /* SleepScienceDiary */ = {
+			isa = PBXGroup;
+			children = (
+				98E5603E2165E83B0064E840 /* AppDelegate.swift */,
+				988F51DC2165FE4700486FC4 /* SleepJournalViewController.swift */,
+				988F51DE2165FE6D00486FC4 /* NewSleepRecordViewController.swift */,
+				988F51E02165FE7900486FC4 /* VisualisationsViewController.swift */,
+				988F51E22165FE8000486FC4 /* SettingsViewController.swift */,
+				98E560442165E83B0064E840 /* Main.storyboard */,
+				98E560472165E83E0064E840 /* Assets.xcassets */,
+				98E560492165E83E0064E840 /* LaunchScreen.storyboard */,
+				98E5604C2165E83E0064E840 /* Info.plist */,
+				988F51E42165FFAB00486FC4 /* SurveyTask.swift */,
 			);
 			path = SleepScienceDiary;
+			sourceTree = "<group>";
+		};
+		98E560542165E83E0064E840 /* SleepScienceDiaryTests */ = {
+			isa = PBXGroup;
+			children = (
+				98E560552165E83E0064E840 /* SleepScienceDiaryTests.swift */,
+				98E560572165E83E0064E840 /* Info.plist */,
+			);
+			path = SleepScienceDiaryTests;
+			sourceTree = "<group>";
+		};
+		98E5605F2165E83E0064E840 /* SleepScienceDiaryUITests */ = {
+			isa = PBXGroup;
+			children = (
+				98E560602165E83E0064E840 /* SleepScienceDiaryUITests.swift */,
+				98E560622165E83E0064E840 /* Info.plist */,
+			);
+			path = SleepScienceDiaryUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4044C1C421368D18000EC53C /* SleepScienceDiary */ = {
+		98E5603A2165E83B0064E840 /* SleepScienceDiary */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4044C1D721368D1B000EC53C /* Build configuration list for PBXNativeTarget "SleepScienceDiary" */;
+			buildConfigurationList = 98E560652165E83E0064E840 /* Build configuration list for PBXNativeTarget "SleepScienceDiary" */;
 			buildPhases = (
-				4044C1C121368D18000EC53C /* Sources */,
-				4044C1C221368D18000EC53C /* Frameworks */,
-				4044C1C321368D18000EC53C /* Resources */,
+				98E560372165E83B0064E840 /* Sources */,
+				98E560382165E83B0064E840 /* Frameworks */,
+				98E560392165E83B0064E840 /* Resources */,
+				988F51C32165E9F300486FC4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				988F51D12165EA3F00486FC4 /* PBXTargetDependency */,
 			);
 			name = SleepScienceDiary;
 			productName = SleepScienceDiary;
-			productReference = 4044C1C521368D18000EC53C /* SleepScienceDiary.app */;
+			productReference = 98E5603B2165E83B0064E840 /* SleepScienceDiary.app */;
 			productType = "com.apple.product-type.application";
+		};
+		98E560502165E83E0064E840 /* SleepScienceDiaryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98E560682165E83E0064E840 /* Build configuration list for PBXNativeTarget "SleepScienceDiaryTests" */;
+			buildPhases = (
+				98E5604D2165E83E0064E840 /* Sources */,
+				98E5604E2165E83E0064E840 /* Frameworks */,
+				98E5604F2165E83E0064E840 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				98E560532165E83E0064E840 /* PBXTargetDependency */,
+			);
+			name = SleepScienceDiaryTests;
+			productName = SleepScienceDiaryTests;
+			productReference = 98E560512165E83E0064E840 /* SleepScienceDiaryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		98E5605B2165E83E0064E840 /* SleepScienceDiaryUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98E5606B2165E83E0064E840 /* Build configuration list for PBXNativeTarget "SleepScienceDiaryUITests" */;
+			buildPhases = (
+				98E560582165E83E0064E840 /* Sources */,
+				98E560592165E83E0064E840 /* Frameworks */,
+				98E5605A2165E83E0064E840 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				98E5605E2165E83E0064E840 /* PBXTargetDependency */,
+			);
+			name = SleepScienceDiaryUITests;
+			productName = SleepScienceDiaryUITests;
+			productReference = 98E5605C2165E83E0064E840 /* SleepScienceDiaryUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		4044C1BD21368D18000EC53C /* Project object */ = {
+		98E560332165E83B0064E840 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = "Adam Chambost";
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Michael Dorrell";
 				TargetAttributes = {
-					4044C1C421368D18000EC53C = {
-						CreatedOnToolsVersion = 9.4.1;
+					98E5603A2165E83B0064E840 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					98E560502165E83E0064E840 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 98E5603A2165E83B0064E840;
+					};
+					98E5605B2165E83E0064E840 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 98E5603A2165E83B0064E840;
 					};
 				};
 			};
-			buildConfigurationList = 4044C1C021368D18000EC53C /* Build configuration list for PBXProject "SleepScienceDiary" */;
+			buildConfigurationList = 98E560362165E83B0064E840 /* Build configuration list for PBXProject "SleepScienceDiary" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -107,54 +278,132 @@
 				en,
 				Base,
 			);
-			mainGroup = 4044C1BC21368D18000EC53C;
-			productRefGroup = 4044C1C621368D18000EC53C /* Products */;
+			mainGroup = 98E560322165E83B0064E840;
+			productRefGroup = 98E5603C2165E83B0064E840 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 988F51C52165EA3800486FC4 /* Products */;
+					ProjectRef = 988F51C42165EA3800486FC4 /* ResearchKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
-				4044C1C421368D18000EC53C /* SleepScienceDiary */,
+				98E5603A2165E83B0064E840 /* SleepScienceDiary */,
+				98E560502165E83E0064E840 /* SleepScienceDiaryTests */,
+				98E5605B2165E83E0064E840 /* SleepScienceDiaryUITests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		988F51CB2165EA3800486FC4 /* ResearchKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ResearchKit.framework;
+			remoteRef = 988F51CA2165EA3800486FC4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		988F51CD2165EA3800486FC4 /* ResearchKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ResearchKitTests.xctest;
+			remoteRef = 988F51CC2165EA3800486FC4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
-		4044C1C321368D18000EC53C /* Resources */ = {
+		98E560392165E83B0064E840 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4044C1D321368D1B000EC53C /* LaunchScreen.storyboard in Resources */,
-				4044C1D021368D1B000EC53C /* Assets.xcassets in Resources */,
-				4044C1CE21368D18000EC53C /* Main.storyboard in Resources */,
+				988F51D32165EA7A00486FC4 /* ResearchKit in Resources */,
+				98E5604B2165E83E0064E840 /* LaunchScreen.storyboard in Resources */,
+				98E560482165E83E0064E840 /* Assets.xcassets in Resources */,
+				98E560462165E83B0064E840 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98E5604F2165E83E0064E840 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98E5605A2165E83E0064E840 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4044C1C121368D18000EC53C /* Sources */ = {
+		98E560372165E83B0064E840 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4044C1CB21368D18000EC53C /* ViewController.swift in Sources */,
-				4044C1C921368D18000EC53C /* AppDelegate.swift in Sources */,
+				98E5603F2165E83B0064E840 /* AppDelegate.swift in Sources */,
+				988F51DF2165FE6D00486FC4 /* NewSleepRecordViewController.swift in Sources */,
+				988F51E52165FFAB00486FC4 /* SurveyTask.swift in Sources */,
+				988F51E12165FE7900486FC4 /* VisualisationsViewController.swift in Sources */,
+				988F51E32165FE8000486FC4 /* SettingsViewController.swift in Sources */,
+				988F51DD2165FE4700486FC4 /* SleepJournalViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98E5604D2165E83E0064E840 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98E560562165E83E0064E840 /* SleepScienceDiaryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98E560582165E83E0064E840 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				98E560612165E83E0064E840 /* SleepScienceDiaryUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		988F51D12165EA3F00486FC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ResearchKit;
+			targetProxy = 988F51D02165EA3F00486FC4 /* PBXContainerItemProxy */;
+		};
+		98E560532165E83E0064E840 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 98E5603A2165E83B0064E840 /* SleepScienceDiary */;
+			targetProxy = 98E560522165E83E0064E840 /* PBXContainerItemProxy */;
+		};
+		98E5605E2165E83E0064E840 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 98E5603A2165E83B0064E840 /* SleepScienceDiary */;
+			targetProxy = 98E5605D2165E83E0064E840 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		4044C1CC21368D18000EC53C /* Main.storyboard */ = {
+		98E560442165E83B0064E840 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4044C1CD21368D18000EC53C /* Base */,
+				98E560452165E83B0064E840 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		4044C1D121368D1B000EC53C /* LaunchScreen.storyboard */ = {
+		98E560492165E83E0064E840 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4044C1D221368D1B000EC53C /* Base */,
+				98E5604A2165E83E0064E840 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -162,7 +411,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		4044C1D521368D1B000EC53C /* Debug */ = {
+		98E560632165E83E0064E840 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -213,8 +462,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -222,7 +472,7 @@
 			};
 			name = Debug;
 		};
-		4044C1D621368D1B000EC53C /* Release */ = {
+		98E560642165E83E0064E840 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -267,8 +517,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -276,64 +527,160 @@
 			};
 			name = Release;
 		};
-		4044C1D821368D1B000EC53C /* Debug */ = {
+		98E560662165E83E0064E840 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SleepScienceDiary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = solutions.yourdenmark.SleepScienceDiary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SleepScienceDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		4044C1D921368D1B000EC53C /* Release */ = {
+		98E560672165E83E0064E840 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SleepScienceDiary/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = solutions.yourdenmark.SleepScienceDiary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SleepScienceDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		98E560692165E83E0064E840 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SleepScienceDiaryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SleepScienceDiaryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SleepScienceDiary.app/SleepScienceDiary";
+			};
+			name = Debug;
+		};
+		98E5606A2165E83E0064E840 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SleepScienceDiaryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SleepScienceDiaryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SleepScienceDiary.app/SleepScienceDiary";
+			};
+			name = Release;
+		};
+		98E5606C2165E83E0064E840 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SleepScienceDiaryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SleepScienceDiaryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SleepScienceDiary;
+			};
+			name = Debug;
+		};
+		98E5606D2165E83E0064E840 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SleepScienceDiaryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SleepScienceDiaryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SleepScienceDiary;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4044C1C021368D18000EC53C /* Build configuration list for PBXProject "SleepScienceDiary" */ = {
+		98E560362165E83B0064E840 /* Build configuration list for PBXProject "SleepScienceDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4044C1D521368D1B000EC53C /* Debug */,
-				4044C1D621368D1B000EC53C /* Release */,
+				98E560632165E83E0064E840 /* Debug */,
+				98E560642165E83E0064E840 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4044C1D721368D1B000EC53C /* Build configuration list for PBXNativeTarget "SleepScienceDiary" */ = {
+		98E560652165E83E0064E840 /* Build configuration list for PBXNativeTarget "SleepScienceDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4044C1D821368D1B000EC53C /* Debug */,
-				4044C1D921368D1B000EC53C /* Release */,
+				98E560662165E83E0064E840 /* Debug */,
+				98E560672165E83E0064E840 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98E560682165E83E0064E840 /* Build configuration list for PBXNativeTarget "SleepScienceDiaryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98E560692165E83E0064E840 /* Debug */,
+				98E5606A2165E83E0064E840 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98E5606B2165E83E0064E840 /* Build configuration list for PBXNativeTarget "SleepScienceDiaryUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				98E5606C2165E83E0064E840 /* Debug */,
+				98E5606D2165E83E0064E840 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 4044C1BD21368D18000EC53C /* Project object */;
+	rootObject = 98E560332165E83B0064E840 /* Project object */;
 }
