@@ -21,6 +21,7 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -42,6 +43,13 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
     private Button button1;
     private Button button2;
     private Button button3;
+
+
+    private ImageButton info0;
+    private ImageButton info1;
+    private ImageButton info2;
+    private ImageButton info3;
+    private ImageButton info4;
 
 
     private String min,hour;
@@ -113,9 +121,14 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         long_asleep=view1.findViewById(R.id.tv5);
 
         button1=view1.findViewById(R.id.button1);
-
-
         button2=view2.findViewById(R.id.button2);
+
+
+        info0=view1.findViewById(R.id.info);
+        info1=view1.findViewById(R.id.info1);
+        info2=view1.findViewById(R.id.info2);
+        info3=view1.findViewById(R.id.info3);
+        info4=view1.findViewById(R.id.info4);
 
 
         date_of_record.setOnClickListener(this);
@@ -126,6 +139,12 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
 
         button1.setOnClickListener(this);
         button2.setOnClickListener(this);
+
+        info0.setOnClickListener(this);
+        info1.setOnClickListener(this);
+        info2.setOnClickListener(this);
+        info3.setOnClickListener(this);
+        info4.setOnClickListener(this);
 
         vpager.setAdapter(new PageAdatper(listViews));
         vpager.setCurrentItem(0);
@@ -172,6 +191,21 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 break;
             case R.id.button2:
                 vpager.setCurrentItem(2);
+                break;
+            case  R.id.info:
+                getinfo(0);
+                break;
+            case  R.id.info1:
+                getinfo(1);
+                break;
+            case  R.id.info2:
+                getinfo(2);
+                break;
+            case  R.id.info3:
+                getinfo(3);
+                break;
+            case  R.id.info4:
+                getinfo(4);
                 break;
         }
     }
@@ -252,6 +286,34 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                         tv.setTextColor(Color.parseColor("#ff000000"));
                     }
                 })
+                .create()
+                .show();
+    }
+
+    /*info*/
+    private void getinfo(final int id){
+        String infotext = "Error";
+        switch (id) {
+            case 0:
+                infotext = "Write the date of the morning you are filling out the diary";
+                break;
+            case 1:
+                infotext = "Write the time you got into bed. This may not be the time you began \"trying\" to fall asleep.";
+                break;
+            case 2:
+                infotext = "Record the time you began \"trying\" to fall asleep.";
+                break;
+            case 3:
+                infotext = "What time did you get out of bed with no further attempt at sleeping? This may be different from your final awakening time (e.g. you may have woken up at 6:35 a.m. but did not get out of bed to start your day until 7:20 a.m.)";
+                break;
+            case 4:
+                infotext = "Beginning at the time you wrote in question 2, how long did it take you to fall asleep?";
+                break;
+        }
+        new AlertDialog.Builder(Questionire.this)
+                .setTitle("Info")
+                .setMessage(infotext)
+                .setNegativeButton("Back", null)
                 .create()
                 .show();
     }

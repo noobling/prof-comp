@@ -6,86 +6,287 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_grey">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:gravity="center"
-    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/date_of_sleep"
-        style="@style/ask1"
-        android:text="Date Of Sleep Record"
-        android:layout_marginTop="15dp"/>
-    <TextView
-        android:id="@+id/tv1"
-        style="@style/answer"
-        android:text="Click to choose a Date" />
-    <View
-        style="@style/WireThinHorizontal"/>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/into_bed"
-        style="@style/ask1"
-        android:text="What time did you get into bed?" />
-    <TextView
-        android:id="@+id/tv2"
-        style="@style/answer"
-        android:text="Click to choose a Time" />
-    <View
-        style="@style/WireThinHorizontal"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/date_of_sleep"
+                    style="@style/ask1"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="Date Of Sleep Record" />
 
-    <TextView
-        android:id="@+id/time_try_sleep"
-        android:text="What time did you try to go to sleep?"
-        style="@style/ask1"/>
-    <TextView
-        android:id="@+id/tv3"
-        style="@style/answer"
-        android:text="Click to choose a Time" />
-    <View
-        style="@style/WireThinHorizontal"/>
+                <TextView
+                    android:id="@+id/tv1"
+                    style="@style/answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Click to choose a Date" />
 
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/time_out_bed"
-        style="@style/ask1"
-        android:text="What time did you get out of bed for the day?" />
-    <TextView
-        android:id="@+id/tv4"
-        style="@style/answer"
-        android:text="Click to choose a Time" />
-    <View
-        style="@style/WireThinHorizontal"/>
+                <ImageButton
+                    android:id="@+id/info"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/icon_info" />
 
-    <TextView
-        android:id="@+id/long_asleep"
-        style="@style/ask1"
-        android:text="How long did it take yout to fall asleep?" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View style="@style/WireThinHorizontal" />
 
 
-    <TextView
-        android:id="@+id/tv5"
-        style="@style/answer"
-        android:text="Click to choose a Time" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/into_bed"
+                    style="@style/ask1"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="What time did you get into bed?" />
+
+                <TextView
+                    android:id="@+id/tv2"
+                    style="@style/answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Click to choose a Time" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/info1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/icon_info" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View style="@style/WireThinHorizontal" />
 
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="15dp"
-        android:background="#FFA500"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="Continue"
-        android:textColor="@color/white"
-        android:textSize="@dimen/font_normal" />
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/time_try_sleep"
+                    style="@style/ask1"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="What time did you try to go to sleep?" />
+
+                <TextView
+                    android:id="@+id/tv3"
+                    style="@style/answer"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Click to choose a Time" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/info2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/icon_info" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View style="@style/WireThinHorizontal" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/time_out_bed"
+                    style="@style/ask1"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="What time did you get out of bed for the day?" />
+
+                <TextView
+                    android:id="@+id/tv4"
+                    style="@style/answer"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Click to choose a Time" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/info3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/icon_info" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View style="@style/WireThinHorizontal" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/long_asleep"
+                    style="@style/ask1"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="How long did it take yout to fall asleep?" />
+
+                <TextView
+                    android:id="@+id/tv5"
+                    style="@style/answer"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Click to choose a Time" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/info4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/icon_info" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="5dp"
+            android:background="#FFA500"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="Continue"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_normal" />
+    </LinearLayout>
 </ScrollView>

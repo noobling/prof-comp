@@ -6,8 +6,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textColorPrimary">@color/black</item>
-        <item name="android:colorForeground">@color/dark_grey</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:colorForeground">@color/light_grey</item>
         <item name="android:textColorSecondary">@color/dark_grey</item>
         <item name="android:windowBackground">@color/colorAccent</item>
     </style>
