@@ -78,6 +78,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         initView();
     }
 
+/*Initialize Variables & Listeners*/
     private void initView(){
         //找viewpager
         vpager = (ViewPager) findViewById(R.id.vpager);
@@ -158,7 +159,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
     }
 
 
-
+/*Button Press*/
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -210,6 +211,8 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         }
     }
 
+
+/*Page Animation*/
     @Override
     public void onPageSelected(int index) {
         Animation animation = null;
@@ -273,7 +276,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         private void setTimeAction(final TextView tv){
 
             dpTime=(TimePicker) getLayoutInflater().inflate(R.layout.dialog_edit_time,null);
-            dpTime.setIs24HourView(true);
+            //dpTime.setIs24HourView(true);
         new AlertDialog.Builder(Questionire.this)
                 .setTitle("What time did you get into sleep")
                 .setView(dpTime)
@@ -282,6 +285,8 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                     public void onClick(DialogInterface dialog, int which) {
                         hour= String.valueOf(dpTime.getCurrentHour());
                         min=String.valueOf(dpTime.getCurrentMinute());
+                        if(min.length() == 1)
+                            min = "0" + min;
                         tv.setText(hour+":"+min);
                         tv.setTextColor(Color.parseColor("#ff000000"));
                     }
@@ -290,7 +295,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 .show();
     }
 
-    /*info*/
+/*info*/
     private void getinfo(final int id){
         String infotext = "Error";
         switch (id) {
