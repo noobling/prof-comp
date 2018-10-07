@@ -7,29 +7,46 @@
     <v-content class="hero-image">
       <v-container>
         <nuxt />
-        <v-btn
-          fixed
-          fab
-          bottom
-          right
-          color="primary"
-          to="/sleeprecord/create"
-          class="mb-5"
-        >
-          <v-icon>add</v-icon>
-        </v-btn>
-        <v-btn
-          fixed
-          fab
-          bottom
-          right
-          color="primary"
-          to="/home"
-          class="mb-7"
-        >
-          <v-icon>home</v-icon>
-        </v-btn>
+        
+       
       </v-container>
+
+      <v-speed-dial
+          v-model="fab"
+          right
+          bottom
+          fixed
+          direction="top"
+        >
+          <v-btn
+            slot="activator"
+            v-model="fab"
+            color="primary"
+            dark
+            fab
+          >
+            <v-icon>more_vert</v-icon>
+            <v-icon>close</v-icon>
+          </v-btn>
+
+          <v-btn
+            fab
+            small
+            color="primary"
+            to="/sleeprecord/create"
+          >
+            <v-icon>add</v-icon>
+          </v-btn>
+          <v-btn
+            fab
+            small
+            color="primary"
+            to="/home"
+            class="mb-7"
+          >
+            <v-icon>home</v-icon>
+          </v-btn>
+        </v-speed-dial>
     </v-content>
     <my-footer></my-footer>
   </v-app>
@@ -53,7 +70,8 @@
 
     data() {
       return {
-        isDarkMode: false
+        isDarkMode: false,
+        fab: false
       }
     }
   }
