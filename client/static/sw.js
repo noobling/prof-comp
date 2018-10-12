@@ -2,80 +2,84 @@ importScripts('/_nuxt/workbox.42554690.js')
 
 workbox.precaching.precacheAndRoute([
   {
-    "url": "/_nuxt/app.38bd2e26bfdcc0a66556.js",
-    "revision": "6e9a45b3f535fec92aa6dc01ce9d626b"
+    "url": "/_nuxt/app.0b02a91a16bfebf73b52.js",
+    "revision": "a75706331f83b338f44a2cfe29dc386b"
   },
   {
-    "url": "/_nuxt/layouts/default.0be86469166f2184bc2a.js",
-    "revision": "4a9ca7f36883a8f358d63cd62b146577"
+    "url": "/_nuxt/layouts/default.98dff6be8f6624d04f60.js",
+    "revision": "5ab5f05ec5709c297b8c96ddc0611ba1"
   },
   {
     "url": "/_nuxt/layouts/main.81f044e01bb1c4692ad9.js",
     "revision": "6e347b7a3ef6b4e7aa196c0b49719ef1"
   },
   {
-    "url": "/_nuxt/manifest.c791056958d24c50d6f4.js",
-    "revision": "cfa4c098a9da454552002edab2589ec2"
+    "url": "/_nuxt/manifest.5ac05e700ca36185500f.js",
+    "revision": "3fe1bf4b3517ddcd60ace42603c72546"
   },
   {
-    "url": "/_nuxt/pages/home.440be7ec224ab92ec1c5.js",
-    "revision": "056f3d00d80d5eac7a15059375166eb9"
+    "url": "/_nuxt/pages/help.2b428fe94321c62588bf.js",
+    "revision": "cdda4073ecbded0478a46d4a1b347216"
   },
   {
-    "url": "/_nuxt/pages/index.af90eaeea3fee723a175.js",
-    "revision": "2ddece08ceda82dc872919f0ab147440"
+    "url": "/_nuxt/pages/home.eda43523bbd5133bef2d.js",
+    "revision": "f416d4c34e0b1124a051c3d9844bb55c"
   },
   {
-    "url": "/_nuxt/pages/Login.fb5b7e4c21ca035faeb3.js",
-    "revision": "c2db6b0f3464ed17b4edb290e61e35a9"
+    "url": "/_nuxt/pages/index.dcecdaa72f93a4b7fadd.js",
+    "revision": "bad92cb1dbbf4905e2dbc24daf59b0bf"
   },
   {
-    "url": "/_nuxt/pages/password/email.5a43f278d23001492046.js",
-    "revision": "4a31834f98088bd8fe9af2a326763af5"
+    "url": "/_nuxt/pages/Login.803125165dc17206277b.js",
+    "revision": "c53e192faaf220ac5b9be58492178a40"
   },
   {
-    "url": "/_nuxt/pages/password/reset/_id.d8782c6e9be0fcacb3e0.js",
-    "revision": "63701eb50d4e30118f23847cba5b0cc5"
+    "url": "/_nuxt/pages/password/email.a111743720df8ece9054.js",
+    "revision": "d50a97f25f0274d43609ad5fcd64a12a"
+  },
+  {
+    "url": "/_nuxt/pages/password/reset/_id.ddbbe0b6a7fd23461b7a.js",
+    "revision": "97820c63284dfa2755dc4368c119fb82"
   },
   {
     "url": "/_nuxt/pages/Profile.59e38e1990690222385e.js",
     "revision": "ea7666ef807f2790c909b096b18f7846"
   },
   {
-    "url": "/_nuxt/pages/Register.e2038e3d15812bc71eb7.js",
-    "revision": "2c8651a9e8b238d4fb860d493ff76b44"
+    "url": "/_nuxt/pages/Register.b8f0554a054b557186ed.js",
+    "revision": "46625daf59a818081323abdcbb6ea093"
   },
   {
-    "url": "/_nuxt/pages/secret.a8354dbfd1d8ff56b280.js",
-    "revision": "0bade0b2a52cd96e02d7d637f6a7030d"
+    "url": "/_nuxt/pages/secret.2ff37d6333398ae7737a.js",
+    "revision": "525bada60e9eb3483be3af5679321d04"
   },
   {
-    "url": "/_nuxt/pages/Settings.298eb8ef4e22b1cacdbc.js",
-    "revision": "6a8dbbf1a13a5ed5bac9e362dc670e04"
+    "url": "/_nuxt/pages/Settings.284b0b7d28edb0411eef.js",
+    "revision": "a031f070c9d1b135ec36ca11ac7da4a3"
   },
   {
-    "url": "/_nuxt/pages/sleeprecord/create.3ed057c56021658d2b0b.js",
-    "revision": "d053e5fbb73e042bd151566cbe1f75e0"
+    "url": "/_nuxt/pages/sleeprecord/create.4588a0a1c015c09b9758.js",
+    "revision": "47a10e28cf52d645740c4729aa0705f2"
   },
   {
-    "url": "/_nuxt/pages/sleeprecord/edit/_id.e730f86178a962fe1c9a.js",
-    "revision": "00d9a62340ecd638ad99981ce4653902"
+    "url": "/_nuxt/pages/sleeprecord/edit/_id.4067e5409a35365451c0.js",
+    "revision": "3de711d86e09aa61267560e4da93782f"
   },
   {
-    "url": "/_nuxt/pages/sleeprecord/researcher.dc2e214ded25d0161846.js",
-    "revision": "aab53993b43ef11407f9513ec2d2264d"
+    "url": "/_nuxt/pages/sleeprecord/researcher.3f8731b891eb55941716.js",
+    "revision": "c51feeb4d59e86914f1f677a52f9df48"
   },
   {
-    "url": "/_nuxt/pages/sleeprecord/user/_id.8488eec4f969641d5f86.js",
-    "revision": "6abbf106fec7d306c22260b19399f900"
+    "url": "/_nuxt/pages/sleeprecord/user/_id.bee215128393324d27b7.js",
+    "revision": "2ff45403d67cea1238f7f9e09275a1bc"
   },
   {
-    "url": "/_nuxt/pages/visual/_id.f151d513655840b87ba4.js",
-    "revision": "025dfa8ba0b30421ca5638860399ee51"
+    "url": "/_nuxt/pages/visual/_id.3a97f90e315a1fa4ab33.js",
+    "revision": "746446069d9d04d61c5de7ca101f2788"
   },
   {
-    "url": "/_nuxt/vendor.6704a8403e3eb6a280cb.js",
-    "revision": "82a2b834651adaa74b21425a247efed4"
+    "url": "/_nuxt/vendor.77bfb06aefcb220ed1b4.js",
+    "revision": "2401c6f5df755b32be831f29b5007176"
   }
 ], {
   "cacheId": "SleepDiaryApp",
