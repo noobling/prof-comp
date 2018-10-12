@@ -71,4 +71,12 @@ class SleepRecordController extends Controller
 
         return response('Deleted');
     }
+
+    /**
+     * Gets the latest sleep record
+     */
+    public function latest(Request $request, User $user)
+    {
+        return $user->sleepRecords()->latest()->first();
+    }
 }
