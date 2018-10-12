@@ -58,8 +58,14 @@
           {
             title: 'Settings',
             description: 'Change your settings',
-            link: '/settings',
+            link: '/profile',
             icon: 'settings'
+          },
+          {
+            title: 'Help',
+            description: 'Resources to help you',
+            link: '/help',
+            icon: 'help'
           }
         ]
       }

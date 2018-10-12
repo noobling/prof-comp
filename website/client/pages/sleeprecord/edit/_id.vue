@@ -1,8 +1,8 @@
 <template>
   <v-layout>
     <v-flex xs12 sm10 offset-sm1>
-      <v-scale-transition>
-        <v-card v-if="form">
+      <v-scale-transition v-if="form">
+        <v-card>
           <v-toolbar card>
             <v-btn icon to="/home">
               <v-icon>arrow_back</v-icon>
@@ -23,7 +23,8 @@
                     :rules="requiredRule"
                     type="date">
                   </v-text-field>
-                  <v-text-field
+                  <div class="row">
+                    <v-text-field
                     v-model="form.timeGotIntoBed"
                     label="What time did you get into bed?"
                     required
@@ -34,20 +35,42 @@
                     item-value="value"
                     type="time"
                     hint="hh:mm am|pm"
+                    persistent-hint
                     :filter="timeFilter">
+                 
                   </v-text-field>
+                   <v-tooltip left class="ml-2">
+                    <v-icon
+                      slot="activator"
+                      color="primary"
+                      dark
+                    >info</v-icon>
+                    <span>What time did you get into bed?</span>
+                  </v-tooltip>
+                  </div>
                   
-                  <v-autocomplete
-                    v-model="form.timeToTrySleep"
-                    label="What time did you try to go to sleep?"
-                    required
-                    :rules="requiredRule"
-                    :items="timeOfDays"
-                    item-text="time"
-                    item-value="value"
-                    :filter="timeFilter"
-                    >
-                  </v-autocomplete>
+                  <div class="row">
+                    <v-autocomplete
+                      v-model="form.timeToTrySleep"
+                      label="What time did you try to go to sleep?"
+                      required
+                      :rules="requiredRule"
+                      :items="timeOfDays"
+                      item-text="time"
+                      item-value="value"
+                      :filter="timeFilter"
+                      >
+                    </v-autocomplete>
+                    <v-tooltip left class="ml-2">
+                      <v-icon
+                        slot="activator"
+                        color="primary"
+                        dark
+                      >info</v-icon>
+                      <span>What time did you try to go to sleep?</span>
+                    </v-tooltip>
+                  </div>
+
                   <v-autocomplete
                     v-model="form.timeWokenUp"
                     label="What time did you get out of bed for the day?"
@@ -79,23 +102,25 @@
                 </v-stepper-step>
 
                 <v-stepper-content step="2" v-if="currentStep == 2">
-                  <v-select
-                    v-model="form.awakeningsNumber"
-                    label="How many times did you wake up, not counting your final awakening?"
-                    required
-                    :rules="requiredRule"
-                    :items="numbersList"
-                    >
-                      
-                  </v-select>
-                  <v-tooltip>
-                        <v-icon
-                          slot="activator"
-                          color="primary"
-                          dark
-                        >info</v-icon>
-                        <span>Tooltip</span>
-                      </v-tooltip>
+                  <div class="row">
+                    <v-select
+                      v-model="form.awakeningsNumber"
+                      label="How many times did you wake up, not counting your final awakening?"
+                      required
+                      :rules="requiredRule"
+                      :items="numbersList"
+                      >
+                    </v-select>
+                    <v-tooltip left class="ml-2">
+                      <v-icon
+                        slot="activator"
+                        color="primary"
+                        dark
+                      >info</v-icon>
+                      <span>How many times did you wake up, not counting your final awakening?</span>
+                    </v-tooltip>
+                  </div>
+                  
                   <v-autocomplete
                     v-model="form.awakeningsTotalDuration"
                     label="In total, how long did these awakenings last?"
@@ -132,7 +157,7 @@
                     :filter="timeFilter"
                   >
                   </v-autocomplete>
-                  <v-checkbox label="Did you wake up earlier than planned?" v-model="form.earlyWakeUp" color="primar"></v-checkbox>
+                  <v-checkbox label="Did you wake up earlier than planned?" v-model="form.earlyWakeUp" color="primary"></v-checkbox>
                   <v-autocomplete
                     v-model="form.earlyWakeUpDuration"
                     label="How much earlier?"
@@ -181,16 +206,19 @@
                     v-model="form.napDozeNum"
                     label="How many times did you nap or doze?"
                     :items="numbersList"
-                    :rules="requiredRule"                    
+                    :rules="requiredRule"
+                    required             
                   >
                   </v-select>
                   <v-autocomplete
                     v-model="form.napDozeDuration"
                     label="In total, how long did you nap or doze?"
                     :items="timeDurationsArr"
+                    :rules="requiredRule"
+                    required                    
                     item-text="time"
                     item-value="value"
-                    v-if="form.napDozeNum > 0"
+                    v-if="form.napDozeNum && form.napDozeNum > 0"
                     :filter="timeFilter"
                   >
 
@@ -252,7 +280,7 @@
                     label="Medication, dose, and time taken e.g. Relaxo-Herb, 50 mg, 11 pm"
                   >
                   </v-text-field>
-                  <v-btn @click="addMedicine" v-if="form.otcMed">
+                  <v-btn class="btn-spaced" @click="addMedicine" v-if="form.otcMed">
                     <v-icon>add</v-icon>
                     Add Medicine
                   </v-btn>
@@ -382,8 +410,10 @@
 
        processForm: function () {
         for (let index in this.toProcess) {
-          const time = this.form[this.toProcess[index]]
-          this.form[this.toProcess[index]] = time.slice(0, 2) + ':' + time.slice(2)
+          if (this.form[this.toProcess[index]].indexOf(':') === -1) {
+            const time = this.form[this.toProcess[index]]
+            this.form[this.toProcess[index]] = time.slice(0, 2) + ':' + time.slice(2)
+          }
         }
       },
 
@@ -404,5 +434,8 @@
   .btn-spaced {
     margin-left: 0;
     margin-top: 20px;
+  }
+  .row {
+    display: flex
   }
 </style>

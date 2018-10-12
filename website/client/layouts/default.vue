@@ -43,9 +43,16 @@
             small
             color="primary"
             to="/home"
-            class="mb-7"
           >
             <v-icon>home</v-icon>
+          </v-btn>
+          <v-btn
+            fab
+            small
+            color="primary"
+            to="/help"
+          >
+            <v-icon>help</v-icon>
           </v-btn>
         </v-speed-dial>
     </v-content>

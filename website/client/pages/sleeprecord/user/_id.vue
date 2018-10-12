@@ -4,7 +4,7 @@
       <v-scale-transition>
         <v-card class="card red lighten-2" dark v-if="sleeprecords" >
           <v-toolbar class="headline red lighten-3">
-            <v-toolbar-title>Sleep Journal for User {{ $route.params.id }}</v-toolbar-title>
+            <v-toolbar-title>Sleep Journal for {{ sleeprecords[0].user.email }}</v-toolbar-title>
           </v-toolbar>
 
           <v-card-text v-if="!sleeprecords || sleeprecords.length < 1">

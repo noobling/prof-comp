@@ -331,12 +331,9 @@
         const month = currentDate.getMonth() + 1
         const year = currentDate.getFullYear()
         this.form.date = year + '-' + month.toString().padStart(2, '0') + '-' + day.toString().padStart(2, '0')
-
-        if (this.$route.query.sleeprecord) {
-          this.form = this.$route.query.sleeprecord
-        }
       }
-     
+
+      this.fetchData()
     },
 
     data() {
@@ -404,10 +401,42 @@
 
       processForm: function () {
         for (let index in this.toProcess) {
-          const time = this.form[this.toProcess[index]]
-          this.form[this.toProcess[index]] = time.slice(0, 2) + ':' + time.slice(2)
+          if (this.form[this.toProcess[index]].indexOf(':') === -1) {
+            const time = this.form[this.toProcess[index]]
+            this.form[this.toProcess[index]] = time.slice(0, 2) + ':' + time.slice(2)
+          }
         }
-        
+      },
+
+      preProcessForm: function () {
+        for (let index in this.toProcess) {
+          const time = this.form[this.toProcess[index]]
+          this.form[this.toProcess[index]] = time.split(':').join('')        
+        }
+      },
+
+      fetchData: async function () {
+        const { data } = await axios.get('/sleeprecords/' + this.$store.getters['auth/user'].id + '/latest')
+
+        // If user has never created a sleepdiary then there will be no data
+        if (data) {
+          this.form = data
+          if (!data.medicines) this.form.medicines = []
+          delete this.form['user']
+          delete this.form['id']
+
+          this.setCurrentDate()
+          
+          this.preProcessForm()
+        }
+      },
+
+      setCurrentDate: function () {
+        const currentDate = new Date()
+        const day = currentDate.getDate()
+        const month = currentDate.getMonth() + 1
+        const year = currentDate.getFullYear()
+        this.form.date = year + '-' + month.toString().padStart(2, '0') + '-' + day.toString().padStart(2, '0')
       }
     }
   }
