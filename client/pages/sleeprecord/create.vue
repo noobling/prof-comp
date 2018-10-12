@@ -23,16 +23,20 @@
                     :rules="requiredRule"
                     type="date">
                   </v-text-field>
-                  <v-autocomplete
+                  <v-text-field
                     v-model="form.timeGotIntoBed"
                     label="What time did you get into bed?"
                     required
                     :rules="requiredRule"
                     :items="timeOfDays"
+                    :mask="'time'"
                     item-text="time"
                     item-value="value"
+                    type="time"
+                    hint="hh:mm am|pm"
+                    persistent-hint
                     :filter="timeFilter">
-                  </v-autocomplete>
+                  </v-text-field>
                   
                   <v-autocomplete
                     v-model="form.timeToTrySleep"
@@ -55,7 +59,7 @@
                     item-value="value"
                     :filter="timeFilter">
                   </v-autocomplete>
-                  <v-autocomplete
+                  <v-text-field
                     v-model="form.timeTakenToSleepDuration"
                     label="How long did it take you to fall asleep"                  
                     :rules="requiredRule"
@@ -63,8 +67,10 @@
                     item-text="time"
                     item-value="value"
                     :filter="timeFilter"
+                    mask="time"
+                    placeholder="hh:mm"
                   >
-                  </v-autocomplete>
+                  </v-text-field>
                   
                   <v-btn class="btn-spaced" :disabled="!valid" color="primary" @click="nextStep">Continue</v-btn>
                 </v-stepper-content>
@@ -167,16 +173,19 @@
                     v-model="form.napDozeNum"
                     label="How many times did you nap or doze?"
                     :items="numbersList"
-                    :rules="requiredRule"                    
+                    :rules="requiredRule"
+                    required             
                   >
                   </v-select>
                   <v-autocomplete
                     v-model="form.napDozeDuration"
                     label="In total, how long did you nap or doze?"
                     :items="timeDurationsArr"
+                    :rules="requiredRule"
+                    required                    
                     item-text="time"
                     item-value="value"
-                    v-if="form.napDozeNum > 0"
+                    v-if="form.napDozeNum && form.napDozeNum > 0"
                     :filter="timeFilter"
                   >
 
@@ -305,7 +314,8 @@
         },
         earlyWakeUp: false,
         valid: true,
-        currentStep: 1
+        currentStep: 1,
+        toProcess: ['timeGotIntoBed', 'timeTakenToSleepDuration']
       }
     },
 
@@ -330,6 +340,7 @@
     methods: {
       submit: async function () {
         if (this.$refs.form.validate()) {
+          this.processForm()
           // Don't submit this when empty Laravel does not handle this well
           if (this.form.medicines.length === 0) delete this.form['medicines']
           const { data } = await axios.post('/user/sleeprecord', this.form)
@@ -356,6 +367,14 @@
 
       addMedicine: function () {
         this.form.medicines.push('')
+      },
+
+      processForm: function () {
+        for (let index in this.toProcess) {
+          const time = this.form[this.toProcess[index]]
+          this.form[this.toProcess[index]] = time.slice(0, 2) + ':' + time.slice(2)
+        }
+        
       }
     }
   }

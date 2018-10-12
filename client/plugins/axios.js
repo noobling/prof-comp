@@ -73,7 +73,7 @@ export default ({ app, store, redirect }) => {
       swal({
         type: 'error',
         title: 'Oooops...',
-        html: `Something went wrong, heres what the server told us: <div><pre style="text-align:left">${JSON.stringify(error.response.data, undefined, 2)}</pre></div>`
+        html: `Server returned a 400 error code here is why: <div><pre style="text-align:left">${JSON.stringify(error.response.data, undefined, 2)}</pre></div>`
       })
     }
 

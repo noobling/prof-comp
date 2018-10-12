@@ -17,6 +17,7 @@
           bottom
           fixed
           direction="top"
+          v-if="$store.getters['auth/user']"
         >
           <v-btn
             slot="activator"
@@ -35,7 +36,7 @@
             color="primary"
             to="/sleeprecord/create"
           >
-            <v-icon>add</v-icon>
+            <v-icon>create</v-icon>
           </v-btn>
           <v-btn
             fab
