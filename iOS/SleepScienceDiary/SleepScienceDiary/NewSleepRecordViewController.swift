@@ -13,15 +13,18 @@ class NewSleepRecordViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+
     }
     
     @IBAction func surveyTapped(sender : AnyObject) {
         let taskViewController = ORKTaskViewController(task: SurveyTask, taskRun: nil)
-        taskViewController.delegate = self as? ORKTaskViewControllerDelegate
+        taskViewController.delegate = self as ORKTaskViewControllerDelegate
         present(taskViewController, animated: true, completion: nil)
     }
+    
+    
     
 
     /*
@@ -34,4 +37,26 @@ class NewSleepRecordViewController: UIViewController {
     }
     */
 
+}
+
+
+extension NewSleepRecordViewController : ORKTaskViewControllerDelegate {
+    func taskViewController(_ taskViewController: ORKTaskViewController, didFinishWith reason: ORKTaskViewControllerFinishReason, error: Error?) {
+        
+        //Dismiss the survey
+        taskViewController.dismiss(animated: true, completion: nil)
+        
+        //Choose what to do based on reason for exiting
+        switch(reason) {
+        case .completed:
+            print("Success!")
+            break
+        case .failed:
+            print("Error occurred during task") //TODO remove later
+            break
+        default:
+            print("User cancelled") //TODO remove later
+            break
+        }
+    }
 }
