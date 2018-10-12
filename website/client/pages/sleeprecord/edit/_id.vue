@@ -86,7 +86,16 @@
                     :rules="requiredRule"
                     :items="numbersList"
                     >
+                      
                   </v-select>
+                  <v-tooltip>
+                        <v-icon
+                          slot="activator"
+                          color="primary"
+                          dark
+                        >info</v-icon>
+                        <span>Tooltip</span>
+                      </v-tooltip>
                   <v-autocomplete
                     v-model="form.awakeningsTotalDuration"
                     label="In total, how long did these awakenings last?"
@@ -123,7 +132,7 @@
                     :filter="timeFilter"
                   >
                   </v-autocomplete>
-                  <v-checkbox label="Did you wake up earlier than planned?" v-model="form.earlyWakeUp"></v-checkbox>
+                  <v-checkbox label="Did you wake up earlier than planned?" v-model="form.earlyWakeUp" color="primar"></v-checkbox>
                   <v-autocomplete
                     v-model="form.earlyWakeUpDuration"
                     label="How much earlier?"
@@ -234,7 +243,7 @@
                     :filter="timeFilter"
                   >
                   </v-autocomplete>
-                  <v-checkbox label="Did you take any over-the-counter or prescription medication(s) to help you sleep?" v-model="form.otcMed"></v-checkbox>
+                  <v-checkbox label="Did you take any over-the-counter or prescription medication(s) to help you sleep?" v-model="form.otcMed" color="primary"></v-checkbox>
                   <v-text-field 
                     v-if="form.otcMed && form.medicines"
                     v-for="(medicine, index) in form.medicines"
