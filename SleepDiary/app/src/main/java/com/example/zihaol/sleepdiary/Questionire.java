@@ -39,6 +39,8 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
     private TextView time_try_sleep;
     private TextView time_out_bed;
     private TextView long_asleep;
+    private TextView drink_time;
+    private TextView drink_time1;
 
     private Button button1;
     private Button button2;
@@ -50,6 +52,24 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
     private ImageButton info2;
     private ImageButton info3;
     private ImageButton info4;
+    private ImageButton info5;
+    private ImageButton info6;
+    private ImageButton info7;
+    private ImageButton info8;
+    private ImageButton info9;
+    private ImageButton info10;
+    private ImageButton info11;
+    private ImageButton info12;
+    private ImageButton info13;
+    private ImageButton info14;
+    private ImageButton info15;
+    private ImageButton info16;
+    private ImageButton info17;
+    private ImageButton info18;
+    private ImageButton info19;
+    private ImageButton info20;
+    private ImageButton info21;
+    private ImageButton info22;
 
 
     private String min,hour;
@@ -60,6 +80,8 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
     private TextView tv_one;
     private TextView tv_two;
     private TextView tv_three;
+    private TextView tv_four;
+    private TextView tv_five;
 
     private LayoutInflater inflater;
 
@@ -120,6 +142,8 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         time_try_sleep=view1.findViewById(R.id.tv3);
         time_out_bed=view1.findViewById(R.id.tv4);
         long_asleep=view1.findViewById(R.id.tv5);
+        drink_time=view3.findViewById(R.id.tv6);
+        drink_time1=view3.findViewById(R.id.tv7);
 
         button1=view1.findViewById(R.id.button1);
         button2=view2.findViewById(R.id.button2);
@@ -130,6 +154,24 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         info2=view1.findViewById(R.id.info2);
         info3=view1.findViewById(R.id.info3);
         info4=view1.findViewById(R.id.info4);
+        info5=view2.findViewById(R.id.info5);
+        info6=view2.findViewById(R.id.info6);
+        info7=view2.findViewById(R.id.info7);
+        info8=view2.findViewById(R.id.info8);
+        info9=view2.findViewById(R.id.info9);
+        info10=view2.findViewById(R.id.info10);
+        info11=view2.findViewById(R.id.info11);
+        info12=view2.findViewById(R.id.info12);
+        info13=view2.findViewById(R.id.info13);
+        info14=view2.findViewById(R.id.info14);
+        info15=view2.findViewById(R.id.info15);
+        info16=view3.findViewById(R.id.info16);
+        info17=view3.findViewById(R.id.info17);
+        info18=view3.findViewById(R.id.info18);
+        info19=view3.findViewById(R.id.info19);
+        info20=view3.findViewById(R.id.info20);
+        info21=view3.findViewById(R.id.info21);
+        info22=view3.findViewById(R.id.info22);
 
 
         date_of_record.setOnClickListener(this);
@@ -137,6 +179,8 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         time_try_sleep.setOnClickListener(this);
         time_out_bed.setOnClickListener(this);
         long_asleep.setOnClickListener(this);
+        drink_time.setOnClickListener(this);
+        drink_time1.setOnClickListener(this);
 
         button1.setOnClickListener(this);
         button2.setOnClickListener(this);
@@ -146,6 +190,24 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         info2.setOnClickListener(this);
         info3.setOnClickListener(this);
         info4.setOnClickListener(this);
+        info5.setOnClickListener(this);
+        info6.setOnClickListener(this);
+        info7.setOnClickListener(this);
+        info8.setOnClickListener(this);
+        info9.setOnClickListener(this);
+        info10.setOnClickListener(this);
+        info11.setOnClickListener(this);
+        info12.setOnClickListener(this);
+        info13.setOnClickListener(this);
+        info14.setOnClickListener(this);
+        info15.setOnClickListener(this);
+        info16.setOnClickListener(this);
+        info17.setOnClickListener(this);
+        info18.setOnClickListener(this);
+        info19.setOnClickListener(this);
+        info20.setOnClickListener(this);
+        info21.setOnClickListener(this);
+        info22.setOnClickListener(this);
 
         vpager.setAdapter(new PageAdatper(listViews));
         vpager.setCurrentItem(0);
@@ -187,6 +249,12 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
             case  R.id.tv5:
                 setTimeAction(long_asleep);
                 break;
+            case  R.id.tv6:
+                setTimeAction(drink_time);
+                break;
+            case  R.id.tv7:
+                setTimeAction(drink_time1);
+                break;
             case R.id.button1:
                 vpager.setCurrentItem(1);
                 break;
@@ -207,6 +275,60 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 break;
             case  R.id.info4:
                 getinfo(4);
+                break;
+            case  R.id.info5:
+                getinfo(5);
+                break;
+            case  R.id.info6:
+                getinfo(6);
+                break;
+            case  R.id.info7:
+                getinfo(7);
+                break;
+            case  R.id.info8:
+                getinfo(8);
+                break;
+            case  R.id.info9:
+                getinfo(9);
+                break;
+            case  R.id.info10:
+                getinfo(10);
+                break;
+            case  R.id.info11:
+                getinfo(11);
+                break;
+            case  R.id.info12:
+                getinfo(12);
+                break;
+            case  R.id.info13:
+                getinfo(13);
+                break;
+            case  R.id.info14:
+                getinfo(14);
+                break;
+            case  R.id.info15:
+                getinfo(15);
+                break;
+            case  R.id.info16:
+                getinfo(16);
+                break;
+            case  R.id.info17:
+                getinfo(17);
+                break;
+            case  R.id.info18:
+                getinfo(18);
+                break;
+            case  R.id.info19:
+                getinfo(19);
+                break;
+            case  R.id.info20:
+                getinfo(20);
+                break;
+            case  R.id.info21:
+                getinfo(21);
+                break;
+            case  R.id.info22:
+                getinfo(22);
                 break;
         }
     }
@@ -313,6 +435,60 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 break;
             case 4:
                 infotext = "Beginning at the time you wrote in question 2, how long did it take you to fall asleep?";
+                break;
+            case 5:
+                infotext = "How many times did you wake up between the time you first fell asleep and your final awakening?";
+                break;
+            case 6:
+                infotext = "What was the total time you were awake between the time you first fell asleep and your final awakening. For example, if you woke up 3 times for 20 minutes, 35 minutes, and 15 minutes, add them all up (20+35+15= 70 min or 1 hr and 10 min).";
+                break;
+            case 7:
+                infotext = "Record the last time you woke up in the morning.";
+                break;
+            case 8:
+                infotext = "After the last time you woke-up (item #6a), how many minutes did you spend in bed trying to sleep? For example, if you woke up at 8 am but continued to try sleep until 9 am, record 1 hour.";
+                break;
+            case 9:
+                infotext = "If you woke up or were awakened earlier than you planned, check yes. If you woke up at your planned time, check no.";
+                break;
+            case 10:
+                infotext = "If you answered \"yes\" to question 6c, write the number of minutes you woke up earlier than you had planned on waking up. For example, if you woke up 15 minutes before the alarm went off, record 15 minutes here.";
+                break;
+            case 11:
+                infotext = "This should be your best estimate, based on when you went to bed and woke up, how long it took you to fall asleep, and how long you were awake. You do not need to calculate this by adding and subtracting; just give your best estimate.";
+                break;
+            case 12:
+                infotext = "\"Sleep Quality\" is your sense of whether your sleep was good or poor.";
+                break;
+            case 13:
+                infotext = "This refers to how you felt after you were done sleeping for the night, during the first few minutes that you were awake.";
+                break;
+            case 14:
+                infotext = "A nap is a time you decided to sleep during the day, whether in bed or not in bed. \"Dozing\" is a time you may have nodded off for a few minutes, without meaning to, such as while watching TV. Count all the times you napped or dozed at any time from when you first got out of bed in the morning until you got into bed again at night.";
+                break;
+            case 15:
+                infotext = "Estimate the total amount of time you spent napping or dozing, in hours and minutes. For instance, if you napped twice, once for 30 minutes and once for 60 minutes, and dozed for 10 minutes, you would answer \"1 hour 40 minutes.\" If you did not nap or doze, write \"N/A\" (not applicable).";
+                break;
+            case 16:
+                infotext = "Enter the number of alcoholic drinks you had where 1 drink is defined as one 12 oz beer (can), 5 oz wine, or 1.5 oz liquor (one shot).";
+                break;
+            case 17:
+                infotext = "If you had an alcoholic drink yesterday, enter the time of day in hours and minutes of your last drink. If you did not have a drink, write \"N/A\" (not applicable).";
+                break;
+            case 18:
+                infotext = "Enter the number of caffeinated drinks (coffee, tea, soda, energy drinks) you had where for coffee and tea, one drink = 6-8 oz; while for caffeinated soda one drink = 12 oz.";
+                break;
+            case 19:
+                infotext = "If you had a caffeinated drink, enter the time of day in hours and minutes of your last drink. If you did not have a caffeinated drink, write \"N/A\" (not applicable).";
+                break;
+            case 20:
+                infotext = "List the medication name, how much and when you took EACH different medication you took tonight to help you sleep. Include medication available over the counter, prescription medication, and herbals (example: \"Sleepwell 50 mg 11 pm\"). If every night is the same, write \"same\" after the first day.";
+                break;
+            case 21:
+                infotext = "List the medication name, how much and when you took EACH different medication you took tonight to help you sleep. Include medication available over the counter, prescription medication, and herbals (example: \"Sleepwell 50 mg 11 pm\"). If every night is the same, write \"same\" after the first day.";
+                break;
+            case 22:
+                infotext = "If you have anything that you would like to say that is relevant to your sleep feel free to write it here.";
                 break;
         }
         new AlertDialog.Builder(Questionire.this)
