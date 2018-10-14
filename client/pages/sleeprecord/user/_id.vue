@@ -125,7 +125,6 @@
       },
 
       inPageRange(index) {
-        console.log(index)
         return index < (this.page * this.pageSize) && index >= (this.page-1) * (this.pageSize)
       }
     }
