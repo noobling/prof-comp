@@ -238,12 +238,20 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
                 <CheckBox
                     android:id="@+id/Early"
                     style="@style/EditStyle"
                     android:checked="true"
                     android:text="Did you wake up earlier than planned ?"
                     android:textColor="@color/black" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
             </LinearLayout>
 
