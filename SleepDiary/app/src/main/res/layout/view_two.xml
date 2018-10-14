@@ -137,13 +137,14 @@
                     android:layout_marginTop="15dp"
                     android:text="What time was your final awakening?" />
 
-                <EditText
-                    android:id="@+id/tv_wake3"
-                    style="@style/EditStyle"
+                <TextView
+                    android:id="@+id/tv8"
+                    style="@style/answer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Click to choose a Time" />
 
             </LinearLayout>
 

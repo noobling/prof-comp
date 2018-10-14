@@ -300,9 +300,9 @@
                     android:id="@+id/tv_wake12"
                     style="@style/EditStyle"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:inputType="number"
+                    android:inputType="textMultiLine"
                     android:textColor="@color/black" />
 
             </LinearLayout>
@@ -349,12 +349,12 @@
                     android:text="Comments (if applicable)" />
 
                 <EditText
-                    android:id="@+id/tv_wake13"
+                    android:id="@+id/comment"
                     style="@style/EditStyle"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:inputType="number"
+                    android:inputType="textLongMessage"
                     android:textColor="@color/black" />
 
             </LinearLayout>
@@ -381,7 +381,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

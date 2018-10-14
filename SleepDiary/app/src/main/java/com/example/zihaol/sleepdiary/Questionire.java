@@ -13,6 +13,7 @@ import android.os.Build;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,6 +40,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
     private TextView time_try_sleep;
     private TextView time_out_bed;
     private TextView long_asleep;
+    private TextView final_awake;
     private TextView drink_time;
     private TextView drink_time1;
 
@@ -80,8 +82,6 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
     private TextView tv_one;
     private TextView tv_two;
     private TextView tv_three;
-    private TextView tv_four;
-    private TextView tv_five;
 
     private LayoutInflater inflater;
 
@@ -142,11 +142,13 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         time_try_sleep=view1.findViewById(R.id.tv3);
         time_out_bed=view1.findViewById(R.id.tv4);
         long_asleep=view1.findViewById(R.id.tv5);
+        final_awake=view2.findViewById(R.id.tv8);
         drink_time=view3.findViewById(R.id.tv6);
         drink_time1=view3.findViewById(R.id.tv7);
 
         button1=view1.findViewById(R.id.button1);
         button2=view2.findViewById(R.id.button2);
+        button3=view3.findViewById(R.id.button3);
 
 
         info0=view1.findViewById(R.id.info);
@@ -179,11 +181,13 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         time_try_sleep.setOnClickListener(this);
         time_out_bed.setOnClickListener(this);
         long_asleep.setOnClickListener(this);
+        final_awake.setOnClickListener(this);
         drink_time.setOnClickListener(this);
         drink_time1.setOnClickListener(this);
 
         button1.setOnClickListener(this);
         button2.setOnClickListener(this);
+        button3.setOnClickListener(this);
 
         info0.setOnClickListener(this);
         info1.setOnClickListener(this);
@@ -255,11 +259,17 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
             case  R.id.tv7:
                 setTimeAction(drink_time1);
                 break;
+            case  R.id.tv8:
+                setTimeAction(final_awake);
+                break;
             case R.id.button1:
                 vpager.setCurrentItem(1);
                 break;
             case R.id.button2:
                 vpager.setCurrentItem(2);
+                break;
+            case R.id.button3:
+                test();
                 break;
             case  R.id.info:
                 getinfo(0);
@@ -380,7 +390,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
 
         final DatePicker dpBirth = (DatePicker) getLayoutInflater().inflate(R.layout.dialog_edit_date, null);
         new AlertDialog.Builder(Questionire.this)
-                .setTitle("Date Of Sleep")
+                .setTitle(Html.fromHtml("<font color=\"#ffffff\">Set Date of sleep</font>"))
                 .setView(dpBirth)
                 .setPositiveButton("Submit", new DialogInterface.OnClickListener() {
                     @Override
@@ -400,7 +410,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
             dpTime=(TimePicker) getLayoutInflater().inflate(R.layout.dialog_edit_time,null);
             //dpTime.setIs24HourView(true);
         new AlertDialog.Builder(Questionire.this)
-                .setTitle("What time did you get into sleep")
+                .setTitle(Html.fromHtml("<font color=\"#ffffff\">Set time</font>"))
                 .setView(dpTime)
                 .setPositiveButton("Submit", new DialogInterface.OnClickListener() {
                     @Override
@@ -422,83 +432,93 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         String infotext = "Error";
         switch (id) {
             case 0:
-                infotext = "Write the date of the morning you are filling out the diary";
+                infotext = "<font color=\"#ffffff\">Write the date of the morning you are filling out the diary</font>";
                 break;
             case 1:
-                infotext = "Write the time you got into bed. This may not be the time you began \"trying\" to fall asleep.";
+                infotext = "<font color=\"#ffffff\">Write the time you got into bed. This may not be the time you began \"trying\" to fall asleep.</font>";
                 break;
             case 2:
-                infotext = "Record the time you began \"trying\" to fall asleep.";
+                infotext = "<font color=\"#ffffff\">Record the time you began \"trying\" to fall asleep.</font>";
                 break;
             case 3:
-                infotext = "What time did you get out of bed with no further attempt at sleeping? This may be different from your final awakening time (e.g. you may have woken up at 6:35 a.m. but did not get out of bed to start your day until 7:20 a.m.)";
+                infotext = "<font color=\"#ffffff\">What time did you get out of bed with no further attempt at sleeping? This may be different from your final awakening time (e.g. you may have woken up at 6:35 a.m. but did not get out of bed to start your day until 7:20 a.m.)</font>";
                 break;
             case 4:
-                infotext = "Beginning at the time you wrote in question 2, how long did it take you to fall asleep?";
+                infotext = "<font color=\"#ffffff\">Beginning at the time you wrote in question 2, how long did it take you to fall asleep?</font>";
                 break;
             case 5:
-                infotext = "How many times did you wake up between the time you first fell asleep and your final awakening?";
+                infotext = "<font color=\"#ffffff\">How many times did you wake up between the time you first fell asleep and your final awakening?</font>";
                 break;
             case 6:
-                infotext = "What was the total time you were awake between the time you first fell asleep and your final awakening. For example, if you woke up 3 times for 20 minutes, 35 minutes, and 15 minutes, add them all up (20+35+15= 70 min or 1 hr and 10 min).";
+                infotext = "<font color=\"#ffffff\">What was the total time you were awake between the time you first fell asleep and your final awakening. For example, if you woke up 3 times for 20 minutes, 35 minutes, and 15 minutes, add them all up (20+35+15= 70 min or 1 hr and 10 min).</font>";
                 break;
             case 7:
-                infotext = "Record the last time you woke up in the morning.";
+                infotext = "<font color=\"#ffffff\">Record the last time you woke up in the morning.</font>";
                 break;
             case 8:
-                infotext = "After the last time you woke-up (item #6a), how many minutes did you spend in bed trying to sleep? For example, if you woke up at 8 am but continued to try sleep until 9 am, record 1 hour.";
+                infotext = "<font color=\"#ffffff\">After the last time you woke-up (item #6a), how many minutes did you spend in bed trying to sleep? For example, if you woke up at 8 am but continued to try sleep until 9 am, record 1 hour.</font>";
                 break;
             case 9:
-                infotext = "If you woke up or were awakened earlier than you planned, check yes. If you woke up at your planned time, check no.";
+                infotext = "<font color=\"#ffffff\">If you woke up or were awakened earlier than you planned, check yes. If you woke up at your planned time, check no.</font>";
                 break;
             case 10:
-                infotext = "If you answered \"yes\" to question 6c, write the number of minutes you woke up earlier than you had planned on waking up. For example, if you woke up 15 minutes before the alarm went off, record 15 minutes here.";
+                infotext = "<font color=\"#ffffff\">If you answered \"yes\" to question 6c, write the number of minutes you woke up earlier than you had planned on waking up. For example, if you woke up 15 minutes before the alarm went off, record 15 minutes here.</font>";
                 break;
             case 11:
-                infotext = "This should be your best estimate, based on when you went to bed and woke up, how long it took you to fall asleep, and how long you were awake. You do not need to calculate this by adding and subtracting; just give your best estimate.";
+                infotext = "<font color=\"#ffffff\">This should be your best estimate, based on when you went to bed and woke up, how long it took you to fall asleep, and how long you were awake. You do not need to calculate this by adding and subtracting; just give your best estimate.</font>";
                 break;
             case 12:
-                infotext = "\"Sleep Quality\" is your sense of whether your sleep was good or poor.";
+                infotext = "<font color=\"#ffffff\">\"Sleep Quality\" is your sense of whether your sleep was good or poor.</font>";
                 break;
             case 13:
-                infotext = "This refers to how you felt after you were done sleeping for the night, during the first few minutes that you were awake.";
+                infotext = "<font color=\"#ffffff\">This refers to how you felt after you were done sleeping for the night, during the first few minutes that you were awake.</font>";
                 break;
             case 14:
-                infotext = "A nap is a time you decided to sleep during the day, whether in bed or not in bed. \"Dozing\" is a time you may have nodded off for a few minutes, without meaning to, such as while watching TV. Count all the times you napped or dozed at any time from when you first got out of bed in the morning until you got into bed again at night.";
+                infotext = "<font color=\"#ffffff\">A nap is a time you decided to sleep during the day, whether in bed or not in bed. \"Dozing\" is a time you may have nodded off for a few minutes, without meaning to, such as while watching TV. Count all the times you napped or dozed at any time from when you first got out of bed in the morning until you got into bed again at night.</font>";
                 break;
             case 15:
-                infotext = "Estimate the total amount of time you spent napping or dozing, in hours and minutes. For instance, if you napped twice, once for 30 minutes and once for 60 minutes, and dozed for 10 minutes, you would answer \"1 hour 40 minutes.\" If you did not nap or doze, write \"N/A\" (not applicable).";
+                infotext = "<font color=\"#ffffff\">Estimate the total amount of time you spent napping or dozing, in hours and minutes. For instance, if you napped twice, once for 30 minutes and once for 60 minutes, and dozed for 10 minutes, you would answer \"1 hour 40 minutes.\" If you did not nap or doze, write \"N/A\" (not applicable).</font>";
                 break;
             case 16:
-                infotext = "Enter the number of alcoholic drinks you had where 1 drink is defined as one 12 oz beer (can), 5 oz wine, or 1.5 oz liquor (one shot).";
+                infotext = "<font color=\"#ffffff\">Enter the number of alcoholic drinks you had where 1 drink is defined as one 12 oz beer (can), 5 oz wine, or 1.5 oz liquor (one shot).</font>";
                 break;
             case 17:
-                infotext = "If you had an alcoholic drink yesterday, enter the time of day in hours and minutes of your last drink. If you did not have a drink, write \"N/A\" (not applicable).";
+                infotext = "<font color=\"#ffffff\">If you had an alcoholic drink yesterday, enter the time of day in hours and minutes of your last drink. If you did not have a drink, write \"N/A\" (not applicable).</font>";
                 break;
             case 18:
-                infotext = "Enter the number of caffeinated drinks (coffee, tea, soda, energy drinks) you had where for coffee and tea, one drink = 6-8 oz; while for caffeinated soda one drink = 12 oz.";
+                infotext = "<font color=\"#ffffff\">Enter the number of caffeinated drinks (coffee, tea, soda, energy drinks) you had where for coffee and tea, one drink = 6-8 oz; while for caffeinated soda one drink = 12 oz.</font>";
                 break;
             case 19:
-                infotext = "If you had a caffeinated drink, enter the time of day in hours and minutes of your last drink. If you did not have a caffeinated drink, write \"N/A\" (not applicable).";
+                infotext = "<font color=\"#ffffff\">If you had a caffeinated drink, enter the time of day in hours and minutes of your last drink. If you did not have a caffeinated drink, write \"N/A\" (not applicable).</font>";
                 break;
             case 20:
-                infotext = "List the medication name, how much and when you took EACH different medication you took tonight to help you sleep. Include medication available over the counter, prescription medication, and herbals (example: \"Sleepwell 50 mg 11 pm\"). If every night is the same, write \"same\" after the first day.";
+                infotext = "<font color=\"#ffffff\">List the medication name, how much and when you took EACH different medication you took tonight to help you sleep. Include medication available over the counter, prescription medication, and herbals (example: \"Sleepwell 50 mg 11 pm\"). If every night is the same, write \"same\" after the first day.</font>";
                 break;
             case 21:
-                infotext = "List the medication name, how much and when you took EACH different medication you took tonight to help you sleep. Include medication available over the counter, prescription medication, and herbals (example: \"Sleepwell 50 mg 11 pm\"). If every night is the same, write \"same\" after the first day.";
+                infotext = "<font color=\"#ffffff\">List the medication name, how much and when you took EACH different medication you took tonight to help you sleep. Include medication available over the counter, prescription medication, and herbals (example: \"Sleepwell 50 mg 11 pm\"). If every night is the same, write \"same\" after the first day.</font>";
                 break;
             case 22:
-                infotext = "If you have anything that you would like to say that is relevant to your sleep feel free to write it here.";
+                infotext = "<font color=\"#ffffff\">If you have anything that you would like to say that is relevant to your sleep feel free to write it here.</font>";
                 break;
         }
         new AlertDialog.Builder(Questionire.this)
-                .setTitle("Info")
-                .setMessage(infotext)
+                .setTitle(Html.fromHtml("<font color=\"#ffffff\">Info</font>"))
+                .setMessage(Html.fromHtml(infotext))
                 .setNegativeButton("Back", null)
                 .create()
                 .show();
     }
 
+/*TEST*/
+    private void test(){
+        String text = "<font color=\"#ffffff\">This text is white.</font>";
+        new AlertDialog.Builder(Questionire.this)
+                .setTitle("TEST")
+                .setMessage(Html.fromHtml(text))
+                .setNegativeButton("Back", null)
+                .create()
+                .show();
+    }
 }
 
 
