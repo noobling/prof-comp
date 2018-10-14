@@ -30,8 +30,7 @@
                     required
                     :rules="requiredRule"
                     type="time"
-                    hint="hh:mm am|pm"
-                    persistent-hint>
+                    hint="hh:mm am|pm">
                  
                   </v-text-field>
                    <v-tooltip left class="ml-2">
@@ -80,12 +79,9 @@
                     v-model="form.timeTakenToSleepDuration"
                     label="How long did it take you to fall asleep"                  
                     :rules="requiredRule"
-                    :items="timeDurationsArr"
-                    item-text="time"
-                    item-value="value"
-                    :filter="timeFilter"
                     mask="time"
                     placeholder="hh:mm"
+                    :hint="humanDurationText(form.timeTakenToSleepDuration)"
                   >
                   </v-text-field>
                   
@@ -396,8 +392,8 @@
 
       processForm: function () {
         for (let index in this.toProcess) {
-          if (this.form[this.toProcess[index]].indexOf(':') === -1) {
-            const time = this.form[this.toProcess[index]]
+          if (this.form[this.toProcess[index]] && this.form[this.toProcess[index]].indexOf(':') === -1) {
+            const time = this.getCorrectDurationText(this.form[this.toProcess[index]])
             this.form[this.toProcess[index]] = time.slice(0, 2) + ':' + time.slice(2)
           }
         }
@@ -405,8 +401,10 @@
 
       preProcessForm: function () {
         for (let index in this.toProcess) {
-          const time = this.form[this.toProcess[index]]
-          this.form[this.toProcess[index]] = time.split(':').join('')        
+          if (this.form[this.toProcess[index]]) {
+            const time = this.form[this.toProcess[index]]
+            this.form[this.toProcess[index]] = time.split(':').join('')  
+          }
         }
       },
 
@@ -432,8 +430,32 @@
         const month = currentDate.getMonth() + 1
         const year = currentDate.getFullYear()
         this.form.date = year + '-' + month.toString().padStart(2, '0') + '-' + day.toString().padStart(2, '0')
+      },
+
+      humanDurationText(dur) {
+        if (dur) {
+          const duration = this.getCorrectDurationText(dur)          
+          const hours = duration.substring(0,2)
+          const minutes = duration.substring(2)
+          return hours + ' hour(s) ' + minutes + ' minute(s)'
+        } else {
+          return ''
+        }
+      },
+
+      getCorrectDurationText(duration){
+        if (duration) {
+          let text = duration
+          if (duration.length === 1) {
+            text = duration.padStart(2, '0')
+          }
+          return text.padEnd(4, '0')
+        }
+        
       }
     }
+
+    
   }
 </script>
 
@@ -448,4 +470,7 @@
   .row {
     display: flex
   }
+  .without-ampm::-webkit-datetime-edit-ampm-field {
+   display: none;
+ }
 </style>
