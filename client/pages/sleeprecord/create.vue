@@ -44,17 +44,14 @@
                   </div>
                   
                   <div class="row">
-                    <v-autocomplete
+                    <v-text-field
                       v-model="form.timeToTrySleep"
                       label="What time did you try to go to sleep?"
                       required
                       :rules="requiredRule"
-                      :items="timeOfDays"
-                      item-text="time"
-                      item-value="value"
-                      :filter="timeFilter"
+                      type="time"
                       >
-                    </v-autocomplete>
+                    </v-text-field>
                     <v-tooltip left class="ml-2">
                       <v-icon
                         slot="activator"
@@ -65,25 +62,47 @@
                     </v-tooltip>
                   </div>
 
-                  <v-autocomplete
-                    v-model="form.timeWokenUp"
-                    label="What time did you get out of bed for the day?"
-                    required
-                    :rules="requiredRule"
-                    :items="timeOfDays"
-                    item-text="time"
-                    item-value="value"
-                    :filter="timeFilter">
-                  </v-autocomplete>
-                  <v-text-field
-                    v-model="form.timeTakenToSleepDuration"
-                    label="How long did it take you to fall asleep"                  
-                    :rules="requiredRule"
-                    mask="time"
-                    placeholder="hh:mm"
-                    :hint="humanDurationText(form.timeTakenToSleepDuration)"
-                  >
-                  </v-text-field>
+                  <div class="row">
+                    <v-text-field
+                      v-model="form.timeWokenUp"
+                      label="What time did you get out of bed for the day?"
+                      required
+                      :rules="requiredRule"
+                      type="time">
+                    </v-text-field>
+
+                    <v-tooltip left class="ml-2">
+                      <v-icon
+                        slot="activator"
+                        color="primary"
+                        dark
+                      >info</v-icon>
+                      <span>What time did you get out of bed for the day?</span>
+                    </v-tooltip>
+                  </div>
+                  
+                  <div class="row">
+                    <v-text-field
+                      v-model="form.timeTakenToSleepDuration"
+                      label="How long did it take you to fall asleep"                  
+                      :rules="requiredRule"
+                      required
+                      mask="time"
+                      placeholder="hh:mm"
+                      :hint="humanDurationText(form.timeTakenToSleepDuration)"
+                      >
+                    </v-text-field>
+
+                    <v-tooltip left class="ml-2">
+                      <v-icon
+                        slot="activator"
+                        color="primary"
+                        dark
+                      >info</v-icon>
+                      <span>How long did it take you to fall asleep</span>
+                    </v-tooltip>
+                  </div>
+                  
                   
                   <v-btn class="btn-spaced" :disabled="!valid" color="primary" @click="nextStep">Continue</v-btn>
                 </v-stepper-content>
@@ -112,56 +131,85 @@
                     </v-tooltip>
                   </div>
                   
-                  <v-autocomplete
-                    v-model="form.awakeningsTotalDuration"
-                    label="In total, how long did these awakenings last?"
-                    :items="timeDurationsArr"
-                    :rules="requiredRule"
-                    item-text="time"
-                    item-value="value"
-                    v-if="form.awakeningsNumber && form.awakeningsNumber > 0"
-                    required
-                    :filter="timeFilter">
-                  </v-autocomplete>
-                
-                  <v-autocomplete
-                    v-model="form.awakeningsFinalTime"
-                    label="What time was your final awakening?"
-                    :items="timeOfDays"                  
-                    required
-                    :rules="requiredRule"
-                    item-text="time"
-                    item-value="value"
-                    v-if="form.awakeningsNumber && form.awakeningsNumber > 0"
-                    :filter="timeFilter"
-                  >
-                  </v-autocomplete>
-                  <v-autocomplete
-                    v-model="form.awakeningsFinalDuration"
-                    label="After your final awakening how long did you spend in bed trying to sleep?"                  
-                    :items="timeDurationsArr"
-                    :rules="requiredRule"
-                    item-text="time"
-                    item-value="value"
-                    v-if="form.awakeningsNumber && form.awakeningsNumber > 0"
-                    required
-                    :filter="timeFilter"
-                  >
-                  </v-autocomplete>
+                  <div class="row" v-if="form.awakeningsNumber && form.awakeningsNumber > 0">
+                    <v-text-field
+                      v-model="form.awakeningsTotalDuration"
+                      label="In total, how long did these awakenings last?"
+                      
+                      required
+                      :hint="humanDurationText(form.awakeningsTotalDuration)"
+                      placeholder="hh:mm"
+                      mask="time"
+                      >
+                    </v-text-field>
+                    <v-tooltip left class="ml-2">
+                      <v-icon
+                        slot="activator"
+                        color="primary"
+                        dark
+                      >info</v-icon>
+                      <span>In total, how long did these awakenings last?</span>
+                    </v-tooltip>
+                  </div>
+                  
+                  <div class="row" v-if="form.awakeningsNumber && form.awakeningsNumber > 0">
+                    <v-text-field
+                      v-model="form.awakeningsFinalTime"
+                      label="What time was your final awakening?"
+                      required
+                      :rules="requiredRule"
+                      
+                      type="time"
+                      hint="hh:mm am|pm"
+                    >
+                    </v-text-field>
+                    <v-tooltip left class="ml-2">
+                      <v-icon
+                        slot="activator"
+                        color="primary"
+                        dark
+                      >info</v-icon>
+                      <span>What time was your final awakening?</span>
+                    </v-tooltip>                    
+                  </div>
+                 
+                 <div class="row" v-if="form.awakeningsNumber && form.awakeningsNumber > 0">
+                  <v-text-field
+                      v-model="form.awakeningsFinalDuration"
+                      label="After your final awakening how long did you spend in bed trying to sleep?"                  
+                      :rules="requiredRule"
+                      
+                      required
+                      mask="time"
+                      placeholder="hh:mm"
+                      :hint="humanDurationText(form.awakeningsFinalDuration)"
+                    >
+                    </v-text-field>
+
+                    <v-tooltip left class="ml-2">
+                      <v-icon
+                        slot="activator"
+                        color="primary"
+                        dark
+                      >info</v-icon>
+                      <span>After your final awakening how long did you spend in bed trying to sleep?</span>
+                    </v-tooltip>
+                 </div>
+                  
                   <v-checkbox label="Did you wake up earlier than planned?" v-model="form.earlyWakeUp" color="primary"></v-checkbox>
-                  <v-autocomplete
+                  <v-text-field
                     v-model="form.earlyWakeUpDuration"
                     label="How much earlier?"
-                    :items="timeDurationsArr"
                     :rules="requiredRule"
-                    item-text="time"
-                    item-value="value"
                     v-if="form.earlyWakeUp"                  
                     required
-                    :filter="timeFilter"
+                    mask="time"
+                    :hint="humanDurationText(form.earlyWakeUpDuration)"
+                    aria-placeholder="hh:mm"
                     >
 
-                  </v-autocomplete>
+                  </v-text-field>
+                  
                   <v-btn class="btn-spaced" :disabled="!valid" color="primary" @click="nextStep">Continue</v-btn>                
                 </v-stepper-content>
 
@@ -336,7 +384,7 @@
         earlyWakeUp: false,
         valid: true,
         currentStep: 1,
-        toProcess: ['timeTakenToSleepDuration']
+        toProcess: ['timeTakenToSleepDuration', 'awakeningsTotalDuration', 'awakeningsFinalDuration', 'earlyWakeUpDuration']
       }
     },
 
