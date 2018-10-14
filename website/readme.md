@@ -1,5 +1,10 @@
 # Laravel Nuxt
 
+## On boarding checklist
+* Showed user how to download app on phone
+* Showed user where to find help
+* Showed user quick start video
+
 ## Getting Started
 ### Software you will need
 * Local mysql database

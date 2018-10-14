@@ -29,6 +29,14 @@
           {
             header: 'Cannot understand words/sentences or cannot find links',
             text: 'View your phone in landscape. If the screen size is small some things may get truncated.'
+          },
+          {
+            header: 'I cannot understand the questions when creating a sleep record',
+            text: 'Click on icon next to the question for more info'
+          },
+          {
+            header: 'How do I download the app on my phone?',
+            text: 'Ask your researcher to download the app on your phone for you.'
           }
         ],
         show: [...Array(this.items).keys()].map(_ => true)

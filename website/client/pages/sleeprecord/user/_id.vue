@@ -12,10 +12,10 @@
           </v-card-text>
 
           <v-list class="red lighten-2">
-            <template v-for="(record, index) in sleeprecords">
+            <template v-for="(record, index) in sleeprecords" v-if="inPageRange(index)">
               <v-divider
                 v-if="index != 0"
-                :key="record.date"
+                :key="index*10000"
               ></v-divider>
               <v-list-tile three-line :key="index" class="mt-2 mb-2">
                  <v-list-tile-action @click="gotoRoute(record)">
@@ -44,6 +44,13 @@
         </v-card>
       </v-scale-transition>
       
+      <div class="text-xs-center mt-2">
+        <v-pagination
+          v-model="page"
+          :length="numpages"
+        >
+        </v-pagination>
+      </div>
     </v-flex>
   </v-layout>
 </template>
@@ -56,7 +63,9 @@
   export default {
     data () {
       return {
-        sleeprecords: null
+        sleeprecords: null,
+        page: 1,
+        pageSize: 7
       }
     },
 
@@ -71,6 +80,16 @@
         });
       } else {
         this.fetchData()      
+      }
+    },
+
+    computed: {
+      numpages () {
+        if (this.sleeprecords && this.sleeprecords.length > 0) {
+          return Math.ceil(this.sleeprecords.length / this.pageSize)
+        } else {
+          return 0
+        }
       }
     },
 
@@ -103,6 +122,11 @@
               })
           }
         })
+      },
+
+      inPageRange(index) {
+        console.log(index)
+        return index < (this.page * this.pageSize) && index >= (this.page-1) * (this.pageSize)
       }
     }
   }

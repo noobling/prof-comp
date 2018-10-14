@@ -4,7 +4,7 @@
       <v-scale-transition>
         <v-card v-if="items.length > 0">
           <v-list two-line>
-            <template v-for="(item, index) in items">
+            <template v-for="(item, index) in items" v-if="inPageRange(index)">
               <v-list-tile :key="item.user.id + index" avatar ripple>
                 <v-list-tile-action>
                   <v-btn icon :to="`/sleeprecord/user/${item.user.id}`">
@@ -15,9 +15,9 @@
                 </v-list-tile-action>
 
                 <v-list-tile-content>
-                  <v-list-tile-title>User: {{ item.user.id }}</v-list-tile-title>
+                  <v-list-tile-title>User: {{ item.user.email }}</v-list-tile-title>
                   <v-list-tile-sub-title class="text--primary">Number of Sleep Records: {{ item.numSleepRecords }}</v-list-tile-sub-title>
-                  <v-list-tile-sub-title>Filler</v-list-tile-sub-title>
+                  <v-list-tile-sub-title>ID: {{ item.user.id }}</v-list-tile-sub-title>
                 </v-list-tile-content>
 
                 <v-list-tile-action>
@@ -47,6 +47,13 @@
         </v-card>
       </v-scale-transition>
 
+      <div class="text-xs-center mt-2">
+        <v-pagination
+          v-model="page"
+          :length="numpages"
+        >
+        </v-pagination>
+      </div>
     </v-flex>
   </v-layout>
 </template>
@@ -61,7 +68,9 @@
     data() {
       return {
         sleeprecords: null,
-        items: []
+        items: [],
+        page: 1,
+        pageSize: 7
       };
     },
 
@@ -76,6 +85,16 @@
         }).then(result => {
           this.$router.push("/");
         });
+      }
+    },
+
+    computed: {
+      numpages () {
+        if (this.items.length > 0) {
+          return Math.ceil(this.items.length / this.pageSize)
+        } else {
+          return 0
+        }
       }
     },
 
@@ -104,6 +123,10 @@
 
         goToVisuals(userId) {
           this.$router.push('/visual/' + userId)
+        },
+
+        inPageRange(index) {
+          return index < (this.page * this.pageSize) && index >= (this.page-1) * (this.pageSize)
         }
     },
 
