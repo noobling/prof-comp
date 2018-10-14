@@ -29,14 +29,9 @@
                     label="What time did you get into bed?"
                     required
                     :rules="requiredRule"
-                    :items="timeOfDays"
-                    :mask="'time'"
-                    item-text="time"
-                    item-value="value"
                     type="time"
                     hint="hh:mm am|pm"
-                    persistent-hint
-                    :filter="timeFilter">
+                    persistent-hint>
                  
                   </v-text-field>
                    <v-tooltip left class="ml-2">
@@ -345,7 +340,7 @@
         earlyWakeUp: false,
         valid: true,
         currentStep: 1,
-        toProcess: ['timeGotIntoBed', 'timeTakenToSleepDuration']
+        toProcess: ['timeTakenToSleepDuration']
       }
     },
 
