@@ -107,61 +107,18 @@ export default {
 
   methods: {
     async fetchData () {
-      this.optionsSleepDuration = this.optionsDefault
+      this.optionsSleepDuration = JSON.parse(JSON.stringify(this.optionsDefault));
       this.optionsSleepDuration.title.text = 'Sleep Duration History'
 
-      this.optionsAwakeningsNumber = this.optionsDefault
+      this.optionsAwakeningsNumber = JSON.parse(JSON.stringify(this.optionsDefault));
       this.optionsAwakeningsNumber.title.text = 'Number of Sleep awakenings'
 
       this.attributes.forEach(attribute => {
-        this.charts[attribute]['options'] = {
-        responsive: true,
-        maintainAspectRatio: false,
-        title: {
-          display: true,
-          fontColor: '#fff',
-          fontSize: '18',
-          text: attribute
-        },
-        legend: {
-          labels: {
-            fontColor: '#fff'
-          }
-        },
-        scales: {
-          xAxes: [{
-            gridLines: {
-              color: '#fffff'
-            },
-            scaleLabel: {
-              display: true,
-              labelString: 'Dates',
-              fontColor: '#fff'
-            },
-            ticks: {
-              fontColor: '#fff'
-            }
-          }],
-
-          yAxes: [{
-            gridLines: {
-              color: '#fff'
-            },
-            scaleLabel: {
-              display: true,
-              labelString: 'Hours',
-              fontColor: '#fff'
-            },
-            ticks: {
-              fontColor: '#fff',
-              beginAtZero: true
-            }
-          }]
-        }
-      }
+        this.charts[attribute].options = JSON.parse(JSON.stringify(this.optionsDefault));
+        this.charts[attribute].options.title.text = this.makeTitle(attribute)
       })
 
-      const { data } = await axios.get('user/' + this.userId + '/sleeprecords')
+      const { data } = await axios.get('user/' + this.userId + '/sleeprecords?chronological=true')
       const labels = []
       const sleepDurationData = []
       const awakeningsNumber = []
@@ -224,6 +181,15 @@ export default {
       const hour = parseInt(timeSplit[0], 10)
       const minute = parseInt(timeSplit[1], 10) / 60
       return hour + minute
+    },
+
+    makeTitle(attribute) {
+      const title = attribute.split(/(?=[A-Z])/)
+      for (var i = 0; i < title.length; i++) {
+        title[i] = title[i].charAt(0).toUpperCase() + title[i].substring(1);     
+      }
+
+      return title.join(' ')
     }
   }
 }

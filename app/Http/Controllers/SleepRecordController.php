@@ -41,6 +41,10 @@ class SleepRecordController extends Controller
             return response('Unauthorized', 403);
         }
 
+        if ($request->query('chronological')) {
+            return$user->sleepRecords;
+        }
+
         return $user->sleepRecords()->orderBy('updated_at', 'DESC')->get();
     }
 
