@@ -41,7 +41,7 @@ class SleepRecordController extends Controller
             return response('Unauthorized', 403);
         }
 
-        return $user->sleepRecords;
+        return $user->sleepRecords()->orderBy('updated_at', 'DESC')->get();
     }
 
     public function update(Request $request, SleepRecord $sleepRecord)

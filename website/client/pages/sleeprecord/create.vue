@@ -514,7 +514,7 @@
         earlyWakeUp: false,
         valid: true,
         currentStep: 1,
-        toProcess: ['timeTakenToSleepDuration', 'awakeningsTotalDuration', 'awakeningsFinalDuration', 'earlyWakeUpDuration']
+        toProcess: ['timeTakenToSleepDuration', 'awakeningsTotalDuration', 'awakeningsFinalDuration', 'earlyWakeUpDuration', 'napDozeDuration', 'sleepDuration']
       }
     },
 
@@ -552,16 +552,6 @@
         if (this.$refs.form.validate()) {
           this.currentStep += 1
         }
-      },
-
-      timeFilter (item, queryText, itemText) {
-        const time = item.time.toLowerCase()
-        const value = item.value.toLowerCase()
-        const searchText = queryText.toLowerCase()
-
-        return time.indexOf(searchText) > -1 || 
-          value.indexOf(searchText) > -1 ||
-          item.quickFindText.indexOf(searchText) > -1
       },
 
       addMedicine: function () {

@@ -65,7 +65,7 @@
       return {
         sleeprecords: null,
         page: 1,
-        pageSize: 7
+        pageSize: 6
       }
     },
 

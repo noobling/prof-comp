@@ -5,7 +5,7 @@
         <v-card v-if="items.length > 0">
           <v-list two-line>
             <template v-for="(item, index) in items" v-if="inPageRange(index)">
-              <v-list-tile :key="item.user.id + index" avatar ripple>
+              <v-list-tile :key="item.user.id *10000" avatar ripple>
                 <v-list-tile-action>
                   <v-btn icon :to="`/sleeprecord/user/${item.user.id}`">
                     <v-avatar>
@@ -70,7 +70,7 @@
         sleeprecords: null,
         items: [],
         page: 1,
-        pageSize: 7
+        pageSize: 6
       };
     },
 
