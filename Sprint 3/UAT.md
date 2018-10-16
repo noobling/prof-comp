@@ -17,6 +17,7 @@ Core UAT tests represent features that needed to be completed for client. Additi
 * Sending an email invitation
 * Deleting a sleep record
 * Pre fill sleep record 
+* Forgot password
 
 ## UAT Scope (Core) - Researcher
 * Retrieving user sleep records in excel format
@@ -62,6 +63,7 @@ Core UAT tests represent features that needed to be completed for client. Additi
 | **Sending email invitation** Click on home button. Click on "invite" navigation link. Type desired email and click send    |  Email invite is sent. Potentially in spam folder. |           |
 | **Deleting sleep record** Click on sleep journal button. Click on "bin" icon. Confirm deletion.                            |        Deleted sleep record no longer exists.       |           |
 | **Pre fill sleep record data** Assuming a sleep record has already been created. Click "new sleep record" navigation link. | Sleep record creation page has data already there. |           |
+| **Reset Password** Click on login button. Click on Forgot Password button. Type in a valid email that has account associated. Click submit. Go to email inbox and click "Reset Password". Enter new password and click submit. Attempt to login with new password | User can login with new password |  |
 
 ### UAT (Core) - Researcher
 | Test Case                                                                                                                                          |                            Expected Result                            | Pass/Fail |
