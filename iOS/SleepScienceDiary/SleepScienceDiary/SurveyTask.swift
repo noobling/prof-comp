@@ -50,7 +50,7 @@ private enum Identifier {
     
 }
 
-public var SurveyTask: ORKOrderedTask {
+public var SurveyTask: ORKNavigableOrderedTask {
     
     //MARK: Question List
     //Form 1: Sleep Times
@@ -234,7 +234,7 @@ public var SurveyTask: ORKOrderedTask {
     summaryStep.text = "That was easy!"
     steps += [summaryStep]
     
-    return ORKOrderedTask(identifier: "SurveyTask", steps: steps)
+    return ORKNavigableOrderedTask(identifier: "SurveyTask", steps: steps)
 }
 
 
