@@ -49,6 +49,29 @@ extension NewSleepRecordViewController : ORKTaskViewControllerDelegate {
         //Choose what to do based on reason for exiting
         switch(reason) {
         case .completed:
+            
+            //Convert results into a dictionary
+            let taskResult = taskViewController.result.results
+            
+            for stepResults in taskResult! as! [ORKStepResult]
+            {
+                print("---")
+                for result in stepResults.results!
+                {
+                    if result.identifier == "formItem01"
+                    {
+                        print(result.identifier)
+                        print(result)
+                        
+                    }
+                    if result.identifier == "formItem02"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                }
+            }
+            
             print("Success!")
             break
         case .failed:
