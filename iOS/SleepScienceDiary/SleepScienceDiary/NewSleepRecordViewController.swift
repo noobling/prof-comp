@@ -52,12 +52,11 @@ extension NewSleepRecordViewController : ORKTaskViewControllerDelegate {
             
             //Convert results into a dictionary
             let taskResult = taskViewController.result.results
-            
             for stepResults in taskResult! as! [ORKStepResult]
             {
-                print("---")
                 for result in stepResults.results!
                 {
+                    //First form
                     if result.identifier == "formItem01"
                     {
                         print(result.identifier)
@@ -69,7 +68,120 @@ extension NewSleepRecordViewController : ORKTaskViewControllerDelegate {
                         print(result.identifier)
                         print(result)
                     }
+                    if result.identifier == "formItem03"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    if result.identifier == "formItem04"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    if result.identifier == "formItem05"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    //Second form
+                    if result.identifier == "formItem11"
+                    {
+                        print(result.identifier)
+                        print(result)
+                        
+                    }
+                    if result.identifier == "formItem12"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    if result.identifier == "formItem13"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    if result.identifier == "formItem14"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    if result.identifier == "formItem15"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    if result.identifier == "formItem16"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    //Third form
+                    if result.identifier == "formItem21"
+                    {
+                        print(result.identifier)
+                        print(result)
+                        
+                    }
+                    if result.identifier == "formItem22"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    if result.identifier == "formItem23"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    if result.identifier == "formItem24"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    if result.identifier == "formItem25"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    //Fourth form
+                    if result.identifier == "formItem31"
+                    {
+                        print(result.identifier)
+                        print(result)
+                        
+                    }
+                    if result.identifier == "formItem32"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    if result.identifier == "formItem33"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    if result.identifier == "formItem34"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    if result.identifier == "formItem35"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    if result.identifier == "formItem36"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
+                    if result.identifier == "formItem37"
+                    {
+                        print(result.identifier)
+                        print(result)
+                    }
                 }
+                
+                
             }
             
             print("Success!")
