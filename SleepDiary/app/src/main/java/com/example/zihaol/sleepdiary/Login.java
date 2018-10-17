@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -48,6 +49,17 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 myE=email.getText().toString().trim();
                 myP=password.getText().toString().trim();
+
+                /*String filename = "test";
+                FileOutputStream outputStream;
+
+                try {
+                    outputStream = openFileOutput(filename, Context.MODE_APPEND);
+                    outputStream.write(myE.getBytes());
+                    outputStream.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }*/
 
                 webrequest(myE,myP);
 

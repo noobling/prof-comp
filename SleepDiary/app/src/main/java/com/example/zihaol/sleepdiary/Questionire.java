@@ -21,28 +21,72 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.zihaol.adatper.PageAdatper;
 
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 
 public class Questionire extends AppCompatActivity implements View.OnClickListener,
         ViewPager.OnPageChangeListener {
+
     private TextView date_of_record;
     private TextView into_bed;
     private TextView time_try_sleep;
     private TextView time_out_bed;
     private TextView long_asleep;
+    private TextView numWakeUp;
+    private TextView awakeningLen;
     private TextView final_awake;
-    private TextView drink_time;
-    private TextView drink_time1;
+    private TextView postSleep;
+    private CheckBox earlier;
+    private TextView earlierAmount;
+    private Spinner sleepAmount;
+    private Spinner quality;
+    private Spinner refreshed;
+    private Spinner Numnaps;
+    private TextView napTime;
+    private TextView numAlc;
+    private TextView lastAlc;
+    private TextView numcaff;
+    private TextView lastcaff;
+    private CheckBox hadMed;
+    private TextView medList;
+    private TextView comment;
+
+    private String date_of_records;
+    private String into_beds;
+    private String time_try_sleeps;
+    private String time_out_beds;
+    private String long_asleeps;
+    private String numWakeUps;
+    private String awakeningLens;
+    private String final_awakes;
+    private String postSleeps;
+    private String earliers;
+    private String earlierAmounts;
+    private String sleepAmounts;
+    private String qualitys;
+    private String refresheds;
+    private String Numnapss;
+    private String napTimes;
+    private String numAlcs;
+    private String lastAlcs;
+    private String numcaffs;
+    private String lastcaffs;
+    private String hadMeds;
+    private String medLists;
+    private String comments;
 
     private Button button1;
     private Button button2;
@@ -142,9 +186,24 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         time_try_sleep=view1.findViewById(R.id.tv3);
         time_out_bed=view1.findViewById(R.id.tv4);
         long_asleep=view1.findViewById(R.id.tv5);
+        numWakeUp=view2.findViewById(R.id.tv_wake);
+        awakeningLen=view2.findViewById(R.id.tv_wake2);
         final_awake=view2.findViewById(R.id.tv8);
-        drink_time=view3.findViewById(R.id.tv6);
-        drink_time1=view3.findViewById(R.id.tv7);
+        postSleep=view2.findViewById(R.id.tv_wake4);
+        earlier=view2.findViewById(R.id.Early);
+        earlierAmount=view2.findViewById(R.id.tv_earlier);
+        sleepAmount=view2.findViewById(R.id.sleep_time);
+        quality=view2.findViewById(R.id.quality);
+        refreshed=view2.findViewById(R.id.feel);
+        Numnaps=view2.findViewById(R.id.doze);
+        napTime=view2.findViewById(R.id.tv_wake5);
+        numAlc=view3.findViewById(R.id.tv_wake11);
+        lastAlc=view3.findViewById(R.id.tv6);
+        numcaff=view3.findViewById(R.id.tv_wake111);
+        lastcaff=view3.findViewById(R.id.tv7);
+        hadMed=view3.findViewById(R.id.Medication);
+        medList=view3.findViewById(R.id.tv_wake12);
+        comment=view3.findViewById(R.id.comment);
 
         button1=view1.findViewById(R.id.button1);
         button2=view2.findViewById(R.id.button2);
@@ -182,8 +241,8 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         time_out_bed.setOnClickListener(this);
         long_asleep.setOnClickListener(this);
         final_awake.setOnClickListener(this);
-        drink_time.setOnClickListener(this);
-        drink_time1.setOnClickListener(this);
+        lastAlc.setOnClickListener(this);
+        lastcaff.setOnClickListener(this);
 
         button1.setOnClickListener(this);
         button2.setOnClickListener(this);
@@ -254,10 +313,10 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 setTimeAction(long_asleep);
                 break;
             case  R.id.tv6:
-                setTimeAction(drink_time);
+                setTimeAction(lastAlc);
                 break;
             case  R.id.tv7:
-                setTimeAction(drink_time1);
+                setTimeAction(lastcaff);
                 break;
             case  R.id.tv8:
                 setTimeAction(final_awake);
@@ -509,15 +568,48 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 .show();
     }
 
-/*TEST*/
+/*Submit*/
     private void test(){
-        String text = "<font color=\"#ffffff\">This text is white.</font>";
+        date_of_records = date_of_record.getText().toString();
+        into_beds = into_bed.getText().toString();
+        time_try_sleeps = time_try_sleep.getText().toString();
+        time_out_beds = time_out_bed.getText().toString();
+        long_asleeps = long_asleep.getText().toString();
+        numWakeUps = numWakeUp.getText().toString();
+        awakeningLens = awakeningLen.getText().toString();
+        final_awakes = final_awake.getText().toString();
+        postSleeps = postSleep.getText().toString();
+        earliers = "0";
+        if(earlier.isChecked())
+            earliers = "1";
+        earlierAmounts = earlierAmount.getText().toString();
+        sleepAmounts = sleepAmount.getSelectedItem().toString();
+        qualitys = quality.getSelectedItem().toString();
+        refresheds = refreshed.getSelectedItem().toString();
+        Numnapss = Numnaps.getSelectedItem().toString();
+        napTimes = napTime.getText().toString();
+        numAlcs = numAlc.getText().toString();
+        lastAlcs = lastAlc.getText().toString();
+        numcaffs = numcaff.getText().toString();
+        lastcaffs = lastcaff.getText().toString();
+        hadMeds = "0";
+        if(hadMed.isChecked())
+            hadMeds = "1";
+        medLists = medList.getText().toString();
+        comments = comment.getText().toString();
+
+        String text = "<font color=\"#ffffff\">This text is white.</font><font color=\"yellow\"> Yellow</font>";
         new AlertDialog.Builder(Questionire.this)
-                .setTitle("TEST")
-                .setMessage(Html.fromHtml(text))
+                .setTitle(Html.fromHtml(text))
+                .setMessage(Html.fromHtml("<font color=\"#ffffff\">" + date_of_records + " " + into_beds + " " + time_try_sleeps + " " + time_out_beds + " " +
+                        long_asleeps + " " + numWakeUps + " " + awakeningLens + " " + final_awakes + " " + postSleeps + " " + earliers + " " + earlierAmounts + " " +
+                        sleepAmounts + " " + qualitys + " " + refresheds + " " + Numnapss + " " + napTimes + " " + numAlcs + lastAlcs + " " + numcaffs + " " +
+                        lastcaffs + " " + hadMeds + " " + medLists + " " + comments + "</font>"))
                 .setNegativeButton("Back", null)
                 .create()
                 .show();
+
+
     }
 }
 
