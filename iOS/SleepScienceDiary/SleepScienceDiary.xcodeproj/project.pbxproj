@@ -15,6 +15,7 @@
 		988F51E12165FE7900486FC4 /* VisualisationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988F51E02165FE7900486FC4 /* VisualisationsViewController.swift */; };
 		988F51E32165FE8000486FC4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988F51E22165FE8000486FC4 /* SettingsViewController.swift */; };
 		988F51E52165FFAB00486FC4 /* SurveyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988F51E42165FFAB00486FC4 /* SurveyTask.swift */; };
+		98B95B552176C6BF00AB1397 /* ORKESerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 98B95B532176C6BF00AB1397 /* ORKESerialization.m */; };
 		98E5603F2165E83B0064E840 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E5603E2165E83B0064E840 /* AppDelegate.swift */; };
 		98E560462165E83B0064E840 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E560442165E83B0064E840 /* Main.storyboard */; };
 		98E560482165E83E0064E840 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98E560472165E83E0064E840 /* Assets.xcassets */; };
@@ -83,6 +84,9 @@
 		988F51E02165FE7900486FC4 /* VisualisationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualisationsViewController.swift; sourceTree = "<group>"; };
 		988F51E22165FE8000486FC4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		988F51E42165FFAB00486FC4 /* SurveyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTask.swift; sourceTree = "<group>"; };
+		98B95B502176C6BE00AB1397 /* SleepScienceDiary-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SleepScienceDiary-Bridging-Header.h"; sourceTree = "<group>"; };
+		98B95B532176C6BF00AB1397 /* ORKESerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ORKESerialization.m; path = ../../../../ResearchKit/Testing/ORKTest/ORKTestTests/ORKESerialization.m; sourceTree = "<group>"; };
+		98B95B542176C6BF00AB1397 /* ORKESerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ORKESerialization.h; path = ../../../../ResearchKit/Testing/ORKTest/ORKTestTests/ORKESerialization.h; sourceTree = "<group>"; };
 		98E5603B2165E83B0064E840 /* SleepScienceDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepScienceDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98E5603E2165E83B0064E840 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98E560452165E83B0064E840 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 		98E5603D2165E83B0064E840 /* SleepScienceDiary */ = {
 			isa = PBXGroup;
 			children = (
+				98B95B542176C6BF00AB1397 /* ORKESerialization.h */,
+				98B95B532176C6BF00AB1397 /* ORKESerialization.m */,
 				98E5603E2165E83B0064E840 /* AppDelegate.swift */,
 				988F51DC2165FE4700486FC4 /* SleepJournalViewController.swift */,
 				988F51DE2165FE6D00486FC4 /* NewSleepRecordViewController.swift */,
@@ -167,6 +173,7 @@
 				98E560492165E83E0064E840 /* LaunchScreen.storyboard */,
 				98E5604C2165E83E0064E840 /* Info.plist */,
 				988F51E42165FFAB00486FC4 /* SurveyTask.swift */,
+				98B95B502176C6BE00AB1397 /* SleepScienceDiary-Bridging-Header.h */,
 			);
 			path = SleepScienceDiary;
 			sourceTree = "<group>";
@@ -259,6 +266,7 @@
 				TargetAttributes = {
 					98E5603A2165E83B0064E840 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					98E560502165E83E0064E840 = {
@@ -355,6 +363,7 @@
 				988F51E12165FE7900486FC4 /* VisualisationsViewController.swift in Sources */,
 				988F51E32165FE8000486FC4 /* SettingsViewController.swift in Sources */,
 				988F51DD2165FE4700486FC4 /* SleepJournalViewController.swift in Sources */,
+				98B95B552176C6BF00AB1397 /* ORKESerialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,6 +544,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Q8J6WQZHJ;
 				INFOPLIST_FILE = SleepScienceDiary/Info.plist;
@@ -544,6 +554,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SleepScienceDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SleepScienceDiary/SleepScienceDiary-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -554,6 +566,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Q8J6WQZHJ;
 				INFOPLIST_FILE = SleepScienceDiary/Info.plist;
@@ -563,6 +576,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SleepScienceDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SleepScienceDiary/SleepScienceDiary-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
