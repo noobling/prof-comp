@@ -153,6 +153,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         protected void onPostExecute(String result) {
             if (result.substring(0,9).equals("{\"token\":")) {
                 Toast.makeText(Login.this, "Login Success", Toast.LENGTH_SHORT).show();
+                content = Login.this;
+                Intent intent = new Intent(content, Questionire.class);
+                content.startActivity(intent);
             }
             else {
                 Toast.makeText(Login.this, "These credentials do not match our records.\n", Toast.LENGTH_SHORT).show();
