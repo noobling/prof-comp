@@ -10,9 +10,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.os.Build;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
@@ -34,7 +32,6 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.zihaol.adatper.PageAdatper;
-import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.io.FileOutputStream;
 import java.util.ArrayList;
@@ -140,12 +137,6 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
     private int one = 0; //move one page distance
     private int two = 0; //two page distance
 
-    private ImageButton meun_button;
-
-    private DrawerLayout drawerLayout;
-    private SystemBarTintManager tintManager;
-    private NavigationView navigationView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -162,12 +153,8 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         tv_three = (TextView) findViewById(R.id.tv_three);
 
         img_cursor = (ImageView) findViewById(R.id.img_cursor);
-        meun_button = (ImageButton) findViewById(R.id.menu_button);
-        drawerLayout = (DrawerLayout) findViewById(R.id.activity_na);
-        navigationView = (NavigationView) findViewById(R.id.left_nav);
 
-        View headerView = navigationView.getHeaderView(0);
-        meun_button.setOnClickListener(this);
+
 
         //Animation
         bmpWidth = BitmapFactory.decodeResource(getResources(), R.mipmap.line).getWidth();// get Image Length
@@ -301,13 +288,6 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.menu_button:
-                if (drawerLayout.isDrawerOpen(navigationView)){
-                    drawerLayout.closeDrawer(navigationView);
-                }else{
-                    drawerLayout.openDrawer(navigationView);
-                }
-                break;
             case R.id.tv_one:
                 vpager.setCurrentItem(0);
                 break;
@@ -350,7 +330,6 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
             case R.id.button3:
                 test();
                 break;
-
             case  R.id.info:
                 getinfo(0);
                 break;
@@ -420,7 +399,6 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
             case  R.id.info22:
                 getinfo(22);
                 break;
-
         }
     }
 
