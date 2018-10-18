@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Matrix;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -34,7 +35,14 @@ import android.widget.Toast;
 import com.example.zihaol.adatper.PageAdatper;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 
 public class Questionire extends AppCompatActivity implements View.OnClickListener,
@@ -87,6 +95,10 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
     private String hadMeds;
     private String medLists;
     private String comments;
+
+    private String result;
+    private String LoginURL = "https://sleepdiaryapp.herokuapp.com/sleeprecord/create";
+    final OkHttpClient client = new OkHttpClient();
 
     private Button button1;
     private Button button2;
@@ -284,7 +296,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus){
-                    Toast.makeText(getApplicationContext(), "unfocus", 2000).show();
+                    Toast.makeText(getApplicationContext(), "unfocus", Toast.LENGTH_SHORT).show();
 
                 if(numWakeUp.getText() != null && Integer.parseInt(numWakeUp.getText().toString()) > 0){
                     findViewById(R.id.HiddenV0).setVisibility(View.VISIBLE);
@@ -588,33 +600,38 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
 
 /*Submit*/
     private void test(){
-        date_of_records = date_of_record.getText().toString();
-        into_beds = into_bed.getText().toString();
-        time_try_sleeps = time_try_sleep.getText().toString();
-        time_out_beds = time_out_bed.getText().toString();
-        long_asleeps = long_asleep.getText().toString();
-        numWakeUps = numWakeUp.getText().toString();
-        awakeningLens = awakeningLen.getText().toString();
-        final_awakes = final_awake.getText().toString();
-        postSleeps = postSleep.getText().toString();
-        earliers = "0";
+        date_of_records = date_of_record.getText().toString().trim();
+        into_beds = into_bed.getText().toString().trim();
+        time_try_sleeps = time_try_sleep.getText().toString().trim();
+        time_out_beds = time_out_bed.getText().toString().trim();
+        long_asleeps = long_asleep.getText().toString().trim();
+        numWakeUps = numWakeUp.getText().toString().trim();
+        awakeningLens = awakeningLen.getText().toString().trim();
+        final_awakes = final_awake.getText().toString().trim();
+        postSleeps = postSleep.getText().toString().trim();
+        earliers = "false";
         if(earlier.isChecked())
-            earliers = "1";
-        earlierAmounts = earlierAmount.getText().toString();
-        sleepAmounts = sleepAmount.getSelectedItem().toString();
-        qualitys = quality.getSelectedItem().toString();
-        refresheds = refreshed.getSelectedItem().toString();
-        Numnapss = Numnaps.getSelectedItem().toString();
-        napTimes = napTime.getText().toString();
-        numAlcs = numAlc.getText().toString();
-        lastAlcs = lastAlc.getText().toString();
-        numcaffs = numcaff.getText().toString();
-        lastcaffs = lastcaff.getText().toString();
-        hadMeds = "0";
+            earliers = "true";
+        earlierAmounts = earlierAmount.getText().toString().trim();
+        sleepAmounts = sleepAmount.getSelectedItem().toString().trim();
+        qualitys = quality.getSelectedItem().toString().trim();
+        refresheds = refreshed.getSelectedItem().toString().trim();
+        Numnapss = Numnaps.getSelectedItem().toString().trim();
+        napTimes = napTime.getText().toString().trim();
+        numAlcs = numAlc.getText().toString().trim();
+        lastAlcs = lastAlc.getText().toString().trim();
+        numcaffs = numcaff.getText().toString().trim();
+        lastcaffs = lastcaff.getText().toString().trim();
+        hadMeds = "false";
         if(hadMed.isChecked())
-            hadMeds = "1";
-        medLists = medList.getText().toString();
-        comments = comment.getText().toString();
+            hadMeds = "true";
+        medLists = medList.getText().toString().trim();
+        comments = comment.getText().toString().trim();
+
+        Questionire.QueryAddressTask queryAddressTask = new Questionire.QueryAddressTask();// create a QAT object
+        queryAddressTask.execute(date_of_records, into_beds, time_try_sleeps, time_out_beds, long_asleeps, numWakeUps,
+                awakeningLens, final_awakes, postSleeps, earliers, earlierAmounts, sleepAmounts, qualitys, refresheds,
+                Numnapss, napTimes, numAlcs, lastAlcs, numcaffs, lastcaffs, hadMeds, medLists, comments); //execute the  AsyncTask
 
         String text = "<font color=\"#ffffff\">This text is <b><i>white.</i></b></font><font color=\"yellow\"> Yellow</font>";
         new AlertDialog.Builder(Questionire.this)
@@ -628,6 +645,79 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 .show();
 
 
+    }
+
+    public String postRequest(String F1, String F2, String F3, String F4, String F5, String F6, String F7, String F8, String F9, String F10, String F11, String F12, String F13, String F14, String F15, String F16, String F17, String F18, String F19, String F20, String F21, String F22, String F23) throws IOException {
+
+        RequestBody formBody = new FormBody.Builder()
+                .add("date",F1)
+                .add("timeGotIntoBed",F2)
+                .add("timeToTrySleep",F3)
+                .add("timeWokenUp",F4)
+                .add("timeTakenToSleepDuration",F5) //?
+                .add("awakeningsNumber",F6)
+                .add("awakeningsTotalDuration",F7) //awakeningsFinalDuration?
+                .add("awakeningsFinalTime",F8)
+                .add("timeTakenToSleepDuration",F9) //?
+                .add("earlyWakeUp",F10)
+                .add("earlyWakeUpDuration",F11)
+                .add("sleepDuration",F12)
+                .add("sleepQuality",F13)
+                .add("feeling",F14)
+                .add("napDozeNum",F15)
+                .add("napDozeDuration",F16)
+                .add("alcoholNum",F17)
+                .add("alcoholTime",F18)
+                .add("caffeinatedNum",F19)
+                .add("caffeinatedTime",F20)
+                .add("otcMed",F21)
+                .add("medicines", "[" + F22 + "]") //array ["a","b"]
+                .add("comments",F23)
+                .build();
+
+        final Request request = new Request.Builder()
+                .url(LoginURL)
+                .post(formBody)
+                .build();
+
+        Response response = null;
+
+        response = client.newCall(request).execute();
+        if (response.isSuccessful()) {
+            // Log.i("WY","Response Message:" + response.body().string());
+            result=response.body().string();
+            //Log.d("result:", result);
+
+
+        } else {
+            throw new IOException("Unexpected code " + response);
+        }
+        return result;
+    }
+    class QueryAddressTask extends AsyncTask<String, Integer, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                result = postRequest(params[0],params[1],params[2],params[3],params[4],params[5],params[6],params[7],params[8],params[9],params[10],params[11],params[12],params[13],params[14],params[15],params[16],params[17],params[18],params[19],params[20],params[21],params[22]);
+                String aaaa=result.substring(0,9);
+                Log.d("aaaa:", aaaa);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }//Pass the 'result to onPostExecute'
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            if (result.substring(0,9).equals("{\"token\":")) {
+                Toast.makeText(Questionire.this, "Login Success", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Questionire.this, result, Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(Questionire.this, "These credentials do not match our records.\n", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
 
