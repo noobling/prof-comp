@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:text="Register"
+            android:text="Login"
             android:textColor="@color/black"
             android:gravity="center"
             android:textSize="@dimen/font_largest" />
@@ -99,8 +99,38 @@
             android:layout_gravity="center"
             android:layout_marginTop="60dp"
             android:background="@android:color/holo_green_light"
-            android:text="Button"
+            android:text="Login"
             android:textColor="@color/white" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
+                android:text="Doesn' Have Account? "
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_large" />
+
+            <Button
+                android:id="@+id/register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:color/holo_orange_light"
+                android:text="Register"
+                android:textColor="@color/white" />
+        </LinearLayout>
 
     </LinearLayout>
 

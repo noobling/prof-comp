@@ -2,6 +2,7 @@ package com.example.zihaol.sleepdiary;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -56,7 +57,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     private String myE;
     private String myP;
-    private String token;
+    private String result;
     private String LoginURL = "https://sleepdiaryapp.herokuapp.com/api/login";
 
     private Context content;
@@ -99,32 +100,20 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             public void onClick(View v) {
                 myE = email.getText().toString().trim();
                 myP = password.getText().toString().trim();
-                postRequest();
-                //content = Login.this;
-                //Intent intent = new Intent(content, Questionire.class);
-                //content.startActivity(intent);
+
+
+                QueryAddressTask queryAddressTask = new QueryAddressTask();// create a QAT object
+                queryAddressTask.execute(myE,myP); //execute the  AsyncTask
             }
         });
 
     }
 
-    private void getRequest() throws IOException {
-
-        final Request request=new Request.Builder()
-                .get()
-                .tag(this)
-                .url(LoginURL)
-                .build();
-
-
-
-    }
-
-    private void postRequest() {
+    public String postRequest(String email, String password) throws IOException{
 
         RequestBody formBody = new FormBody.Builder()
-                .add("email","408511158@qq.com")
-                .add("password","Password")
+                .add("email",email)
+                .add("password",password)
                 .build();
 
         final Request request = new Request.Builder()
@@ -132,28 +121,44 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 .post(formBody)
                 .build();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Response response = null;
-                try {
-                    response = client.newCall(request).execute();
-                    if (response.isSuccessful()) {
-                       // Log.i("WY","打印POST响应的数据：" + response.body().string());
+        Response response = null;
 
-                    } else {
-                        throw new IOException("Unexpected code " + response);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+        response = client.newCall(request).execute();
+        if (response.isSuccessful()) {
+           // Log.i("WY","Response Message:" + response.body().string());
+            result=response.body().string();
+            //Log.d("result:", result);
 
 
-
+        } else {
+            throw new IOException("Unexpected code " + response);
+        }
+        return result;
     }
+    class QueryAddressTask extends AsyncTask<String, Integer, String> {
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                result = postRequest(params[0],params[1]);
+                String aaaa=result.substring(0,9);
+                Log.d("aaaa:", aaaa);
 
+            } catch (Exception e) {
+                e.printStackTrace();
+            }//Pass the 'result to onPostExecute'
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            if (result.substring(0,9).equals("{\"token\":")) {
+                Toast.makeText(Login.this, "Login Success", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(Login.this, "These credentials do not match our records.\n", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
 
 
