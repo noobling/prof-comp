@@ -280,6 +280,23 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
 
         vpager.addOnPageChangeListener(this);
 
+        numWakeUp.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus){
+                    Toast.makeText(getApplicationContext(), "unfocus", 2000).show();
+
+                if(numWakeUp.getText() != null && Integer.parseInt(numWakeUp.getText().toString()) > 0){
+                    findViewById(R.id.HiddenV0).setVisibility(View.VISIBLE);
+                    findViewById(R.id.Hidden0).setVisibility(View.VISIBLE);
+                }
+                else{
+                    findViewById(R.id.HiddenV0).setVisibility(View.GONE);
+                    findViewById(R.id.Hidden0).setVisibility(View.GONE);
+                }
+                }
+            }
+        });
 
     }
 
@@ -287,6 +304,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
 /*Button Press*/
     @Override
     public void onClick(View v) {
+
         switch (v.getId()) {
             case R.id.tv_one:
                 vpager.setCurrentItem(0);
@@ -598,7 +616,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         medLists = medList.getText().toString();
         comments = comment.getText().toString();
 
-        String text = "<font color=\"#ffffff\">This text is white.</font><font color=\"yellow\"> Yellow</font>";
+        String text = "<font color=\"#ffffff\">This text is <b><i>white.</i></b></font><font color=\"yellow\"> Yellow</font>";
         new AlertDialog.Builder(Questionire.this)
                 .setTitle(Html.fromHtml(text))
                 .setMessage(Html.fromHtml("<font color=\"#ffffff\">" + date_of_records + " " + into_beds + " " + time_try_sleeps + " " + time_out_beds + " " +
