@@ -1,5 +1,10 @@
 # Software Documentation
-This document is mainly for the working developer to offer him a high level overview of the software stack we are running and also a chance for us techies to geek out :)
+This document is mainly for the working developer to offer him a high level overview of the software stack we are running in order to provide him with the technical foundation to begin working on this app.
+
+## Overview
+1. Application Architecture
+2. Components
+3. How to get started working on project
 
 ## Architectural Overview
 <img src="architecture.png" width=500>
@@ -25,4 +30,41 @@ Nuxt is another framework which is built on top of Vue. The main purpose of Nuxt
 This is a styling library that provides web UI components designed following the material design philosophy by Google. I chose this because it makes the website look nice without a lot of coding and design required from me.
 
 ### Backend
-In web development backend refers to all the code that does not exist on the users machine but instead it is in the cloud. 
+In web development backend refers to all the code that does not exist on the users machine but instead it is in the cloud. Normally this code will be the layer that is in between the user and database, reading, updating and deleting database records. 
+
+#### Laravel 
+This is a modern web framework written in PHP. The main purpose for using Laravel is to make our lives easier because it provides a lot of baseline code for us and also gives us a good foundation to write a production ready web application. For example as developers we don't want to write code to parse a HTTP request and we don't want to write code to connect to a MySQL database. Laravel handles all this critical but boring things so we can focus on business level details e.g. implementing the database schema.
+
+#### MySQL Database
+This is the most common implementation of a SQL database because it is free and open source. For our purposes it doesn't really matter what type of database we use, we just need one to store our data safely and securely. The main purpose of using a database is to add persistance to user data. In our case the most obvious data we need to store are sleep records. 
+
+## Working on Project
+The key files to note for development purposes are the `website` and the `client` folder within the `website` folder. As the name suggests the website folder is where the Laravel project is housed and the client folder is where the frontend client code exists. 
+
+### Software you will need
+* Local mysql database
+* Composer and php 7.1
+* Node and npm 
+
+### How to run development server
+* `cd website` Make sure you are in the correct directory
+* `npm install` Install client side dependencies
+* `npm run dev` for client side
+* `composer install` Install server side dependencies
+* Copy .env-example to .env and enter in your details.
+* Create `.env` file using `.env.example` as a guide
+* `php artisan jwt:secret`
+* `php artisan serve` server side
+
+
+### How to deploy the app
+This refers to launching the app for the world to see.
+
+* Make sure dev server is not running
+* `npm run build:prod`
+* Move the generated files in dist to public folder in Laravel app
+  * Delete `.nojekyll` file since it hinders the copying
+  * Click replace all
+* Go back to root directory
+* `./deploy.sh`
+* Go to heroku dashboard and deploy prod branch
