@@ -25,7 +25,6 @@
         <activity
             android:name=".Questionire"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".Questionire2" />
         <activity android:name=".Login" />
         <activity android:name=".Home_page"></activity>
     </application>
