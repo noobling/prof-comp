@@ -89,7 +89,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 //item.setChecked(true);
-                Toast.makeText(Login.this,item.getTitle().toString(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, item.getTitle().toString(), Toast.LENGTH_SHORT).show();
                 //TODO:add link to each activity
                 drawerLayout.closeDrawer(navigationView);
                 return true;
@@ -105,17 +105,17 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
 
                 QueryAddressTask queryAddressTask = new QueryAddressTask();// create a QAT object
-                queryAddressTask.execute(myE,myP); //execute the  AsyncTask
+                queryAddressTask.execute(myE, myP); //execute the  AsyncTask
             }
         });
 
     }
 
-    public String postRequest(String email, String password) throws IOException{
+    public String postRequest(String email, String password) throws IOException {
 
         RequestBody formBody = new FormBody.Builder()
-                .add("email",email)
-                .add("password",password)
+                .add("email", email)
+                .add("password", password)
                 .build();
 
         final Request request = new Request.Builder()
@@ -128,7 +128,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         response = client.newCall(request).execute();
         if (response.isSuccessful()) {
             // Log.i("WY","Response Message:" + response.body().string());
-            result=response.body().string();
+            result = response.body().string();
             //Log.d("result:", result);
 
 
@@ -137,12 +137,13 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         }
         return result;
     }
+
     class QueryAddressTask extends AsyncTask<String, Integer, String> {
         @Override
         protected String doInBackground(String... params) {
             try {
-                result = postRequest(params[0],params[1]);
-                String aaaa=result.substring(0,9);
+                result = postRequest(params[0], params[1]);
+                String aaaa = result.substring(0, 9);
                 Log.d("aaaa:", aaaa);
 
             } catch (Exception e) {
@@ -153,33 +154,35 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         @Override
         protected void onPostExecute(String result) {
-            if (result.substring(0,9).equals("{\"token\":")) {
-                Auth="Bearer "+result.substring(10);
-                Toast.makeText(Login.this, "Login Success", Toast.LENGTH_SHORT).show();
-                content=Login.this;
-                Intent intent = new Intent(content, Questionire.class);
-                intent.putExtra("Auth",Auth);
-                content.startActivity(intent);
-            }
-            else {
-                Toast.makeText(Login.this, "These credentials do not match our records.\n", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
 
+            if (result.substring(0, 9).equals("{\"token\":")) {
+                Auth = "Bearer " + result.substring(10);
 
+                if (result != null && result.substring(0, 9).equals("{\"token\":")) {
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-
-            case R.id.menu_button:
-                if (drawerLayout.isDrawerOpen(navigationView)) {
-                    drawerLayout.closeDrawer(navigationView);
+                    Toast.makeText(Login.this, "Login Success", Toast.LENGTH_SHORT).show();
+                    content = Login.this;
+                    Intent intent = new Intent(content, Questionire.class);
+                    intent.putExtra("Auth", Auth);
+                    content.startActivity(intent);
                 } else {
-                    drawerLayout.openDrawer(navigationView);
+                    Toast.makeText(Login.this, "These credentials do not match our records.\n", Toast.LENGTH_SHORT).show();
                 }
-                break;
+            }
         }
     }
-}
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+
+                case R.id.menu_button:
+                    if (drawerLayout.isDrawerOpen(navigationView)) {
+                        drawerLayout.closeDrawer(navigationView);
+                    } else {
+                        drawerLayout.openDrawer(navigationView);
+                    }
+                    break;
+            }
+        }
+    }
