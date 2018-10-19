@@ -633,18 +633,6 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 awakeningLens, final_awakes, postSleeps, earliers, earlierAmounts, sleepAmounts, qualitys, refresheds,
                 Numnapss, napTimes, numAlcs, lastAlcs, numcaffs, lastcaffs, hadMeds, medLists, comments); //execute the  AsyncTask
 
-        String text = "<font color=\"#ffffff\">This text is <b><i>white.</i></b></font><font color=\"yellow\"> Yellow</font>";
-        new AlertDialog.Builder(Questionire.this)
-                .setTitle(Html.fromHtml(text))
-                .setMessage(Html.fromHtml("<font color=\"#ffffff\">" + date_of_records + " " + into_beds + " " + time_try_sleeps + " " + time_out_beds + " " +
-                        long_asleeps + " " + numWakeUps + " " + awakeningLens + " " + final_awakes + " " + postSleeps + " " + earliers + " " + earlierAmounts + " " +
-                        sleepAmounts + " " + qualitys + " " + refresheds + " " + Numnapss + " " + napTimes + " " + numAlcs + lastAlcs + " " + numcaffs + " " +
-                        lastcaffs + " " + hadMeds + " " + medLists + " " + comments + "</font>"))
-                .setNegativeButton("Back", null)
-                .create()
-                .show();
-
-
     }
 
     public String postRequest(String F1, String F2, String F3, String F4, String F5, String F6, String F7, String F8, String F9, String F10, String F11, String F12, String F13, String F14, String F15, String F16, String F17, String F18, String F19, String F20, String F21, String F22, String F23) throws IOException {
@@ -715,7 +703,12 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 Toast.makeText(Questionire.this, result, Toast.LENGTH_SHORT).show();
             }
             else {
-                Toast.makeText(Questionire.this, "These credentials do not match our records.\n", Toast.LENGTH_SHORT).show();
+                new AlertDialog.Builder(Questionire.this)
+                        .setTitle(Html.fromHtml("<font color=\"#ffffff\">response</font>"))
+                        .setMessage(Html.fromHtml("<font color=\"#ffffff\">" + result + "</font>"))
+                        .setNegativeButton("Back", null)
+                        .create()
+                        .show();
             }
         }
     }

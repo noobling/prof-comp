@@ -151,7 +151,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         @Override
         protected void onPostExecute(String result) {
-            if (result.substring(0,9).equals("{\"token\":")) {
+            if (result != null && result.substring(0,9).equals("{\"token\":")) {
                 Toast.makeText(Login.this, "Login Success", Toast.LENGTH_SHORT).show();
                 content=Login.this;
                 Intent intent = new Intent(content, Questionire.class);
