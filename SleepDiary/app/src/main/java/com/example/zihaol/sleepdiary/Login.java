@@ -62,6 +62,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     private Context content;
 
+    private String Auth;
+
 
     final OkHttpClient client = new OkHttpClient();
 
@@ -152,9 +154,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         @Override
         protected void onPostExecute(String result) {
             if (result.substring(0,9).equals("{\"token\":")) {
+                Auth="Bearer "+result.substring(10);
                 Toast.makeText(Login.this, "Login Success", Toast.LENGTH_SHORT).show();
                 content=Login.this;
                 Intent intent = new Intent(content, Questionire.class);
+                intent.putExtra("Auth",Auth);
                 content.startActivity(intent);
             }
             else {

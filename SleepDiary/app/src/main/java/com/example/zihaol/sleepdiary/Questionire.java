@@ -14,7 +14,9 @@ import android.os.Build;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.Html;
+import android.text.TextWatcher;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,11 +36,14 @@ import android.widget.Toast;
 
 import com.example.zihaol.adatper.PageAdatper;
 
+import org.json.JSONObject;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import okhttp3.FormBody;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -47,128 +52,132 @@ import okhttp3.Response;
 
 public class Questionire extends AppCompatActivity implements View.OnClickListener,
         ViewPager.OnPageChangeListener {
+    private static final MediaType JSON = ;
+    //region        These are Views
+        private TextView date_of_record;
+        private TextView into_bed;
+        private TextView time_try_sleep;
+        private TextView time_out_bed;
+        private TextView long_asleep;
+        private TextView numWakeUp;
+        private TextView awakeningLen;
+        private TextView final_awake;
+        private TextView postSleep;
+        private CheckBox earlier;
+        private TextView earlierAmount;
+        private Spinner sleepAmount;
+        private Spinner quality;
+        private Spinner refreshed;
+        private Spinner Numnaps;
+        private TextView napTime;
+        private TextView numAlc;
+        private TextView lastAlc;
+        private TextView numcaff;
+        private TextView lastcaff;
+        private CheckBox hadMed;
+        private TextView medList;
+        private TextView comment;
+        //endregion
+    // region            these are Strings
+        private String date_of_records;
+        private String into_beds;
+        private String time_try_sleeps;
+        private String time_out_beds;
+        private String long_asleeps;
+        private String numWakeUps;
+        private String awakeningLens;
+        private String final_awakes;
+        private String postSleeps;
+        private String earliers;
+        private String earlierAmounts;
+        private String sleepAmounts;
+        private String qualitys;
+        private String refresheds;
+        private String Numnapss;
+        private String napTimes;
+        private String numAlcs;
+        private String lastAlcs;
+        private String numcaffs;
+        private String lastcaffs;
+        private String hadMeds;
+        private String medLists;
+        private String comments;
 
-    private TextView date_of_record;
-    private TextView into_bed;
-    private TextView time_try_sleep;
-    private TextView time_out_bed;
-    private TextView long_asleep;
-    private TextView numWakeUp;
-    private TextView awakeningLen;
-    private TextView final_awake;
-    private TextView postSleep;
-    private CheckBox earlier;
-    private TextView earlierAmount;
-    private Spinner sleepAmount;
-    private Spinner quality;
-    private Spinner refreshed;
-    private Spinner Numnaps;
-    private TextView napTime;
-    private TextView numAlc;
-    private TextView lastAlc;
-    private TextView numcaff;
-    private TextView lastcaff;
-    private CheckBox hadMed;
-    private TextView medList;
-    private TextView comment;
-
-    private String date_of_records;
-    private String into_beds;
-    private String time_try_sleeps;
-    private String time_out_beds;
-    private String long_asleeps;
-    private String numWakeUps;
-    private String awakeningLens;
-    private String final_awakes;
-    private String postSleeps;
-    private String earliers;
-    private String earlierAmounts;
-    private String sleepAmounts;
-    private String qualitys;
-    private String refresheds;
-    private String Numnapss;
-    private String napTimes;
-    private String numAlcs;
-    private String lastAlcs;
-    private String numcaffs;
-    private String lastcaffs;
-    private String hadMeds;
-    private String medLists;
-    private String comments;
-
-    private String result;
-    private String LoginURL = "https://sleepdiaryapp.herokuapp.com/sleeprecord/create";
-    final OkHttpClient client = new OkHttpClient();
-
-    private Button button1;
-    private Button button2;
-    private Button button3;
-
-
-    private ImageButton info0;
-    private ImageButton info1;
-    private ImageButton info2;
-    private ImageButton info3;
-    private ImageButton info4;
-    private ImageButton info5;
-    private ImageButton info6;
-    private ImageButton info7;
-    private ImageButton info8;
-    private ImageButton info9;
-    private ImageButton info10;
-    private ImageButton info11;
-    private ImageButton info12;
-    private ImageButton info13;
-    private ImageButton info14;
-    private ImageButton info15;
-    private ImageButton info16;
-    private ImageButton info17;
-    private ImageButton info18;
-    private ImageButton info19;
-    private ImageButton info20;
-    private ImageButton info21;
-    private ImageButton info22;
-
-
+        private String result;
+    //endregion
+    //region button
+        private Button button1;
+        private Button button2;
+        private Button button3;
+    //endregion
+    //region        these are Image Buttons
+        private ImageButton info0;
+        private ImageButton info1;
+        private ImageButton info2;
+        private ImageButton info3;
+        private ImageButton info4;
+        private ImageButton info5;
+        private ImageButton info6;
+        private ImageButton info7;
+        private ImageButton info8;
+        private ImageButton info9;
+        private ImageButton info10;
+        private ImageButton info11;
+        private ImageButton info12;
+        private ImageButton info13;
+        private ImageButton info14;
+        private ImageButton info15;
+        private ImageButton info16;
+        private ImageButton info17;
+        private ImageButton info18;
+        private ImageButton info19;
+        private ImageButton info20;
+        private ImageButton info21;
+        private ImageButton info22;
+    //endregion
     private String min,hour;
     private TimePicker dpTime;
+    //region        This is animations
+        private ViewPager vpager;
+        private ImageView img_cursor;
+        private TextView tv_one;
+        private TextView tv_two;
+        private TextView tv_three;
 
-    private ViewPager vpager;
-    private ImageView img_cursor;
-    private TextView tv_one;
-    private TextView tv_two;
-    private TextView tv_three;
+        private LayoutInflater inflater;
 
-    private LayoutInflater inflater;
-
-    /* Moving  */
-    private ArrayList<View> listViews;
-    private int offset = 0;//picture offset
-    private int currIndex = 0;//current page index
-    private int bmpWidth;// picture length
-    private int one = 0; //move one page distance
-    private int two = 0; //two page distance
+        /* Moving  */
+        private ArrayList<View> listViews;
+        private int offset = 0;//picture offset
+        private int currIndex = 0;//current page index
+        private int bmpWidth;// picture length
+        private int one = 0; //move one page distance
+        private int two = 0; //two page distance
+        //endregion
+    private String UploadURL = "https://sleepdiaryapp.herokuapp.com/sleeprecord/create";
+    final OkHttpClient client = new OkHttpClient();
+    private String Auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questionire);
+        Intent intent=this.getIntent();
+        Auth=intent.getStringExtra("Auth");
+
         initView();
     }
 
 /*Initialize Variables & Listeners*/
     private void initView(){
-        //找viewpager
+        //region find viewpager and Animation
         vpager = (ViewPager) findViewById(R.id.vpager);
         tv_one = (TextView) findViewById(R.id.tv_one);
         tv_two = (TextView) findViewById(R.id.tv_two);
         tv_three = (TextView) findViewById(R.id.tv_three);
-
         img_cursor = (ImageView) findViewById(R.id.img_cursor);
 
-
-
-        //Animation
+        // Animation
         bmpWidth = BitmapFactory.decodeResource(getResources(), R.mipmap.line).getWidth();// get Image Length
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -191,8 +200,9 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         listViews.add(view1);
         listViews.add(view2);
         listViews.add(view3);
+        //endregion
 
-        /*时间监听*/
+        /*EventLinsteners*/
         date_of_record=view1.findViewById(R.id.tv1);
         into_bed=view1.findViewById(R.id.tv2);
         time_try_sleep=view1.findViewById(R.id.tv3);
@@ -292,24 +302,33 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
 
         vpager.addOnPageChangeListener(this);
 
-        numWakeUp.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus){
-                    Toast.makeText(getApplicationContext(), "unfocus", Toast.LENGTH_SHORT).show();
 
-                if(numWakeUp.getText() != null && Integer.parseInt(numWakeUp.getText().toString()) > 0){
-                    findViewById(R.id.HiddenV0).setVisibility(View.VISIBLE);
-                    findViewById(R.id.Hidden0).setVisibility(View.VISIBLE);
-                }
-                else{
+        numWakeUp.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (s.toString().equals("")){
+                   // Log.d("ssss", s.toString());
                     findViewById(R.id.HiddenV0).setVisibility(View.GONE);
                     findViewById(R.id.Hidden0).setVisibility(View.GONE);
                 }
+                else if (Integer.parseInt(s.toString())>0){
+                    findViewById(R.id.HiddenV0).setVisibility(View.VISIBLE);
+                    findViewById(R.id.Hidden0).setVisibility(View.VISIBLE);
                 }
+
+
             }
         });
-
     }
 
 
@@ -318,6 +337,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
 
         switch (v.getId()) {
+
             case R.id.tv_one:
                 vpager.setCurrentItem(0);
                 break;
@@ -327,6 +347,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
             case R.id.tv_three:
                 vpager.setCurrentItem(2);
                 break;
+
             case R.id.tv1:
                setDateAction(date_of_record);
                 break;
@@ -471,7 +492,6 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onPageScrolled(int i, float v, int i1) {
     }
-
 
 
 /*Date Picker*/
@@ -633,6 +653,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 awakeningLens, final_awakes, postSleeps, earliers, earlierAmounts, sleepAmounts, qualitys, refresheds,
                 Numnapss, napTimes, numAlcs, lastAlcs, numcaffs, lastcaffs, hadMeds, medLists, comments); //execute the  AsyncTask
 
+       //   This is a test alert dilog
         String text = "<font color=\"#ffffff\">This text is <b><i>white.</i></b></font><font color=\"yellow\"> Yellow</font>";
         new AlertDialog.Builder(Questionire.this)
                 .setTitle(Html.fromHtml(text))
@@ -649,11 +670,14 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
 
     public String postRequest(String F1, String F2, String F3, String F4, String F5, String F6, String F7, String F8, String F9, String F10, String F11, String F12, String F13, String F14, String F15, String F16, String F17, String F18, String F19, String F20, String F21, String F22, String F23) throws IOException {
 
+
+        RequestBody body = RequestBody.create(JSON, json);
+        
         RequestBody formBody = new FormBody.Builder()
-                .add("date",F1)
-                .add("timeGotIntoBed",F2)
-                .add("timeToTrySleep",F3)
-                .add("timeWokenUp",F4)
+                .add("date",F1) //这个是date 类型
+                .add("timeGotIntoBed",F2)//时间类型
+                .add("timeToTrySleep",F3)//时间类型
+                .add("timeWokenUp",F4)//时间类型
                 .add("timeTakenToSleepDuration",F5) //?
                 .add("awakeningsNumber",F6)
                 .add("awakeningsTotalDuration",F7) //awakeningsFinalDuration?
@@ -671,12 +695,15 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 .add("caffeinatedNum",F19)
                 .add("caffeinatedTime",F20)
                 .add("otcMed",F21)
-                .add("medicines", "[" + F22 + "]") //array ["a","b"]
+                .add("medicines",  F22 ) //array ["a","b"]
                 .add("comments",F23)
                 .build();
 
         final Request request = new Request.Builder()
-                .url(LoginURL)
+                .url(UploadURL)
+                .addHeader("Content-Type","application/x-www-form-urlencoded")
+                .addHeader("Authorization",Auth)
+                .addHeader("Accept","application/json,text/plain,*/*")
                 .post(formBody)
                 .build();
 
@@ -698,9 +725,12 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         @Override
         protected String doInBackground(String... params) {
             try {
-                result = postRequest(params[0],params[1],params[2],params[3],params[4],params[5],params[6],params[7],params[8],params[9],params[10],params[11],params[12],params[13],params[14],params[15],params[16],params[17],params[18],params[19],params[20],params[21],params[22]);
-                String aaaa=result.substring(0,9);
-                Log.d("aaaa:", aaaa);
+                result = postRequest(params[0],params[1],params[2],params[3],params[4],
+                        params[5],params[6],params[7],params[8],params[9],params[10],params[11],
+                        params[12],params[13],params[14],params[15],params[16],params[17],
+                        params[18],params[19],params[20],params[21],params[22]);
+               // String aaaa=result.substring(0,9);
+                //Log.d("aaaa:", aaaa);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -710,6 +740,9 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
 
         @Override
         protected void onPostExecute(String result) {
+
+
+            /*
             if (result.substring(0,9).equals("{\"token\":")) {
                 Toast.makeText(Questionire.this, "Login Success", Toast.LENGTH_SHORT).show();
                 Toast.makeText(Questionire.this, result, Toast.LENGTH_SHORT).show();
@@ -717,6 +750,9 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
             else {
                 Toast.makeText(Questionire.this, "These credentials do not match our records.\n", Toast.LENGTH_SHORT).show();
             }
+            */
+
+
         }
     }
 }
