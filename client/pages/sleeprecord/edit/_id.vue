@@ -11,7 +11,14 @@
           </v-toolbar>
 
             <v-form ref="form" v-model="valid" @submit="submit" lazy-validation="">
-              <v-stepper v-model="currentStep" vertical style="box-shadow: none;">
+              <v-progress-circular
+                :size="70"
+                :width="7"
+                color="primary"
+                indeterminate
+                v-if="loading"
+              ></v-progress-circular>
+              <v-stepper v-model="currentStep" vertical style="box-shadow: none;" v-if="!loading">
                 <v-stepper-step step="1" :complete="currentStep > 1" @click="currentStep = 1">
                   <span @click="currentStep = 1" class="stepper-header">Sleep Times</span>
                 </v-stepper-step>
@@ -572,9 +579,14 @@
 
         this.form = data
         if (!data.medicines) this.form.medicines = []
-        delete this.form['user']
-
+        this.removeUnwantedAttr()
+        
         this.preProcessForm()
+      },
+
+      removeUnwantedAttr() {
+        delete this.form['user']
+        delete this.form['updated_at']
       },
 
        processForm: function () {
