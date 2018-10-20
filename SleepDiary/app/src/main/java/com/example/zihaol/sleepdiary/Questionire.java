@@ -29,6 +29,8 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.NumberPicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -42,6 +44,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import cn.carbswang.android.numberpickerview.library.NumberPickerView;
 import okhttp3.FormBody;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -53,6 +56,9 @@ import okhttp3.Response;
 public class Questionire extends AppCompatActivity implements View.OnClickListener,
         ViewPager.OnPageChangeListener {
 
+    private static final MediaType JSON =MediaType.parse("application/json; charset=utf-8"); ;
+
+    // private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");;
     //region        These are Views
         private TextView date_of_record;
         private TextView into_bed;
@@ -65,7 +71,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         private TextView postSleep;
         private CheckBox earlier;
         private TextView earlierAmount;
-        private Spinner sleepAmount;
+        private TextView sleepAmount;
         private Spinner quality;
         private Spinner refreshed;
         private Spinner Numnaps;
@@ -135,8 +141,13 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         private ImageButton info21;
         private ImageButton info22;
     //endregion
+
+
     private String min,hour;
     private TimePicker dpTime;
+
+    private NumberPickerView mPickerViewH;
+    private NumberPickerView mPickerViewM;
     //region        This is animations
         private ViewPager vpager;
         private ImageView img_cursor;
@@ -154,9 +165,12 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         private int one = 0; //move one page distance
         private int two = 0; //two page distance
         //endregion
-    private String UploadURL = "https://sleepdiaryapp.herokuapp.com/sleeprecord/create";
+
+
+    private String UploadURL = "https://sleepdiaryapp.herokuapp.com/api/user/sleeprecord";
     final OkHttpClient client = new OkHttpClient();
     private String Auth;
+    public String json;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -209,16 +223,21 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         time_out_bed=view1.findViewById(R.id.tv4);
         long_asleep=view1.findViewById(R.id.tv5);
         numWakeUp=view2.findViewById(R.id.tv_wake);
-        awakeningLen=view2.findViewById(R.id.tv_wake2);
+        //awakeningLen=view2.findViewById(R.id.tv_wake2);
+        awakeningLen=view2.findViewById(R.id.awakening_last);//
+
         final_awake=view2.findViewById(R.id.tv8);
-        postSleep=view2.findViewById(R.id.tv_wake4);
+        postSleep=view2.findViewById(R.id.spend_bed_try);//
+
         earlier=view2.findViewById(R.id.Early);
-        earlierAmount=view2.findViewById(R.id.tv_earlier);
-        sleepAmount=view2.findViewById(R.id.sleep_time);
+        earlierAmount=view2.findViewById(R.id.how_much_earlier);//
+
+        sleepAmount=view2.findViewById(R.id.Total_sleep);//
+
         quality=view2.findViewById(R.id.quality);
         refreshed=view2.findViewById(R.id.feel);
         Numnaps=view2.findViewById(R.id.doze);
-        napTime=view2.findViewById(R.id.tv_wake5);
+        napTime=view2.findViewById(R.id.how_long_doze);
         numAlc=view3.findViewById(R.id.tv_wake11);
         lastAlc=view3.findViewById(R.id.tv6);
         numcaff=view3.findViewById(R.id.tv_wake111);
@@ -262,9 +281,14 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         time_try_sleep.setOnClickListener(this);
         time_out_bed.setOnClickListener(this);
         long_asleep.setOnClickListener(this);
+        awakeningLen.setOnClickListener(this);
         final_awake.setOnClickListener(this);
+        postSleep.setOnClickListener(this);
         lastAlc.setOnClickListener(this);
         lastcaff.setOnClickListener(this);
+        earlierAmount.setOnClickListener(this);
+        sleepAmount.setOnClickListener(this);
+        napTime.setOnClickListener(this);
 
         button1.setOnClickListener(this);
         button2.setOnClickListener(this);
@@ -349,7 +373,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 break;
 
             case R.id.tv1:
-               setDateAction(date_of_record);
+                setDateAction(date_of_record);
                 break;
             case  R.id.tv2:
                 setTimeAction(into_bed);
@@ -361,7 +385,22 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 setTimeAction(time_out_bed);
                 break;
             case  R.id.tv5:
-                setTimeAction(long_asleep);
+                setDurationAction(long_asleep);
+                break;
+            case R.id.awakening_last:
+                setDurationAction(awakeningLen);
+                break;
+            case R.id.spend_bed_try:
+                setDurationAction(postSleep);
+                break;
+            case R.id.how_much_earlier:
+                setDurationAction(earlierAmount);
+                break;
+            case R.id.Total_sleep:
+                setDurationAction(sleepAmount);
+                break;
+            case R.id.how_long_doze:
+                setDurationAction(napTime);
                 break;
             case  R.id.tv6:
                 setTimeAction(lastAlc);
@@ -504,7 +543,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 .setPositiveButton("Submit", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                       tv.setText(dpBirth.getYear() + "/" + (dpBirth.getMonth() % 12 + 1) + "/" + dpBirth.getDayOfMonth());
+                       tv.setText(dpBirth.getYear() + "-" + (dpBirth.getMonth() % 12 + 1) + "-" + dpBirth.getDayOfMonth());
                         tv.setTextColor(Color.parseColor("#ff000000"));
                     }
                 })
@@ -512,7 +551,6 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 .create()
                 .show();
     }
-
 /*Time Picker*/
         private void setTimeAction(final TextView tv){
 
@@ -535,7 +573,36 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 .create()
                 .show();
     }
+    /*Duration Picker*/
+    private void setDurationAction(final TextView tv){
 
+
+        View dpDuration =(View)getLayoutInflater().inflate(R.layout.dialog_edit_duration,null);
+        mPickerViewH = (NumberPickerView)dpDuration.findViewById(R.id.pickerH);
+        mPickerViewM = (NumberPickerView)dpDuration.findViewById(R.id.pickerM);
+        String[] hourli={"0","1","2","3","4","5","6","7","8","9","10","11","12","13","14"};
+        String[] minli={"00","05","10","15","20","25","30","35","40","45","50","55"};
+        mPickerViewH.setDisplayedValues(hourli);
+        mPickerViewH.setMinValue(0);
+        mPickerViewH.setMaxValue(hourli.length - 1);
+        mPickerViewM.setDisplayedValues(minli);
+        mPickerViewM.setMinValue(0);
+        mPickerViewM.setMaxValue(minli.length - 1);
+
+        new AlertDialog.Builder(Questionire.this)
+                .setTitle(Html.fromHtml("<font color=\"#ffffff\">Set Duration</font>"))
+                .setView(dpDuration)
+                .setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        tv.setText(mPickerViewH.getContentByCurrValue()+":"+mPickerViewM.getContentByCurrValue());
+                        tv.setTextColor(Color.parseColor("#ff000000"));
+                    }
+                })
+                .setNegativeButton("Cancel", null)
+                .create()
+                .show();
+    }
 /*info*/
     private void getinfo(final int id){
         String infotext = "Error";
@@ -621,6 +688,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
 /*Submit*/
     private void test(){
         date_of_records = date_of_record.getText().toString().trim();
+
         into_beds = into_bed.getText().toString().trim();
         time_try_sleeps = time_try_sleep.getText().toString().trim();
         time_out_beds = time_out_bed.getText().toString().trim();
@@ -633,7 +701,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         if(earlier.isChecked())
             earliers = "true";
         earlierAmounts = earlierAmount.getText().toString().trim();
-        sleepAmounts = sleepAmount.getSelectedItem().toString().trim();
+        sleepAmounts = sleepAmount.getText().toString().trim();
         qualitys = quality.getSelectedItem().toString().trim();
         refresheds = refreshed.getSelectedItem().toString().trim();
         Numnapss = Numnaps.getSelectedItem().toString().trim();
@@ -655,10 +723,27 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
 
     }
 
+
+
     public String postRequest(String F1, String F2, String F3, String F4, String F5, String F6, String F7, String F8, String F9, String F10, String F11, String F12, String F13, String F14, String F15, String F16, String F17, String F18, String F19, String F20, String F21, String F22, String F23) throws IOException {
+        boolean temp;
+        if (earlier.equals("true")){
+            temp=true;
+        }else{
+            temp=false;
+        }
+        json="{'date':"+"'"+F1+"'"+",'timeGoIntoBed':"+"'"+F2+"'"+",'timeToTrySleep':"+"'"+F3+"'"+",'timeWokenUp':"+"'"+F4+"'"+
+                ",'timeTakenToSleepDuration':"+"'"+F5+"'"+ ",'awakeningsNumber':"+Integer.parseInt(F6)+ ",'awakeningsTotalDuration':"+"'"+F7+"'"
+                + ",'awakeningsFinalTime':"+"'"+F8+"'"+ ",'awakeningsFinalDuration':"+"'"+F9+"'"+ ",'earlyWakeUp':"+temp
+                + ",'earlyWakeUpDuration':"+"'"+F11+"'"+ ",'sleepDuration':"+"'"+F12+"'"+ ",'sleepQuality':"+"'"+F13+"'"
+                + ",'feeling':"+"'"+F14+"'"+ ",'napDozeNum':"+Integer.parseInt(F15)+ ",'napDozeDuration':"+"'"+F16+"'"
+                + ",'alcoholNum':"+Integer.parseInt(F17)+ ",'alcoholTime':"+"'"+F18+"'"+ ",'caffeinatedNum':"+Integer.parseInt(F19)
+                + ",'caffeinatedTime':"+"'"+F20+"'"+ ",'otcMed':"+1+ ",'medicines':"+"'["+F22+"]'"
+                + ",'comments':"+"'"+F23+"'"+"}";
+        RequestBody body = RequestBody.create(JSON, json);
 
-
-        
+        //region
+        /*
         RequestBody formBody = new FormBody.Builder()
                 .add("date",F1) //这个是date 类型
                 .add("timeGotIntoBed",F2)//时间类型
@@ -684,13 +769,15 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 .add("medicines",  F22 ) //array ["a","b"]
                 .add("comments",F23)
                 .build();
+                */
+        //endregion
 
         final Request request = new Request.Builder()
                 .url(UploadURL)
-                .addHeader("Content-Type","application/x-www-form-urlencoded")
+                .header("Content-Type","application/x-www-form-urlencoded")
                 .addHeader("Authorization",Auth)
                 .addHeader("Accept","application/json,text/plain,*/*")
-                .post(formBody)
+                .post(body)
                 .build();
 
         Response response = null;

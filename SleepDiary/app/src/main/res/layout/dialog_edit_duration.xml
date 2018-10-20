@@ -1,0 +1,62 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="Hour"
+            android:textSize="@dimen/font_large" />
+        <cn.carbswang.android.numberpickerview.library.NumberPickerView
+            android:id="@+id/pickerH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_centerHorizontal="true"
+            app:npv_ItemPaddingHorizontal="5dp"
+            app:npv_ItemPaddingVertical="5dp"
+            app:npv_ShowCount="5"
+            app:npv_RespondChangeOnDetached="false"
+            app:npv_TextSizeNormal="16sp"
+            app:npv_TextColorNormal="@color/light_grey"
+            app:npv_TextColorSelected="@color/white"
+            app:npv_TextSizeSelected="20sp"
+            app:npv_WrapSelectorWheel="true"
+            app:npv_DividerColor="@color/dark_grey"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="Minute"
+            android:textSize="@dimen/font_large" />
+        <cn.carbswang.android.numberpickerview.library.NumberPickerView
+            android:id="@+id/pickerM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_centerHorizontal="true"
+            app:npv_ItemPaddingHorizontal="5dp"
+            app:npv_ItemPaddingVertical="5dp"
+            app:npv_ShowCount="5"
+            app:npv_RespondChangeOnDetached="false"
+            app:npv_TextSizeNormal="16sp"
+            app:npv_TextColorNormal="@color/light_grey"
+            app:npv_TextColorSelected="@color/white"
+            app:npv_TextSizeSelected="20sp"
+            app:npv_WrapSelectorWheel="true"
+            app:npv_DividerColor="@color/dark_grey"/>
+    </LinearLayout>
+</ScrollView>

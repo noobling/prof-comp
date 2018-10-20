@@ -89,13 +89,14 @@
                     android:layout_marginTop="15dp"
                     android:text="In total, how  long did these awakenings last?" />
 
-                <EditText
-                    android:id="@+id/tv_wake2"
-                    style="@style/EditStyle"
+                <TextView
+                    android:id="@+id/awakening_last"
+                    style="@style/answer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Click to choose a Duration" />
 
             </LinearLayout>
 
@@ -197,13 +198,14 @@
                     android:layout_marginTop="15dp"
                     android:text="After your final awakening, how long did you spend in bed trying to sleep?" />
 
-                <EditText
-                    android:id="@+id/tv_wake4"
-                    style="@style/EditStyle"
+                <TextView
+                    android:id="@+id/spend_bed_try"
+                    style="@style/answer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Click to choose a Duration" />
 
             </LinearLayout>
 
@@ -297,15 +299,18 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/How_much_earlier"
+                    android:id="@+id/How_much_earlier1"
                     style="@style/ask1"
                     android:layout_marginTop="15dp"
                     android:text="How much earlier" />
-
-                <EditText
-                    style="@style/EditStyle"
-                    android:id="@+id/tv_earlier"
-                    android:inputType="number" />
+                <TextView
+                    android:id="@+id/how_much_earlier"
+                    style="@style/answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Click to choose a Duration" />
 
             </LinearLayout>
 
@@ -346,16 +351,19 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/Total_sleep"
+                    android:id="@+id/Ttewtwetwe"
                     style="@style/ask1"
                     android:layout_marginTop="15dp"
                     android:text="In total, how long did you sleep?" />
 
-                <Spinner
-                    android:id="@+id/sleep_time"
-                    style="@style/EditStyle"
-                    android:layout_height="45dp"
-                    android:entries="@array/Times" />
+                <TextView
+                    android:id="@+id/Total_sleep"
+                    style="@style/answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Click to choose a Duration" />
 
             </LinearLayout>
 
@@ -554,13 +562,14 @@
                     android:layout_marginTop="15dp"
                     android:text="In total, how long did you nap or doze?" />
 
-                <EditText
-                    android:id="@+id/tv_wake5"
-                    style="@style/EditStyle"
+                <TextView
+                    android:id="@+id/how_long_doze"
+                    style="@style/answer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Click to choose a Duration" />
 
             </LinearLayout>
 

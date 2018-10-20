@@ -104,6 +104,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 myP = password.getText().toString().trim();
 
 
+
                 QueryAddressTask queryAddressTask = new QueryAddressTask();// create a QAT object
                 queryAddressTask.execute(myE, myP); //execute the  AsyncTask
             }
@@ -154,21 +155,21 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         @Override
         protected void onPostExecute(String result) {
+            int i=0;
+            if (result != null && result.substring(0, 9).equals("{\"token\":")) {
 
-            if (result.substring(0, 9).equals("{\"token\":")) {
-                Auth = "Bearer " + result.substring(10);
+                i=result.substring(10).indexOf("\"");
 
-                if (result != null && result.substring(0, 9).equals("{\"token\":")) {
-
-                    Toast.makeText(Login.this, "Login Success", Toast.LENGTH_SHORT).show();
-                    content = Login.this;
-                    Intent intent = new Intent(content, Questionire.class);
-                    intent.putExtra("Auth", Auth);
-                    content.startActivity(intent);
-                } else {
-                    Toast.makeText(Login.this, "These credentials do not match our records.\n", Toast.LENGTH_SHORT).show();
-                }
+                Auth = "Bearer " + result.substring(10,i+10);
+                Toast.makeText(Login.this, "Login Success", Toast.LENGTH_SHORT).show();
+                content = Login.this;
+                Intent intent = new Intent(content, Questionire.class);
+                intent.putExtra("Auth", Auth);
+                content.startActivity(intent);
+            } else {
+                Toast.makeText(Login.this, "These credentials do not match our records.\n", Toast.LENGTH_SHORT).show();
             }
+
         }
     }
 
