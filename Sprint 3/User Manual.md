@@ -6,6 +6,7 @@ Located here: https://sleepdiaryapp.herokuapp.com
 ## Important information
 * The app takes ~ 30 seconds to load sometimes because it is using a free website hosting service
 * The app does not work on Internet Explorer because it is using modern web technologies to ensure it is future proof
+* Do not refresh the app, instead open it up in a new window or tab or browser.
 
 ## Trouble shooting
 Run through this list is something is not working.
@@ -14,6 +15,7 @@ Run through this list is something is not working.
 - [ ] Put a 0 in front your time/duration e.g. 06:03 pm
 - [ ] Use landscape mode on your device
 - [ ] Click on the "info" icon
+- [ ] Open the application in a new window
 
 ## Getting Started
 0. Navigate here: https://sleepdiaryapp.herokuapp.com
