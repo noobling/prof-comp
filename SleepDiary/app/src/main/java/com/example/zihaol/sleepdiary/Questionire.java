@@ -60,7 +60,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
 
     private static final MediaType JSON =MediaType.parse("application/json; charset=utf-8"); ;
 
-    // private static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");;
+
     //region        These are Views
         private TextView date_of_record;
         private TextView into_bed;
@@ -172,7 +172,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
     private String UploadURL = "https://sleepdiaryapp.herokuapp.com/api/user/sleeprecord";
     final OkHttpClient client = new OkHttpClient();
     private String Auth;
-    public String json;
+    public boolean success;
 
 
     @Override
@@ -814,14 +814,6 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         }else{
             temp=0;
         }
-        /*json="{'date':"+"'"+F1+"'"+",'timeGotIntoBed':"+"'"+F2+"'"+",'timeToTrySleep':"+"'"+F3+"'"+",'timeWokenUp':"+"'"+F4+"'"+
-                ",'timeTakenToSleepDuration':"+"'"+F5+"'"+ ",'awakeningsNumber':"+Integer.parseInt(F6)+ ",'awakeningsTotalDuration':"+"'"+F7+"'"
-                + ",'awakeningsFinalTime':"+"'"+F8+"'"+ ",'awakeningsFinalDuration':"+"'"+F9+"'"+ ",'earlyWakeUp':"+temp
-                + ",'earlyWakeUpDuration':"+"'"+F11+"'"+ ",'sleepDuration':"+"'"+F12+"'"+ ",'sleepQuality':"+"'"+F13+"'"
-                + ",'feeling':"+"'"+F14+"'"+ ",'napDozeNum':"+Integer.parseInt(F15)+ ",'napDozeDuration':"+"'"+F16+"'"
-                + ",'alcoholNum':"+Integer.parseInt(F17)+ ",'alcoholTime':"+"'"+F18+"'"+ ",'caffeinatedNum':"+Integer.parseInt(F19)
-                + ",'caffeinatedTime':"+"'"+F20+"'"+ ",'otcMed':"+1+ ",'medicines':"+null
-                + ",'comments':"+"'"+F23+"'"+"}";*/
 
         JSONObject json2=new JSONObject();
 
@@ -920,9 +912,10 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         response = client.newCall(request).execute();
 
         if (response.isSuccessful()) {
-            // Log.i("WY","Response Message:" + response.body().string());
+
             result=response.body().string();
-            //Log.d("result:", result);
+            success=true;
+
 
 
         } else {
@@ -938,8 +931,6 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                         params[5],params[6],params[7],params[8],params[9],params[10],params[11],
                         params[12],params[13],params[14],params[15],params[16],params[17],
                         params[18],params[19],params[20],params[21],params[22]);
-               // String aaaa=result.substring(0,9);
-                //Log.d("aaaa:", aaaa);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -950,21 +941,13 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         @Override
         protected void onPostExecute(String result) {
 
-
-            /*
-            if (result.substring(0,9).equals("{\"token\":")) {
-                Toast.makeText(Questionire.this, "Login Success", Toast.LENGTH_SHORT).show();
-                Toast.makeText(Questionire.this, result, Toast.LENGTH_SHORT).show();
+            if (success) {
+                Toast.makeText(Questionire.this, "Success", Toast.LENGTH_SHORT).show();
             }
             else {
-                new AlertDialog.Builder(Questionire.this)
-                        .setTitle(Html.fromHtml("<font color=\"#ffffff\">response</font>"))
-                        .setMessage(Html.fromHtml("<font color=\"#ffffff\">" + result + "</font>"))
-                        .setNegativeButton("Back", null)
-                        .create()
-                        .show();
+                Toast.makeText(Questionire.this, result, Toast.LENGTH_SHORT).show();
             }
-            */
+
 
 
         }
