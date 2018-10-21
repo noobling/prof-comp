@@ -7,7 +7,7 @@ For Sleep Diary App (Android) - Some software to help you record your sleep.
 * Make sure to give correct email when registering
 
 ## Trouble shooting
-Run through this list is something is not working.
+Run through this list if something is not working.
 - [ ] Make sure the device runs on android
 - [ ] Ensure all questions are answered before submitting
 - [ ] Click on the "i" icon for question help
@@ -23,7 +23,7 @@ Run through this list is something is not working.
 7. Congratulations it was that easy!
 
 ## Additional Features
-Software is meant to improve the lives of people. Help us to discover information and insights that no one in history was able to.
+Software is meant to improve the lives of people. It helps us discover information/insights that no one was able to before.
 
 * Date and time pre-fill (no more lengthy forms!)
 * Pop up widgets for date, time and duration selection
