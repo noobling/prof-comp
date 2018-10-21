@@ -337,6 +337,11 @@
 
         </LinearLayout>
 
+        <View
+            style="@style/WireThinHorizontal"
+            android:id="@+id/view"
+            android:layout_weight="1" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -388,6 +393,10 @@
             </LinearLayout>
 
         </LinearLayout>
+
+        <View
+            style="@style/WireThinHorizontal"
+            android:id="@+id/view2" />
 
         <Button
             android:id="@+id/button3"
