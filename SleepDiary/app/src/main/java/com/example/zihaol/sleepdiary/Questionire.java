@@ -38,6 +38,7 @@ import android.widget.Toast;
 
 import com.example.zihaol.adatper.PageAdatper;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.FileOutputStream;
@@ -171,6 +172,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
     final OkHttpClient client = new OkHttpClient();
     private String Auth;
     public String json;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -580,7 +582,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         View dpDuration =(View)getLayoutInflater().inflate(R.layout.dialog_edit_duration,null);
         mPickerViewH = (NumberPickerView)dpDuration.findViewById(R.id.pickerH);
         mPickerViewM = (NumberPickerView)dpDuration.findViewById(R.id.pickerM);
-        String[] hourli={"0","1","2","3","4","5","6","7","8","9","10","11","12","13","14"};
+        String[] hourli={"00","01","02","03","04","05","06","07","08","09","10","11","12","13","14"};
         String[] minli={"00","05","10","15","20","25","30","35","40","45","50","55"};
         mPickerViewH.setDisplayedValues(hourli);
         mPickerViewH.setMinValue(0);
@@ -725,22 +727,75 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
 
 
 
-    public String postRequest(String F1, String F2, String F3, String F4, String F5, String F6, String F7, String F8, String F9, String F10, String F11, String F12, String F13, String F14, String F15, String F16, String F17, String F18, String F19, String F20, String F21, String F22, String F23) throws IOException {
-        boolean temp;
+    public String postRequest(String F1, String F2, String F3, String F4, String F5, String F6, String F7, String F8, String F9, String F10, String F11, String F12, String F13, String F14, String F15, String F16, String F17, String F18, String F19, String F20, String F21, String F22, String F23) throws IOException, JSONException {
+        int temp;
         if (earlier.equals("true")){
-            temp=true;
+            temp=1;
         }else{
-            temp=false;
+            temp=0;
         }
-        json="{'date':"+"'"+F1+"'"+",'timeGoIntoBed':"+"'"+F2+"'"+",'timeToTrySleep':"+"'"+F3+"'"+",'timeWokenUp':"+"'"+F4+"'"+
+        /*json="{'date':"+"'"+F1+"'"+",'timeGotIntoBed':"+"'"+F2+"'"+",'timeToTrySleep':"+"'"+F3+"'"+",'timeWokenUp':"+"'"+F4+"'"+
                 ",'timeTakenToSleepDuration':"+"'"+F5+"'"+ ",'awakeningsNumber':"+Integer.parseInt(F6)+ ",'awakeningsTotalDuration':"+"'"+F7+"'"
                 + ",'awakeningsFinalTime':"+"'"+F8+"'"+ ",'awakeningsFinalDuration':"+"'"+F9+"'"+ ",'earlyWakeUp':"+temp
                 + ",'earlyWakeUpDuration':"+"'"+F11+"'"+ ",'sleepDuration':"+"'"+F12+"'"+ ",'sleepQuality':"+"'"+F13+"'"
                 + ",'feeling':"+"'"+F14+"'"+ ",'napDozeNum':"+Integer.parseInt(F15)+ ",'napDozeDuration':"+"'"+F16+"'"
                 + ",'alcoholNum':"+Integer.parseInt(F17)+ ",'alcoholTime':"+"'"+F18+"'"+ ",'caffeinatedNum':"+Integer.parseInt(F19)
-                + ",'caffeinatedTime':"+"'"+F20+"'"+ ",'otcMed':"+1+ ",'medicines':"+"'["+F22+"]'"
-                + ",'comments':"+"'"+F23+"'"+"}";
-        RequestBody body = RequestBody.create(JSON, json);
+                + ",'caffeinatedTime':"+"'"+F20+"'"+ ",'otcMed':"+1+ ",'medicines':"+null
+                + ",'comments':"+"'"+F23+"'"+"}";*/
+
+        JSONObject json2=new JSONObject();
+
+        json2.put("date",F1);
+        json2.put("timeGotIntoBed",F2);
+        json2.put("timeToTrySleep",F3);
+        json2.put("timeWokenUp",F4);
+        json2.put("timeTakenToSleepDuration",F5);
+        json2.put("awakeningsNumber",Integer.parseInt(F6));
+        json2.put("awakeningsTotalDuration",F7);
+        json2.put("awakeningsFinalTime",F8);
+        json2.put("awakeningsFinalDuration",F9);
+        json2.put("earlyWakeUp",temp);
+        json2.put("earlyWakeUpDuration",F11);
+        json2.put("sleepDuration",F12);
+        json2.put("sleepQuality",F13);
+        json2.put("feeling",F14);
+        json2.put("napDozeNum",Integer.parseInt(F15));
+        json2.put("napDozeDuration",F16);
+        json2.put("alcoholNum",Integer.parseInt(F17));
+        json2.put("alcoholTime",F18);
+        json2.put("caffeinatedNum",Integer.parseInt(F19));
+        json2.put("caffeinatedTime",F20);
+        json2.put("otcMed",1);
+        json2.put("medicines",F22);
+        json2.put("comments",F23);
+        /*
+        json2.put("date","2018-10-21");
+        json2.put("timeGotIntoBed","23:45");
+        json2.put("timeToTrySleep","23:45");
+        json2.put("timeWokenUp","23:00");
+        json2.put("timeTakenToSleepDuration","01:00");
+        json2.put("awakeningsNumber",0);
+        json2.put("awakeningsTotalDuration","01:00");
+        json2.put("awakeningsFinalTime","1");
+        json2.put("awakeningsFinalDuration","01:00");
+        json2.put("earlyWakeUp",0);
+        json2.put("earlyWakeUpDuration","nu:ll");
+        json2.put("sleepDuration","01:15");
+        json2.put("sleepQuality","Poor");
+        json2.put("feeling","Slightly rested");
+        json2.put("napDozeNum",2);
+        json2.put("napDozeDuration","00:40");
+        json2.put("alcoholNum",1);
+        json2.put("alcoholTime","21:32");
+        json2.put("caffeinatedNum",1);
+        json2.put("caffeinatedTime","03:21");
+        json2.put("otcMed",1);
+        //json2.put("medicines",F22);
+        json2.put("comments","苟利国家生死以");
+*/
+
+
+        RequestBody body = RequestBody.create(JSON, json2.toString());
 
         //region
         /*
@@ -783,6 +838,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         Response response = null;
 
         response = client.newCall(request).execute();
+
         if (response.isSuccessful()) {
             // Log.i("WY","Response Message:" + response.body().string());
             result=response.body().string();
