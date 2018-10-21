@@ -65,10 +65,12 @@
 
 
         <LinearLayout
+            android:id="@+id/Hidden3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:baselineAligned="false"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -171,10 +173,12 @@
 
 
         <LinearLayout
+            android:id="@+id/Hidden4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:baselineAligned="false"
             android:orientation="horizontal"
-            android:baselineAligned="false">
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -273,14 +277,19 @@
 
         </LinearLayout>
 
-        <View style="@style/WireThinHorizontal" />
+        <View
+            android:id="@+id/Hiddenv5"
+            style="@style/WireThinHorizontal"
+            android:visibility="gone" />
 
 
         <LinearLayout
+            android:id="@+id/Hidden5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:baselineAligned="false"
             android:orientation="horizontal"
-            android:baselineAligned="false">
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -327,6 +336,11 @@
             </LinearLayout>
 
         </LinearLayout>
+
+        <View
+            style="@style/WireThinHorizontal"
+            android:id="@+id/view"
+            android:layout_weight="1" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -379,6 +393,10 @@
             </LinearLayout>
 
         </LinearLayout>
+
+        <View
+            style="@style/WireThinHorizontal"
+            android:id="@+id/view2" />
 
         <Button
             android:id="@+id/button3"
