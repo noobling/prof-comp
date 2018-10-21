@@ -23,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
@@ -326,6 +327,8 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
 
         vpager.addOnPageChangeListener(this);
 
+        earlier.setOnClickListener(this);
+        hadMed.setOnClickListener(this);
 
         numWakeUp.addTextChangedListener(new TextWatcher() {
             @Override
@@ -340,28 +343,105 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (s.toString().equals("")){
-                   // Log.d("ssss", s.toString());
-                    findViewById(R.id.HiddenV0).setVisibility(View.GONE);
-                    findViewById(R.id.Hidden0).setVisibility(View.GONE);
-                }
-                else if (Integer.parseInt(s.toString())>0){
-                    findViewById(R.id.HiddenV0).setVisibility(View.VISIBLE);
-                    findViewById(R.id.Hidden0).setVisibility(View.VISIBLE);
-                }
+                    if (numWakeUp.getText().toString().equals("") || Integer.parseInt(numWakeUp.getText().toString()) == 0) {
+                        findViewById(R.id.HiddenV0).setVisibility(View.GONE);
+                        findViewById(R.id.Hidden0).setVisibility(View.GONE);
+                    } else {
+                        findViewById(R.id.HiddenV0).setVisibility(View.VISIBLE);
+                        findViewById(R.id.Hidden0).setVisibility(View.VISIBLE);
+                    }
+            }
+        });
 
+        numAlc.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                    if (numAlc.getText().toString().equals("") || Integer.parseInt(numAlc.getText().toString()) == 0) {
+                        findViewById(R.id.Hidden3).setVisibility(View.GONE);
+                    } else {
+                        findViewById(R.id.Hidden3).setVisibility(View.VISIBLE);
+                    }
 
             }
         });
+
+        numcaff.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                    if (numcaff.getText().toString().equals("") || Integer.parseInt(numcaff.getText().toString()) == 0) {
+                        findViewById(R.id.Hidden4).setVisibility(View.GONE);
+                    } else {
+                        findViewById(R.id.Hidden4).setVisibility(View.VISIBLE);
+                    }
+            }
+        });
+
+        Numnaps.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                if(position == 0){
+                    findViewById(R.id.Hiddenv2).setVisibility(View.GONE);
+                    findViewById(R.id.Hidden2).setVisibility(View.GONE);
+                }
+                else{
+                    findViewById(R.id.Hiddenv2).setVisibility(View.VISIBLE);
+                    findViewById(R.id.Hidden2).setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+
+            }
+
+        });
+
     }
 
 
 /*Button Press*/
     @Override
     public void onClick(View v) {
+        if(currIndex==1){
+            if(earlier.isChecked()){
+                findViewById(R.id.Hiddenv1).setVisibility(View.VISIBLE);
+                findViewById(R.id.Hidden1).setVisibility(View.VISIBLE);
+            }
+            else{
+                findViewById(R.id.Hiddenv1).setVisibility(View.GONE);
+                findViewById(R.id.Hidden1).setVisibility(View.GONE);
+            }}
 
+        if(currIndex==2){
+            if(hadMed.isChecked()){
+                findViewById(R.id.Hiddenv5).setVisibility(View.VISIBLE);
+                findViewById(R.id.Hidden5).setVisibility(View.VISIBLE);
+            }
+            else{
+                findViewById(R.id.Hiddenv5).setVisibility(View.GONE);
+                findViewById(R.id.Hidden5).setVisibility(View.GONE);
+            }}
         switch (v.getId()) {
-
             case R.id.tv_one:
                 vpager.setCurrentItem(0);
                 break;
