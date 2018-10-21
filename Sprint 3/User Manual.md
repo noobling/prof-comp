@@ -10,7 +10,7 @@ Located here: https://sleepdiaryapp.herokuapp.com
 
 ## Trouble shooting
 Run through this list is something is not working.
-- [ ] Don't user Internet Explorer
+- [ ] Don't use Internet Explorer
 - [ ] Make sure to use this specific link: https://sleepdiaryapp.herokuapp.com
 - [ ] Put a 0 in front your time/duration e.g. 06:03 pm
 - [ ] Use landscape mode on your device
@@ -33,7 +33,7 @@ The image below shows the researcher mode available. It provides a view of all t
 <img src="researcher-mode.png" width=400>
 
 ## Additional Features
-Software is meant to improve the lives of people. Help us to discover information and insights that no one in history was able to.
+Software is meant to improve the lives of people. It helps us discover information/insights that no one was able to before.
 
 * Data visualisation
 * Password resets
