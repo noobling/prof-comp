@@ -246,7 +246,7 @@
                     android:layout_width="match_parent"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
-                    android:text="How long did it take yout to fall asleep?" />
+                    android:text="How long did it take you to fall asleep?" />
 
                 <TextView
                     android:id="@+id/tv5"
@@ -254,7 +254,7 @@
                     android:layout_width="match_parent"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:text="Click to choose a Time" />
+                    android:text="Click to choose a Duration" />
 
             </LinearLayout>
 
