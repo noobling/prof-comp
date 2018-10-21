@@ -62,7 +62,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
     private Spinner sleepAmount;
     private Spinner quality;
     private Spinner refreshed;
-    private TextView Numnaps;
+    private Spinner Numnaps;
     private TextView napTime;
     private TextView numAlc;
     private TextView lastAlc;
@@ -290,15 +290,14 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         tv_two.setOnClickListener(this);
         tv_three.setOnClickListener(this);
 
-        earlier.setOnClickListener(this);
-        hadMed.setOnClickListener(this);
-
         vpager.addOnPageChangeListener(this);
 
         numWakeUp.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus){
+                    Toast.makeText(getApplicationContext(), "unfocus", Toast.LENGTH_SHORT).show();
+
                 if(numWakeUp.getText() != null && Integer.parseInt(numWakeUp.getText().toString()) > 0){
                     findViewById(R.id.HiddenV0).setVisibility(View.VISIBLE);
                     findViewById(R.id.Hidden0).setVisibility(View.VISIBLE);
@@ -311,75 +310,13 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
             }
         });
 
-        Numnaps.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus){
-                    if(Numnaps.getText() != null && Integer.parseInt(Numnaps.getText().toString()) > 0){
-                        findViewById(R.id.Hiddenv2).setVisibility(View.VISIBLE);
-                        findViewById(R.id.Hidden2).setVisibility(View.VISIBLE);
-                    }
-                    else{
-                        findViewById(R.id.Hiddenv2).setVisibility(View.GONE);
-                        findViewById(R.id.Hidden2).setVisibility(View.GONE);
-                    }
-                }
-            }
-        });
-
-        numAlc.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus){
-                    if(numAlc.getText() != null && Integer.parseInt(numAlc.getText().toString()) > 0){
-                        findViewById(R.id.Hidden3).setVisibility(View.VISIBLE);
-                    }
-                    else{
-                        findViewById(R.id.Hidden3).setVisibility(View.GONE);
-                    }
-                }
-            }
-        });
-
-        numcaff.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus){
-                    if(numcaff.getText() != null && Integer.parseInt(numcaff.getText().toString()) > 0){
-                        findViewById(R.id.Hidden4).setVisibility(View.VISIBLE);
-                    }
-                    else{
-                        findViewById(R.id.Hidden4).setVisibility(View.GONE);
-                    }
-                }
-            }
-        });
-
     }
 
 
 /*Button Press*/
     @Override
     public void onClick(View v) {
-        if(currIndex==1){
-        if(earlier.isChecked()){
-            findViewById(R.id.Hiddenv1).setVisibility(View.VISIBLE);
-            findViewById(R.id.Hidden1).setVisibility(View.VISIBLE);
-        }
-        else{
-            findViewById(R.id.Hiddenv1).setVisibility(View.GONE);
-            findViewById(R.id.Hidden1).setVisibility(View.GONE);
-        }}
 
-        if(currIndex==2){
-        if(hadMed.isChecked()){
-            findViewById(R.id.Hiddenv5).setVisibility(View.VISIBLE);
-            findViewById(R.id.Hidden5).setVisibility(View.VISIBLE);
-        }
-        else{
-            findViewById(R.id.Hiddenv5).setVisibility(View.GONE);
-            findViewById(R.id.Hidden5).setVisibility(View.GONE);
-        }}
         switch (v.getId()) {
             case R.id.tv_one:
                 vpager.setCurrentItem(0);
@@ -492,7 +429,6 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
             case  R.id.info22:
                 getinfo(22);
                 break;
-
         }
     }
 
@@ -680,7 +616,7 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
         sleepAmounts = sleepAmount.getSelectedItem().toString().trim();
         qualitys = quality.getSelectedItem().toString().trim();
         refresheds = refreshed.getSelectedItem().toString().trim();
-        Numnapss = Numnaps.getText().toString().trim();
+        Numnapss = Numnaps.getSelectedItem().toString().trim();
         napTimes = napTime.getText().toString().trim();
         numAlcs = numAlc.getText().toString().trim();
         lastAlcs = lastAlc.getText().toString().trim();
@@ -706,11 +642,11 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 .add("timeGotIntoBed",F2)
                 .add("timeToTrySleep",F3)
                 .add("timeWokenUp",F4)
-                .add("timeTakenToSleepDuration",F5)
+                .add("timeTakenToSleepDuration",F5) //?
                 .add("awakeningsNumber",F6)
-                .add("awakeningsTotalDuration",F7)
+                .add("awakeningsTotalDuration",F7) //awakeningsFinalDuration?
                 .add("awakeningsFinalTime",F8)
-                .add("awakeningsFinalDuration",F9)
+                .add("timeTakenToSleepDuration",F9) //?
                 .add("earlyWakeUp",F10)
                 .add("earlyWakeUpDuration",F11)
                 .add("sleepDuration",F12)
@@ -725,7 +661,6 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
                 .add("otcMed",F21)
                 .add("medicines", "[" + F22 + "]") //array ["a","b"]
                 .add("comments",F23)
-                .add("user_id","4") //where get ID?
                 .build();
 
         final Request request = new Request.Builder()

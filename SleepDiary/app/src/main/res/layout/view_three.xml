@@ -65,12 +65,10 @@
 
 
         <LinearLayout
-            android:id="@+id/Hidden3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:baselineAligned="false"
-            android:orientation="horizontal"
-            android:visibility="gone">
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -173,12 +171,10 @@
 
 
         <LinearLayout
-            android:id="@+id/Hidden4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:baselineAligned="false"
             android:orientation="horizontal"
-            android:visibility="gone">
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -277,19 +273,14 @@
 
         </LinearLayout>
 
-        <View
-            android:id="@+id/Hiddenv5"
-            style="@style/WireThinHorizontal"
-            android:visibility="gone" />
+        <View style="@style/WireThinHorizontal" />
 
 
         <LinearLayout
-            android:id="@+id/Hidden5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:baselineAligned="false"
             android:orientation="horizontal"
-            android:visibility="gone">
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="match_parent"

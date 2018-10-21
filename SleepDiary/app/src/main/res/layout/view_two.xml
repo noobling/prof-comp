@@ -250,6 +250,7 @@
                 <CheckBox
                     android:id="@+id/Early"
                     style="@style/EditStyle"
+                    android:checked="true"
                     android:text="Did you wake up earlier than planned ?"
                     android:textColor="@color/black" />
 
@@ -280,19 +281,14 @@
 
         </LinearLayout>
 
-        <View
-            android:id="@+id/Hiddenv1"
-            style="@style/WireThinHorizontal"
-            android:visibility="gone" />
+        <View style="@style/WireThinHorizontal" />
 
 
         <LinearLayout
-            android:id="@+id/Hidden1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:baselineAligned="false"
             android:orientation="horizontal"
-            android:visibility="gone">
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -307,8 +303,8 @@
                     android:text="How much earlier" />
 
                 <EditText
-                    android:id="@+id/tv_earlier"
                     style="@style/EditStyle"
+                    android:id="@+id/tv_earlier"
                     android:inputType="number" />
 
             </LinearLayout>
@@ -390,8 +386,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -505,13 +501,12 @@
                     android:layout_marginTop="15dp"
                     android:text="How many time did you nap or doze?" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/doze"
                     style="@style/EditStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:textColor="@color/black" />
+                    android:layout_height="45dp"
+                    android:entries="@array/doze"
+                    />
 
             </LinearLayout>
 
@@ -536,19 +531,14 @@
 
         </LinearLayout>
 
-        <View
-            android:id="@+id/Hiddenv2"
-            style="@style/WireThinHorizontal"
-            android:visibility="gone" />
+        <View style="@style/WireThinHorizontal" />
 
 
         <LinearLayout
-            android:id="@+id/Hidden2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:baselineAligned="false"
             android:orientation="horizontal"
-            android:visibility="gone">
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="match_parent"
