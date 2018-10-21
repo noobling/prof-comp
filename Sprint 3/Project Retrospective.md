@@ -45,10 +45,12 @@ Android
 Documentation
 
 * During sprint 1
+* The team thought the project was well documented and the minutes were comprehensive which meant it is easy for someone gain an understanding of project
 
 Good use of github
 
-* Half of us didn't have experience with github before this project
+* Github issues helped track bugs and record todo items for each member
+* Half of us didn't have experience with github before this project so it was a good learning experience for them
 
 ### Challenges
 
