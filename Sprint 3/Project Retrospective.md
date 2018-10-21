@@ -62,11 +62,13 @@ Adam leaving
 
 * Down manpower
 
-Client changing specifications added ~10 hours
+Changing Features to Satisfy Client
 
-* Privacy
+* Changing privacy from fully anonymous to partially anonymous
 
-* Selection systems
+* Changing time and duration pickers
+
+* Increased development time by ~ 10 hours
 
 Android HTTP protocol
 
@@ -88,6 +90,10 @@ Unclear project guidelines
 
 * Overlapping purposes in sprint 1
 
+Time Consuming Admin Work
+
+* Administrative documents took a lot of time away from development
+
 ### Other insights
 
 * Got lucky by being able to pivot to a PWA rather than an iOS app
@@ -96,9 +102,9 @@ Unclear project guidelines
 
 ## Action for future projects
 
-* More collaboration by coding together
+* More collaboration by coding together through pre arranged times
 
-* Communication cohesively and within sub-teams
+* Assign more time to learning over planning and admistrative work
 
 * Create a coping plan in case the risks eventuate
 
