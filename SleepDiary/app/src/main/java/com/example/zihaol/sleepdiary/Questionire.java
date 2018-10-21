@@ -769,40 +769,109 @@ public class Questionire extends AppCompatActivity implements View.OnClickListen
 
 /*Submit*/
     private void test(){
+        boolean valid = true;
         date_of_records = date_of_record.getText().toString().trim();
-
+        if(valid && date_of_records.equals("Click to choose a Date")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         into_beds = into_bed.getText().toString().trim();
+        if(valid && into_beds.equals("Click to choose a Time")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         time_try_sleeps = time_try_sleep.getText().toString().trim();
+        if(valid && time_try_sleeps.equals("Click to choose a Time")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         time_out_beds = time_out_bed.getText().toString().trim();
+        if(valid && time_out_beds.equals("Click to choose a Time")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         long_asleeps = long_asleep.getText().toString().trim();
+        if(valid && long_asleeps.equals("Click to choose a Duration")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         numWakeUps = numWakeUp.getText().toString().trim();
+        if(valid && numWakeUps.equals("")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         awakeningLens = awakeningLen.getText().toString().trim();
+        if(valid && Integer.parseInt(numWakeUps) > 0 && awakeningLens.equals("Click to choose a Duration")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         final_awakes = final_awake.getText().toString().trim();
+        if(valid && final_awakes.equals("Click to choose a Time")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         postSleeps = postSleep.getText().toString().trim();
+        if(valid && postSleeps.equals("Click to choose a Duration")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         earliers = "false";
         if(earlier.isChecked())
             earliers = "true";
         earlierAmounts = earlierAmount.getText().toString().trim();
+        if(valid && earlier.isChecked() &&earlierAmounts.equals("Click to choose a Duration")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         sleepAmounts = sleepAmount.getText().toString().trim();
+        if(valid && sleepAmounts.equals("Click to choose a Duration")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         qualitys = quality.getSelectedItem().toString().trim();
         refresheds = refreshed.getSelectedItem().toString().trim();
         Numnapss = Numnaps.getSelectedItem().toString().trim();
         napTimes = napTime.getText().toString().trim();
+        if(valid && !Numnapss.equals("0") && napTimes.equals("Click to choose a Duration")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         numAlcs = numAlc.getText().toString().trim();
+        if(valid && numAlcs.equals("")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         lastAlcs = lastAlc.getText().toString().trim();
+        if(valid && Integer.parseInt(numAlcs) > 0 && lastAlcs.equals("Click to choose a Time")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         numcaffs = numcaff.getText().toString().trim();
+        if(valid && numcaffs.equals("")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         lastcaffs = lastcaff.getText().toString().trim();
+        if(valid && Integer.parseInt(numcaffs) > 0 && lastcaffs.equals("Click to choose a Time")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         hadMeds = "false";
         if(hadMed.isChecked())
             hadMeds = "true";
         medLists = medList.getText().toString().trim();
+        if(valid && hadMed.isChecked() && medLists.equals("")){
+            Toast.makeText(Questionire.this, "Please answer ALL questions", Toast.LENGTH_LONG).show();
+            valid = false;
+        }
         comments = comment.getText().toString().trim();
 
-        Questionire.QueryAddressTask queryAddressTask = new Questionire.QueryAddressTask();// create a QAT object
-        queryAddressTask.execute(date_of_records, into_beds, time_try_sleeps, time_out_beds, long_asleeps, numWakeUps,
-                awakeningLens, final_awakes, postSleeps, earliers, earlierAmounts, sleepAmounts, qualitys, refresheds,
-                Numnapss, napTimes, numAlcs, lastAlcs, numcaffs, lastcaffs, hadMeds, medLists, comments); //execute the  AsyncTask
-
+        if(valid) {
+            Questionire.QueryAddressTask queryAddressTask = new Questionire.QueryAddressTask();// create a QAT object
+            queryAddressTask.execute(date_of_records, into_beds, time_try_sleeps, time_out_beds, long_asleeps, numWakeUps,
+                    awakeningLens, final_awakes, postSleeps, earliers, earlierAmounts, sleepAmounts, qualitys, refresheds,
+                    Numnapss, napTimes, numAlcs, lastAlcs, numcaffs, lastcaffs, hadMeds, medLists, comments); //execute the  AsyncTask
+        }
     }
 
 
