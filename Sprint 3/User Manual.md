@@ -39,3 +39,8 @@ Software is meant to improve the lives of people. It helps us discover informati
 * Password resets
 * Data pre fill (no more lengthy forms!)
 * Email invitations
+
+## Downloading Mobile App
+The website is responsive however if you wish for a native look and feel for your mobile device you can download it onto its home screen
+### Android
+
