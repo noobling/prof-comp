@@ -1,8 +1,9 @@
 <template>
   <div>
+    <p>Your manual can view manual here: </p>
+    <hr>    
     <h1 class="white--text">Common issues and solutions</h1>
     <hr>
-
     <v-expansion-panel v-model="show" expand>
       <v-expansion-panel-content v-for="(item, index) in items" :key="index">
         <div slot="header">
@@ -39,7 +40,9 @@
             text: 'Ask your researcher to download the app on your phone for you.'
           }
         ],
-        show: [...Array(this.items).keys()].map(_ => true)
+        show: [...Array(this.items).keys()].map(_ => true),
+
+        markdownDocument: ''
       }
     }
   }
