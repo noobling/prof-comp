@@ -109,7 +109,7 @@
           try {
             json2excel({
               data: this.sleeprecords[item.user.id],
-              name: 'User ' + item.user.email + ' SleepDiary',
+              name: 'User ' + item.user.email.split('@')[0] + ' SleepDiary',
               formateDate: 'yyyy/mm/dd'
             });
           } catch (e) {
