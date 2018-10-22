@@ -2,8 +2,6 @@
 
 ## Project Review
 
-'Visual timeline as a picture'.png
-
 ### Major Events
 
 Adam leaving (and issues relating to it)
@@ -12,23 +10,23 @@ Missed auditor meeting
 
 ### Success Metric ($100 test)
 
-* Record Sleep Data on web app  - SUCCESS
+ $20 - Convert data into excel format or similar (e.g. CSV) - SUCCESS
 
-* Data Visualisation on Web App  - SUCCESS
+ $15 - Record Sleep Data on web app  - SUCCESS
 
-* Notifications e.g. Reminder to record sleep data  - PASSABLE (Made email notifications)
+ $15 - Record Sleep Data on iOS - SUCCESS (Using a PWA)
 
-* Convert data into excel format or similar (e.g. CSV) - SUCCESS
+ $15 - Record Sleep Data on the Android App - SUCCESS
+ 
+ $15 - Compatible web app - SUCCESS
 
-* Record Sleep Data on iOS App - PASSABLE (Using a PWA)
+ $5 - Data Visualisation on Web App  - SUCCESS
 
-* Record Sleep Data on Android App - SUCCESS
+ $5 - Data Visualisation on iOS - SUCCESS (Using the PWA)
 
-* Compitable web app - SUCCESS
-
-* Data Visualisation on Android App - UNSUCCESSFUL (Not a high priority)
-
-* Data Visualisation on iOS App - SUCCESS (Using the PWA)
+ $5 - Data Visualisation on the Android App - UNSUCCESSFUL (Not a high priority)
+ 
+ $5 - Notifications e.g. Reminder to record sleep data  - SUCCESS (Made email notifications)
 
 ## Project Discussion
 
@@ -49,7 +47,7 @@ Documentation
 
 Good use of github
 
-* Github issues helped track bugs and record todo items for each member
+* Github issues helped track bugs and record 'todo' items for each member
 * Half of us didn't have experience with github before this project so it was a good learning experience for them
 
 ### Challenges
@@ -76,7 +74,7 @@ Android HTTP protocol
 
 Needing to learn a lot
 
-* All iOS teammembers started with no knowledge
+* All iOS team members started with no knowledge
 
 * Joshua had to learn with Zihao how to work on android
 
@@ -98,13 +96,13 @@ Time Consuming Admin Work
 
 * Got lucky by being able to pivot to a PWA rather than an iOS app
 
-* Mentor was a lot of help, she sent us a lot of documents that helped with the project management and documentation. She also helped get us approval to use the UWA styling guide.
+* Mentor was a lot of help; she sent us a lot of documents that helped with the project management and documentation. She also helped get us approval to use the UWA styling guide.
 
 ## Action for future projects
 
 * More collaboration by coding together through pre arranged times
 
-* Assign more time to learning over planning and admistrative work
+* Assign more time to learning over planning and administrative  work
 
 * Create a coping plan in case the risks eventuate
 

@@ -1,5 +1,5 @@
 # User Manual
-For Sleep Diary App (Android) - Some software to help you record your sleep. 
+For Sleep Diary App (Android) - Some software to help you record your sleep
 
 ## Important information
 * Login takes ~ 30 seconds to load sometimes because it is using a free website hosting service

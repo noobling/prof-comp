@@ -42,5 +42,3 @@ Software is meant to improve the lives of people. It helps us discover informati
 
 ## Downloading Mobile App
 The website is responsive however if you wish for a native look and feel for your mobile device you can download it onto its home screen
-### Android
-
