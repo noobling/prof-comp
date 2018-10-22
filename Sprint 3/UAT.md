@@ -34,7 +34,7 @@ Core UAT tests represent features that needed to be completed for client. Additi
 ## Assumptions and constraints
 * Tested on a modern device using a modern browser
 * IE is not used 
-* Tester has basic comprehensive of English
+* Tester has basic comprehension of English
 * Tester has moderate familiarity using modern websites
 
 ## UAT Risks
