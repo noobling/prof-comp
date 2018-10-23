@@ -1,0 +1,38 @@
+<resources>
+
+    <!-- font sizes -->
+    <dimen name="font_huge">40sp</dimen>
+    <dimen name="font_largest">25sp</dimen>
+    <dimen name="font_larger">20sp</dimen>
+    <dimen name="font_large">18sp</dimen>
+    <dimen name="font_normal">15sp</dimen>
+    <dimen name="font_small">12sp</dimen>
+
+    <!-- typical spacing between two views -->
+    <dimen name="spacing_total_top">40dp</dimen>
+    <dimen name="spacing_largest">25dp</dimen>
+    <dimen name="spacing_larger">15dp</dimen>
+    <dimen name="spacing_large">12dp</dimen>
+    <dimen name="spacing_normal">10dp</dimen>
+    <dimen name="spacing_small">7dp</dimen>
+    <dimen name="spacing_smaller">5dp</dimen>
+
+
+    <!-- typical sizes of views -->
+    <dimen name="big_image_height">200dp</dimen>
+    <dimen name="image_loader_width">90dp</dimen>
+    <dimen name="button_height_taller">80dp</dimen>
+    <dimen name="button_height_tall">70dp</dimen>
+    <dimen name="image_loader_height">60dp</dimen>
+    <dimen name="button_height_normal">50dp</dimen>
+    <dimen name="button_height_small">35dp</dimen>
+    <dimen name="button_height_smaller">20dp</dimen>
+
+    <dimen name="view_thin">0.7dp</dimen>
+    <dimen name="view_normal">1dp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+</resources>

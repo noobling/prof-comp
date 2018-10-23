@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">SleepDiary</string>
+    <string-array name="TF">
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+    <string-array name="Times">
+        <item>0 hours 15 minutes</item>
+        <item>0 hours 30minutes</item>
+        <item>0 hours 45minutes</item>
+        <item>1 hours 00minutes</item>
+        <item>1 hours 15minutes</item>
+        <item>0 hours 30minutes</item>
+        <item>0 hours 30minutes</item>
+        <item>0 hours 30minutes</item>
+        <item>0 hours 30minutes</item>
+        <item>0 hours 30minutes</item>
+        <item>0 hours 30minutes</item>
+        <item>0 hours 30minutes</item>
+        <item>0 hours 30minutes</item>
+    </string-array>
+
+    <string-array name="quality">
+        <item>Very Poor</item>
+        <item>Poor</item>
+        <item>Fair</item>
+        <item>Good</item>
+        <item>Very Good</item>
+    </string-array>
+
+    <string-array name="feel">
+        <item>Not at all</item>
+        <item>Slightly rested</item>
+        <item>Somewhat rested</item>
+        <item>Well-rested</item>
+        <item>Very Well-rested</item>
+    </string-array>
+
+
+    <string-array name="doze">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+
+
+    </string-array>
+
+</resources>

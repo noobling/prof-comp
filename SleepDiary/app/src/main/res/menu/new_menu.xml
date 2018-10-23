@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:checkableBehavior="single">
+
+    </group>
+    <item
+        android:id="@+id/home"
+        android:icon="@mipmap/ic_launcher"
+
+        android:title="    Home"/>
+    <item
+        android:id="@+id/new_sleep_record"
+        android:icon="@mipmap/ic_launcher"
+        android:title="    New sleep record"/>
+    <item
+        android:id="@+id/sleep_journal"
+        android:icon="@mipmap/ic_launcher"
+        android:title="    Sleep Journal"/>
+    <item
+        android:id="@+id/profile"
+        android:icon="@mipmap/ic_launcher"
+        android:title="    Profile"/>
+    <item
+        android:id="@+id/settings"
+        android:icon="@mipmap/ic_launcher"
+        android:title="    Settings"/>
+    <item
+        android:id="@+id/invite"
+        android:icon="@mipmap/ic_launcher"
+        android:title="    Invite"/>
+    <item
+        android:id="@+id/log_out"
+        android:icon="@mipmap/ic_launcher"
+        android:title="    Log out"/>
+
+</menu>
+
